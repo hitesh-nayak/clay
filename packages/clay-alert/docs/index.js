@@ -11,17 +11,21 @@ import React from 'react';
 const AlertCode = `const Component = () => {
 	return (
 		<>
-			<ClayAlert displayType="info" spritemap={spritemap} title="Info">
-				This is a default alert
+			<ClayAlert displayType="info" spritemap={spritemap} title="Info" role={null}>
+				This is an info message.
 			</ClayAlert>
 
-			<ClayAlert displayType="warning" spritemap={spritemap} title="Warning" variant="stripe">
-				This is a stripe alert
+			<ClayAlert displayType="success" spritemap={spritemap} title="Success" role={null}>
+				This is a success message.
 			</ClayAlert>
 
-			<div className="c-mt-3">
-				<ClayAlert displayType="danger" spritemap={spritemap} title="Error Indicator" variant="feedback" />
-			</div>
+			<ClayAlert displayType="warning" spritemap={spritemap} title="Warning" role={null}>
+				This is a warning message.
+			</ClayAlert>
+
+			<ClayAlert displayType="danger" spritemap={spritemap} title="Danger" role={null}>
+				This is a danger message.
+			</ClayAlert>
 		</>
 	);
 }
@@ -34,15 +38,9 @@ import ClayAlert from '@clayui/alert';`;
 const alertJSPImportsCode = `<%@ taglib uri="http://liferay.com/tld/clay" prefix="clay" %>`;
 
 const AlertJSPCode = `<clay:alert
-	message="This is a default alert"
+	message="This is an info message."
 	displayType="info"
 	title="Info"
-/>
-
-<clay:stripe
-	message="This is a stripe alert"
-	displayType="warning"
-	title="Warning"
 />`;
 
 export const Alert = () => {
@@ -65,12 +63,125 @@ export const Alert = () => {
 	return <Editor code={codeSnippets} scope={scope} />;
 };
 
+const AlertVariantsCode = `const Component = () => {
+	return (
+		<>
+			<div className="c-mt-3">
+				<ClayAlert
+					actions={
+						<ClayButton.Group spaced>
+							<ClayButton displayType="warning" small>
+								Replace
+							</ClayButton>
+							<ClayButton alert>
+								Keep Both
+							</ClayButton>
+						</ClayButton.Group>
+					}
+					displayType="warning"
+					onClose={() => {}}
+					title="Alert"
+					variant="inline"
+				>
+					A file with this name already exists.
+				</ClayAlert>
+			</div>
+
+			<ClayAlert displayType="info" spritemap={spritemap} title="Info" variant="stripe" role={null}>
+				This is a stripe variant.
+			</ClayAlert>
+
+			<div className="c-mt-3">
+				<ClayAlert displayType="success" spritemap={spritemap} title="This is an inline variant." variant="inline" role={null} />
+			</div>
+
+			<div className="c-mt-3">
+				<ClayAlert displayType="danger" spritemap={spritemap} title="This is a feedback variant." variant="feedback" role={null} />
+			</div>
+		</>
+	);
+}
+
+render(<Component />);`;
+
+const alertVariantsImportsCode = `import React from 'react';
+import ClayAlert from '@clayui/alert';`;
+
+const alertVariantsJSPImportsCode = `<%@ taglib uri="http://liferay.com/tld/clay" prefix="clay" %>`;
+
+const AlertVariantsJSPCode = `<clay:stripe
+	message="This is a stripe variant."
+	displayType="info"
+	title="Info"
+/>
+
+<clay:alert
+	displayType="success"
+	title="This is an inline variant."
+	variant="inline"
+/>
+
+<clay:alert
+	displayType="danger"
+	title="This is a feedback variant."
+	variant="feedback"
+/>`;
+
+export const AlertVariants = () => {
+	const scope = {ClayAlert, ClayButton};
+
+	const codeSnippets = [
+		{
+			imports: alertVariantsImportsCode,
+			name: 'React',
+			value: AlertVariantsCode,
+		},
+		{
+			imports: alertVariantsJSPImportsCode,
+			name: 'JSP',
+			value: AlertVariantsJSPCode,
+		},
+	];
+
+	return <Editor code={codeSnippets} scope={scope} />;
+};
+
+const AlertIconCode = `const Component = () => {
+	return (
+		<>
+			<ClayAlert displayType="info" spritemap={spritemap} symbol="thumbs-up-full" title="Info" variant="stripe" role={null}>
+				This is a stripe variant.
+			</ClayAlert>
+		</>
+	);
+}
+
+render(<Component />);`;
+
+const alertIconImportsCode = `import React from 'react';
+import ClayAlert from '@clayui/alert';`;
+
+export const AlertIcon = () => {
+	const scope = {ClayAlert};
+
+	const codeSnippets = [
+		{
+			imports: alertIconImportsCode,
+			name: 'React',
+			value: AlertIconCode,
+		},
+	];
+
+	return <Editor code={codeSnippets} scope={scope} />;
+};
+
 const AlertWithButtonCode = `const Component = () => {
 	return (
 		<ClayAlert
 			displayType="info"
 			spritemap={spritemap}
 			title="With a Button"
+			role={null}
 		>
 			{'This is an alert with a button!'}
 
@@ -114,6 +225,7 @@ const AlertInlineCode = `const Component = () => {
 			spritemap={spritemap}
 			title="With a Button"
 			variant="inline"
+			role={null}
 		>
 			{'This is an alert with a button!'}
 		</ClayAlert>
@@ -143,13 +255,13 @@ const AlertToastContainerCode = `const Component = () => {
 	return (
 		<>
 			<div>
-				<button
+				<ClayButton
 					onClick={() =>
 						setToastItems([...toastItems, Math.random() * 100])
 					}
 				>
 					{'Add Alert'}
-				</button>
+				</ClayButton>
 			</div>
 
 			<ClayAlert.ToastContainer>
@@ -174,7 +286,7 @@ const AlertToastContainerCode = `const Component = () => {
 render(<Component />);`;
 
 export const AlertToastContainer = () => {
-	const scope = {ClayAlert};
+	const scope = {ClayAlert, ClayButton};
 	const code = AlertToastContainerCode;
 
 	return (

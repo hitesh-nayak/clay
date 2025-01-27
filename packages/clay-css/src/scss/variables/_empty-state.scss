@@ -6,6 +6,7 @@ $c-empty-state-animation: map-deep-merge(
 		align-items: center,
 		display: flex,
 		flex-direction: column,
+		flex-shrink: 0,
 		margin: 5rem auto 1.5rem,
 		max-width: 340px,
 		text-align: center,

@@ -4,10 +4,11 @@
  */
 
 import ClayButton from '@clayui/button';
+import {Option, Picker} from '@clayui/core';
 import ClayIcon from '@clayui/icon';
 import {ClayPaginationWithBasicItems} from '@clayui/pagination';
-import {InternalDispatch, sub, useInternalState} from '@clayui/shared';
-import React from 'react';
+import {InternalDispatch, sub, useControlledState, useId} from '@clayui/shared';
+import React, {useEffect} from 'react';
 
 import PaginationBar from './PaginationBar';
 
@@ -25,8 +26,6 @@ const defaultDeltas = [
 		label: 50,
 	},
 ];
-
-type Items = React.ComponentProps<typeof PaginationBar.DropDown>['items'];
 
 interface IDelta {
 	/**
@@ -106,6 +105,8 @@ interface IProps extends React.ComponentProps<typeof PaginationBar> {
 	 * Use this property for i18n.
 	 */
 	labels?: {
+		itemsPerPagePickerAriaLabel?: string;
+
 		paginationResults: string;
 
 		perPageItems: string;
@@ -149,10 +150,33 @@ interface IProps extends React.ComponentProps<typeof PaginationBar> {
 }
 
 const DEFAULT_LABELS = {
+	itemsPerPagePickerAriaLabel: 'Items Per Page',
 	paginationResults: 'Showing {0} to {1} of {2}',
 	perPageItems: '{0} items',
 	selectPerPageItems: '{0} items',
 };
+
+const Trigger = React.forwardRef<HTMLButtonElement>(
+	(
+		{activeDelta, labels, spritemap, ...otherProps}: Record<string, any>,
+		ref
+	) => {
+		return (
+			<ClayButton
+				{...otherProps}
+				className="dropdown-toggle"
+				displayType="unstyled"
+				ref={ref}
+			>
+				{sub(labels.perPageItems, [activeDelta])}
+
+				<ClayIcon spritemap={spritemap} symbol="caret-double-l" />
+			</ClayButton>
+		);
+	}
+);
+
+Trigger.displayName = 'Trigger';
 
 export const ClayPaginationBarWithBasicItems = ({
 	active,
@@ -175,7 +199,11 @@ export const ClayPaginationBarWithBasicItems = ({
 	totalItems,
 	...otherProps
 }: IProps) => {
-	const [internalActive, setActive] = useInternalState({
+	if (totalItems === 0) {
+		totalItems = 1;
+	}
+
+	const [internalActive, setActive] = useControlledState({
 		defaultName: 'defaultActive',
 		defaultValue: defaultActive,
 		handleName: 'onActiveChange',
@@ -184,62 +212,51 @@ export const ClayPaginationBarWithBasicItems = ({
 		value: typeof active === 'undefined' ? activePage : active,
 	});
 
+	labels = {...DEFAULT_LABELS, ...labels};
+
 	if (!activeDelta) {
-		activeDelta = deltas[0].label;
+		activeDelta = deltas[0]!.label;
 	}
-
-	const items: Items = deltas.map(({href, label}) => {
-		const item: {
-			href?: string;
-			label?: string;
-			onClick?: () => void;
-		} = {
-			href,
-			label: sub(labels.selectPerPageItems, [String(label)]),
-		};
-
-		if (!href) {
-			item.onClick = () => {
-				if (onDeltaChange) {
-					onDeltaChange(label as number);
-				}
-			};
-		}
-
-		return item;
-	});
 
 	const totalPages = Math.ceil(totalItems / activeDelta);
 
-	React.useEffect(() => {
+	useEffect(() => {
 		if (internalActive > totalPages) {
 			setActive(1);
 		}
 	}, [totalPages]);
 
+	const ariaDescribedby = useId();
+
 	return (
 		<PaginationBar {...otherProps}>
 			{showDeltasDropDown && (
-				<PaginationBar.DropDown
-					alignmentPosition={alignmentPosition}
-					items={items}
-					trigger={
-						<ClayButton
-							data-testid="selectPaginationBar"
-							displayType="unstyled"
-						>
-							{sub(labels.perPageItems, [activeDelta])}
-
-							<ClayIcon
-								spritemap={spritemap}
-								symbol="caret-double-l"
-							/>
-						</ClayButton>
-					}
-				/>
+				<div className="dropdown pagination-items-per-page">
+					<Picker
+						activeDelta={activeDelta}
+						aria-describedby={ariaDescribedby}
+						aria-label={labels.itemsPerPagePickerAriaLabel}
+						as={Trigger}
+						items={deltas}
+						labels={labels}
+						onSelectionChange={(key: React.Key) =>
+							onDeltaChange && onDeltaChange(Number(key))
+						}
+						selectedKey={String(activeDelta)}
+						spritemap={spritemap}
+					>
+						{(item) => (
+							<Option href={item.href} key={item.label}>
+								{sub(labels.selectPerPageItems, [
+									String(item.label),
+								])}
+							</Option>
+						)}
+					</Picker>
+				</div>
 			)}
 
-			<PaginationBar.Results>
+			<PaginationBar.Results id={ariaDescribedby}>
 				{sub(labels.paginationResults, [
 					(internalActive - 1) * activeDelta + 1,
 					internalActive * activeDelta < totalItems

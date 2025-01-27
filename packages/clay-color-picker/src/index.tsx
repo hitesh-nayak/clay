@@ -1,16 +1,15 @@
 /**
- * SPDX-FileCopyrightText: © 2019 Liferay, Inc. <https://liferay.com>
+ * SPDX-FileCopyrightText: © 2023 Liferay, Inc. <https://liferay.com>
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 import ClayDropDown from '@clayui/drop-down';
 import {ClayInput} from '@clayui/form';
-import ClayIcon from '@clayui/icon';
 import {
 	FocusScope,
 	InternalDispatch,
 	sub,
-	useInternalState,
+	useControlledState,
 } from '@clayui/shared';
 import React, {useEffect, useMemo, useRef, useState} from 'react';
 import tinycolor from 'tinycolor2';
@@ -110,6 +109,14 @@ interface IProps
 	label?: string;
 
 	/**
+	 * Message for aria-label
+	 */
+	messages?: {
+		close: string;
+		customColor: string;
+	};
+
+	/**
 	 * The input attribute for name
 	 */
 	name?: string;
@@ -191,6 +198,7 @@ const ClayColorPicker = ({
 	disabled,
 	dropDownContainerProps,
 	label,
+	messages,
 	name,
 	onActiveChange,
 	onChange,
@@ -208,7 +216,7 @@ const ClayColorPicker = ({
 	value,
 	...otherProps
 }: IProps) => {
-	const [internalValue, setValue] = useInternalState({
+	const [internalValue, setValue] = useControlledState({
 		defaultName: 'defaultValue',
 		defaultValue: defaultValue
 			? normalizeValueHex(defaultValue)
@@ -237,6 +245,14 @@ const ClayColorPicker = ({
 
 	const isHex = tinycolor(internalValue).getFormat() === 'hex';
 
+	const internalToHex = (color: any) => {
+		if (color.getAlpha() < 1) {
+			return color.toHex8().toUpperCase();
+		}
+
+		return color.toHex().toUpperCase();
+	};
+
 	const inputColorTypeSupport = useMemo(() => {
 		if (typeof document !== 'undefined') {
 			var input = document.createElement('input');
@@ -258,7 +274,7 @@ const ClayColorPicker = ({
 	const valueInputRef = useRef<HTMLInputElement>(null);
 	const splotchRef = useRef<HTMLButtonElement>(null);
 
-	const [internalActive, setInternalActive] = useInternalState({
+	const [internalActive, setInternalActive] = useControlledState({
 		defaultName: 'defaultActive',
 		defaultValue: defaultActive,
 		handleName: 'onActiveChange',
@@ -343,6 +359,7 @@ const ClayColorPicker = ({
 						alignElementRef={triggerElementRef}
 						className="clay-color-dropdown-menu"
 						containerProps={dropDownContainerProps}
+						deps={[internalActive]}
 						onActiveChange={setInternalActive}
 						ref={dropdownContainerRef}
 						triggerRef={splotchRef}
@@ -374,9 +391,10 @@ const ClayColorPicker = ({
 								colors={customColors}
 								editorActive={customEditorActive}
 								label={label}
+								messages={messages}
 								onChange={(color, hex) => {
 									dispatch({
-										hex: color.toHex(),
+										hex: internalToHex(color),
 										hue: color.toHsv().h,
 									});
 									setValue(hex);
@@ -404,8 +422,9 @@ const ClayColorPicker = ({
 								colors={customColors}
 								hex={state.hex}
 								hue={state.hue}
+								internalToHex={internalToHex}
 								onChange={(color, active) => {
-									const hex = color.toHex();
+									const hex = internalToHex(color);
 
 									if (active) {
 										const newColors = [...customColors];
@@ -420,7 +439,7 @@ const ClayColorPicker = ({
 									setValue(hex);
 								}}
 								onColorChange={(color) => {
-									const hex = color.toHex();
+									const hex = internalToHex(color);
 									const newColors = [...customColors];
 
 									newColors[state.splotch!] = hex;
@@ -436,7 +455,10 @@ const ClayColorPicker = ({
 					</ClayDropDown.Menu>
 
 					{showHex && (
-						<ClayInput.GroupItem append>
+						<ClayInput.GroupItem
+							append
+							className="input-group-item-focusable"
+						>
 							<ClayInput
 								{...otherProps}
 								aria-label={sub(ariaLabels.selectionIs, [
@@ -458,8 +480,11 @@ const ClayColorPicker = ({
 									const newColor = tinycolor(value);
 
 									if (newColor.isValid()) {
-										if (newColor.getFormat() === 'hex') {
-											value = newColor.toHex();
+										if (
+											newColor.getFormat() ===
+											('hex' || 'hex8')
+										) {
+											value = internalToHex(newColor);
 										} else if (
 											newColor.toString() !== value
 										) {
@@ -500,7 +525,7 @@ const ClayColorPicker = ({
 											value.includes('var('))
 									) {
 										dispatch({
-											hex: color.toHex(),
+											hex: internalToHex(color),
 											hue: color.toHsv().h,
 										});
 
@@ -508,7 +533,7 @@ const ClayColorPicker = ({
 											const newColors = [...customColors];
 
 											newColors[state.splotch!] =
-												color.toHex();
+												internalToHex(color);
 
 											onColorsChange(newColors);
 										} else {
@@ -535,15 +560,7 @@ const ClayColorPicker = ({
 							/>
 
 							<ClayInput.GroupInsetItem before tag="label">
-								{isHex ? (
-									'#'
-								) : (
-									<ClayIcon
-										spritemap={spritemap}
-										style={{width: 10}}
-										symbol="color-picker"
-									/>
-								)}
+								{isHex ? '#' : ''}
 							</ClayInput.GroupInsetItem>
 						</ClayInput.GroupItem>
 					)}

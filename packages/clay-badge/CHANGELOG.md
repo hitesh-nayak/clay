@@ -3,6 +3,37 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.111.0](https://github.com/liferay/clay/compare/v3.110.0...v3.111.0) (2024-02-15)
+
+**Note:** Version bump only for package @clayui/badge
+
+# [3.107.0](https://github.com/liferay/clay/compare/v3.106.1...v3.107.0) (2023-11-27)
+
+### Features
+
+-   **@clayui/badge:** Adds attributes translucent and dark ([77162ef](https://github.com/liferay/clay/commit/77162efe62cd3822f4a64e23b3469e46cee5c530))
+
+## [3.106.1](https://github.com/liferay/clay/compare/v3.106.0...v3.106.1) (2023-10-26)
+
+**Note:** Version bump only for package @clayui/badge
+
+# [3.106.0](https://github.com/liferay/clay/compare/v3.105.0...v3.106.0) (2023-10-25)
+
+### Bug Fixes
+
+-   remove 'src' dir from being packaged with npm ([9383e8d](https://github.com/liferay/clay/commit/9383e8d8abb25ca3396e7c6e4dfa53bbc72691c5))
+-   use package's directory for baseDir when generating type ([0a5c710](https://github.com/liferay/clay/commit/0a5c710092f36243bc8d5487f70e831295715072))
+
+# [3.100.0](https://github.com/liferay/clay/compare/v3.99.4...v3.100.0) (2023-07-13)
+
+### Features
+
+-   **@clayui/badge:** Adds display type beta-dark ([2f53849](https://github.com/liferay/clay/commit/2f5384940aff5909753adeecd8a2f9c12d3dab89))
+
+# [3.92.0](https://github.com/liferay/clay/compare/v3.91.0...v3.92.0) (2023-04-06)
+
+**Note:** Version bump only for package @clayui/badge
+
 # [3.56.0](https://github.com/liferay/clay/compare/v3.55.0...v3.56.0) (2022-05-09)
 
 **Note:** Version bump only for package @clayui/badge

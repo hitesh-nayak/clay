@@ -131,10 +131,13 @@ fieldset[disabled] label {
 
 // This adds disabled styles to div.form-control inside a disabled fielset.
 
-fieldset[disabled] .form-control {
-	$disabled: setter(map-get($cadmin-input, disabled), ());
+fieldset[disabled] {
+	select.form-control[multiple],
+	.form-control {
+		$disabled: setter(map-get($cadmin-input, disabled), ());
 
-	@include clay-css($disabled);
+		@include clay-css($disabled);
+	}
 }
 
 // Readonly controls as plain text
@@ -142,31 +145,7 @@ fieldset[disabled] .form-control {
 // text (without any border, background color, focus indicator)
 
 .form-control-plaintext {
-	background-clip: border-box;
-	background-color: transparent;
-	border-color: transparent;
-	border-style: solid;
-
-	border-bottom-width: $cadmin-input-border-bottom-width;
-	border-left-width: $cadmin-input-border-left-width;
-	border-right-width: $cadmin-input-border-right-width;
-	border-top-width: $cadmin-input-border-top-width;
-	color: $cadmin-input-plaintext-color;
-	display: block;
-	font-size: $cadmin-input-font-size;
-	height: $cadmin-input-height;
-	line-height: $cadmin-input-line-height;
-
-	// match inputs if this class comes on inputs with default margins
-
-	margin-bottom: 0;
-	min-width: 0;
-	padding-bottom: $cadmin-input-padding-y;
-	padding-left: 0;
-	padding-right: 0;
-	padding-top: $cadmin-input-padding-y;
-	text-overflow: ellipsis;
-	width: 100%;
+	@include clay-form-control-variant($cadmin-input-plaintext);
 
 	@include clay-scale-component {
 		font-size: $cadmin-input-font-size-mobile;
@@ -181,14 +160,16 @@ fieldset[disabled] .form-control {
 }
 
 @each $key, $value in $cadmin-input-palette {
-	$selector: if(
-		starts-with($key, '.') or starts-with($key, '#'),
-		$key,
-		str-insert($key, '.', 1)
-	);
+	@if not clay-is-map-unset($value) {
+		$selector: if(
+			starts-with($key, '.') or starts-with($key, '#'),
+			$key,
+			str-insert($key, '.', 1)
+		);
 
-	#{$selector} {
-		@include clay-form-control-variant($value);
+		#{$selector} {
+			@include clay-form-control-variant($value);
+		}
 	}
 }
 
@@ -324,14 +305,16 @@ select.form-control[multiple] {
 // Form Control Select Variants
 
 @each $key, $value in $cadmin-form-control-select-palette {
-	$selector: if(
-		starts-with($key, '.') or starts-with($key, '#'),
-		$key,
-		str-insert($key, '.', 1)
-	);
+	@if not clay-is-map-unset($value) {
+		$selector: if(
+			starts-with($key, '.') or starts-with($key, '#'),
+			$key,
+			str-insert($key, '.', 1)
+		);
 
-	#{$selector} {
-		@include clay-select-variant($value);
+		#{$selector} {
+			@include clay-select-variant($value);
+		}
 	}
 }
 
@@ -373,7 +356,7 @@ textarea.form-control-plaintext,
 
 	&::-webkit-slider-thumb {
 		border-radius: 100px;
-		transition: $cadmin-input-transition;
+		@include transition($cadmin-input-transition);
 	}
 }
 

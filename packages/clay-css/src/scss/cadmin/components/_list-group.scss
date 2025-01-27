@@ -18,21 +18,10 @@
 }
 
 .list-group {
-	@include border-radius($cadmin-list-group-border-radius);
-	@include box-shadow($cadmin-list-group-box-shadow);
-
-	color: $cadmin-list-group-color;
-	display: flex;
-	flex-direction: column;
-	font-size: $cadmin-list-group-font-size;
-	margin-bottom: $cadmin-list-group-margin-bottom;
-	margin-top: $cadmin-list-group-margin-top;
-	padding-left: 0;
+	@include clay-css($cadmin-list-group);
 
 	.list-group {
-		@if ($cadmin-list-group-box-shadow != null) {
-			@include box-shadow(none);
-		}
+		@include clay-css(map-get($cadmin-list-group, list-group));
 	}
 }
 
@@ -212,10 +201,7 @@
 }
 
 .list-group-item-flex {
-	display: flex;
-	margin-bottom: math-sign($cadmin-list-group-border-width);
-	padding-left: $cadmin-list-group-item-padding-x * 0.5;
-	padding-right: $cadmin-list-group-item-padding-x * 0.5;
+	@include clay-css($cadmin-list-group-item-flex);
 
 	&:last-child {
 		margin-bottom: 0;
@@ -230,9 +216,7 @@
 	}
 
 	.autofit-col {
-		justify-content: $cadmin-list-group-item-flex-align-items;
-		padding-left: $cadmin-list-group-item-padding-x * 0.5;
-		padding-right: $cadmin-list-group-item-padding-x * 0.5;
+		@include clay-css(map-get($cadmin-list-group-item-flex, autofit-col));
 
 		.custom-control:only-child {
 			margin-bottom: 0;
@@ -376,23 +360,25 @@
 // List Group Item Variants
 
 @each $cadmin-color, $cadmin-value in $cadmin-theme-colors {
-	.list-group-item-#{$cadmin-color} {
-		background-color: theme-color-level($cadmin-color, -9);
-		color: theme-color-level($cadmin-color, 6);
+	@if not clay-is-map-unset($cadmin-value) {
+		.list-group-item-#{$cadmin-color} {
+			background-color: theme-color-level($cadmin-color, -9);
+			color: theme-color-level($cadmin-color, 6);
 
-		&.list-group-item-action {
-			@include hover-focus() {
-				background-color: clay-darken(
-					theme-color-level($cadmin-color, -9),
-					5%
-				);
-				color: theme-color-level($cadmin-color, 6);
-			}
+			&.list-group-item-action {
+				@include hover-focus() {
+					background-color: clay-darken(
+						theme-color-level($cadmin-color, -9),
+						5%
+					);
+					color: theme-color-level($cadmin-color, 6);
+				}
 
-			&.active {
-				background-color: theme-color-level($cadmin-color, 6);
-				border-color: theme-color-level($cadmin-color, 6);
-				color: $cadmin-white;
+				&.active {
+					background-color: theme-color-level($cadmin-color, 6);
+					border-color: theme-color-level($cadmin-color, 6);
+					color: $cadmin-white;
+				}
 			}
 		}
 	}

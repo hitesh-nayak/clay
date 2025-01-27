@@ -1,5 +1,9 @@
 [
     {
+        "name": "accessibility",
+        "aliases": ["human", "inclusive", "user"]
+    },
+    {
         "name": "add-cell",
         "aliases": ["center", "excel", "grid", "squares", "table"]
     },
@@ -54,6 +58,22 @@
     {
         "name": "analytics",
         "aliases": ["grow", "arrow", "increase", "bar", "data", "expand"]
+    },
+    {
+        "name": "angle-double-left-small",
+        "aliases": [""]
+    },
+    {
+        "name": "angle-double-left",
+        "aliases": [""]
+    },
+    {
+        "name": "angle-double-right-small",
+        "aliases": [""]
+    },
+    {
+        "name": "angle-double-right",
+        "aliases": [""]
     },
     {
         "name": "angle-down-small",
@@ -192,8 +212,12 @@
         "aliases": ["library", "pages"]
     },
     {
+        "name": "bookmarks-full",
+        "aliases": ["clip", "holder", "marker", "tag", "save"]
+    },
+    {
         "name": "bookmarks",
-        "aliases": ["clip", "holder", "marker", "tag"]
+        "aliases": ["clip", "holder", "marker", "tag", "save"]
     },
     {
         "name": "books",
@@ -210,6 +234,14 @@
     {
         "name": "box-container",
         "aliases": ["chest", "collection", "package"]
+    },
+    {
+        "name": "braces",
+        "aliases": ["container", "curly brackets", "keys", "object", "record"]
+    },
+    {
+        "name": "brackets",
+        "aliases": ["array", "container"]
     },
     {
         "name": "breadcrumb",
@@ -382,6 +414,10 @@
     {
         "name": "container",
         "aliases": ["box", "grid", "rectangle", "squares"]
+    },
+    {
+        "name": "content-shield",
+        "aliases": ["csp", "security", "shield"]
     },
     {
         "name": "control-panel",
@@ -612,6 +648,10 @@
         "aliases": [""]
     },
     {
+        "name": "field-area",
+        "aliases": ["field", "area"]
+    },
+    {
         "name": "fieldset",
         "aliases": [""]
     },
@@ -674,6 +714,10 @@
     {
         "name": "full-size",
         "aliases": ["expand", "fullscreen", "increase"]
+    },
+    {
+        "name": "gallery",
+        "aliases": ["view", "media", "file", "image"]
     },
     {
         "name": "geolocation",
@@ -756,6 +800,10 @@
         "aliases": ["line", "minus", "rectangle"]
     },
     {
+        "name": "icon-rule-builder",
+        "aliases": ["rules", "rule-builder", "logic"]
+    },
+    {
         "name": "import-export",
         "aliases": ["deprecated"]
     },
@@ -806,6 +854,10 @@
     {
         "name": "italic",
         "aliases": ["editor", "text"]
+    },
+    {
+        "name": "key",
+        "aliases": ["key", "security", "save"]
     },
     {
         "name": "liferay-ac",
@@ -870,6 +922,10 @@
     {
         "name": "mark-as-question",
         "aliases": ["lines", "list"]
+    },
+    {
+        "name": "marketplace",
+        "aliases": ["shop", "store"]
     },
     {
         "name": "megaphone-full",
@@ -1204,6 +1260,10 @@
         "aliases": ["condition"]
     },
     {
+        "name": "scim",
+        "aliases": ["shield"]
+    },
+    {
         "name": "search-experiences",
         "aliases": [""]
     },
@@ -1228,6 +1288,10 @@
         "aliases": ["input", "multiple", "options"]
     },
     {
+        "name": "seo",
+        "aliases": ["engine", "search", "keyword"]
+    },
+    {
         "name": "separator",
         "aliases": ["divider", "group", "line"]
     },
@@ -1246,6 +1310,10 @@
     {
         "name": "sheets",
         "aliases": ["assets", "layers"]
+    },
+    {
+        "name": "shield-asterisk",
+        "aliases": ["authentication", "mfa", "security", "shield"]
     },
     {
         "name": "shield-check",
@@ -1358,6 +1426,10 @@
     {
         "name": "star",
         "aliases": ["favorite", "rating"]
+    },
+    {
+        "name": "stars",
+        "aliases": ["ai", "magic", "effects"]
     },
     {
         "name": "sticky",
@@ -1496,6 +1568,10 @@
         "aliases": [""]
     },
     {
+        "name": "twitter-x",
+        "aliases": ["share"]
+    },
+    {
         "name": "twitter",
         "aliases": ["deprecated"]
     },
@@ -1542,6 +1618,10 @@
     {
         "name": "vertical-scroll",
         "aliases": ["arrows", "expand"]
+    },
+    {
+        "name": "video-streaming",
+        "aliases": ["video", "streaming", "direct", "video-streaming"]
     },
     {
         "name": "video",

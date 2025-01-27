@@ -5,10 +5,12 @@
 
 import ClayButton from '@clayui/button';
 import ClayIcon from '@clayui/icon';
+import {useProvider} from '@clayui/provider';
 import {
 	InternalDispatch,
 	setElementFullHeight,
-	useInternalState,
+	useControlledState,
+	useId,
 } from '@clayui/shared';
 import classNames from 'classnames';
 import React from 'react';
@@ -32,6 +34,11 @@ export interface IProps extends React.HTMLAttributes<HTMLDivElement> {
 	collapseClassNames?: string;
 
 	/**
+	 * Adds classes to the collapse header element. Only when `collapsable` is true.
+	 */
+	collapseHeaderClassNames?: string;
+
+	/**
 	 * Flag to indicate the initial value of expanded (uncontrolled).
 	 */
 	defaultExpanded?: boolean;
@@ -44,7 +51,7 @@ export interface IProps extends React.HTMLAttributes<HTMLDivElement> {
 	/**
 	 * Flag to indicate the visual variation of the Panel.
 	 */
-	displayType?: 'unstyled' | 'secondary';
+	displayType?: 'block' | 'default' | 'secondary' | 'unstyled';
 
 	/**
 	 * Determines if menu is expanded or not (controlled).
@@ -60,6 +67,11 @@ export interface IProps extends React.HTMLAttributes<HTMLDivElement> {
 	 * Flag to toggle collapse icon visibility when `collapsable` is true.
 	 */
 	showCollapseIcon?: boolean;
+
+	/**
+	 * Flag to indicate the visual variation of the Panel.
+	 */
+	size?: 'lg' | 'sm';
 
 	/**
 	 * Path to spritemap for clay icons
@@ -80,16 +92,18 @@ function ClayPanel({
 	className,
 	collapsable,
 	collapseClassNames,
+	collapseHeaderClassNames,
 	defaultExpanded = false,
 	displayTitle,
 	displayType,
 	expanded,
 	onExpandedChange,
 	showCollapseIcon = true,
+	size,
 	spritemap,
 	...otherProps
 }: IProps) {
-	const [internalExpanded, setInternalExpanded] = useInternalState({
+	const [internalExpanded, setInternalExpanded] = useControlledState({
 		defaultName: 'defaultExpanded',
 		defaultValue: defaultExpanded,
 		handleName: 'onExpandedChange',
@@ -98,13 +112,17 @@ function ClayPanel({
 		value: expanded,
 	});
 
+	const {prefersReducedMotion} = useProvider();
+
+	const ariaControlsId = useId();
+
 	return (
 		<div
 			{...otherProps}
 			className={classNames('panel', className, {
 				[`panel-${displayType}`]: displayType,
+				[`panel-${size}`]: size,
 			})}
-			role="tablist"
 		>
 			{!collapsable && (
 				<>
@@ -126,9 +144,11 @@ function ClayPanel({
 			{collapsable && (
 				<>
 					<ClayButton
+						aria-controls={ariaControlsId}
 						aria-expanded={internalExpanded}
 						className={classNames(
 							'panel-header panel-header-link',
+							collapseHeaderClassNames,
 							{
 								'collapse-icon': showCollapseIcon,
 								'collapse-icon-middle': showCollapseIcon,
@@ -138,7 +158,6 @@ function ClayPanel({
 						)}
 						displayType="unstyled"
 						onClick={() => setInternalExpanded(!internalExpanded)}
-						role="tab"
 					>
 						{displayTitle &&
 							(React.isValidElement(displayTitle) ? (
@@ -168,6 +187,7 @@ function ClayPanel({
 					</ClayButton>
 
 					<CSSTransition
+						aria-labelledby={ariaControlsId}
 						className={classNames(
 							'panel-collapse',
 							collapseClassNames,
@@ -180,6 +200,7 @@ function ClayPanel({
 							exit: `show`,
 							exitActive: 'collapsing',
 						}}
+						id={ariaControlsId}
 						in={internalExpanded}
 						onEnter={(element: HTMLElement) =>
 							setElementFullHeight(element)
@@ -191,8 +212,8 @@ function ClayPanel({
 						onExiting={(element) => {
 							element.style.height = '';
 						}}
-						role="tabpanel"
-						timeout={250}
+						role="region"
+						timeout={!prefersReducedMotion ? 250 : 0}
 					>
 						<div>{children}</div>
 					</CSSTransition>

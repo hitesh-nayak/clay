@@ -10,8 +10,8 @@ import Icon from '@clayui/icon';
 import {
 	FocusScope,
 	InternalDispatch,
+	useControlledState,
 	useId,
-	useInternalState,
 } from '@clayui/shared';
 import React, {useCallback, useEffect, useMemo, useRef, useState} from 'react';
 
@@ -285,7 +285,7 @@ const ClayDatePicker = React.forwardRef<HTMLInputElement, IProps>(
 		// `initialMonth`.
 		initialMonth = defaultMonth ?? initialMonth;
 
-		const [internalValue, setValue, isUncontrolled] = useInternalState({
+		const [internalValue, setValue, isUncontrolled] = useControlledState({
 			defaultName: 'defaultValue',
 			defaultValue,
 			handleName: 'onChange',
@@ -311,7 +311,7 @@ const ClayDatePicker = React.forwardRef<HTMLInputElement, IProps>(
 				});
 
 				if (days) {
-					return [normalizeTime(days[0]), normalizeTime(days[1])];
+					return [normalizeTime(days[0]!), normalizeTime(days[1]!)];
 				}
 			}
 
@@ -346,8 +346,8 @@ const ClayDatePicker = React.forwardRef<HTMLInputElement, IProps>(
 
 				if (startDate.toString() !== 'Invalid Date') {
 					const hours = use12Hours
-						? formatDate(startDate, 'HH')
-						: formatDate(startDate, 'hh');
+						? formatDate(startDate, 'hh')
+						: formatDate(startDate, 'HH');
 
 					const minutes = formatDate(startDate, 'mm');
 
@@ -369,7 +369,7 @@ const ClayDatePicker = React.forwardRef<HTMLInputElement, IProps>(
 		 * Flag to indicate if date is expanded. Uses an internal state value
 		 * if component is not controlled by props.
 		 */
-		const [expandedValue, setExpandedValue] = useInternalState({
+		const [expandedValue, setExpandedValue] = useControlledState({
 			defaultName: 'defaultExpanded',
 			defaultValue:
 				defaultExpanded === undefined
@@ -438,7 +438,7 @@ const ClayDatePicker = React.forwardRef<HTMLInputElement, IProps>(
 			let daysSelectedToString;
 
 			if (range) {
-				if (startDate !== endDate) {
+				if (startDate.toString() !== endDate.toString()) {
 					newDaysSelected = [date, date];
 				} else if (date < startDate) {
 					newDaysSelected = [date, endDate];
@@ -470,44 +470,50 @@ const ClayDatePicker = React.forwardRef<HTMLInputElement, IProps>(
 			setValue(daysSelectedToString);
 		};
 
-		const updateDate = useCallback((value: string) => {
-			if (!value) {
-				changeMonth(initialMonth);
+		const updateDate = useCallback(
+			(value: string) => {
+				if (!value) {
+					changeMonth(initialMonth);
 
-				setDaysSelected([initialMonth, initialMonth]);
-
-				if (time) {
-					setCurrentTime('--', '--', undefined);
-				}
-			} else {
-				const days = hasDaysSelected({
-					checkRangeYears: yearsCheck,
-					dateFormat,
-					is12Hours: use12Hours,
-					isTime: time,
-					value,
-					years,
-				});
-
-				if (days) {
-					const [startDate, endDate] = days;
-
-					changeMonth(startDate);
-
-					setDaysSelected([startDate, endDate]);
+					setDaysSelected([initialMonth, initialMonth]);
 
 					if (time) {
-						setCurrentTime(
-							startDate.getHours(),
-							startDate.getMinutes(),
-							use12Hours
-								? (formatDate(startDate, 'a') as Input['ampm'])
-								: undefined
-						);
+						setCurrentTime('--', '--', undefined);
+					}
+				} else {
+					const days = hasDaysSelected({
+						checkRangeYears: yearsCheck,
+						dateFormat,
+						is12Hours: use12Hours,
+						isTime: time,
+						value,
+						years,
+					});
+
+					if (days) {
+						const [startDate, endDate] = days;
+
+						changeMonth(startDate!);
+
+						setDaysSelected([startDate!, endDate!]);
+
+						if (time) {
+							setCurrentTime(
+								startDate!.getHours(),
+								startDate!.getMinutes(),
+								use12Hours
+									? (formatDate(
+											startDate!,
+											'a'
+									  ) as Input['ampm'])
+									: undefined
+							);
+						}
 					}
 				}
-			}
-		}, []);
+			},
+			[dateFormat, use12Hours, time, years, yearsCheck]
+		);
 
 		/**
 		 * Control the value of the input propagating with the call
@@ -631,7 +637,7 @@ const ClayDatePicker = React.forwardRef<HTMLInputElement, IProps>(
 			<FocusScope arrowKeysUpDown={false}>
 				<div className="date-picker">
 					<ClayInput.Group ref={triggerElementRef}>
-						<ClayInput.GroupItem>
+						<ClayInput.GroupItem className="input-group-item-focusable">
 							<InputDate
 								{...otherProps}
 								ariaLabel={ariaLabels.input}
@@ -673,7 +679,7 @@ const ClayDatePicker = React.forwardRef<HTMLInputElement, IProps>(
 							active={expandedValue}
 							alignElementRef={triggerElementRef}
 							aria-label={ariaLabels.dialog}
-							className="date-picker-dropdown-menu"
+							className="date-picker date-picker-dropdown-menu"
 							data-testid="dropdown"
 							id={ariaControls}
 							lock
@@ -773,7 +779,7 @@ function fromStringToRange(
 ): readonly [Date, Date] {
 	const [startDateString, endDateString] = value.split(RANGE_SEPARATOR);
 
-	const startDate = parseDate(startDateString, dateFormat, referenceDate);
+	const startDate = parseDate(startDateString!, dateFormat, referenceDate);
 
 	return [
 		startDate,

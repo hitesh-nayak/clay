@@ -28,17 +28,17 @@ const ITEMS_DRIVE = [
 			{
 				children: [
 					{
-						children: [{id: 17, name: 'Research 1'}],
-						id: 3,
+						children: [{id: '17', name: 'Research 1'}],
+						id: '3',
 						name: 'Research',
 					},
 					{
-						children: [{id: 16, name: 'News 1'}],
-						id: 4,
+						children: [{id: '16', name: 'News 1'}],
+						id: '4',
 						name: 'News',
 					},
 				],
-				id: 2,
+				id: '2',
 				name: 'Blogs',
 			},
 			{
@@ -46,59 +46,59 @@ const ITEMS_DRIVE = [
 					{
 						children: [
 							{
-								id: 18,
+								id: '18',
 								name: 'Instructions.pdf',
 								status: 'success',
 								type: 'pdf',
 							},
 						],
-						id: 15,
+						id: '15',
 						name: 'PDF',
 					},
 					{
 						children: [
 							{
-								id: 6,
+								id: '6',
 								name: 'Treeview review.docx',
 								status: 'success',
 								type: 'document',
 							},
 							{
-								id: 7,
+								id: '7',
 								name: 'Heuristics Evaluation.docx',
 								status: 'success',
 								type: 'document',
 							},
 						],
 						disabled: true,
-						id: 8,
+						id: '8',
 						name: 'Word',
 					},
 				],
-				id: 5,
+				id: '5',
 				name: 'Documents and Media',
 			},
 		],
 		disabled: true,
-		id: 1,
+		id: '1',
 		name: 'Liferay Drive',
 		type: 'cloud',
 	},
 	{
 		children: [
-			{disabled: true, id: 10, name: 'Blogs'},
-			{id: 11, name: 'Documents and Media'},
+			{disabled: true, id: '10', name: 'Blogs'},
+			{id: '11', name: 'Documents and Media'},
 		],
-		id: 9,
+		id: '9',
 		name: 'Repositories',
 		type: 'repository',
 	},
 	{
 		children: [
-			{id: 13, name: 'PDF'},
-			{id: 14, name: 'Word'},
+			{id: '13', name: 'PDF'},
+			{id: '14', name: 'Word'},
 		],
-		id: 12,
+		id: '12',
 		name: 'Documents and Media',
 		status: 'warning',
 	},
@@ -115,7 +115,7 @@ function createFilter<T extends Array<any>>(
 	key: string
 ) {
 	function applyFilter(value: string, tree: T) {
-		tree = tree
+		const filteredTree = tree
 			.map((item) => {
 				const immutableItem = {...item};
 
@@ -126,7 +126,17 @@ function createFilter<T extends Array<any>>(
 					);
 				}
 
-				if (immutableItem[key].includes(value.toLowerCase())) {
+				const matches = immutableItem[key].match(
+					new RegExp(
+						value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'),
+						'i'
+					)
+				);
+
+				if (
+					matches !== null ||
+					Array.isArray(immutableItem[nestedKey])
+				) {
 					return immutableItem;
 				}
 
@@ -134,7 +144,7 @@ function createFilter<T extends Array<any>>(
 			})
 			.filter(Boolean) as T;
 
-		return tree;
+		return filteredTree.length > 0 ? filteredTree : undefined;
 	}
 
 	return {
@@ -162,7 +172,7 @@ let nodeId = 0;
 
 type Node = {
 	children: Array<Node>;
-	id: number;
+	id: string;
 	name: string;
 };
 
@@ -173,7 +183,7 @@ const createNode = (
 ) => {
 	const node: Node = {
 		children: [],
-		id: nodeId,
+		id: String(nodeId),
 		name: `node-${nodeId}`,
 	};
 
@@ -227,17 +237,25 @@ export const Actions = () => (
 		<TreeView.Item
 			actions={
 				<>
-					<Button displayType={null} monospaced>
+					<Button aria-label="Close" displayType={null} monospaced>
 						<Icon symbol="times" />
 					</Button>
 					<DropDownWithItems
 						items={[
-							{label: 'One'},
-							{label: 'Two'},
+							{
+								href: '#',
+								label: 'One',
+								onClick: (event) => event.preventDefault(),
+							},
+							{href: '#', label: 'Two'},
 							{label: 'Three'},
 						]}
 						trigger={
-							<Button displayType={null} monospaced>
+							<Button
+								aria-label="More"
+								displayType={null}
+								monospaced
+							>
 								<Icon symbol="ellipsis-v" />
 							</Button>
 						}
@@ -258,7 +276,7 @@ export const Actions = () => (
 		<TreeView.Item
 			actions={
 				<>
-					<Button displayType={null} monospaced>
+					<Button aria-label="Close" displayType={null} monospaced>
 						<Icon symbol="times" />
 					</Button>
 					<DropDownWithItems
@@ -268,7 +286,11 @@ export const Actions = () => (
 							{label: 'Six'},
 						]}
 						trigger={
-							<Button displayType={null} monospaced>
+							<Button
+								aria-label="More"
+								displayType={null}
+								monospaced
+							>
 								<Icon symbol="ellipsis-v" />
 							</Button>
 						}
@@ -517,29 +539,29 @@ export const PageElements = () => {
 										{
 											children: [
 												{
-													id: 11,
+													id: '11',
 													name: 'element-text',
 													type: 'editable',
 												},
 											],
-											id: 12,
+											id: '12',
 											name: 'Heading',
 											type: 'fragment-text',
 										},
 										{
 											children: [
 												{
-													id: 10,
+													id: '10',
 													name: 'element-text',
 													type: 'editable',
 												},
 											],
-											id: 13,
+											id: '13',
 											name: 'Paragraph',
 											type: 'paragraph',
 										},
 									],
-									id: 5,
+									id: '5',
 									name: 'Module',
 								},
 								{
@@ -547,31 +569,31 @@ export const PageElements = () => {
 										{
 											children: [
 												{
-													id: 9,
+													id: '9',
 													name: 'image-squere',
 													type: 'editable',
 												},
 											],
-											id: 6,
+											id: '6',
 											name: 'Image',
 											type: 'fragment-image',
 										},
 									],
-									id: 4,
+									id: '4',
 									name: 'Module',
 								},
 							],
-							id: 3,
+							id: '3',
 							name: 'Grid',
 							type: 'row',
 						},
 					],
-					id: 2,
+					id: '2',
 					name: 'Container',
 					type: 'container',
 				},
 			],
-			id: 1,
+			id: '1',
 			name: 'Container',
 			type: 'container',
 		},
@@ -583,6 +605,7 @@ export const PageElements = () => {
 
 	return (
 		<TreeView
+			aria-label="Treeview page elements example"
 			defaultItems={items}
 			expandedKeys={expandedKeys}
 			expanderIcons={{
@@ -618,7 +641,7 @@ export const PageElements = () => {
 
 export const PreSelectedItems = (args: any) => {
 	const [selectedKeys, setSelectionChange] = useState<Set<React.Key>>(
-		new Set([3, 15, 17, 18])
+		new Set(['3', '15', '17', '18'])
 	);
 
 	// Just to avoid TypeScript error with required props
@@ -1205,6 +1228,64 @@ export const AsyncLoadWithErrorHandling = () => {
 	);
 };
 
+export const SelectionWithFilter = () => {
+	const [selectedKeys, setSelectionChange] = useState<Set<React.Key>>(
+		new Set()
+	);
+
+	const [value, setValue] = useState('');
+	const [items, setItems] = useState(ITEMS_DRIVE);
+
+	const OptionalCheckbox = (props: any) => <Checkbox {...props} />;
+
+	OptionalCheckbox.displayName = 'ClayCheckbox';
+
+	const itemsFiltered = useMemo<any>(() => {
+		if (!value) {
+			return items;
+		}
+
+		const filter = createFilter(items, 'children', 'name');
+
+		return filter.applyFilter(value);
+	}, [items, value]);
+
+	return (
+		<>
+			<Input
+				onChange={(event) => setValue(event.target.value)}
+				placeholder="Search..."
+				value={value}
+			/>
+			<TreeView
+				items={itemsFiltered}
+				onItemsChange={(data) => setItems(data as any)}
+				onSelectionChange={(keys) => setSelectionChange(keys)}
+				selectedKeys={selectedKeys}
+				selectionMode="multiple-recursive"
+				showExpanderOnHover={false}
+			>
+				{(item) => (
+					<TreeView.Item>
+						<TreeView.ItemStack>
+							<OptionalCheckbox />
+							{item.name}
+						</TreeView.ItemStack>
+						<TreeView.Group items={item.children}>
+							{(item) => (
+								<TreeView.Item>
+									<OptionalCheckbox />
+									{item.name}
+								</TreeView.Item>
+							)}
+						</TreeView.Group>
+					</TreeView.Item>
+				)}
+			</TreeView>
+		</>
+	);
+};
+
 export const PerformanceTest = () => {
 	const [selectedKeys, setSelectionChange] = useState<Set<React.Key>>(
 		new Set()
@@ -1316,12 +1397,12 @@ export const DemoCategoriesSingle = () => {
 		<TreeView
 			defaultItems={[
 				{
-					id: 0,
+					id: '0',
 					name: 'Animals',
 					vocabulary: true,
 				},
 				{
-					id: 1,
+					id: '1',
 					name: 'Vegetables',
 					vocabulary: true,
 				},
@@ -1330,36 +1411,36 @@ export const DemoCategoriesSingle = () => {
 						{
 							children: [
 								{
-									id: 7,
+									id: '7',
 									name: 'Metals',
 								},
 								{
-									id: 8,
+									id: '8',
 									name: 'Semimetals',
 								},
 								{
-									id: 9,
+									id: '9',
 									name: 'Nonmetals',
 								},
 							],
-							id: 4,
+							id: '4',
 							name: 'Native Elements',
 						},
 						{
-							id: 5,
+							id: '5',
 							name: 'Sulfides',
 						},
 						{
-							id: 6,
+							id: '6',
 							name: 'Silicates',
 						},
 					],
-					id: 2,
+					id: '2',
 					name: 'Minerals',
 					vocabulary: true,
 				},
 				{
-					id: 3,
+					id: '3',
 					name: 'Plants',
 					vocabulary: true,
 				},
@@ -1449,30 +1530,30 @@ export const DemoCategoriesMultiple = () => {
 				{
 					children: [
 						{
-							id: 16,
+							id: '16',
 							name: 'Dog',
 						},
 						{
-							id: 17,
+							id: '17',
 							name: 'Cat',
 						},
 					],
-					id: 1,
+					id: '1',
 					name: 'Animals',
 					vocabulary: true,
 				},
 				{
 					children: [
 						{
-							id: 14,
+							id: '14',
 							name: 'Arrowroot',
 						},
 						{
-							id: 15,
+							id: '15',
 							name: 'Arugula',
 						},
 					],
-					id: 2,
+					id: '2',
 					name: 'Vegetables',
 					vocabulary: true,
 				},
@@ -1481,50 +1562,50 @@ export const DemoCategoriesMultiple = () => {
 						{
 							children: [
 								{
-									id: 8,
+									id: '8',
 									name: 'Metals',
 								},
 								{
-									id: 9,
+									id: '9',
 									name: 'Semimetals',
 								},
 								{
-									id: 10,
+									id: '10',
 									name: 'Nonmetals',
 								},
 							],
-							id: 5,
+							id: '5',
 							name: 'Native Elements',
 						},
 						{
-							id: 6,
+							id: '6',
 							name: 'Sulfides',
 						},
 						{
-							id: 7,
+							id: '7',
 							name: 'Silicates',
 						},
 					],
-					id: 3,
+					id: '3',
 					name: 'Minerals',
 					vocabulary: true,
 				},
 				{
 					children: [
 						{
-							id: 11,
+							id: '11',
 							name: 'Bamboo',
 						},
 						{
-							id: 12,
+							id: '12',
 							name: 'Cactus',
 						},
 						{
-							id: 13,
+							id: '13',
 							name: 'Eucalyptus',
 						},
 					],
-					id: 4,
+					id: '4',
 					name: 'Plants',
 					vocabulary: true,
 				},
@@ -1604,25 +1685,25 @@ export const DemoDocumentsMultiple = () => {
 			defaultItems={[
 				{
 					children: [
-						{id: 2, name: 'Basic Web Content'},
-						{id: 3, name: 'New'},
-						{id: 4, name: 'Article'},
+						{id: '2', name: 'Basic Web Content'},
+						{id: '3', name: 'New'},
+						{id: '4', name: 'Article'},
 					],
-					id: 1,
+					id: '1',
 					name: 'Web Content Article',
 					type: 'article',
 				},
 				{
 					children: [
-						{id: 5, name: 'Basic Documents'},
+						{id: '5', name: 'Basic Documents'},
 						{name: 'External Video Shortcut'},
 					],
-					id: 6,
+					id: '6',
 					name: 'Documents',
 					type: 'documents',
 				},
 			]}
-			defaultSelectedKeys={new Set([1, 2, 3, 4, 5])}
+			defaultSelectedKeys={new Set(['1', '2', '3', '4', '5'])}
 			expandDoubleClick
 			selectionMode="multiple-recursive"
 			showExpanderOnHover={false}

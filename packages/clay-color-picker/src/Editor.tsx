@@ -7,6 +7,7 @@ import ClayForm, {ClayInput} from '@clayui/form';
 import React, {useEffect, useReducer, useRef, useState} from 'react';
 import tinycolor from 'tinycolor2';
 
+import Alpha from './Alpha';
 import GradientSelector from './GradientSelector';
 import Hue from './Hue';
 import {findColorIndex} from './util';
@@ -26,6 +27,12 @@ function reducer(state: State, action: Partial<State>) {
 	};
 }
 
+export enum LimitValue {
+	maxRGB = 255,
+	maxHue = 360,
+	min = 0,
+}
+
 export function useEditor(
 	value: string,
 	color: Instance,
@@ -37,7 +44,7 @@ export function useEditor(
 		);
 
 		return {
-			hex: color.toHex(),
+			hex: color.toHex8(),
 			hue: color.toHsv().h,
 			splotch: index !== -1 ? index : undefined,
 		};
@@ -79,12 +86,12 @@ const RGBInput = ({name, onChange, value}: RGBInputProps) => {
 	return (
 		<ClayForm.Group>
 			<ClayInput.Group>
-				<ClayInput.GroupItem>
+				<ClayInput.GroupItem className="input-group-item-focusable">
 					<ClayInput
 						data-testid={`${name}Input`}
 						insetBefore
-						max="255"
-						min="0"
+						max={LimitValue.maxRGB}
+						min={LimitValue.min}
 						onChange={(event: any) => {
 							const value = event.target.value;
 
@@ -94,10 +101,10 @@ const RGBInput = ({name, onChange, value}: RGBInputProps) => {
 
 							let newVal = Number(value);
 
-							if (newVal < 0) {
-								newVal = 0;
-							} else if (newVal > 255) {
-								newVal = 255;
+							if (newVal < LimitValue.min) {
+								newVal = LimitValue.min;
+							} else if (newVal > LimitValue.maxRGB) {
+								newVal = LimitValue.maxRGB;
 							}
 
 							setInputValue(newVal);
@@ -122,6 +129,7 @@ type Props = {
 	colors: Array<string>;
 	hex: string;
 	hue: number;
+	internalToHex: (value: Instance) => string;
 	onChange: (color: Instance, active: boolean) => void;
 	onColorChange: (color: Instance) => void;
 	onHueChange: (value: number) => void;
@@ -133,6 +141,7 @@ export function Editor({
 	colors,
 	hex,
 	hue,
+	internalToHex,
 	onChange,
 	onColorChange,
 	onHexChange,
@@ -149,6 +158,20 @@ export function Editor({
 
 	return (
 		<>
+			<Hue
+				onChange={(hue) => {
+					if (hue < LimitValue.min) {
+						hue = LimitValue.min;
+					} else if (hue > LimitValue.maxHue) {
+						hue = LimitValue.maxHue;
+					}
+					onHueChange(hue);
+					onColorChange(
+						tinycolor({h: hue, s, v}).setAlpha(color.getAlpha())
+					);
+				}}
+				value={hue}
+			/>
 			<div className="clay-color-map-group">
 				<GradientSelector
 					color={color}
@@ -159,7 +182,7 @@ export function Editor({
 								h: hue,
 								s: saturation,
 								v: visibility,
-							})
+							}).setAlpha(color.getAlpha())
 						);
 					}}
 				/>
@@ -186,18 +209,19 @@ export function Editor({
 				</div>
 			</div>
 
-			<Hue
-				onChange={(hue) => {
-					onHueChange(hue);
-					onColorChange(tinycolor({h: hue, s, v}));
+			<Alpha
+				color={`#${color.toHex()}`}
+				onChange={(value: number) => {
+					const newColor = color.clone();
+					onColorChange(newColor.setAlpha(value));
 				}}
-				value={hue}
+				value={color.getAlpha()}
 			/>
 
 			<div className="clay-color-footer">
 				<ClayForm.Group>
 					<ClayInput.Group>
-						<ClayInput.GroupItem>
+						<ClayInput.GroupItem className="input-group-item-focusable">
 							<ClayInput
 								data-testid="customHexInput"
 								insetBefore
@@ -207,9 +231,9 @@ export function Editor({
 									);
 
 									if (newColor.isValid()) {
-										onHexChange(newColor.toHex());
+										onHexChange(internalToHex(newColor));
 									} else {
-										onHexChange(color.toHex());
+										onHexChange(internalToHex(color));
 									}
 								}}
 								onChange={(event) => {
@@ -231,7 +255,9 @@ export function Editor({
 									}
 								}}
 								type="text"
-								value={hex.toUpperCase().substring(0, 6)}
+								value={hex
+									.toUpperCase()
+									.substring(0, color.getAlpha() < 1 ? 8 : 6)}
 							/>
 
 							<ClayInput.GroupInsetItem before tag="label">

@@ -3,20 +3,22 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-import {FocusScope} from '@clayui/shared';
+import {isAppleDevice, useNavigation} from '@clayui/shared';
 import classNames from 'classnames';
 import React, {useRef} from 'react';
 import {DndProvider} from 'react-dnd';
 import {HTML5Backend} from 'react-dnd-html5-backend';
 
+import {FocusWithinProvider} from '../aria';
 import {ChildrenFunction, Collection, ICollectionProps} from './Collection';
+import {DragAndDropMessages, DragAndDropProvider} from './DragAndDrop';
 import DragLayer from './DragLayer';
 import {TreeViewGroup} from './TreeViewGroup';
 import {TreeViewItem, TreeViewItemStack} from './TreeViewItem';
 import {Icons, MoveItemIndex, OnLoadMore, TreeViewContext} from './context';
 import {ITreeProps, useTree} from './useTree';
 
-interface ITreeViewProps<T>
+interface ITreeViewProps<T extends Record<string, any>>
 	extends Omit<
 			React.HTMLAttributes<HTMLUListElement>,
 			'children' | 'onSelect'
@@ -67,10 +69,16 @@ interface ITreeViewProps<T>
 	itemNameKey?: string;
 
 	/**
+	 * Messages that the TreeView uses to announce to the screen reader. Use
+	 * this to handle internationalization.
+	 */
+	messages?: DragAndDropMessages;
+
+	/**
 	 * The callback is called whenever there is an item dragging over
 	 * another item.
 	 */
-	onItemHover?: (item: T, parentItem: T, index: MoveItemIndex) => void;
+	onItemHover?: (item: T, parentItem: T, index: MoveItemIndex) => boolean;
 
 	/**
 	 * Callback is called when an item is about to be moved elsewhere in the tree.
@@ -110,13 +118,21 @@ interface ITreeViewProps<T>
 	showExpanderOnHover?: boolean;
 }
 
-export function TreeView<T>(props: ITreeViewProps<T>): JSX.Element & {
+const focusableElements = ['.treeview-link[tabindex]'];
+
+const Application = ({children}: {children: React.ReactNode}) => (
+	<div role="application">{children}</div>
+);
+
+export function TreeView<T extends Record<string, any>>(
+	props: ITreeViewProps<T>
+): JSX.Element & {
 	Item: typeof TreeViewItem;
 	Group: typeof TreeViewGroup;
 	ItemStack: typeof TreeViewItemStack;
 };
 
-export function TreeView<T>({
+export function TreeView<T extends Record<string, any>>({
 	children,
 	className,
 	defaultExpandedKeys,
@@ -130,8 +146,10 @@ export function TreeView<T>({
 	expanderClassName,
 	expanderIcons,
 	expandOnCheck = false,
+	indeterminate = true,
 	itemNameKey = 'name',
 	items,
+	messages,
 	nestedKey = 'children',
 	onExpandedChange,
 	onItemHover,
@@ -147,13 +165,14 @@ export function TreeView<T>({
 	showExpanderOnHover = true,
 	...otherProps
 }: ITreeViewProps<T>) {
-	const rootRef = React.useRef(null);
+	const rootRef = useRef<HTMLUListElement>(null);
 
 	const state = useTree<T>({
 		defaultExpandedKeys,
 		defaultItems,
 		defaultSelectedKeys,
 		expandedKeys,
+		indeterminate,
 		items,
 		nestedKey,
 		onExpandedChange,
@@ -189,10 +208,21 @@ export function TreeView<T>({
 		...state,
 	};
 
+	const {navigationProps} = useNavigation({
+		containerRef: rootRef,
+		focusableElements,
+		orientation: 'vertical',
+		typeahead: true,
+		visible: true,
+	});
+
+	const Container = isAppleDevice() ? React.Fragment : Application;
+
 	return (
-		<FocusScope>
+		<Container>
 			<ul
 				{...otherProps}
+				{...navigationProps}
 				className={classNames(
 					'treeview show-quick-actions-on-hover',
 					className,
@@ -203,20 +233,34 @@ export function TreeView<T>({
 				)}
 				ref={rootRef}
 				role="tree"
+				tabIndex={-1}
 			>
 				<DndProvider
 					backend={HTML5Backend}
 					context={dragAndDropContext}
 				>
 					<TreeViewContext.Provider value={context}>
-						<Collection<T> items={state.items}>
-							{children}
-						</Collection>
-						<DragLayer itemNameKey={itemNameKey} />
+						<DragAndDropProvider<T>
+							messages={messages}
+							nestedKey={nestedKey}
+							onItemHover={onItemHover}
+							onItemMove={onItemMove}
+							rootRef={rootRef}
+						>
+							<FocusWithinProvider
+								containerRef={rootRef}
+								focusableElements={focusableElements}
+							>
+								<Collection<T> items={state.items}>
+									{children}
+								</Collection>
+								<DragLayer itemNameKey={itemNameKey} />
+							</FocusWithinProvider>
+						</DragAndDropProvider>
 					</TreeViewContext.Provider>
 				</DndProvider>
 			</ul>
-		</FocusScope>
+		</Container>
 	);
 }
 

@@ -3,6 +3,143 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.125.0](https://github.com/liferay/clay/compare/v3.124.0...v3.125.0) (2025-01-13)
+
+### Bug Fixes
+
+-   **@clayui/form:** LPD-45345 Radio Toggle Switch should use role="radio" ([a7d88a5](https://github.com/liferay/clay/commit/a7d88a575c0f75badee3b910111b3137cc542682))
+
+# [3.122.0](https://github.com/liferay/clay/compare/v3.121.0...v3.122.0) (2024-11-13)
+
+### Bug Fixes
+
+-   **@clayui/form:** LPD-36696 DualListBox maximum items should correctly disable buttons and error message ([53e9e80](https://github.com/liferay/clay/commit/53e9e806b38a0fe76d709b0bdab0341ec56b3a5c))
+-   **@clayui/form:** LPD-36696 DualListBox adds children and don't disable left right buttons if no items are selected ([c796665](https://github.com/liferay/clay/commit/c796665296793965109aaf425fa3086d66b465ae))
+
+### Features
+
+-   **@clayui/form:** LPD-36696 Add new API to set maximum items for Left and Right side with error message ([8e0ab50](https://github.com/liferay/clay/commit/8e0ab5031c2f1ff596ea33e8ad25b6c81b5a1796))
+-   **@clayui/form:** LPD-36696 sf ([766d9a8](https://github.com/liferay/clay/commit/766d9a89570a030c2aa223910c10586e52549df8))
+
+# [3.119.0](https://github.com/liferay/clay/compare/v3.118.0...v3.119.0) (2024-08-30)
+
+### Bug Fixes
+
+-   **@clayui/form:** LPD-34319 adds disabled to Dual Listbox ([867dee3](https://github.com/liferay/clay/commit/867dee399e7e88d9bc607bd63ae6464e9a3d8427))
+
+# [3.116.0](https://github.com/liferay/clay/compare/v3.115.2...v3.116.0) (2024-06-10)
+
+### Features
+
+-   **@clayui/form:** add regular size to input ([53a62b1](https://github.com/liferay/clay/commit/53a62b1cc7ca7c80e471107ba67ddf3fdceca3ee))
+
+# [3.115.0](https://github.com/liferay/clay/compare/v3.114.0...v3.115.0) (2024-05-16)
+
+**Note:** Version bump only for package @clayui/form
+
+# [3.113.0](https://github.com/liferay/clay/compare/v3.112.0...v3.113.0) (2024-03-28)
+
+**Note:** Version bump only for package @clayui/form
+
+# [3.111.0](https://github.com/liferay/clay/compare/v3.110.0...v3.111.0) (2024-02-15)
+
+**Note:** Version bump only for package @clayui/form
+
+# [3.109.0](https://github.com/liferay/clay/compare/v3.108.0...v3.109.0) (2024-01-22)
+
+### Features
+
+-   **@clayui/form:** Toggle Switch adds sizing attribute ([d29270b](https://github.com/liferay/clay/commit/d29270b6209f3880d3737fd06e778b5c8e9466e8))
+
+# [3.107.0](https://github.com/liferay/clay/compare/v3.106.1...v3.107.0) (2023-11-27)
+
+**Note:** Version bump only for package @clayui/form
+
+## [3.106.1](https://github.com/liferay/clay/compare/v3.106.0...v3.106.1) (2023-10-26)
+
+**Note:** Version bump only for package @clayui/form
+
+# [3.106.0](https://github.com/liferay/clay/compare/v3.105.0...v3.106.0) (2023-10-25)
+
+### Bug Fixes
+
+-   remove 'src' dir from being packaged with npm ([9383e8d](https://github.com/liferay/clay/commit/9383e8d8abb25ca3396e7c6e4dfa53bbc72691c5))
+-   use package's directory for baseDir when generating type ([0a5c710](https://github.com/liferay/clay/commit/0a5c710092f36243bc8d5487f70e831295715072))
+
+### Features
+
+-   **@clayui/form:** Checkbox and Radio should use modifier class custom-control-outside if a label is present ([e2b6335](https://github.com/liferay/clay/commit/e2b633546c55ed1b266f92c277a14f278bf9c22e))
+
+# [3.104.0](https://github.com/liferay/clay/compare/v3.103.1...v3.104.0) (2023-08-25)
+
+**Note:** Version bump only for package @clayui/form
+
+## [3.103.1](https://github.com/liferay/clay/compare/v3.103.0...v3.103.1) (2023-08-15)
+
+**Note:** Version bump only for package @clayui/form
+
+# [3.101.0](https://github.com/liferay/clay/compare/v3.100.0...v3.101.0) (2023-07-28)
+
+**Note:** Version bump only for package @clayui/form
+
+# [3.100.0](https://github.com/liferay/clay/compare/v3.99.4...v3.100.0) (2023-07-13)
+
+**Note:** Version bump only for package @clayui/form
+
+# [3.99.0](https://github.com/liferay/clay/compare/v3.98.0...v3.99.0) (2023-06-28)
+
+### Bug Fixes
+
+-   **@clayui/form:** adds the proper `role` to the switch component ([c3530c3](https://github.com/liferay/clay/commit/c3530c38f08b8679a4681f04da631259baef2654))
+
+# [3.96.0](https://github.com/liferay/clay/compare/v3.95.2...v3.96.0) (2023-05-29)
+
+**Note:** Version bump only for package @clayui/form
+
+## [3.95.2](https://github.com/liferay/clay/compare/v3.95.0...v3.95.2) (2023-05-17)
+
+**Note:** Version bump only for package @clayui/form
+
+# [3.95.0](https://github.com/liferay/clay/compare/v3.94.0...v3.95.0) (2023-05-15)
+
+**Note:** Version bump only for package @clayui/form
+
+# [3.94.0](https://github.com/liferay/clay/compare/v3.93.0...v3.94.0) (2023-05-03)
+
+**Note:** Version bump only for package @clayui/form
+
+# [3.93.0](https://github.com/liferay/clay/compare/v3.92.0...v3.93.0) (2023-04-19)
+
+**Note:** Version bump only for package @clayui/form
+
+# [3.92.0](https://github.com/liferay/clay/compare/v3.91.0...v3.92.0) (2023-04-06)
+
+**Note:** Version bump only for package @clayui/form
+
+# [3.89.0](https://github.com/liferay/clay/compare/v3.88.0...v3.89.0) (2023-03-01)
+
+**Note:** Version bump only for package @clayui/form
+
+# [3.88.0](https://github.com/liferay/clay/compare/v3.87.2...v3.88.0) (2023-02-14)
+
+**Note:** Version bump only for package @clayui/form
+
+# [3.87.0](https://github.com/liferay/clay/compare/v3.86.1...v3.87.0) (2023-02-08)
+
+**Note:** Version bump only for package @clayui/form
+
+## [3.86.1](https://github.com/liferay/clay/compare/v3.86.0...v3.86.1) (2023-02-02)
+
+**Note:** Version bump only for package @clayui/form
+
+# [3.86.0](https://github.com/liferay/clay/compare/v3.85.0...v3.86.0) (2023-01-31)
+
+**Note:** Version bump only for package @clayui/form
+
+# [3.85.0](https://github.com/liferay/clay/compare/v3.84.0...v3.85.0) (2023-01-23)
+
+**Note:** Version bump only for package @clayui/form
+
 ## [3.83.1](https://github.com/liferay/clay/compare/v3.83.0...v3.83.1) (2022-12-20)
 
 **Note:** Version bump only for package @clayui/form

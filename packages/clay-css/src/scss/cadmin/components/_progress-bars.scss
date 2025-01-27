@@ -61,6 +61,12 @@
 				animation: none;
 			}
 		}
+
+		@at-root {
+			#{clay-insert-before('.cadmin', '.c-prefers-reduced-motion ')} {
+				animation: none;
+			}
+		}
 	}
 }
 
@@ -132,13 +138,15 @@
 // Progress Variants
 
 @each $cadmin-color, $cadmin-value in $cadmin-progress-palette {
-	.progress-#{$cadmin-color} {
-		.progress-bar {
-			background-color: map-get($cadmin-value, bar-bg);
-		}
+	@if not clay-is-map-unset($cadmin-value) {
+		.progress-#{$cadmin-color} {
+			.progress-bar {
+				background-color: map-get($cadmin-value, bar-bg);
+			}
 
-		.progress-group-feedback {
-			color: map-get($cadmin-value, group-feedback-color);
+			.progress-group-feedback {
+				color: map-get($cadmin-value, group-feedback-color);
+			}
 		}
 	}
 }

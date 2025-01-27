@@ -1,5 +1,5 @@
 $table-bg: $white !default;
-$table-accent-bg: $gray-100 !default;
+$table-accent-bg: $light-l1 !default;
 $table-hover-bg: clay-lighten($component-active-bg, 44.9) !default;
 $table-border-color: $gray-300 !default;
 $table-font-size: 0.875rem !default;
@@ -31,30 +31,17 @@ $table-head-link: map-deep-merge(
 // Table Body
 
 $c-table-tbody: () !default;
-$c-table-tbody: map-merge(
-	(
-		background-color: $white,
-	),
-	$c-table-tbody
-);
 
 // Table Footer
 
 $c-table-tfoot: () !default;
-$c-table-tfoot: map-merge(
-	(
-		background-color: $table-bg,
-	),
-	$c-table-tfoot
-);
 
 $table-caption-color: $gray-900 !default;
 
-$table-divider-bg: $gray-100 !default;
+$table-divider-bg: $gray-200 !default;
 $table-divider-color: $gray-600 !default;
 $table-divider-font-size: 0.75rem !default; // 12px
 $table-divider-font-weight: $font-weight-semi-bold !default;
-$table-divider-padding: 0.4375rem 0.75rem !default;
 $table-divider-text-transform: uppercase !default;
 
 $table-quick-action-menu-accent-bg: $table-accent-bg !default;
@@ -134,6 +121,41 @@ $table-link: map-deep-merge(
 	$table-link
 );
 
+// .table-focus
+
+$c-tr-table-focus: () !default;
+$c-tr-table-focus: map-deep-merge(
+	(
+		td: (
+			before: (
+				box-shadow: (
+					inset 0 0.125rem 0 0 $primary-l0,
+					inset 0 0.25rem 0 0 $white,
+					inset 0 -0.125rem 0 0 $primary-l0,
+					inset 0 -0.25rem 0 0 $white,
+				),
+			),
+			first-child: (
+				after: (
+					box-shadow: (
+						inset 0.125rem 0 0 0 $primary-l0,
+						inset 0.25rem 0 0 0 $white,
+					),
+				),
+			),
+			last-child: (
+				after: (
+					box-shadow: (
+						inset -0.125rem 0 0 0 $primary-l0,
+						inset -0.25rem 0 0 0 $white,
+					),
+				),
+			),
+		),
+	),
+	$c-tr-table-focus
+);
+
 // Table List
 
 $table-list-border-color: $gray-300 !default;
@@ -146,9 +168,6 @@ $table-list-active-bg: $table-list-hover-bg !default;
 $table-list-disabled-color: $gray-500 !default;
 
 $table-list-head-bg: $white !default;
-
-$table-list-divider-padding-x: 0.75rem !default; // 12px
-$table-list-divider-padding-y: 0.4375rem !default; // 7px
 
 // Table List Title
 

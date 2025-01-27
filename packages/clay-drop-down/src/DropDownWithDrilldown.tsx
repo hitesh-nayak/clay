@@ -5,8 +5,8 @@
 
 import {
 	InternalDispatch,
+	useControlledState,
 	useInteractionFocus,
-	useInternalState,
 } from '@clayui/shared';
 import classNames from 'classnames';
 import React, {useEffect, useRef, useState} from 'react';
@@ -109,6 +109,11 @@ export interface IProps extends React.HTMLAttributes<HTMLDivElement> {
 	 * Element that is used as the trigger which will activate the dropdown on click.
 	 */
 	trigger: React.ReactElement;
+
+	/**
+	 * Flag indicating if the caret icon should be displayed on the right side.
+	 */
+	triggerIcon?: string | null;
 }
 
 type History = {
@@ -138,6 +143,7 @@ export const ClayDropDownWithDrilldown = ({
 	renderMenuOnClick,
 	spritemap,
 	trigger,
+	triggerIcon = null,
 }: IProps) => {
 	const [activeMenu, setActiveMenu] = useState(
 		defaultActiveMenu ?? initialActiveMenu
@@ -147,7 +153,7 @@ export const ClayDropDownWithDrilldown = ({
 
 	const {isFocusVisible} = useInteractionFocus();
 
-	const [active, setActive] = useInternalState({
+	const [active, setActive] = useControlledState({
 		defaultName: 'defaultActive',
 		defaultValue: defaultActive,
 		handleName: 'onActiveChange',
@@ -218,6 +224,7 @@ export const ClayDropDownWithDrilldown = ({
 			}}
 			renderMenuOnClick={renderMenuOnClick}
 			trigger={trigger}
+			triggerIcon={triggerIcon}
 		>
 			<Drilldown.Inner ref={innerRef}>
 				{menuIds.map((menuKey) => {
@@ -227,10 +234,10 @@ export const ClayDropDownWithDrilldown = ({
 							direction={direction}
 							header={
 								activeMenu === menuKey && !!history.length
-									? history.slice(-1)[0].title
+									? history.slice(-1)[0]!.title
 									: undefined
 							}
-							items={menus[menuKey]}
+							items={menus[menuKey]!}
 							key={menuKey}
 							messages={messages}
 							onBack={() => {
@@ -242,7 +249,7 @@ export const ClayDropDownWithDrilldown = ({
 
 								setDirection('prev');
 
-								setActiveMenu(parent.id);
+								setActiveMenu(parent!.id);
 							}}
 							onForward={(title, childId) => {
 								setHistory([

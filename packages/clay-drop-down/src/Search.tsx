@@ -6,7 +6,7 @@
 import ClayButton from '@clayui/button';
 import {ClayInput} from '@clayui/form';
 import ClayIcon from '@clayui/icon';
-import {InternalDispatch, useInternalState} from '@clayui/shared';
+import {InternalDispatch, useControlledState} from '@clayui/shared';
 import classNames from 'classnames';
 import React, {useContext, useEffect} from 'react';
 
@@ -35,6 +35,11 @@ export interface IProps
 	spritemap?: string;
 
 	/**
+	 * Props to add to the button component.
+	 */
+	submitProps?: React.HTMLAttributes<HTMLButtonElement>;
+
+	/**
 	 * Current value of the input (controlled).
 	 */
 	value?: string;
@@ -42,18 +47,24 @@ export interface IProps
 
 const defaultOnSubmit = (event: React.SyntheticEvent) => event.preventDefault();
 
+const defaultSubmitProps = {
+	'aria-label': 'Search',
+	type: 'button',
+};
+
 const ClayDropDownSearch = ({
 	className,
 	defaultValue = '',
 	formProps = {},
 	onChange,
 	spritemap,
+	submitProps = defaultSubmitProps,
 	value: valueProp,
 	...otherProps
 }: IProps) => {
 	const {className: formClassName, onSubmit, ...otherFormProps} = formProps;
 
-	const [value, setValue, isUncontrolled] = useInternalState({
+	const [value, setValue, isUncontrolled] = useControlledState({
 		defaultName: 'defaultValue',
 		defaultValue,
 		handleName: 'onChange',
@@ -78,7 +89,7 @@ const ClayDropDownSearch = ({
 		>
 			<div className="dropdown-section">
 				<ClayInput.Group small>
-					<ClayInput.GroupItem>
+					<ClayInput.GroupItem className="input-group-item-focusable">
 						<ClayInput
 							{...otherProps}
 							insetAfter
@@ -90,9 +101,9 @@ const ClayDropDownSearch = ({
 
 						<ClayInput.GroupInsetItem after tag="span">
 							<ClayButton
+								{...submitProps}
 								displayType="unstyled"
 								tabIndex={!tabFocus ? -1 : undefined}
-								type="button"
 							>
 								<ClayIcon
 									spritemap={spritemap}

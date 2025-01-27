@@ -225,3 +225,112 @@ export const CustomGroup = () => {
 		</div>
 	);
 };
+
+export const Width = () => {
+	const pickerId = useId();
+	const labelId = useId();
+
+	return (
+		<div style={{display: 'flex'}}>
+			<div style={{marginRight: '50px', width: '250px'}}>
+				<Form.Group>
+					<label htmlFor={pickerId} id={labelId}>
+						Choose a fruit
+					</label>
+					<Picker
+						aria-labelledby={labelId}
+						defaultActive
+						id={pickerId}
+					>
+						<Option key="apple">Apple</Option>
+						<Option disabled key="banana">
+							Banana
+						</Option>
+						<Option key="mangos">Mangos</Option>
+						<Option key="blueberry">Blueberry</Option>
+						<Option key="boysenberry">Boysenberry</Option>
+						<Option key="cherry">Cherry</Option>
+						<Option key="cranberry">Cranberry</Option>
+						<Option key="eggplant">Eggplant</Option>
+						<Option key="fig">Fig</Option>
+						<Option key="grape">Grape</Option>
+						<Option key="guava">Guava</Option>
+						<Option key="huckleberry">Huckleberry</Option>
+					</Picker>
+				</Form.Group>
+			</div>
+
+			<div style={{marginRight: '80px', width: '100px'}}>
+				<Form.Group>
+					<label htmlFor={pickerId} id={labelId}>
+						Choose a fruit
+					</label>
+					<Picker
+						aria-labelledby={labelId}
+						defaultActive
+						id={pickerId}
+						placeholder="Fruit"
+					>
+						<Option key="apple">Apple</Option>
+						<Option disabled key="banana">
+							Banana
+						</Option>
+						<Option key="mangos">Mangos</Option>
+						<Option key="blueberry">Blueberry</Option>
+						<Option key="boysenberry">Boysenberry</Option>
+						<Option key="cherry">Cherry</Option>
+						<Option key="cranberry">Cranberry</Option>
+						<Option key="eggplant">Eggplant</Option>
+						<Option key="fig">Fig</Option>
+						<Option key="grape">Grape</Option>
+						<Option key="guava">Guava</Option>
+						<Option key="huckleberry">Huckleberry</Option>
+					</Picker>
+				</Form.Group>
+			</div>
+
+			<div style={{marginRight: '50px', width: '100px'}}>
+				<Form.Group>
+					<label htmlFor={pickerId} id={labelId}>
+						Year
+					</label>
+					<Picker
+						aria-labelledby={labelId}
+						defaultActive
+						id={pickerId}
+						placeholder="Year"
+						width={85}
+					>
+						<Option key="2020">2020</Option>
+						<Option key="2021">2021</Option>
+						<Option key="2022">2022</Option>
+						<Option key="2023">2023</Option>
+						<Option key="2024">2024</Option>
+					</Picker>
+				</Form.Group>
+			</div>
+
+			<div style={{marginRight: '50px', width: '100px'}}>
+				<Form.Group>
+					<label htmlFor={pickerId} id={labelId}>
+						Long Option Year
+					</label>
+					<Picker
+						aria-labelledby={labelId}
+						defaultActive
+						id={pickerId}
+						placeholder="Year"
+					>
+						<Option key="2020">
+							2020 was really a looooooooong year
+						</Option>
+						<Option key="2021">2021</Option>
+						<Option key="2022">2022</Option>
+						<Option key="2023">2023</Option>
+						<Option key="2024">2024</Option>
+					</Picker>
+				</Form.Group>
+			</div>
+		</div>
+	);
+};

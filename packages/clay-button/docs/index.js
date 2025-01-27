@@ -12,23 +12,20 @@ const buttonDisplayTypesImportsCode = `import ClayButton from '@clayui/button';`
 
 const ButtonDisplayTypesCode = `const Component = () => {
 	return (
-		<>
+		<ClayButton.Group spaced>
 			<ClayButton displayType="primary">
 				Button Primary
 			</ClayButton>
 			<ClayButton displayType="secondary">
 				Button Secondary
 			</ClayButton>
-			<ClayButton displayType={null}>
-				Base Button
-			</ClayButton>
 			<ClayButton displayType="link">
 				Button Link
 			</ClayButton>
-			<ClayButton displayType="unstyled">
-				Button Unstyled
+			<ClayButton borderless>
+				Button Borderless
 			</ClayButton>
-		</>
+		</ClayButton.Group>
 	);
 }
 
@@ -52,8 +49,8 @@ const ButtonJSPCode = `<clay:button
 />
 
 <clay:button
-	displayType="unstyled"
-	label="Button Unstyled"
+	displayType="outline-borderless"
+	label="Button Borderless"
 />`;
 
 const ButtonDisplayTypes = () => {
@@ -80,7 +77,7 @@ const buttonGroupImportsCode = `import ClayButton from '@clayui/button';`;
 
 const ButtonGroupCode = `const Component = () => {
 	return (
-        <ClayButton.Group>
+		<ClayButton.Group>
 			<ClayButton>{'This'}</ClayButton>
 			<ClayButton displayType="secondary">{'is'}</ClayButton>
 			<ClayButton>{'a'}</ClayButton>

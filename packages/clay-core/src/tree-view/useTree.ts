@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-import {useInternalState} from '@clayui/shared';
+import {useControlledState} from '@clayui/shared';
 import React, {useCallback, useEffect, useRef} from 'react';
 
 import {Layout, useLayout} from './useLayout';
@@ -16,6 +16,8 @@ import {
 import type {Key} from 'react';
 
 import type {ICollectionProps} from './Collection';
+import type {Position} from './DragAndDrop';
+import type {Cursor} from './useLayout';
 
 export interface IExpandable {
 	/**
@@ -36,14 +38,14 @@ export interface IExpandable {
 	/**
 	 * Flag to indicate the hydration phase to expand the selected items. When
 	 * `selectionMode` is `multiple-recursive` it also revalidates the
-	 * intermediate state of the items.
+	 * indeterminate state of the items.
 	 *
 	 * It supports two rendering phases, render-first and hydrate after or
 	 * hydrate before rendering, both have trade-offs that depend on the number
 	 * of items being rendered.
 	 *
 	 * Both cases traverse the tree looking for the selected items to know which
-	 * items should be expanded and which should be in the intermediate state,
+	 * items should be expanded and which should be in the indeterminate state,
 	 * this is done only the first time the component is rendered and if it has
 	 * selected items. This operation can degrade the performance of the
 	 * component depending on the number of items, choose the best option for
@@ -60,7 +62,7 @@ export interface IExpandable {
 	selectionHydrationMode?: 'render-first' | 'hydrate-first';
 }
 
-export interface ITreeProps<T>
+export interface ITreeProps<T extends Record<string, any>>
 	extends IExpandable,
 		IMultipleSelection,
 		Pick<ICollectionProps<T>, 'items' | 'defaultItems'> {
@@ -76,7 +78,8 @@ export interface ITreeProps<T>
 	selectionMode?: 'single' | 'multiple' | 'multiple-recursive' | null;
 }
 
-export interface ITreeState<T> extends Pick<ICollectionProps<T>, 'items'> {
+export interface ITreeState<T extends Record<string, any>>
+	extends Pick<ICollectionProps<T>, 'items'> {
 	close: (key: Key) => boolean;
 	cursors: React.MutableRefObject<Map<React.Key, unknown>>;
 	expandedKeys: Set<Key>;
@@ -84,14 +87,16 @@ export interface ITreeState<T> extends Pick<ICollectionProps<T>, 'items'> {
 	layout: Layout;
 	open: (key: Key) => boolean;
 	remove: (path: Array<number>) => void;
-	reorder: (from: Array<number>, path: Array<number>) => void;
+	reorder: (from: Cursor, path: Cursor, op: Position) => void;
 	replace: (path: Array<number>, item: T) => void;
 	selection: IMultipleSelectionState;
 	toggle: (key: Key) => void;
 }
 
-export function useTree<T>(props: ITreeProps<T>): ITreeState<T> {
-	const [items, setItems] = useInternalState({
+export function useTree<T extends Record<string, any>>(
+	props: ITreeProps<T>
+): ITreeState<T> {
+	const [items, setItems] = useControlledState({
 		defaultName: 'defaultItems',
 		defaultValue: props.defaultItems ?? [],
 		handleName: 'onItemsChange',
@@ -106,6 +111,7 @@ export function useTree<T>(props: ITreeProps<T>): ITreeState<T> {
 
 	const selection = useMultipleSelection<T>({
 		defaultSelectedKeys: props.defaultSelectedKeys,
+		indeterminate: props.indeterminate,
 		items,
 		layoutKeys: layout.layoutKeys,
 		nestedKey: props.nestedKey,
@@ -114,11 +120,12 @@ export function useTree<T>(props: ITreeProps<T>): ITreeState<T> {
 		selectionMode: props.selectionMode,
 	});
 
-	const [expandedKeys, setExpandedKeys] = useInternalState<Set<Key>>({
+	const [expandedKeys, setExpandedKeys] = useControlledState<Set<Key>>({
 		defaultName: 'defaultExpandedKeys',
 		defaultValue: () => {
 			const {
 				defaultExpandedKeys,
+				indeterminate,
 				nestedKey,
 				selectionHydrationMode,
 				selectionMode,
@@ -139,8 +146,8 @@ export function useTree<T>(props: ITreeProps<T>): ITreeState<T> {
 					selection.selectedKeys
 				);
 
-				if (selectionMode === 'multiple-recursive') {
-					selection.replaceIntermediateKeys(
+				if (selectionMode === 'multiple-recursive' && indeterminate) {
+					selection.replaceIndeterminateKeys(
 						expand.filter((key) => !selection.selectedKeys.has(key))
 					);
 				}
@@ -163,6 +170,7 @@ export function useTree<T>(props: ITreeProps<T>): ITreeState<T> {
 	useEffect(() => {
 		const {
 			defaultExpandedKeys,
+			indeterminate,
 			nestedKey,
 			selectionHydrationMode,
 			selectionMode,
@@ -183,8 +191,8 @@ export function useTree<T>(props: ITreeProps<T>): ITreeState<T> {
 				selection.selectedKeys
 			);
 
-			if (selectionMode === 'multiple-recursive') {
-				selection.replaceIntermediateKeys(
+			if (selectionMode === 'multiple-recursive' && indeterminate) {
+				selection.replaceIndeterminateKeys(
 					expand.filter((key) => !selection.selectedKeys.has(key))
 				);
 			}
@@ -239,10 +247,10 @@ export function useTree<T>(props: ITreeProps<T>): ITreeState<T> {
 	);
 
 	const reorder = useCallback(
-		(from: Array<number>, path: Array<number>) => {
+		(from: Cursor, path: Cursor, direction: Position) => {
 			const tree = createImmutableTree(items, props.nestedKey!);
 
-			tree.produce({from, op: 'move', path});
+			tree.produce({direction, from, op: 'move', path});
 
 			setItems(tree.applyPatches());
 		},
@@ -374,8 +382,9 @@ function visit<T extends Array<Record<string, any>>>(
 // RFC 6902 (JSON Patch) 4.4
 type PatchMove = {
 	op: 'move';
-	from: Array<number>;
-	path: Array<number>;
+	from: Cursor;
+	path: Cursor;
+	direction: Position;
 };
 
 // Operation of `add` value to the document structure.
@@ -419,17 +428,56 @@ export function createImmutableTree<T extends Array<Record<string, any>>>(
 		return [...tree.slice(0, index), item, ...tree.slice(index + 1)] as T;
 	}
 
+	function nodeByCursor(cursor: Cursor) {
+		const queue = [...cursor];
+
+		const rootId = queue.shift() as React.Key;
+
+		let parent = null;
+		let id = rootId;
+		let index = immutableTree.findIndex((item) => item['_key'] === id);
+		let item = {...immutableTree[index]};
+
+		immutableTree = pointer(immutableTree, index, item);
+
+		while (queue.length) {
+			id = queue.shift() as React.Key;
+
+			if (Array.isArray(item[nestedKey]) && item[nestedKey].length) {
+				index = item[nestedKey].findIndex(
+					(item: any) => item['_key'] === id
+				);
+
+				// The Index may still not exist after it's fixed because the
+				// index is to move the item below the last item.
+				if (item[nestedKey][index]) {
+					parent = item;
+					item = {...item[nestedKey][index]};
+
+					parent[nestedKey] = pointer(parent[nestedKey], index, item);
+
+					continue;
+				}
+			}
+
+			if (!item[nestedKey]) {
+				item[nestedKey] = [];
+			}
+
+			parent = item;
+		}
+
+		return {
+			index,
+			item,
+			parent,
+		};
+	}
+
 	function nodeByPath(path: Array<number>) {
 		const queue = [...path];
 
-		let rootIndex: number = queue.shift() as number;
-
-		// In an operation of moving an item from the root, it affects the indexes
-		// by having to delete first and then add. This is the same behavior
-		// as below.
-		if (!immutableTree[rootIndex]) {
-			rootIndex -= 1;
-		}
+		const rootIndex = queue.shift() as number;
 
 		let item = {...immutableTree[rootIndex]};
 		let parent = null;
@@ -514,39 +562,37 @@ export function createImmutableTree<T extends Array<Record<string, any>>>(
 				// immediately followed by the "add" operation at the target
 				// location with the value that was removed.
 				case 'move': {
-					const {from, path} = patch;
+					const {direction, from, path} = patch;
 
-					const nodeToRemove = nodeByPath(from);
+					const nodeToRemove = nodeByCursor(from);
 
 					if (nodeToRemove.parent) {
 						nodeToRemove.parent[nestedKey] = nodeToRemove.parent[
 							nestedKey
 						].filter(
-							(_item: any, index: number) =>
-								index !== nodeToRemove.index
+							(item: any) =>
+								item['_key'] !== nodeToRemove.item['_key']
 						);
 					} else {
 						immutableTree = immutableTree.filter(
-							(_item: any, index: number) =>
-								index !== nodeToRemove.index
+							(item: any) =>
+								item['_key'] !== nodeToRemove.item['_key']
 						) as T;
 					}
 
-					const pathToAdd = nodeByPath(path);
+					const pathToAdd = nodeByCursor(path);
 
-					// It has the same parent the index can change
-					const isSameParent =
-						[...from].slice(0, -1).join('') ===
-						[...path].slice(0, -1).join('');
+					let index = pathToAdd.index;
 
-					let index = path[path.length - 1];
+					if (direction === 'bottom') {
+						index += 1;
+					} else if (direction === 'middle') {
+						index = 0;
+						pathToAdd.parent = pathToAdd.item;
 
-					// If moving an item within the same parent and the drop position of
-					// the item is greater than the origin it affects the position
-					// because the item is always removed first, we just fix the position
-					// by decreasing.
-					if (isSameParent && nodeToRemove.index < pathToAdd.index) {
-						index -= 1;
+						if (!pathToAdd.parent[nestedKey]) {
+							pathToAdd.parent[nestedKey] = [];
+						}
 					}
 
 					if (pathToAdd.parent) {

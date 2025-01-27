@@ -8,6 +8,7 @@ packageNpm: '@clayui/empty-state'
 import {
 	EmptyState,
 	EmptyStateWithImage,
+	EmptyStateReducedMotionWithImage,
 } from '$packages/clay-empty-state/docs/index';
 
 <div class="nav-toc-absolute">
@@ -15,6 +16,7 @@ import {
 
 -   [Without Animation](#without-animation)
 -   [With Animation](#with-animation)
+-   [Reduced Motion](#reduced-motion)
 
 </div>
 </div>
@@ -31,3 +33,18 @@ Even without an animation you can still pass in `children` to the component as s
 Adding an image to the component is easy, just point the `imgSrc` to the image you want to use
 
 <EmptyStateWithImage />
+
+## Reduced Motion
+
+The CSS class `c-prefers-reduced-motion` forces the unanimated image to display. It bypasses the system's reduced motion setting. You can add this class on the `body` tag or a specific component's parent container to disable all animations and transitions.
+
+The property `imgSrcReducedMotion` is used to provide an alternate image if a user has requested to minimize the amount of non-essential motion to use via the class `c-prefers-reduced-motion` or the operating system.
+
+There is an accompanying property, `imgPropsReducedMotion`, where specific properties can be passed to the reduced motion `img` tag. If it is not defined, it uses the properties defined in `imgProps`.
+
+<div class="clay-site-alert alert alert-info">
+	To see the system's reduce motion setting in action, refer to the example in
+	the <a href="#with-animation">With Animation</a> section.
+</div>
+
+<EmptyStateReducedMotionWithImage />

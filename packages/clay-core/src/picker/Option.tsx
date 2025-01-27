@@ -58,6 +58,17 @@ type Props = {
 	keyValue?: React.Key;
 
 	/**
+	 * Internal property.
+	 * @ignore
+	 */
+	index?: number;
+
+	/**
+	 * Path or URL
+	 */
+	href?: string;
+
+	/**
 	 * Sets a text value if the component's content is not plain text. This value
 	 * is used in the combobox element to show the selected option.
 	 */
@@ -72,8 +83,11 @@ export function Option({
 	'aria-setsize': ariaSetSize,
 	children,
 	disabled,
+	href,
+	index: _index,
 	keyValue,
 	textValue,
+	...otherProps
 }: Props) {
 	const {
 		activeDescendant,
@@ -87,10 +101,7 @@ export function Option({
 
 	const hoverProps = useHover({
 		disabled,
-		onHover: useCallback(
-			() => onActiveDescendant(String(keyValue)),
-			[keyValue]
-		),
+		onHover: useCallback(() => onActiveDescendant(keyValue!), [keyValue]),
 	});
 
 	const isFocus = isFocusVisible();
@@ -98,6 +109,7 @@ export function Option({
 	if (isMobile) {
 		return (
 			<option
+				{...otherProps}
 				aria-describedby={ariaDescribedby}
 				disabled={disabled}
 				value={keyValue}
@@ -107,10 +119,14 @@ export function Option({
 		);
 	}
 
+	const As = href ? 'a' : 'button';
+
 	return (
 		<li role="presentation">
-			<button
+			<As
+				{...otherProps}
 				{...hoverProps}
+				{...(href ? {href} : {})}
 				aria-describedby={ariaDescribedby}
 				aria-label={ariaLabel}
 				aria-labelledby={ariaLabelledby}
@@ -119,8 +135,8 @@ export function Option({
 				aria-setsize={ariaSetSize}
 				className={classNames('dropdown-item', {
 					active: selectedKey === keyValue,
-					focus: activeDescendant === String(keyValue) && isFocus,
-					hover: activeDescendant === String(keyValue) && !isFocus,
+					focus: activeDescendant === keyValue && isFocus,
+					hover: activeDescendant === keyValue && !isFocus,
 				})}
 				disabled={disabled}
 				id={String(keyValue)}
@@ -135,7 +151,7 @@ export function Option({
 				)}
 
 				{children}
-			</button>
+			</As>
 		</li>
 	);
 }

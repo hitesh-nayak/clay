@@ -12,53 +12,40 @@ export default {
 	title: 'Design System/Components/MultiStepNav',
 };
 
-export const Default = () => {
+export const Default = (args: any) => {
 	const [value, setValue] = useState<number>(1);
 
 	const steps = [
 		{
-			active: value === 0,
-			complete: value > 0,
-			onClick: () => setValue(0),
-			subTitle: 'SubOne',
-			title: 'One',
+			subTitle: 'Step 01',
+			title: 'Ticket Buyer Information',
 		},
 		{
-			active: value === 1,
-			complete: value > 1,
-			onClick: () => setValue(1),
-			subTitle: 'SubTwo',
-			title: 'Two',
+			subTitle: 'Step 02',
+			title: 'Attendee Information',
 		},
 		{
-			active: value === 2,
-			complete: value > 2,
-			onClick: () => setValue(2),
-			subTitle: 'SubThree',
-			title: 'Three',
+			subTitle: 'Step 03',
+			title: 'Payment Information',
 		},
 		{
-			active: value === 3,
-			complete: value > 3,
-			onClick: () => setValue(3),
-			subTitle: 'SubFour',
-			title: 'Four',
+			subTitle: 'Step 04',
+			title: 'Completed',
 		},
 	];
 
 	return (
 		<div className="sheet">
-			<ClayMultiStepNav>
-				{steps.map(
-					(
-						{active, complete, onClick, subTitle, title},
-						i: number
-					) => (
+			<ClayMultiStepNav center={args.center}>
+				{steps.map(({subTitle, title}, i: number) => {
+					const complete = value > i;
+
+					return (
 						<ClayMultiStepNav.Item
-							active={active}
-							complete={complete}
+							active={value === i}
 							expand={i + 1 !== steps.length}
 							key={i}
+							state={complete ? 'complete' : undefined}
 						>
 							<ClayMultiStepNav.Title>
 								{title}
@@ -67,15 +54,19 @@ export const Default = () => {
 							<ClayMultiStepNav.Indicator
 								complete={complete}
 								label={1 + i}
-								onClick={onClick}
+								onClick={() => setValue(i)}
 								subTitle={subTitle}
 							/>
 						</ClayMultiStepNav.Item>
-					)
-				)}
+					);
+				})}
 			</ClayMultiStepNav>
 		</div>
 	);
+};
+
+Default.args = {
+	center: false,
 };
 
 export const MultiStepNavWithBasicItems = (args: any) => {
@@ -130,4 +121,31 @@ export const MultiStepNavWithBasicItems = (args: any) => {
 
 MultiStepNavWithBasicItems.args = {
 	maxStepsShown: 7,
+};
+
+export const Error = () => {
+	const steps = [
+		{
+			title: 'Basic Information',
+		},
+		{
+			title: 'Segment',
+		},
+		{
+			title: 'Goals',
+		},
+		{
+			title: 'Review and Save',
+		},
+	];
+
+	return (
+		<div className="sheet">
+			<ClayMultiStepNavWithBasicItems
+				defaultActive={2}
+				state="error"
+				steps={steps}
+			/>
+		</div>
+	);
 };

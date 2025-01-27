@@ -3,6 +3,116 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.119.0](https://github.com/liferay/clay/compare/v3.118.0...v3.119.0) (2024-08-30)
+
+**Note:** Version bump only for package @clayui/popover
+
+## [3.116.1](https://github.com/liferay/clay/compare/v3.116.0...v3.116.1) (2024-06-27)
+
+### Bug Fixes
+
+-   **@clayui/popover:** LPD-15615 Add focus on popover when disableScroll is enabled ([47bb642](https://github.com/liferay/clay/commit/47bb642449e9bd41c072359ef45bab53867642fe))
+-   **@clayui/popover:** LPD-15615 Update snapshot ([cd5ebda](https://github.com/liferay/clay/commit/cd5ebdaed1aa8386b606bb44e0384b790c6c907f))
+
+# [3.116.0](https://github.com/liferay/clay/compare/v3.115.2...v3.116.0) (2024-06-10)
+
+**Note:** Version bump only for package @clayui/popover
+
+# [3.115.0](https://github.com/liferay/clay/compare/v3.114.0...v3.115.0) (2024-05-16)
+
+**Note:** Version bump only for package @clayui/popover
+
+# [3.113.0](https://github.com/liferay/clay/compare/v3.112.0...v3.113.0) (2024-03-28)
+
+**Note:** Version bump only for package @clayui/popover
+
+# [3.111.0](https://github.com/liferay/clay/compare/v3.110.0...v3.111.0) (2024-02-15)
+
+**Note:** Version bump only for package @clayui/popover
+
+# [3.109.0](https://github.com/liferay/clay/compare/v3.108.0...v3.109.0) (2024-01-22)
+
+**Note:** Version bump only for package @clayui/popover
+
+# [3.107.0](https://github.com/liferay/clay/compare/v3.106.1...v3.107.0) (2023-11-27)
+
+**Note:** Version bump only for package @clayui/popover
+
+## [3.106.1](https://github.com/liferay/clay/compare/v3.106.0...v3.106.1) (2023-10-26)
+
+**Note:** Version bump only for package @clayui/popover
+
+# [3.106.0](https://github.com/liferay/clay/compare/v3.105.0...v3.106.0) (2023-10-25)
+
+### Bug Fixes
+
+-   remove 'src' dir from being packaged with npm ([9383e8d](https://github.com/liferay/clay/commit/9383e8d8abb25ca3396e7c6e4dfa53bbc72691c5))
+-   use package's directory for baseDir when generating type ([0a5c710](https://github.com/liferay/clay/commit/0a5c710092f36243bc8d5487f70e831295715072))
+
+# [3.104.0](https://github.com/liferay/clay/compare/v3.103.1...v3.104.0) (2023-08-25)
+
+**Note:** Version bump only for package @clayui/popover
+
+## [3.103.1](https://github.com/liferay/clay/compare/v3.103.0...v3.103.1) (2023-08-15)
+
+**Note:** Version bump only for package @clayui/popover
+
+# [3.101.0](https://github.com/liferay/clay/compare/v3.100.0...v3.101.0) (2023-07-28)
+
+**Note:** Version bump only for package @clayui/popover
+
+# [3.100.0](https://github.com/liferay/clay/compare/v3.99.4...v3.100.0) (2023-07-13)
+
+**Note:** Version bump only for package @clayui/popover
+
+# [3.96.0](https://github.com/liferay/clay/compare/v3.95.2...v3.96.0) (2023-05-29)
+
+**Note:** Version bump only for package @clayui/popover
+
+## [3.95.2](https://github.com/liferay/clay/compare/v3.95.0...v3.95.2) (2023-05-17)
+
+**Note:** Version bump only for package @clayui/popover
+
+# [3.95.0](https://github.com/liferay/clay/compare/v3.94.0...v3.95.0) (2023-05-15)
+
+**Note:** Version bump only for package @clayui/popover
+
+# [3.94.0](https://github.com/liferay/clay/compare/v3.93.0...v3.94.0) (2023-05-03)
+
+**Note:** Version bump only for package @clayui/popover
+
+# [3.93.0](https://github.com/liferay/clay/compare/v3.92.0...v3.93.0) (2023-04-19)
+
+**Note:** Version bump only for package @clayui/popover
+
+# [3.92.0](https://github.com/liferay/clay/compare/v3.91.0...v3.92.0) (2023-04-06)
+
+**Note:** Version bump only for package @clayui/popover
+
+# [3.89.0](https://github.com/liferay/clay/compare/v3.88.0...v3.89.0) (2023-03-01)
+
+**Note:** Version bump only for package @clayui/popover
+
+# [3.88.0](https://github.com/liferay/clay/compare/v3.87.2...v3.88.0) (2023-02-14)
+
+**Note:** Version bump only for package @clayui/popover
+
+# [3.87.0](https://github.com/liferay/clay/compare/v3.86.1...v3.87.0) (2023-02-08)
+
+**Note:** Version bump only for package @clayui/popover
+
+## [3.86.1](https://github.com/liferay/clay/compare/v3.86.0...v3.86.1) (2023-02-02)
+
+**Note:** Version bump only for package @clayui/popover
+
+# [3.86.0](https://github.com/liferay/clay/compare/v3.85.0...v3.86.0) (2023-01-31)
+
+**Note:** Version bump only for package @clayui/popover
+
+# [3.85.0](https://github.com/liferay/clay/compare/v3.84.0...v3.85.0) (2023-01-23)
+
+**Note:** Version bump only for package @clayui/popover
+
 ## [3.83.1](https://github.com/liferay/clay/compare/v3.83.0...v3.83.1) (2022-12-20)
 
 **Note:** Version bump only for package @clayui/popover

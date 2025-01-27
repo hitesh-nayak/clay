@@ -8,6 +8,13 @@
 @import '_lx-icons-generated.scss';
 @import '_type-conversion-functions.scss';
 
+/// A function that checks if the value contains the key word `c-unset` or `clay-unset`
+/// @param {Any} $value The value to check
+
+@function clay-is-map-unset($value) {
+	@return if(($value == c-unset) or ($value == clay-unset), true, false);
+}
+
 /// A helper function that calculates text-indent of data-label-on and data-label-off in a `.toggle-switch`.
 /// @param {Number} $toggle-switch-width - Width of switch bar
 /// @param {Number} $toggle-switch-padding - Space between button and bar
@@ -26,11 +33,36 @@
 	@return $toggle-switch-width + $label-spacer-x;
 }
 
+/// A function that combines two maps. It adds new key value pairs to the end of the map.
+
+@function clay-map-merge($map1, $map2) {
+	@if (length($map2) < 1) {
+		@return $map1;
+	}
+
+	@each $key, $value in $map1 {
+		@if not(map-has-key($map2, $key)) {
+			$map2: map-merge(
+				$map2,
+				(
+					$key: $value,
+				)
+			);
+		}
+	}
+
+	@return $map2;
+}
+
 /// A function that returns a new map with all the keys and values including nested keys and values from both `$map1` and `$map2`. If both `$map1` and `$map2` have the same key, `$map2`’s value takes precedence. The key value pair `merge: false,` will skip merging maps. This allows component properties to be reset to a blank state.
 /// @param {Map, Null} $map1[()]
 /// @param {Map, Null} $map2[()]
 
 @function map-deep-merge($map1: (), $map2: ()) {
+	// @if ($map1 == c-unset or $map2 == c-unset) or ($map1 == clay-unset or $map2 == clay-unset) {
+	// 	@return null;
+	// }
+
 	@if (type-of($map1) == 'list' and length($map1) == 0) or
 		(type-of($map1) == 'null')
 	{
@@ -119,17 +151,36 @@
 	@return nth($selector-list, length($selector-list));
 }
 
-/// A function that inserts a CSS selector at a specific place (e.g., clay-insert-at('.container', '#content ', '#wrapper .container .row')) will return `#wrapper #content .container .row`.
+/// A function that appends to a specific place in a CSS selector (e.g., clay-insert-after('.container ', '.myselector ', '.container .row .col-md-12')) will return `.container .myselector .row .col-md-12`.
+/// @param {String} $location - The string to target
+/// @param {String} $insert - The string to insert after the location
+/// @param {String} $selector - The full selector
+
+@function clay-insert-after($location, $insert, $selector: &) {
+	@return clay-str-replace(
+		'#{$selector}',
+		'#{$location}',
+		'#{$location}#{$insert}'
+	);
+}
+
+/// A function that prepends to a specific place in a CSS selector (e.g., clay-insert-before('.container ', '.myselector ', '.container .row .col-md-12')) will return `.myselector .container .row .col-md-12`.
 /// @param {String} $location - The string to target
 /// @param {String} $insert - The string to insert before the location
 /// @param {String} $selector - The full selector
 
 @function clay-insert-before($location, $insert, $selector: &) {
-	@return clay-str-replace(
-		'#{$selector}',
+	$newSelector: clay-str-replace(
+		'#{&}',
 		'#{$location}',
 		'#{$insert}#{$location}'
 	);
+
+	@if ($selector == '&:focus') {
+		@return '#{$newSelector}:focus';
+	}
+
+	@return $newSelector;
 }
 
 /// A helper function for displaying warning messages for required variables.

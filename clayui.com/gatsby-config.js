@@ -6,6 +6,10 @@
 const clay = require('@clayui/css');
 const path = require('path');
 
+require('dotenv').config({
+	path: `.env.${process.env.NODE_ENV}`,
+});
+
 module.exports = {
 	mapping: {
 		'MarkdownRemark.frontmatter.author': 'AuthorYaml',
@@ -51,6 +55,13 @@ module.exports = {
 				path: path.join(__dirname, '../packages'),
 			},
 			resolve: 'gatsby-source-filesystem',
+		},
+		{
+			options: {
+				host: process.env.LIFERAY_HOST,
+				siteId: process.env.LIFERAY_SITE_ID,
+			},
+			resolve: 'gatsby-source-liferay',
 		},
 		{
 			options: {

@@ -3,6 +3,8 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
+import type {Virtualizer} from '@tanstack/react-virtual';
+
 type ChildType = {
 	displayName?: string;
 	passthroughKey?: boolean;
@@ -18,7 +20,7 @@ export type ChildElement = IReactTypeElement & {
 
 export type ChildrenFunction<T, P> = P extends Array<unknown>
 	? (item: T, ...args: P) => React.ReactElement
-	: (item: T) => React.ReactElement;
+	: (item: T, index?: number) => React.ReactElement;
 
 export interface ICollectionProps<T, P> {
 	/**
@@ -38,12 +40,31 @@ export interface ICollectionProps<T, P> {
 }
 
 export type CollectionState = {
+	UNSAFE_virtualizer?: Virtualizer<HTMLElement, Element>;
 	collection: JSX.Element;
-	getFirstItem: () => {key: string; value: string};
-	getItem: (key: React.Key) => string;
+	getFirstItem: () => {key: React.Key; value: string; index: number};
+	getItem: (key: React.Key) => {value: string; index: number};
+	getItems: () => Array<React.Key>;
+	getSize: () => number;
+	getLastItem: () => {key: React.Key; value: string; index: number};
+	hasItem: (key: React.Key) => boolean;
+	size?: number;
+	virtualize: boolean;
 };
 
 export type Props<P, K> = {
+	/**
+	 * Flag to enable all nested collections to share the same data.
+	 */
+	connectNested?: boolean;
+
+	/**
+	 * Flag to render only the defined elements but does not affect the layout
+	 * registration, for example when getting all the items in the collection it
+	 * will still be there.
+	 */
+	visibleKeys?: Set<React.Key> | Array<number>;
+
 	/**
 	 * Properties that should be omitted from item data when passed to
 	 * children function.
@@ -83,5 +104,28 @@ export type Props<P, K> = {
 	 */
 	itemContainer?: (props: any) => JSX.Element | null;
 
+	/**
+	 * Renders an element when there is no item matching the list of items.
+	 */
+	notFound?: JSX.Element;
+
+	/**
+	 * Defines which key should be used as the item identifier.
+	 */
+	itemIdKey?: string;
+
+	/**
+	 * Flag to enable force updating the root collection when layout creation
+	 * is done at render time from nested collections instead of assembling
+	 * everything in the root.
+	 *
+	 * NOTE: This can be slow when you have a large list and is not necessary
+	 * when you don't have nested collections or the collections are group
+	 * primitives when the nested items are created in the root.
+	 */
+	forceDeepRootUpdate?: boolean;
+
 	suppressTextValueWarning?: boolean;
+
+	virtualizer?: Virtualizer<HTMLElement, Element>;
 };

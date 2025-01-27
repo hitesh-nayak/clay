@@ -3,6 +3,37 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.111.0](https://github.com/liferay/clay/compare/v3.110.0...v3.111.0) (2024-02-15)
+
+**Note:** Version bump only for package @clayui/alert
+
+## [3.106.1](https://github.com/liferay/clay/compare/v3.106.0...v3.106.1) (2023-10-26)
+
+**Note:** Version bump only for package @clayui/alert
+
+# [3.106.0](https://github.com/liferay/clay/compare/v3.105.0...v3.106.0) (2023-10-25)
+
+### Bug Fixes
+
+-   remove 'src' dir from being packaged with npm ([9383e8d](https://github.com/liferay/clay/commit/9383e8d8abb25ca3396e7c6e4dfa53bbc72691c5))
+-   use package's directory for baseDir when generating type ([0a5c710](https://github.com/liferay/clay/commit/0a5c710092f36243bc8d5487f70e831295715072))
+
+# [3.93.0](https://github.com/liferay/clay/compare/v3.92.0...v3.93.0) (2023-04-19)
+
+**Note:** Version bump only for package @clayui/alert
+
+# [3.92.0](https://github.com/liferay/clay/compare/v3.91.0...v3.92.0) (2023-04-06)
+
+### Bug Fixes
+
+-   **@clayui/alert:** move close button outside of ARIA ([04306bb](https://github.com/liferay/clay/commit/04306bb3fa21adb1c6f457b30ff45ef3777b139c))
+
+# [3.85.0](https://github.com/liferay/clay/compare/v3.84.0...v3.85.0) (2023-01-23)
+
+### Features
+
+-   **@clayui/alert:** Adds a secondary variant and symbol attribute ([b3ebd3e](https://github.com/liferay/clay/commit/b3ebd3ef25a50058a92cd823ab3d467535dcc146))
+
 # [3.82.0](https://github.com/liferay/clay/compare/v3.81.0...v3.82.0) (2022-12-07)
 
 ### Features

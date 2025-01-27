@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-import {InternalDispatch, useId, useInternalState} from '@clayui/shared';
+import {InternalDispatch, useControlledState, useId} from '@clayui/shared';
 import React from 'react';
 
 import Content from './Content';
@@ -35,6 +35,7 @@ export interface IProps extends React.HTMLAttributes<HTMLUListElement> {
 
 	/**
 	 * Determines how tab is displayed.
+	 * @deprecated since v3.89.0 with no replacement.
 	 */
 	displayType?: DisplayType;
 
@@ -51,6 +52,7 @@ export interface IProps extends React.HTMLAttributes<HTMLUListElement> {
 
 	/**
 	 * Applies a modern style to the tab.
+	 * @deprecated since v3.89.0 with no replacement.
 	 */
 	modern?: boolean;
 
@@ -78,11 +80,11 @@ function ClayTabs({
 	displayType,
 	fade = false,
 	justified,
-	modern = true,
+	modern = false,
 	onActiveChange,
 	...otherProps
 }: IProps) {
-	const [active, setActive] = useInternalState({
+	const [active, setActive, isUncontrolled] = useControlledState({
 		defaultName: 'defaultActive',
 		defaultValue: defaultActive,
 		handleName: 'onActiveChange',
@@ -106,6 +108,7 @@ function ClayTabs({
 					justified,
 					modern,
 					onActiveChange: setActive,
+					shouldUseActive: isUncontrolled,
 					tabsId,
 				})}
 

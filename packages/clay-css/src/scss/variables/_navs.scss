@@ -11,12 +11,14 @@ $nav-link-disabled-cursor: $disabled-cursor !default;
 $nav-link: () !default;
 $nav-link: map-deep-merge(
 	(
+		cursor: pointer,
 		display: block,
 		padding-bottom: $nav-link-padding-y,
 		padding-left: $nav-link-padding-x,
 		padding-right: $nav-link-padding-x,
 		padding-top: $nav-link-padding-y,
 		position: relative,
+		user-select: none,
 		hover: (
 			text-decoration: none,
 		),
@@ -346,9 +348,14 @@ $nav-unstyled: map-deep-merge(
 	$nav-unstyled
 );
 
-// Nav Nested
+// Nav Nested Margins
 
 $nav-nested-margins-spacer-x: $nav-link-padding-x !default;
+
+// Nav Nested
+
+$nav-nested-nav-class: '.nav' !default;
+$nav-nested-nest-level: 7 !default;
 $nav-nested-spacer-x: $nav-link-padding-x !default;
 
 // Nav Tabs
@@ -367,7 +374,7 @@ $nav-tabs-link-padding-y: null !default;
 
 $nav-tabs-link-hover-border-color: $gray-200 $gray-200 $nav-tabs-border-color !default;
 
-$nav-tabs-link-active-bg: $body-bg !default;
+$nav-tabs-link-active-bg: $white !default;
 $nav-tabs-link-active-border-color: $gray-300 $gray-300 $nav-tabs-link-active-bg !default;
 $nav-tabs-link-active-color: $gray-700 !default;
 
@@ -421,6 +428,12 @@ $nav-tabs-link: map-deep-merge(
 	$nav-tabs-link
 );
 
+// Nav Tabs Tab Pane
+
+$nav-tabs-tab-pane-bg: null !default;
+$nav-tabs-tab-pane-border-radius: null !default;
+$nav-tabs-tab-pane-padding: null !default;
+
 // .nav-tabs
 
 $nav-tabs: () !default;
@@ -432,15 +445,36 @@ $nav-tabs: map-deep-merge(
 			margin-bottom: math-sign($nav-tabs-border-width),
 		),
 		nav-link: $nav-tabs-link,
+		dropdown-menu: (
+			border-top-left-radius: clay-enable-rounded(0),
+			border-top-right-radius: clay-enable-rounded(0),
+			margin-top: math-sign($nav-tabs-border-width),
+		),
+		tab-content: (
+			tab-pane: (
+				background-color: $nav-tabs-tab-pane-bg,
+				border-radius:
+					clay-enable-rounded($nav-tabs-tab-pane-border-radius),
+				padding: $nav-tabs-tab-pane-padding,
+			),
+		),
 	),
 	$nav-tabs
 );
 
-// Nav Tabs Tab Pane
-
-$nav-tabs-tab-pane-bg: null !default;
-$nav-tabs-tab-pane-border-radius: null !default;
-$nav-tabs-tab-pane-padding: null !default;
+$nav-tabs-light: () !default;
+$nav-tabs-light: map-deep-merge(
+	(
+		background-color: $gray-100,
+		tab-content: (
+			tab-pane: (
+				background-color: transparent,
+				border-radius: clay-enable-rounded(0),
+			),
+		),
+	),
+	$nav-tabs-light
+);
 
 // Nav Pills
 
@@ -456,102 +490,12 @@ $nav-pills-link-active-bg: $component-active-bg !default;
 
 $nav-pills-link-active-color: $component-active-color !default;
 
-// Nav Underline Link Highlight
+// Nav Variants
 
-$nav-underline-link-highlight-content: null !default;
-$nav-underline-link-highlight-height: null !default;
-$nav-underline-link-highlight-bottom: 0 !default;
-$nav-underline-link-highlight-left: $nav-link-padding-x * 0.5 !default;
-$nav-underline-link-highlight-right: $nav-link-padding-x * 0.5 !default;
-$nav-underline-link-highlight-top: null !default;
-
-$nav-underline-link-active-highlight: $component-active-bg !default;
-$nav-underline-link-active-content: '' !default;
-$nav-underline-link-active-highlight-height: 0.1875rem !default;
-
-$nav-underline-link-disabled-highlight: null !default;
-
-// .nav-underline
-
-$nav-underline-font-size: null !default;
-
-$nav-underline-link-highlight-palette: null !default;
-
-$nav-underline-link-color: null !default;
-$nav-underline-link-padding-x: null !default;
-$nav-underline-link-padding-y: null !default;
-
-$nav-underline-link-hover-color: null !default;
-
-$nav-underline-link-active-color: null !default;
-
-$nav-underline-link-disabled-color: null !default;
-
-// .nav-underline .nav-link[aria-expanded='true']
-
-$nav-underline-link-show: () !default;
-$nav-underline-link-show: map-deep-merge(
+$nav-palette: () !default;
+$nav-palette: map-deep-merge(
 	(
-		color: $nav-underline-link-active-color,
-		after: (
-			content: $nav-underline-link-active-content,
-			height: $nav-underline-link-active-highlight-height,
-		),
+		nav-tabs-light: $nav-tabs-light,
 	),
-	$nav-underline-link-show
-);
-
-$nav-underline-link: () !default;
-$nav-underline-link: map-deep-merge(
-	(
-		color: $nav-underline-link-color,
-		padding-bottom: $nav-underline-link-padding-y,
-		padding-left: $nav-underline-link-padding-x,
-		padding-right: $nav-underline-link-padding-x,
-		padding-top: $nav-underline-link-padding-y,
-		after: (
-			bottom: $nav-underline-link-highlight-bottom,
-			content: $nav-underline-link-highlight-content,
-			display: block,
-			height: $nav-underline-link-highlight-height,
-			position: absolute,
-			left: $nav-underline-link-highlight-left,
-			right: $nav-underline-link-highlight-right,
-			top: $nav-underline-link-highlight-top,
-			width: auto,
-		),
-		hover: (
-			color: $nav-underline-link-hover-color,
-		),
-		focus: (
-			color: $nav-underline-link-hover-color,
-		),
-		active-class: (
-			color: $nav-underline-link-active-color,
-			after: (
-				background-color: $nav-underline-link-active-highlight,
-				content: $nav-underline-link-active-content,
-				height: $nav-underline-link-active-highlight-height,
-			),
-		),
-		show: $nav-underline-link-show,
-		disabled: (
-			color: $nav-underline-link-disabled-color,
-			after: (
-				background-color: $nav-underline-link-disabled-highlight,
-			),
-		),
-	),
-	$nav-underline-link
-);
-
-// .nav-underline
-
-$nav-underline: () !default;
-$nav-underline: map-deep-merge(
-	(
-		font-size: $nav-underline-font-size,
-		nav-link: $nav-underline-link,
-	),
-	$nav-underline
+	$nav-palette
 );

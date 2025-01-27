@@ -3,6 +3,238 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.127.0](https://github.com/liferay/clay/compare/v3.126.0...v3.127.0) (2025-01-23)
+
+**Note:** Version bump only for package demos
+
+# [3.125.0](https://github.com/liferay/clay/compare/v3.124.0...v3.125.0) (2025-01-13)
+
+**Note:** Version bump only for package demos
+
+# [3.124.0](https://github.com/liferay/clay/compare/v3.123.1...v3.124.0) (2024-12-18)
+
+**Note:** Version bump only for package demos
+
+## [3.123.1](https://github.com/liferay/clay/compare/v3.123.0...v3.123.1) (2024-11-27)
+
+**Note:** Version bump only for package demos
+
+# [3.123.0](https://github.com/liferay/clay/compare/v3.122.0...v3.123.0) (2024-11-21)
+
+**Note:** Version bump only for package demos
+
+# [3.122.0](https://github.com/liferay/clay/compare/v3.121.0...v3.122.0) (2024-11-13)
+
+**Note:** Version bump only for package demos
+
+# [3.121.0](https://github.com/liferay/clay/compare/v3.120.0...v3.121.0) (2024-10-17)
+
+**Note:** Version bump only for package demos
+
+# [3.120.0](https://github.com/liferay/clay/compare/v3.119.1...v3.120.0) (2024-09-13)
+
+**Note:** Version bump only for package demos
+
+# [3.119.0](https://github.com/liferay/clay/compare/v3.118.0...v3.119.0) (2024-08-30)
+
+**Note:** Version bump only for package demos
+
+# [3.118.0](https://github.com/liferay/clay/compare/v3.117.0...v3.118.0) (2024-08-13)
+
+**Note:** Version bump only for package demos
+
+# [3.117.0](https://github.com/liferay/clay/compare/v3.116.1...v3.117.0) (2024-07-30)
+
+**Note:** Version bump only for package demos
+
+## [3.116.1](https://github.com/liferay/clay/compare/v3.116.0...v3.116.1) (2024-06-27)
+
+**Note:** Version bump only for package demos
+
+# [3.116.0](https://github.com/liferay/clay/compare/v3.115.2...v3.116.0) (2024-06-10)
+
+**Note:** Version bump only for package demos
+
+## [3.115.1](https://github.com/liferay/clay/compare/v3.115.0...v3.115.1) (2024-05-21)
+
+**Note:** Version bump only for package demos
+
+# [3.115.0](https://github.com/liferay/clay/compare/v3.114.0...v3.115.0) (2024-05-16)
+
+**Note:** Version bump only for package demos
+
+# [3.114.0](https://github.com/liferay/clay/compare/v3.113.0...v3.114.0) (2024-04-22)
+
+**Note:** Version bump only for package demos
+
+# [3.113.0](https://github.com/liferay/clay/compare/v3.112.0...v3.113.0) (2024-03-28)
+
+**Note:** Version bump only for package demos
+
+# [3.112.0](https://github.com/liferay/clay/compare/v3.111.1...v3.112.0) (2024-03-11)
+
+**Note:** Version bump only for package demos
+
+## [3.111.1](https://github.com/liferay/clay/compare/v3.111.0...v3.111.1) (2024-02-20)
+
+**Note:** Version bump only for package demos
+
+# [3.111.0](https://github.com/liferay/clay/compare/v3.110.0...v3.111.0) (2024-02-15)
+
+**Note:** Version bump only for package demos
+
+# [3.110.0](https://github.com/liferay/clay/compare/v3.109.0...v3.110.0) (2024-01-25)
+
+**Note:** Version bump only for package demos
+
+# [3.109.0](https://github.com/liferay/clay/compare/v3.108.0...v3.109.0) (2024-01-22)
+
+**Note:** Version bump only for package demos
+
+# [3.108.0](https://github.com/liferay/clay/compare/v3.107.1...v3.108.0) (2023-12-12)
+
+**Note:** Version bump only for package demos
+
+## [3.107.1](https://github.com/liferay/clay/compare/v3.107.0...v3.107.1) (2023-11-27)
+
+**Note:** Version bump only for package demos
+
+# [3.107.0](https://github.com/liferay/clay/compare/v3.106.1...v3.107.0) (2023-11-27)
+
+**Note:** Version bump only for package demos
+
+## [3.106.1](https://github.com/matuzalemsteles/clay/compare/v3.106.0...v3.106.1) (2023-10-26)
+
+**Note:** Version bump only for package demos
+
+# [3.106.0](https://github.com/liferay/clay/compare/v3.105.0...v3.106.0) (2023-10-25)
+
+**Note:** Version bump only for package demos
+
+# [3.105.0](https://github.com/liferay/clay/compare/v3.104.0...v3.105.0) (2023-09-15)
+
+**Note:** Version bump only for package demos
+
+# [3.104.0](https://github.com/liferay/clay/compare/v3.103.1...v3.104.0) (2023-08-25)
+
+**Note:** Version bump only for package demos
+
+## [3.103.1](https://github.com/liferay/clay/compare/v3.103.0...v3.103.1) (2023-08-15)
+
+**Note:** Version bump only for package demos
+
+# [3.102.0](https://github.com/liferay/clay/compare/v3.101.1...v3.102.0) (2023-08-01)
+
+**Note:** Version bump only for package demos
+
+## [3.101.1](https://github.com/liferay/clay/compare/v3.101.0...v3.101.1) (2023-07-28)
+
+**Note:** Version bump only for package demos
+
+# [3.101.0](https://github.com/liferay/clay/compare/v3.100.0...v3.101.0) (2023-07-28)
+
+**Note:** Version bump only for package demos
+
+# [3.100.0](https://github.com/liferay/clay/compare/v3.99.4...v3.100.0) (2023-07-13)
+
+**Note:** Version bump only for package demos
+
+## [3.99.4](https://github.com/liferay/clay/compare/v3.99.3...v3.99.4) (2023-07-10)
+
+**Note:** Version bump only for package demos
+
+## [3.99.3](https://github.com/liferay/clay/compare/v3.99.2...v3.99.3) (2023-07-05)
+
+**Note:** Version bump only for package demos
+
+## [3.99.2](https://github.com/liferay/clay/compare/v3.99.1...v3.99.2) (2023-07-05)
+
+**Note:** Version bump only for package demos
+
+## [3.99.1](https://github.com/liferay/clay/compare/v3.99.0...v3.99.1) (2023-07-04)
+
+**Note:** Version bump only for package demos
+
+# [3.99.0](https://github.com/liferay/clay/compare/v3.98.0...v3.99.0) (2023-06-28)
+
+**Note:** Version bump only for package demos
+
+# [3.98.0](https://github.com/liferay/clay/compare/v3.97.2...v3.98.0) (2023-06-20)
+
+**Note:** Version bump only for package demos
+
+## [3.97.2](https://github.com/liferay/clay/compare/v3.97.1...v3.97.2) (2023-06-16)
+
+**Note:** Version bump only for package demos
+
+## [3.97.1](https://github.com/liferay/clay/compare/v3.97.0...v3.97.1) (2023-06-14)
+
+**Note:** Version bump only for package demos
+
+# [3.97.0](https://github.com/liferay/clay/compare/v3.96.1...v3.97.0) (2023-06-13)
+
+**Note:** Version bump only for package demos
+
+## [3.96.1](https://github.com/liferay/clay/compare/v3.96.0...v3.96.1) (2023-05-31)
+
+**Note:** Version bump only for package demos
+
+# [3.96.0](https://github.com/liferay/clay/compare/v3.95.2...v3.96.0) (2023-05-29)
+
+**Note:** Version bump only for package demos
+
+## [3.95.2](https://github.com/liferay/clay/compare/v3.95.0...v3.95.2) (2023-05-17)
+
+**Note:** Version bump only for package demos
+
+# [3.95.0](https://github.com/liferay/clay/compare/v3.94.0...v3.95.0) (2023-05-15)
+
+**Note:** Version bump only for package demos
+
+# [3.94.0](https://github.com/liferay/clay/compare/v3.93.0...v3.94.0) (2023-05-03)
+
+**Note:** Version bump only for package demos
+
+# [3.93.0](https://github.com/liferay/clay/compare/v3.92.0...v3.93.0) (2023-04-19)
+
+**Note:** Version bump only for package demos
+
+# [3.92.0](https://github.com/liferay/clay/compare/v3.91.0...v3.92.0) (2023-04-06)
+
+**Note:** Version bump only for package demos
+
+# [3.91.0](https://github.com/liferay/clay/compare/v3.90.0...v3.91.0) (2023-03-24)
+
+**Note:** Version bump only for package demos
+
+# [3.90.0](https://github.com/liferay/clay/compare/v3.89.0...v3.90.0) (2023-03-15)
+
+**Note:** Version bump only for package demos
+
+# [3.89.0](https://github.com/liferay/clay/compare/v3.88.0...v3.89.0) (2023-03-01)
+
+**Note:** Version bump only for package demos
+
+# [3.88.0](https://github.com/liferay/clay/compare/v3.87.2...v3.88.0) (2023-02-14)
+
+**Note:** Version bump only for package demos
+
+# [3.87.0](https://github.com/liferay/clay/compare/v3.86.1...v3.87.0) (2023-02-08)
+
+**Note:** Version bump only for package demos
+
+## [3.86.1](https://github.com/liferay/clay/compare/v3.86.0...v3.86.1) (2023-02-02)
+
+**Note:** Version bump only for package demos
+
+# [3.86.0](https://github.com/liferay/clay/compare/v3.85.0...v3.86.0) (2023-01-31)
+
+**Note:** Version bump only for package demos
+
+# [3.85.0](https://github.com/liferay/clay/compare/v3.84.0...v3.85.0) (2023-01-23)
+
+**Note:** Version bump only for package demos
+
 # [3.84.0](https://github.com/liferay/clay/compare/v3.83.1...v3.84.0) (2022-12-23)
 
 **Note:** Version bump only for package demos

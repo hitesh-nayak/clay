@@ -8,13 +8,6 @@
 		color: #6b6c7e;
 	}
 
-	.nav-clay {
-		.nav-item .nav-link.active:after {
-			background-color: $brand-dark;
-			bottom: -1px;
-		}
-	}
-
 	.clay-site-separator {
 		border-color: #e7e7ed;
 		margin-bottom: 4px;
@@ -65,6 +58,10 @@
 			}
 		}
 
+		.navbar .container-fluid {
+			padding: 0;
+		}
+
 		.docs-title {
 			font-weight: 500;
 			margin: 0;
@@ -75,6 +72,23 @@
 			font-size: 22px;
 			font-weight: 400;
 			margin: 0 0 20px;
+		}
+
+		.docs-table {
+			color: #6b6c7e;
+			margin-bottom: 20px;
+			width: auto;
+
+			td,
+			th {
+				border-color: transparent;
+				padding: 0.55rem;
+			}
+
+			th {
+				padding-left: 0;
+				vertical-align: middle;
+			}
 		}
 
 		.docs-description {

@@ -89,6 +89,12 @@
 		);
 	}
 
+	.custom-control-outside {
+		@include clay-custom-control-variant(
+			map-get($cadmin-dropdown-section, custom-control-outside)
+		);
+	}
+
 	&.active {
 		@include clay-css(
 			setter(map-get($cadmin-dropdown-section, active), ())
@@ -170,6 +176,22 @@
 .dropdown-menu.show,
 &.dropdown-menu.show {
 	display: block;
+}
+
+// Dropdown Menu Variants
+
+@each $key, $value in $cadmin-dropdown-menu-palette {
+	@if not clay-is-map-unset($value) {
+		$selector: if(
+			starts-with($key, '.') or starts-with($key, '#'),
+			$key,
+			str-insert($key, '.', 1)
+		);
+
+		#{$selector} {
+			@include clay-dropdown-menu-variant($value);
+		}
+	}
 }
 
 // Dropdown Menu Alignment

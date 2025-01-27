@@ -18,7 +18,7 @@ function arrayMove(
 	oldIndex: number,
 	newIndex: number
 ) {
-	arrayToMove.splice(newIndex, 0, arrayToMove.splice(oldIndex, 1)[0]);
+	arrayToMove.splice(newIndex, 0, arrayToMove.splice(oldIndex, 1)[0]!);
 
 	return arrayToMove;
 }
@@ -27,7 +27,7 @@ function reorderUp(array: Array<TItem>, selectedIndexes: Array<number>) {
 	let clonedArray = [...array];
 
 	for (let i = 0; i < selectedIndexes.length; i++) {
-		const item = selectedIndexes[i];
+		const item = selectedIndexes[i]!;
 
 		if (item === 0) {
 			return clonedArray;
@@ -43,7 +43,7 @@ function reorderDown(array: Array<TItem>, selectedIndexes: Array<number>) {
 	let clonedArray = [...array];
 
 	for (let i = 0; i < selectedIndexes.length; i++) {
-		const item = selectedIndexes[i];
+		const item = selectedIndexes[i]!;
 
 		if (selectedIndexes.includes(clonedArray.length - 1)) {
 			return clonedArray;
@@ -68,6 +68,11 @@ interface IProps extends React.HTMLAttributes<HTMLSelectElement> {
 	 * Aligns the buttons used to reorder items relative to the Select Box.
 	 */
 	buttonAlignment?: 'center' | 'end';
+
+	/**
+	 * Disables the component.
+	 */
+	disabled?: boolean;
 
 	/**
 	 * Items to be displayed in the Select Box.
@@ -137,6 +142,7 @@ const ClaySelectBox = ({
 	},
 	buttonAlignment = 'end',
 	className,
+	disabled,
 	id,
 	items,
 	label,
@@ -165,7 +171,12 @@ const ClaySelectBox = ({
 	return (
 		<div className={classNames(className, 'form-group')}>
 			{label && (
-				<label className="reorder-label" htmlFor={id}>
+				<label
+					className={classNames('reorder-label', {
+						disabled,
+					})}
+					htmlFor={id}
+				>
 					{label}
 				</label>
 			)}
@@ -178,6 +189,7 @@ const ClaySelectBox = ({
 				<select
 					{...otherProps}
 					className="form-control form-control-inset"
+					disabled={disabled}
 					id={id}
 					multiple={multiple}
 					onChange={(event) => {

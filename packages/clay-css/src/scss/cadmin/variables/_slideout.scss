@@ -49,13 +49,14 @@ $cadmin-c-slideout: map-deep-merge(
 	(
 		display: flex,
 		overflow: hidden,
-		z-index: $cadmin-zindex-sidenav,
+		z-index: $cadmin-zindex-c-slideout,
 		c-slideout-shown: (
 			overflow: visible,
 		),
 		sidebar: (
 			display: none,
 			flex-shrink: 0,
+			overflow: visible,
 			position: relative,
 			width: $cadmin-c-slideout-sidebar-width,
 		),
@@ -64,6 +65,9 @@ $cadmin-c-slideout: map-deep-merge(
 		),
 		sidebar-c-slideout-transition: (
 			display: block,
+			c-horizontal-resizer: (
+				display: none,
+			),
 		),
 		tbar-stacked: (
 			display: none,
@@ -164,6 +168,10 @@ $cadmin-c-slideout-end: map-deep-merge(
 		tbar-stacked-c-slideout-show: (
 			right: 0,
 		),
+		c-horizontal-resizer: (
+			left: 0,
+			right: auto,
+		),
 	),
 	$cadmin-c-slideout-end
 );
@@ -183,4 +191,12 @@ $cadmin-c-slideout-end-sm-down: map-deep-merge(
 		),
 	),
 	$cadmin-c-slideout-end-sm-down
+);
+
+$cadmin-c-slideout-height-full: () !default;
+$cadmin-c-slideout-height-full: map-deep-merge(
+	(
+		z-index: $cadmin-zindex-c-slideout-height-full,
+	),
+	$cadmin-c-slideout-height-full
 );

@@ -134,6 +134,10 @@
 	@include clay-input-group-item-variant($input-group-item-shrink);
 }
 
+.input-group-item-focusable {
+	@include clay-input-group-item-variant($input-group-item-focusable);
+}
+
 // Input Group Text
 
 .input-group-text {
@@ -226,7 +230,8 @@
 		margin-bottom: 0;
 		padding-left: $input-group-inset-item-padding-left;
 		padding-right: $input-group-inset-item-padding-right;
-		transition: $input-transition;
+
+		@include transition($input-transition);
 
 		.btn {
 			@include clay-button-size($input-group-inset-item-btn);

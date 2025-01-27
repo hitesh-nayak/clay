@@ -1,6 +1,6 @@
 {
 	"name": "@clayui/sticker",
-	"version": "3.65.0",
+	"version": "3.125.0",
 	"description": "ClaySticker component",
 	"license": "BSD-3-Clause",
 	"repository": "https://github.com/liferay/clay",
@@ -12,13 +12,11 @@
 	"types": "lib/index.d.ts",
 	"ts:main": "src/index.tsx",
 	"files": [
-		"lib",
-		"src"
+		"lib"
 	],
 	"scripts": {
 		"build": "cross-env NODE_ENV=production babel src --root-mode upward --out-dir lib --extensions .ts,.tsx",
 		"buildTypes": "cross-env NODE_ENV=production tsc --project ./tsconfig.declarations.json",
-		"prepublishOnly": "yarn build && yarn buildTypes",
 		"test": "jest --config ../../jest.config.js"
 	},
 	"keywords": [

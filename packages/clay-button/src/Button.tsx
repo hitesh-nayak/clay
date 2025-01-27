@@ -18,6 +18,8 @@ export type DisplayType =
 	| 'warning'
 	| 'danger'
 	| 'info'
+	| 'beta'
+	| 'beta-dark'
 	| 'unstyled';
 
 export interface IProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -37,7 +39,15 @@ export interface IProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 	block?: boolean;
 
 	/**
+	 * Flag to indicate if the button should use the clay-dark variant.
+	 */
+	dark?: boolean;
+
+	/**
 	 * Determines the button variant to use.
+	 * The values `beta` and `beta-dark` are deprecated since v3.100.0 - use
+	 * `translucent` and `dark` instead.
+	 * The values `null` and `unstyled` are for internal use only.
 	 */
 	displayType?: DisplayType;
 
@@ -59,13 +69,18 @@ export interface IProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 	/**
 	 * Determines the size of a button.
 	 */
-	size?: 'xs' | 'sm';
+	size?: 'xs' | 'regular' | 'sm';
 
 	/**
 	 * Indicates button should be a small variant.
 	 * @deprecated since v3.72.0 - use `size` instead.
 	 */
 	small?: boolean;
+
+	/**
+	 * Flag to indicate if the button should use the translucent variant.
+	 */
+	translucent?: boolean;
 }
 
 const ClayButton = React.forwardRef<HTMLButtonElement, IProps>(
@@ -76,12 +91,14 @@ const ClayButton = React.forwardRef<HTMLButtonElement, IProps>(
 			borderless,
 			children,
 			className,
+			dark,
 			displayType = 'primary',
 			monospaced,
 			outline,
 			rounded,
-			size,
+			size = 'regular',
 			small,
+			translucent,
 			type = 'button',
 			...otherProps
 		}: IProps,
@@ -100,6 +117,15 @@ const ClayButton = React.forwardRef<HTMLButtonElement, IProps>(
 			'Button Accessibility: Component has only the Icon declared. Define an `aria-label` or `aria-labelledby` attribute that labels the interactive button that screen readers can read. The `title` attribute is optional but consult your design team.'
 		);
 
+		if (displayType === 'beta') {
+			displayType = 'info';
+			translucent = true;
+		} else if (displayType === 'beta-dark') {
+			dark = true;
+			displayType = 'info';
+			translucent = true;
+		}
+
 		return (
 			<button
 				className={classNames(className, 'btn', {
@@ -107,13 +133,15 @@ const ClayButton = React.forwardRef<HTMLButtonElement, IProps>(
 					'btn-block': block,
 					'btn-monospaced': monospaced,
 					'btn-outline-borderless': borderless,
-					'btn-sm': small && !size,
+					'btn-sm': small && (!size || size === 'regular'),
+					'btn-translucent': translucent,
+					'clay-dark': dark,
 					[`btn-${displayType}`]:
 						displayType && !outline && !borderless,
 					[`btn-outline-${displayType}`]:
 						displayType && (outline || borderless),
 					'rounded-pill': rounded,
-					[`btn-${size}`]: size,
+					[`btn-${size}`]: size && size !== 'regular',
 				})}
 				ref={ref}
 				type={type}

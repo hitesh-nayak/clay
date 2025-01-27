@@ -37,6 +37,18 @@ caption {
 	caption-side: bottom;
 }
 
+// Table Lg
+
+.table-lg {
+	@include clay-table-variant($cadmin-c-table-lg);
+}
+
+// Table Md
+
+.table-md {
+	@include clay-table-variant($cadmin-c-table-md);
+}
+
 // Table Sm
 
 .table-sm {
@@ -47,6 +59,10 @@ caption {
 
 .table-bordered {
 	@include clay-table-variant($cadmin-c-table-bordered);
+}
+
+.table-head-bordered {
+	@include clay-table-variant($cadmin-c-table-head-bordered);
 }
 
 .table-borderless {
@@ -62,9 +78,30 @@ caption {
 
 .table-striped {
 	tbody tr:nth-of-type(#{$cadmin-table-striped-order}) {
-		td,
-		th {
-			background-color: $cadmin-table-accent-bg;
+		&:not(.table-active):not(.table-disabled):not(.table-divider) {
+			&,
+			td,
+			th {
+				background-color: $cadmin-table-accent-bg;
+			}
+		}
+	}
+
+	&.table-hover {
+		tbody tr:nth-of-type(#{$cadmin-table-striped-order}):hover {
+			&:not(.table-active):not(.table-disabled):not(.table-divider) {
+				&,
+				td,
+				th {
+					background-color: map-deep-get(
+						$cadmin-c-table-hover,
+						tbody,
+						tr,
+						hover,
+						background-color
+					);
+				}
+			}
 		}
 	}
 }
@@ -75,15 +112,56 @@ caption {
 	@include clay-table-variant($cadmin-c-table-hover);
 }
 
-// Table Row Backgrounds
+// Table Focus
 
-.table-striped {
-	tbody .table-disabled:nth-of-type(#{$cadmin-table-striped-order}) {
-		td,
-		th {
-			background-color: $cadmin-table-disabled-bg;
+tr.table-focus {
+	@include clay-css($cadmin-c-tr-table-focus);
+
+	td {
+		$_td: setter(map-get($cadmin-c-tr-table-focus, td), ());
+
+		@include clay-css($_td);
+
+		&::before {
+			@include clay-css(map-get($_td, before));
+		}
+
+		&::after {
+			@include clay-css(map-get($_td, after));
+		}
+
+		&:first-child {
+			$_first-child: setter(map-get($_td, first-child), ());
+
+			@include clay-css($_first-child);
+
+			&::before {
+				@include clay-css(map-get($_first-child, before));
+			}
+
+			&::after {
+				@include clay-css(map-get($_first-child, after));
+			}
+		}
+
+		&:last-child {
+			$_last-child: setter(map-get($_td, last-child), ());
+
+			@include clay-css($_last-child);
+
+			&::before {
+				@include clay-css(map-get($_last-child, before));
+			}
+
+			&::after {
+				@include clay-css(map-get($_last-child, after));
+			}
 		}
 	}
+}
+
+td.table-focus {
+	@include clay-css($cadmin-c-td-table-focus);
 }
 
 // Dark styles
@@ -122,7 +200,25 @@ caption {
 
 	&.table-striped {
 		tbody tr:nth-of-type(#{$cadmin-table-striped-order}) {
-			background-color: $cadmin-table-dark-accent-bg;
+			&:not(.table-active):not(.table-disabled):not(.table-divider) {
+				&,
+				th,
+				td {
+					background-color: $cadmin-table-dark-accent-bg;
+				}
+			}
+		}
+
+		&.table-hover {
+			tbody tr:nth-of-type(#{$cadmin-table-striped-order}):hover {
+				&:not(.table-active):not(.table-disabled):not(.table-divider) {
+					&,
+					td,
+					th {
+						background-color: $cadmin-table-dark-hover-bg;
+					}
+				}
+			}
 		}
 	}
 
@@ -202,9 +298,30 @@ caption {
 
 .table-list.table-striped {
 	tbody tr:nth-of-type(#{$cadmin-table-striped-order}) {
-		td,
-		th {
-			background-color: $cadmin-table-list-accent-bg;
+		&:not(.table-active):not(.table-disabled):not(.table-divider) {
+			&,
+			td,
+			th {
+				background-color: $cadmin-table-list-accent-bg;
+			}
+		}
+	}
+
+	&.table-hover {
+		tbody tr:nth-of-type(#{$cadmin-table-striped-order}):hover {
+			&:not(.table-active):not(.table-disabled):not(.table-divider) {
+				&,
+				th,
+				td {
+					background-color: map-deep-get(
+						$cadmin-c-table-list-table-hover,
+						tbody,
+						tr,
+						hover,
+						background-color
+					);
+				}
+			}
 		}
 	}
 }
@@ -213,18 +330,6 @@ caption {
 
 .table-list.table-hover {
 	@include clay-table-variant($cadmin-c-table-list-table-hover);
-}
-
-// Table List Disabled
-
-.table-list.table-striped {
-	tbody .table-disabled:nth-of-type(#{$cadmin-table-striped-order}) {
-		&,
-		td,
-		th {
-			background-color: $cadmin-table-list-disabled-bg;
-		}
-	}
 }
 
 // Table List Title
@@ -418,6 +523,20 @@ caption {
 	}
 }
 
+// .table-nested-rows
+
+.table-nested-rows {
+	@include clay-table-variant($cadmin-c-table-nested-rows);
+
+	.component-action.show .collapse-icon-closed {
+		display: none;
+	}
+
+	.component-action:not(.show) .collapse-icon-open {
+		display: none;
+	}
+}
+
 // Show Quick Action
 
 .show-quick-actions-on-hover {
@@ -448,6 +567,21 @@ caption {
 			background-color: $cadmin-table-quick-action-menu-accent-active-bg;
 		}
 	}
+
+	&.table-hover {
+		tbody tr:nth-of-type(#{$cadmin-table-striped-order}):hover {
+			.quick-action-menu {
+				background-color: map-deep-get(
+					$cadmin-c-table-hover,
+					tbody,
+					tr,
+					hover,
+					quick-action-menu,
+					background-color
+				);
+			}
+		}
+	}
 }
 
 .table-list.table-striped {
@@ -460,6 +594,21 @@ caption {
 	tbody .table-active:nth-of-type(#{$cadmin-table-striped-order}) {
 		.quick-action-menu {
 			background-color: $cadmin-table-list-quick-action-menu-accent-active-bg;
+		}
+	}
+
+	&.table-hover {
+		tbody tr:nth-of-type(#{$cadmin-table-striped-order}):hover {
+			.quick-action-menu {
+				background-color: map-deep-get(
+					$cadmin-c-table-list-table-hover,
+					tbody,
+					tr,
+					hover,
+					quick-action-menu,
+					background-color
+				);
+			}
 		}
 	}
 }

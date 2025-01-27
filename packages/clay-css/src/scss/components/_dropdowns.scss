@@ -82,6 +82,12 @@
 		);
 	}
 
+	.custom-control-outside {
+		@include clay-custom-control-variant(
+			map-get($dropdown-section, custom-control-outside)
+		);
+	}
+
 	&.active {
 		@include clay-css(map-get($dropdown-section, active));
 
@@ -124,14 +130,16 @@
 // Dropdown Menu Variants
 
 @each $key, $value in $dropdown-menu-palette {
-	$selector: if(
-		starts-with($key, '.') or starts-with($key, '#'),
-		$key,
-		str-insert($key, '.', 1)
-	);
+	@if not clay-is-map-unset($value) {
+		$selector: if(
+			starts-with($key, '.') or starts-with($key, '#'),
+			$key,
+			str-insert($key, '.', 1)
+		);
 
-	#{$selector} {
-		@include clay-dropdown-menu-variant($value);
+		#{$selector} {
+			@include clay-dropdown-menu-variant($value);
+		}
 	}
 }
 

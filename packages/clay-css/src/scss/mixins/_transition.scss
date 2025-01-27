@@ -32,5 +32,20 @@
 		@media (prefers-reduced-motion: reduce) {
 			transition: none;
 		}
+
+		@at-root {
+			$selector: '.c-prefers-reduced-motion &';
+
+			@if (variable-exists(cadmin-selector)) {
+				$selector: clay-insert-before(
+					'.cadmin',
+					'.c-prefers-reduced-motion '
+				);
+			}
+
+			#{$selector} {
+				transition: none;
+			}
+		}
 	}
 }

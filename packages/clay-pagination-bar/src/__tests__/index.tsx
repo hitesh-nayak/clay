@@ -35,6 +35,18 @@ describe('ClayPaginationBar', () => {
 		expect(container).toMatchSnapshot();
 	});
 
+	it('totalItems with 0 will render the pagination bar with only one page', () => {
+		const {container} = render(
+			<ClayPaginationBarWithBasicItems
+				showDeltasDropDown={false}
+				spritemap={spritemap}
+				totalItems={0}
+			/>
+		);
+
+		expect(container).toMatchSnapshot();
+	});
+
 	it('calls onPageChange when arrow is clicked', () => {
 		const changeMock = jest.fn();
 
@@ -80,7 +92,7 @@ describe('ClayPaginationBar', () => {
 	it('calls onDeltaChange when select is expanded', () => {
 		const deltaChangeMock = jest.fn();
 
-		const {getByTestId} = render(
+		const {getByRole} = render(
 			<ClayPaginationBarWithBasicItems
 				defaultActive={12}
 				onDeltaChange={deltaChangeMock}
@@ -89,7 +101,9 @@ describe('ClayPaginationBar', () => {
 			/>
 		);
 
-		fireEvent.click(getByTestId('selectPaginationBar'), {});
+		const combobox = getByRole('combobox');
+
+		fireEvent.click(combobox, {});
 
 		fireEvent.click(getByText(document.body, '20 items'), {});
 
@@ -97,7 +111,7 @@ describe('ClayPaginationBar', () => {
 	});
 
 	it('shows dropdown when pagination dropdown is clicked', () => {
-		const {getByTestId} = render(
+		const {getByRole} = render(
 			<ClayPaginationBarWithBasicItems
 				defaultActive={12}
 				spritemap={spritemap}
@@ -105,11 +119,51 @@ describe('ClayPaginationBar', () => {
 			/>
 		);
 
-		fireEvent.click(getByTestId('selectPaginationBar'), {});
+		const combobox = getByRole('combobox');
 
-		expect(
-			document.body.querySelector('.dropdown-menu')!.classList
-		).toContain('show');
+		fireEvent.click(combobox, {});
+
+		expect(getByRole('listbox')).toBeTruthy();
+	});
+
+	it('render option a link when item has href', () => {
+		const items = [
+			{
+				href: '#1',
+				label: 1,
+			},
+			{
+				label: 2,
+			},
+			{
+				href: '#3',
+				label: 3,
+			},
+			{
+				label: 4,
+			},
+		];
+
+		const {getByRole, getByText} = render(
+			<ClayPaginationBarWithBasicItems
+				activeDelta={4}
+				deltas={items}
+				spritemap={spritemap}
+				totalItems={4}
+			/>
+		);
+
+		const combobox = getByRole('combobox');
+
+		fireEvent.click(combobox);
+
+		const link1 = getByText('1 items').closest('a');
+		const link3 = getByText('3 items').closest('a');
+
+		expect(link1).toHaveAttribute('href', '#1');
+		expect(link3).toHaveAttribute('href', '#3');
+
+		expect(getByText('2 items').closest('a')).toBeNull();
 	});
 
 	it('automatically goes to page 1 if active page exceeds delta', () => {
@@ -128,9 +182,11 @@ describe('ClayPaginationBar', () => {
 				/>
 			);
 		};
-		const {container, getByTestId} = render(<Comp />);
+		const {container, getByRole} = render(<Comp />);
 
-		fireEvent.click(getByTestId('selectPaginationBar'), {});
+		const combobox = getByRole('combobox');
+
+		fireEvent.click(combobox, {});
 
 		fireEvent.click(getByText(document.body, '20 items'), {});
 

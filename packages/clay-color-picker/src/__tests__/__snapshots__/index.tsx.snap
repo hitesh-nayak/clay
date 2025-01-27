@@ -39,7 +39,7 @@ exports[`Interactions color editor interactions ability to change color of click
           </div>
         </div>
         <div
-          class="input-group-item input-group-append"
+          class="input-group-item input-group-item-focusable input-group-append"
         >
           <input
             aria-label="Color selection is FFFFFF"
@@ -73,6 +73,7 @@ exports[`Interactions color editor interactions ability to change color of click
               Custom Colors
             </span>
             <button
+              aria-label="close"
               class="close component-action"
               type="button"
             >
@@ -81,7 +82,7 @@ exports[`Interactions color editor interactions ability to change color of click
                 role="presentation"
               >
                 <use
-                  xlink:href="/test/path#times"
+                  href="/test/path#times"
                 />
               </svg>
             </button>
@@ -212,6 +213,60 @@ exports[`Interactions color editor interactions ability to change color of click
           </div>
         </div>
         <div
+          class="clay-color-form-group"
+        >
+          <div
+            class="clay-range clay-color-slider clay-color-slider-hue"
+          >
+            <div
+              class="clay-range-input"
+            >
+              <input
+                class="form-control-range"
+                data-testid="hueSlider"
+                max="360"
+                min="0"
+                step="1"
+                style="color: rgb(255, 0, 0);"
+                type="range"
+                value="0"
+              />
+              <div
+                class="clay-range-track"
+              />
+              <div
+                class="clay-range-progress"
+                style="width: 0%;"
+              >
+                <div
+                  class="clay-range-thumb"
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            class="input-group"
+          >
+            <div
+              class="input-group-item"
+            >
+              <input
+                class="form-control input-group-inset input-group-inset-before"
+                data-testid="hInput"
+                max="360"
+                min="0"
+                type="number"
+                value="0"
+              />
+              <label
+                class="input-group-inset-item input-group-inset-item-before"
+              >
+                H
+              </label>
+            </div>
+          </div>
+        </div>
+        <div
           class="clay-color-map-group"
         >
           <div
@@ -234,7 +289,7 @@ exports[`Interactions color editor interactions ability to change color of click
                 class="input-group"
               >
                 <div
-                  class="input-group-item"
+                  class="input-group-item input-group-item-focusable"
                 >
                   <input
                     class="form-control input-group-inset input-group-inset-before"
@@ -259,7 +314,7 @@ exports[`Interactions color editor interactions ability to change color of click
                 class="input-group"
               >
                 <div
-                  class="input-group-item"
+                  class="input-group-item input-group-item-focusable"
                 >
                   <input
                     class="form-control input-group-inset input-group-inset-before"
@@ -284,7 +339,7 @@ exports[`Interactions color editor interactions ability to change color of click
                 class="input-group"
               >
                 <div
-                  class="input-group-item"
+                  class="input-group-item input-group-item-focusable"
                 >
                   <input
                     class="form-control input-group-inset input-group-inset-before"
@@ -305,13 +360,58 @@ exports[`Interactions color editor interactions ability to change color of click
           </div>
         </div>
         <div
-          class="clay-color-range clay-color-range-hue"
+          class="clay-color-form-group"
         >
-          <button
-            class="clay-color-pointer clay-color-range-pointer"
-            style="background: rgb(255, 0, 0); left: -7px;"
-            type="button"
-          />
+          <div
+            class="clay-range clay-color-slider clay-color-slider-alpha"
+          >
+            <div
+              class="clay-range-input"
+            >
+              <input
+                class="form-control-range"
+                max="1"
+                min="0"
+                step="0.01"
+                style="color: rgb(255, 255, 255);"
+                type="range"
+                value="1"
+              />
+              <div
+                class="clay-range-track"
+              />
+              <div
+                class="clay-range-progress"
+                style="width: 0%;"
+              >
+                <div
+                  class="clay-range-thumb"
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            class="input-group"
+          >
+            <div
+              class="input-group-item"
+            >
+              <input
+                class="form-control input-group-inset input-group-inset-before"
+                data-testid="aInput"
+                max="1"
+                min="0"
+                step="0.01"
+                type="number"
+                value="1"
+              />
+              <label
+                class="input-group-inset-item input-group-inset-item-before"
+              >
+                A
+              </label>
+            </div>
+          </div>
         </div>
         <div
           class="clay-color-footer"
@@ -323,7 +423,7 @@ exports[`Interactions color editor interactions ability to change color of click
               class="input-group"
             >
               <div
-                class="input-group-item"
+                class="input-group-item input-group-item-focusable"
               >
                 <input
                   class="form-control input-group-inset input-group-inset-before"
@@ -384,7 +484,7 @@ exports[`Interactions opens custom color picker drop down when clicked 1`] = `
         </div>
       </div>
       <div
-        class="input-group-item input-group-append"
+        class="input-group-item input-group-item-focusable input-group-append"
       >
         <input
           aria-label="Color selection is 008000"
@@ -440,7 +540,7 @@ exports[`Rendering default 1`] = `
           </div>
         </div>
         <div
-          class="input-group-item input-group-append"
+          class="input-group-item input-group-item-focusable input-group-append"
         >
           <input
             aria-label="Color selection is FFF"
@@ -818,7 +918,7 @@ exports[`Rendering disabled palette 1`] = `
           </div>
         </div>
         <div
-          class="input-group-item input-group-append"
+          class="input-group-item input-group-item-focusable input-group-append"
         >
           <input
             aria-label="Color selection is FFF"
@@ -1197,7 +1297,7 @@ exports[`Rendering disabled state 1`] = `
           </div>
         </div>
         <div
-          class="input-group-item input-group-append"
+          class="input-group-item input-group-item-focusable input-group-append"
         >
           <input
             aria-label="Color selection is FFF"
@@ -1575,7 +1675,7 @@ exports[`Rendering renders w/ var() 1`] = `
           </div>
         </div>
         <div
-          class="input-group-item input-group-append"
+          class="input-group-item input-group-item-focusable input-group-append"
         >
           <input
             aria-label="Color selection is var(--blue)"
@@ -1585,17 +1685,7 @@ exports[`Rendering renders w/ var() 1`] = `
           />
           <label
             class="input-group-inset-item input-group-inset-item-before"
-          >
-            <svg
-              class="lexicon-icon lexicon-icon-color-picker"
-              role="presentation"
-              style="width: 10px;"
-            >
-              <use
-                xlink:href="/test/path#color-picker"
-              />
-            </svg>
-          </label>
+          />
         </div>
       </div>
     </div>
@@ -1961,7 +2051,7 @@ exports[`Rendering renders with a hash for the value 1`] = `
           </div>
         </div>
         <div
-          class="input-group-item input-group-append"
+          class="input-group-item input-group-item-focusable input-group-append"
         >
           <input
             aria-label="Color selection is FFF"
@@ -2339,7 +2429,7 @@ exports[`Rendering renders with a named color for the value 1`] = `
           </div>
         </div>
         <div
-          class="input-group-item input-group-append"
+          class="input-group-item input-group-item-focusable input-group-append"
         >
           <input
             aria-label="Color selection is red"
@@ -2349,17 +2439,7 @@ exports[`Rendering renders with a named color for the value 1`] = `
           />
           <label
             class="input-group-inset-item input-group-inset-item-before"
-          >
-            <svg
-              class="lexicon-icon lexicon-icon-color-picker"
-              role="presentation"
-              style="width: 10px;"
-            >
-              <use
-                xlink:href="/test/path#color-picker"
-              />
-            </svg>
-          </label>
+          />
         </div>
       </div>
     </div>
@@ -2725,7 +2805,7 @@ exports[`Rendering small color-picker 1`] = `
           </div>
         </div>
         <div
-          class="input-group-item input-group-append"
+          class="input-group-item input-group-item-focusable input-group-append"
         >
           <input
             aria-label="Color selection is FFF"

@@ -3,7 +3,7 @@
 exports[`ClayNavigationBar collapses the previously expanded dropdown when trigger element is clicked 1`] = `
 <div
   class="navbar-collapse collapse"
-  style="height: 0px"
+  style="height: auto"
 >
   <div
     class="container-fluid container-fluid-max-xl"
@@ -16,12 +16,10 @@ exports[`ClayNavigationBar collapses the previously expanded dropdown when trigg
       >
         <a
           aria-current="page"
-          class="nav-link active link-unstyled"
+          class="nav-link active"
           href="#1"
         >
-          <span
-            class="navbar-text-truncate"
-          >
+          <span>
             Item 1
           </span>
         </a>
@@ -30,12 +28,10 @@ exports[`ClayNavigationBar collapses the previously expanded dropdown when trigg
         class="nav-item"
       >
         <button
-          class="nav-link btn btn-unstyled"
+          class="nav-link btn"
           type="button"
         >
-          <span
-            class="navbar-text-truncate"
-          >
+          <span>
             Item 2
           </span>
         </button>
@@ -48,13 +44,14 @@ exports[`ClayNavigationBar collapses the previously expanded dropdown when trigg
 exports[`ClayNavigationBar renders 1`] = `
 <div>
   <nav
-    class="navbar navbar-collapse-absolute navbar-expand-md navbar-underline navigation-bar navigation-bar-secondary"
+    class="navbar navbar-collapse-relative navbar-expand-md navbar-underline navigation-bar navigation-bar-secondary"
   >
     <div
       class="container-fluid container-fluid-max-xl"
     >
       <button
         aria-expanded="false"
+        aria-label="Open Menu, Current Page: Item 1"
         class="navbar-toggler navbar-toggler-link collapsed btn btn-unstyled"
         data-testid="navbarToggler"
         type="button"
@@ -69,7 +66,7 @@ exports[`ClayNavigationBar renders 1`] = `
           role="presentation"
         >
           <use
-            xlink:href="node_modules/clay-css/lib/images/icons/icons.svg#caret-bottom"
+            href="node_modules/clay-css/lib/images/icons/icons.svg#caret-bottom"
           />
         </svg>
       </button>
@@ -87,12 +84,10 @@ exports[`ClayNavigationBar renders 1`] = `
             >
               <a
                 aria-current="page"
-                class="nav-link active link-unstyled"
+                class="nav-link active"
                 href="#1"
               >
-                <span
-                  class="navbar-text-truncate"
-                >
+                <span>
                   Item 1
                 </span>
               </a>
@@ -101,12 +96,10 @@ exports[`ClayNavigationBar renders 1`] = `
               class="nav-item"
             >
               <button
-                class="nav-link btn btn-unstyled"
+                class="nav-link btn"
                 type="button"
               >
-                <span
-                  class="navbar-text-truncate"
-                >
+                <span>
                   Item 2
                 </span>
               </button>
@@ -115,12 +108,10 @@ exports[`ClayNavigationBar renders 1`] = `
               class="nav-item"
             >
               <a
-                class="nav-link link-unstyled"
+                class="nav-link"
                 href="#3"
               >
-                <span
-                  class="navbar-text-truncate"
-                >
+                <span>
                   Item 3
                 </span>
               </a>
@@ -136,13 +127,14 @@ exports[`ClayNavigationBar renders 1`] = `
 exports[`ClayNavigationBar renders a custom item 1`] = `
 <div>
   <nav
-    class="navbar navbar-collapse-absolute navbar-expand-md navbar-underline navigation-bar navigation-bar-secondary"
+    class="navbar navbar-collapse-relative navbar-expand-md navbar-underline navigation-bar navigation-bar-secondary"
   >
     <div
       class="container-fluid container-fluid-max-xl"
     >
       <button
         aria-expanded="false"
+        aria-label="Open Menu, Current Page: Item 1"
         class="navbar-toggler navbar-toggler-link collapsed btn btn-unstyled"
         data-testid="navbarToggler"
         type="button"
@@ -157,7 +149,7 @@ exports[`ClayNavigationBar renders a custom item 1`] = `
           role="presentation"
         >
           <use
-            xlink:href="node_modules/clay-css/lib/images/icons/icons.svg#caret-bottom"
+            href="node_modules/clay-css/lib/images/icons/icons.svg#caret-bottom"
           />
         </svg>
       </button>
@@ -191,7 +183,7 @@ exports[`ClayNavigationBar renders a custom item 1`] = `
 exports[`ClayNavigationBar renders a dropdown when clicking the trigger element from NavigationBar 1`] = `
 <div
   class="navbar-collapse show"
-  style="height: 0px"
+  style="height: auto"
 >
   <div
     class="container-fluid container-fluid-max-xl"
@@ -204,12 +196,10 @@ exports[`ClayNavigationBar renders a dropdown when clicking the trigger element 
       >
         <a
           aria-current="page"
-          class="nav-link active link-unstyled"
+          class="nav-link active"
           href="#1"
         >
-          <span
-            class="navbar-text-truncate"
-          >
+          <span>
             Item 1
           </span>
         </a>
@@ -218,12 +208,10 @@ exports[`ClayNavigationBar renders a dropdown when clicking the trigger element 
         class="nav-item"
       >
         <button
-          class="nav-link btn btn-unstyled"
+          class="nav-link btn"
           type="button"
         >
-          <span
-            class="navbar-text-truncate"
-          >
+          <span>
             Item 2
           </span>
         </button>
@@ -236,13 +224,14 @@ exports[`ClayNavigationBar renders a dropdown when clicking the trigger element 
 exports[`ClayNavigationBar renders when passing more than one active item 1`] = `
 <div>
   <nav
-    class="navbar navbar-collapse-absolute navbar-expand-md navbar-underline navigation-bar navigation-bar-secondary"
+    class="navbar navbar-collapse-relative navbar-expand-md navbar-underline navigation-bar navigation-bar-secondary"
   >
     <div
       class="container-fluid container-fluid-max-xl"
     >
       <button
         aria-expanded="false"
+        aria-label="Open Menu, Current Page: Item 1"
         class="navbar-toggler navbar-toggler-link collapsed btn btn-unstyled"
         data-testid="navbarToggler"
         type="button"
@@ -257,7 +246,7 @@ exports[`ClayNavigationBar renders when passing more than one active item 1`] = 
           role="presentation"
         >
           <use
-            xlink:href="node_modules/clay-css/lib/images/icons/icons.svg#caret-bottom"
+            href="node_modules/clay-css/lib/images/icons/icons.svg#caret-bottom"
           />
         </svg>
       </button>
@@ -274,12 +263,10 @@ exports[`ClayNavigationBar renders when passing more than one active item 1`] = 
               class="nav-item"
             >
               <a
-                class="nav-link link-unstyled"
+                class="nav-link"
                 href="#1"
               >
-                <span
-                  class="navbar-text-truncate"
-                >
+                <span>
                   Item 1
                 </span>
               </a>
@@ -289,12 +276,10 @@ exports[`ClayNavigationBar renders when passing more than one active item 1`] = 
             >
               <button
                 aria-current="page"
-                class="nav-link active btn btn-unstyled"
+                class="nav-link active btn"
                 type="button"
               >
-                <span
-                  class="navbar-text-truncate"
-                >
+                <span>
                   Item 2
                 </span>
               </button>
@@ -303,12 +288,10 @@ exports[`ClayNavigationBar renders when passing more than one active item 1`] = 
               class="nav-item"
             >
               <a
-                class="nav-link link-unstyled"
+                class="nav-link"
                 href="#3"
               >
-                <span
-                  class="navbar-text-truncate"
-                >
+                <span>
                   Item 3
                 </span>
               </a>
@@ -324,13 +307,14 @@ exports[`ClayNavigationBar renders when passing more than one active item 1`] = 
 exports[`ClayNavigationBar renders with a single item 1`] = `
 <div>
   <nav
-    class="navbar navbar-collapse-absolute navbar-expand-md navbar-underline navigation-bar navigation-bar-secondary"
+    class="navbar navbar-collapse-relative navbar-expand-md navbar-underline navigation-bar navigation-bar-secondary"
   >
     <div
       class="container-fluid container-fluid-max-xl"
     >
       <button
         aria-expanded="false"
+        aria-label="Open Menu, Current Page: Item 1"
         class="navbar-toggler navbar-toggler-link collapsed btn btn-unstyled"
         data-testid="navbarToggler"
         type="button"
@@ -345,7 +329,7 @@ exports[`ClayNavigationBar renders with a single item 1`] = `
           role="presentation"
         >
           <use
-            xlink:href="node_modules/clay-css/lib/images/icons/icons.svg#caret-bottom"
+            href="node_modules/clay-css/lib/images/icons/icons.svg#caret-bottom"
           />
         </svg>
       </button>
@@ -363,12 +347,10 @@ exports[`ClayNavigationBar renders with a single item 1`] = `
             >
               <a
                 aria-current="page"
-                class="nav-link active link-unstyled"
+                class="nav-link active"
                 href="#1"
               >
-                <span
-                  class="navbar-text-truncate"
-                >
+                <span>
                   Item 1
                 </span>
               </a>
@@ -384,13 +366,14 @@ exports[`ClayNavigationBar renders with a single item 1`] = `
 exports[`ClayNavigationBar throws a warning when passing more than one active prop to child 1`] = `
 <div>
   <nav
-    class="navbar navbar-collapse-absolute navbar-expand-md navbar-underline navigation-bar navigation-bar-secondary"
+    class="navbar navbar-collapse-relative navbar-expand-md navbar-underline navigation-bar navigation-bar-secondary"
   >
     <div
       class="container-fluid container-fluid-max-xl"
     >
       <button
         aria-expanded="false"
+        aria-label="Open Menu, Current Page: Item 1"
         class="navbar-toggler navbar-toggler-link collapsed btn btn-unstyled"
         data-testid="navbarToggler"
         type="button"
@@ -405,7 +388,7 @@ exports[`ClayNavigationBar throws a warning when passing more than one active pr
           role="presentation"
         >
           <use
-            xlink:href="node_modules/clay-css/lib/images/icons/icons.svg#caret-bottom"
+            href="node_modules/clay-css/lib/images/icons/icons.svg#caret-bottom"
           />
         </svg>
       </button>
@@ -423,12 +406,10 @@ exports[`ClayNavigationBar throws a warning when passing more than one active pr
             >
               <a
                 aria-current="page"
-                class="nav-link active link-unstyled"
+                class="nav-link active"
                 href="#1"
               >
-                <span
-                  class="navbar-text-truncate"
-                >
+                <span>
                   Item 1
                 </span>
               </a>
@@ -438,12 +419,10 @@ exports[`ClayNavigationBar throws a warning when passing more than one active pr
             >
               <button
                 aria-current="page"
-                class="nav-link active btn btn-unstyled"
+                class="nav-link active btn"
                 type="button"
               >
-                <span
-                  class="navbar-text-truncate"
-                >
+                <span>
                   Item 2
                 </span>
               </button>

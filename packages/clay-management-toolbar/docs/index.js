@@ -191,6 +191,7 @@ const ManagementToolbarCode = `const Component = () => {
 	];
 
 	const [searchMobile, setSearchMobile] = useState(false);
+	const [checked, setChecked] = useState(false);
 
 	const viewTypeActive = viewTypes.find(type => type.active);
 
@@ -199,7 +200,13 @@ const ManagementToolbarCode = `const Component = () => {
 			<ClayManagementToolbar>
 				<ClayManagementToolbar.ItemList>
 					<ClayManagementToolbar.Item>
-						<ClayCheckbox checked={false} onChange={() => {}} />
+						<ClayCheckbox
+							aria-label={checked ? 'Unselect all' : 'Select all'}
+							checked={checked}
+							onChange={(event) =>
+								setChecked(event.target.checked)
+							}
+						/>
 					</ClayManagementToolbar.Item>
 
 					<ClayDropDownWithItems
@@ -214,12 +221,6 @@ const ManagementToolbarCode = `const Component = () => {
 									<span className="navbar-text-truncate">
 										{'Filter and Order'}
 									</span>
-
-									<ClayIcon
-										className="inline-item inline-item-after"
-										spritemap={spritemap}
-										symbol="caret-bottom"
-									/>
 								</span>
 								<span className="navbar-breakpoint-d-none">
 									<ClayIcon
@@ -229,6 +230,7 @@ const ManagementToolbarCode = `const Component = () => {
 								</span>
 							</ClayButton>
 						}
+							triggerIcon="caret-bottom"
 					/>
 
 					<ClayManagementToolbar.Item>
@@ -325,6 +327,7 @@ const ManagementToolbarCode = `const Component = () => {
 									/>
 								</ClayButton>
 							}
+							triggerIcon="caret-double-l"
 						/>
 					</ClayManagementToolbar.Item>
 

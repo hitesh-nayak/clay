@@ -12,14 +12,8 @@ const linkImportsCode = `import ClayLink from '@clayui/link';`;
 const LinkCode = `const Component = () => {
 	return (
 		<div className="row">
-			<ClayLink href="#link-styles">{'Default'}</ClayLink>
-
-			<ClayLink displayType="secondary" href="#link-styles">
-				{'Secondary'}
-			</ClayLink>
-
-			<ClayLink aria-label="My Link" href="#link-styles">
-				{'With Aria Label'}
+			<ClayLink displayType="primary" href="#link-styles">
+				{'Primary'}
 			</ClayLink>
 		</div>
 	);
@@ -32,15 +26,15 @@ const linkJSPImportsCode = `<%@ taglib uri="http://liferay.com/tld/clay" prefix=
 const LinkJSPCode = `<clay:link href="#link-styles" label="Default" />
 
 <clay:link
-	displayType="secondary"
-	href="#link-styles"
-	label="Secondary"
-/>
-
-<clay:link
 	ariaLabel="My Link"
 	href="#link-styles"
 	label="Wih Aria Label"
+/>
+
+<clay:link
+	displayType="primary"
+	href="#link-styles"
+	label="Primary"
 />`;
 
 export const Link = () => {

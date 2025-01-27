@@ -19,6 +19,7 @@
 			'-webkit-overflow-scrolling',
 			'-webkit-tap-highlight-color',
 			'-webkit-text-size-adjust',
+			'accent-color',
 			'align-content',
 			'align-items',
 			'align-self',
@@ -31,6 +32,8 @@
 			'animation-name',
 			'animation-play-state',
 			'animation-timing-function',
+			'aspect-ratio',
+			'backdrop-filter',
 			'backface-visibility',
 			'background',
 			'background-attachment',
@@ -76,13 +79,19 @@
 			'border-top-width',
 			'border-width',
 			'bottom',
+			'box-decoration-break',
 			'box-shadow',
 			'box-sizing',
 			'caption-side',
+			'caret-color',
 			'clear',
 			'clip',
 			'-webkit-clip-path',
 			'clip-path',
+			'contain',
+			'container',
+			'container-name',
+			'container-type',
 			'color',
 			'column-count',
 			'column-fill',
@@ -113,11 +122,13 @@
 			'float',
 			'font',
 			'font-family',
+			'font-feature-settings',
 			'font-kerning',
 			'font-size',
 			'font-stretch',
 			'font-style',
 			'font-variant',
+			'font-variant-numeric',
 			'font-weight',
 			'gap',
 			'grid',
@@ -139,6 +150,9 @@
 			'grid-template-columns',
 			'grid-template-rows',
 			'height',
+			'hyphens',
+			'inset',
+			'isolation',
 			'justify-content',
 			'left',
 			'letter-spacing',
@@ -174,6 +188,7 @@
 			'max-width',
 			'min-height',
 			'min-width',
+			'mix-blend-mode',
 			'object-fit',
 			'object-position',
 			'opacity',
@@ -186,6 +201,9 @@
 			'overflow',
 			'overflow-x',
 			'overflow-y',
+			'overscroll-behavior',
+			'overscroll-behavior-x',
+			'overscroll-behavior-y',
 			'padding',
 			'padding-bottom',
 			'padding-left',
@@ -196,12 +214,28 @@
 			'page-break-inside',
 			'perspective',
 			'perspective-origin',
+			'place-content',
+			'place-items',
+			'place-self',
 			'pointer-events',
 			'position',
 			'resize',
 			'right',
 			'row-gap',
 			'scroll-behavior',
+			'scroll-margin',
+			'scroll-margin-bottom',
+			'scroll-margin-left',
+			'scroll-margin-right',
+			'scroll-margin-top',
+			'scroll-padding',
+			'scroll-padding-bottom',
+			'scroll-padding-left',
+			'scroll-padding-right',
+			'scroll-padding-top',
+			'scroll-snap-align',
+			'scroll-snap-stop',
+			'scroll-snap-type',
 			'scrollbar-width',
 			'table-layout',
 			'text-align',
@@ -241,6 +275,18 @@
 
 		$enabled: setter(map-get($map, enabled), true);
 
+		$_prefers-reduced-motion-media-query: if(
+			variable-exists(enable-prefers-reduced-motion-media-query),
+			$enable-prefers-reduced-motion-media-query,
+			if(
+				variable-exists(
+					cadmin-enable-prefers-reduced-motion-media-query
+				),
+				$cadmin-enable-prefers-reduced-motion-media-query,
+				true
+			)
+		);
+
 		@if ($enabled) {
 			@each $key, $value in $map {
 				@if ($value == clay-unset or $value == c-unset) {
@@ -260,6 +306,31 @@
 					}
 
 					appearance: $value;
+				} @else if ($key == 'animation') {
+					animation: $value;
+
+					@if ($value != 'none' and $value != null) {
+						@if ($_prefers-reduced-motion-media-query) {
+							@media (prefers-reduced-motion: reduce) {
+								animation: none;
+							}
+						}
+
+						@at-root {
+							$selector: '.c-prefers-reduced-motion &';
+
+							@if (variable-exists(cadmin-selector)) {
+								$selector: clay-insert-before(
+									'.cadmin',
+									'.c-prefers-reduced-motion '
+								);
+							}
+
+							#{$selector} {
+								animation: none;
+							}
+						}
+					}
 				} @else if ($key == 'content') {
 					content: $value;
 				} @else if ($key == 'word-wrap') {
@@ -268,12 +339,48 @@
 				} @else if ($key == 'overflow-wrap') {
 					overflow-wrap: $value;
 					word-wrap: $value;
+				} @else if ($key == 'text-overflow') {
+					@if ($value == 'ellipsis') {
+						text-overflow: $value;
+
+						@at-root {
+							$selector: '.c-prefers-expanded-text &';
+
+							@if (variable-exists(cadmin-selector)) {
+								$selector: clay-insert-before(
+									'.cadmin',
+									'.c-prefers-expanded-text '
+								);
+							}
+
+							#{$selector} {
+								@extend %c-prefers-expanded-text !optional;
+							}
+						}
+					}
 				} @else if ($key == 'transition') {
 					transition: $value;
 
 					@if ($value != 'none' and $value != null) {
-						@media (prefers-reduced-motion: reduce) {
-							transition: none;
+						@if ($_prefers-reduced-motion-media-query) {
+							@media (prefers-reduced-motion: reduce) {
+								transition: none;
+							}
+						}
+
+						@at-root {
+							$selector: '.c-prefers-reduced-motion &';
+
+							@if (variable-exists(cadmin-selector)) {
+								$selector: clay-insert-before(
+									'.cadmin',
+									'.c-prefers-reduced-motion '
+								);
+							}
+
+							#{$selector} {
+								transition: none;
+							}
 						}
 					}
 				} @else if ($key == 'extend') {
@@ -283,8 +390,56 @@
 					-moz-user-select: $value;
 					-webkit-user-select: $value;
 					user-select: $value;
+				} @else if ($key == 'aspect-ratio') {
+					@if (type-of($value) != 'map') {
+						aspect-ratio: $value;
+					}
 				} @else if (index($properties, $key)) {
 					#{$key}: #{$value};
+				}
+			}
+		}
+	}
+}
+
+/// A mixin that outputs CSS based on the structure of a Sass map.
+/// @param {Map} $map - A map of `key: value` pairs.
+
+@mixin clay-map-to-css($map) {
+	@include clay-css($map);
+
+	@each $key, $value in $map {
+		@if not clay-is-map-unset($value) {
+			@if (type-of($value) == 'map') {
+				$pseudo-classes: 'active', 'disabled', 'first-child', 'focus',
+					'hover', 'last-child', 'visited';
+
+				$pseudo-elements: 'after', 'before';
+
+				$valid-prefixes: '#', '&', '.', '>', '@', '~', '+', '[';
+
+				@if (index($pseudo-classes, $key)) {
+					$key: str-insert($key, '&:', 1);
+				}
+
+				@if (index($pseudo-elements, $key)) {
+					$key: str-insert($key, '&::', 1);
+				}
+
+				$selector: if(
+					index($valid-prefixes, str-slice($key, 1, 1)),
+					$key,
+					str-insert($key, '.', 1)
+				);
+
+				@if (starts-with($selector, '@media ')) {
+					@media #{clay-str-replace('#{$selector}', '@media ', '')} {
+						@include clay-map-to-css($value);
+					}
+				} @else {
+					#{$selector} {
+						@include clay-map-to-css($value);
+					}
 				}
 			}
 		}

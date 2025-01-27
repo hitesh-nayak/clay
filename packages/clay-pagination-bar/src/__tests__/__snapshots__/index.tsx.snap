@@ -9,11 +9,14 @@ exports[`ClayPaginationBar renders 1`] = `
       class="dropdown pagination-items-per-page"
     >
       <button
-        aria-controls="clay-dropdown-menu-1"
+        aria-activedescendant=""
+        aria-describedby="clay-id-1"
         aria-expanded="false"
-        aria-haspopup="true"
+        aria-haspopup="listbox"
+        aria-label="Items Per Page"
         class="dropdown-toggle btn btn-unstyled"
-        data-testid="selectPaginationBar"
+        role="combobox"
+        tabindex="0"
         type="button"
       >
         10 items
@@ -22,13 +25,14 @@ exports[`ClayPaginationBar renders 1`] = `
           role="presentation"
         >
           <use
-            xlink:href="path/to/spritemap#caret-double-l"
+            href="path/to/spritemap#caret-double-l"
           />
         </svg>
       </button>
     </div>
     <div
       class="pagination-results"
+      id="clay-id-1"
     >
       Showing 1 to 10 of 100
     </div>
@@ -41,8 +45,7 @@ exports[`ClayPaginationBar renders 1`] = `
         <li
           class="page-item disabled"
         >
-          <a
-            aria-label="Go to the previous page, 0"
+          <div
             class="page-link"
             data-testid="prevArrow"
           >
@@ -51,10 +54,10 @@ exports[`ClayPaginationBar renders 1`] = `
               role="presentation"
             >
               <use
-                xlink:href="path/to/spritemap#angle-left"
+                href="path/to/spritemap#angle-left"
               />
             </svg>
-          </a>
+          </div>
         </li>
         <li
           class="page-item active"
@@ -62,6 +65,7 @@ exports[`ClayPaginationBar renders 1`] = `
           <a
             aria-label="Go to page, 1"
             class="page-link"
+            tabindex="0"
           >
             1
           </a>
@@ -72,6 +76,7 @@ exports[`ClayPaginationBar renders 1`] = `
           <a
             aria-label="Go to page, 2"
             class="page-link"
+            tabindex="0"
           >
             2
           </a>
@@ -82,24 +87,27 @@ exports[`ClayPaginationBar renders 1`] = `
           <a
             aria-label="Go to page, 3"
             class="page-link"
+            tabindex="0"
           >
             3
           </a>
         </li>
         <li
-          class="dropdown page-item"
+          class="page-item"
         >
-          <button
-            aria-controls="clay-dropdown-menu-2"
-            aria-expanded="false"
-            aria-haspopup="true"
-            aria-label="Show pages 4 through 9"
-            class="dropdown-toggle page-link btn btn-unstyled"
-            title="Show pages 4 through 9"
-            type="button"
+          <div
+            class="dropdown"
           >
-            ...
-          </button>
+            <button
+              aria-haspopup="true"
+              aria-label="Show pages 4 through 9"
+              class="dropdown-toggle page-link btn btn-unstyled"
+              title="Show pages 4 through 9"
+              type="button"
+            >
+              ...
+            </button>
+          </div>
         </li>
         <li
           class="page-item"
@@ -107,6 +115,7 @@ exports[`ClayPaginationBar renders 1`] = `
           <a
             aria-label="Go to page, 10"
             class="page-link"
+            tabindex="0"
           >
             10
           </a>
@@ -118,13 +127,15 @@ exports[`ClayPaginationBar renders 1`] = `
             aria-label="Go to the next page, 2"
             class="page-link"
             data-testid="nextArrow"
+            role="button"
+            tabindex="0"
           >
             <svg
               class="lexicon-icon lexicon-icon-angle-right"
               role="presentation"
             >
               <use
-                xlink:href="path/to/spritemap#angle-right"
+                href="path/to/spritemap#angle-right"
               />
             </svg>
           </a>
@@ -142,6 +153,7 @@ exports[`ClayPaginationBar renders without a DropDown 1`] = `
   >
     <div
       class="pagination-results"
+      id="clay-id-6"
     >
       Showing 1 to 10 of 100
     </div>
@@ -154,8 +166,7 @@ exports[`ClayPaginationBar renders without a DropDown 1`] = `
         <li
           class="page-item disabled"
         >
-          <a
-            aria-label="Go to the previous page, 0"
+          <div
             class="page-link"
             data-testid="prevArrow"
           >
@@ -164,10 +175,10 @@ exports[`ClayPaginationBar renders without a DropDown 1`] = `
               role="presentation"
             >
               <use
-                xlink:href="path/to/spritemap#angle-left"
+                href="path/to/spritemap#angle-left"
               />
             </svg>
-          </a>
+          </div>
         </li>
         <li
           class="page-item active"
@@ -175,6 +186,7 @@ exports[`ClayPaginationBar renders without a DropDown 1`] = `
           <a
             aria-label="Go to page, 1"
             class="page-link"
+            tabindex="0"
           >
             1
           </a>
@@ -185,6 +197,7 @@ exports[`ClayPaginationBar renders without a DropDown 1`] = `
           <a
             aria-label="Go to page, 2"
             class="page-link"
+            tabindex="0"
           >
             2
           </a>
@@ -195,24 +208,27 @@ exports[`ClayPaginationBar renders without a DropDown 1`] = `
           <a
             aria-label="Go to page, 3"
             class="page-link"
+            tabindex="0"
           >
             3
           </a>
         </li>
         <li
-          class="dropdown page-item"
+          class="page-item"
         >
-          <button
-            aria-controls="clay-dropdown-menu-3"
-            aria-expanded="false"
-            aria-haspopup="true"
-            aria-label="Show pages 4 through 9"
-            class="dropdown-toggle page-link btn btn-unstyled"
-            title="Show pages 4 through 9"
-            type="button"
+          <div
+            class="dropdown"
           >
-            ...
-          </button>
+            <button
+              aria-haspopup="true"
+              aria-label="Show pages 4 through 9"
+              class="dropdown-toggle page-link btn btn-unstyled"
+              title="Show pages 4 through 9"
+              type="button"
+            >
+              ...
+            </button>
+          </div>
         </li>
         <li
           class="page-item"
@@ -220,6 +236,7 @@ exports[`ClayPaginationBar renders without a DropDown 1`] = `
           <a
             aria-label="Go to page, 10"
             class="page-link"
+            tabindex="0"
           >
             10
           </a>
@@ -231,16 +248,86 @@ exports[`ClayPaginationBar renders without a DropDown 1`] = `
             aria-label="Go to the next page, 2"
             class="page-link"
             data-testid="nextArrow"
+            role="button"
+            tabindex="0"
           >
             <svg
               class="lexicon-icon lexicon-icon-angle-right"
               role="presentation"
             >
               <use
-                xlink:href="path/to/spritemap#angle-right"
+                href="path/to/spritemap#angle-right"
               />
             </svg>
           </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+`;
+
+exports[`ClayPaginationBar totalItems with 0 will render the pagination bar with only one page 1`] = `
+<div>
+  <div
+    class="pagination-bar"
+  >
+    <div
+      class="pagination-results"
+      id="clay-id-9"
+    >
+      Showing 1 to 1 of 1
+    </div>
+    <nav
+      aria-label="Pagination"
+    >
+      <ul
+        class="pagination pagination-root"
+      >
+        <li
+          class="page-item disabled"
+        >
+          <div
+            class="page-link"
+            data-testid="prevArrow"
+          >
+            <svg
+              class="lexicon-icon lexicon-icon-angle-left"
+              role="presentation"
+            >
+              <use
+                href="path/to/spritemap#angle-left"
+              />
+            </svg>
+          </div>
+        </li>
+        <li
+          class="page-item active"
+        >
+          <a
+            aria-label="Go to page, 1"
+            class="page-link"
+            tabindex="0"
+          >
+            1
+          </a>
+        </li>
+        <li
+          class="page-item disabled"
+        >
+          <div
+            class="page-link"
+            data-testid="nextArrow"
+          >
+            <svg
+              class="lexicon-icon lexicon-icon-angle-right"
+              role="presentation"
+            >
+              <use
+                href="path/to/spritemap#angle-right"
+              />
+            </svg>
+          </div>
         </li>
       </ul>
     </nav>

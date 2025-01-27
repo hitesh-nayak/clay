@@ -1,6 +1,5 @@
 .form-file {
-	display: flex;
-	position: relative;
+	@include clay-form-control-variant($cadmin-form-file);
 }
 
 .form-file-input {
@@ -133,22 +132,6 @@ label.custom-control-label {
 
 // Custom Control Indicator
 
-.custom-control-label::before {
-	$before: setter(map-get($cadmin-custom-control-label, before), ());
-
-	@extend %cadmin-pseudo-reset !optional;
-
-	@include clay-css($before);
-}
-
-.custom-control-label::after {
-	$after: setter(map-get($cadmin-custom-control-label, after), ());
-
-	@extend %cadmin-pseudo-reset !optional;
-
-	@include clay-css($after);
-}
-
 .custom-control-input {
 	@include clay-custom-control-input-variant($cadmin-custom-control-input);
 }
@@ -163,6 +146,10 @@ label.custom-control-label {
 
 .custom-radio {
 	@include clay-custom-control-variant($cadmin-custom-radio);
+}
+
+.custom-control-outside {
+	@include clay-custom-control-variant($cadmin-custom-control-outside);
 }
 
 // Custom Control Inline

@@ -14,7 +14,7 @@ exports[`Internationalization FirstDayOfWeek first day of the week should start 
         style=""
       >
         <div
-          class="input-group-item"
+          class="input-group-item input-group-item-focusable"
         >
           <input
             name="datePicker"
@@ -32,7 +32,7 @@ exports[`Internationalization FirstDayOfWeek first day of the week should start 
             class="input-group-inset-item input-group-inset-item-after"
           >
             <button
-              aria-controls="clay-id-7"
+              aria-controls="clay-id-19"
               aria-expanded="true"
               aria-haspopup="dialog"
               aria-label="Choose your desired date"
@@ -45,7 +45,7 @@ exports[`Internationalization FirstDayOfWeek first day of the week should start 
                 role="presentation"
               >
                 <use
-                  xlink:href="icons.svg#calendar"
+                  href="icons.svg#calendar"
                 />
               </svg>
             </button>
@@ -64,9 +64,9 @@ exports[`Internationalization FirstDayOfWeek first day of the week should start 
     <div>
       <div
         aria-modal="true"
-        class="dropdown-menu date-picker-dropdown-menu show"
+        class="dropdown-menu date-picker date-picker-dropdown-menu show"
         data-testid="dropdown"
-        id="clay-id-7"
+        id="clay-id-19"
         role="dialog"
         style="left: -999px; top: -995px;"
       >
@@ -155,9 +155,8 @@ exports[`Internationalization FirstDayOfWeek first day of the week should start 
                 class="date-picker-nav-item input-date-picker-year"
               >
                 <select
-                  class="form-control form-control-sm"
+                  class="form-control form-control-select form-control-select-secondary form-control-sm"
                   data-testid="year-select"
-                  name="year"
                 >
                   <option
                     value="2019"
@@ -180,7 +179,7 @@ exports[`Internationalization FirstDayOfWeek first day of the week should start 
                     role="presentation"
                   >
                     <use
-                      xlink:href="icons.svg#angle-left"
+                      href="icons.svg#angle-left"
                     />
                   </svg>
                 </button>
@@ -195,7 +194,7 @@ exports[`Internationalization FirstDayOfWeek first day of the week should start 
                     role="presentation"
                   >
                     <use
-                      xlink:href="icons.svg#simple-circle"
+                      href="icons.svg#simple-circle"
                     />
                   </svg>
                 </button>
@@ -210,7 +209,7 @@ exports[`Internationalization FirstDayOfWeek first day of the week should start 
                     role="presentation"
                   >
                     <use
-                      xlink:href="icons.svg#angle-right"
+                      href="icons.svg#angle-right"
                     />
                   </svg>
                 </button>
@@ -852,7 +851,7 @@ exports[`Internationalization FirstDayOfWeek first day of the week should start 
         style=""
       >
         <div
-          class="input-group-item"
+          class="input-group-item input-group-item-focusable"
         >
           <input
             name="datePicker"
@@ -870,7 +869,7 @@ exports[`Internationalization FirstDayOfWeek first day of the week should start 
             class="input-group-inset-item input-group-inset-item-after"
           >
             <button
-              aria-controls="clay-id-3"
+              aria-controls="clay-id-7"
               aria-expanded="true"
               aria-haspopup="dialog"
               aria-label="Choose your desired date"
@@ -883,7 +882,7 @@ exports[`Internationalization FirstDayOfWeek first day of the week should start 
                 role="presentation"
               >
                 <use
-                  xlink:href="icons.svg#calendar"
+                  href="icons.svg#calendar"
                 />
               </svg>
             </button>
@@ -902,9 +901,9 @@ exports[`Internationalization FirstDayOfWeek first day of the week should start 
     <div>
       <div
         aria-modal="true"
-        class="dropdown-menu date-picker-dropdown-menu show"
+        class="dropdown-menu date-picker date-picker-dropdown-menu show"
         data-testid="dropdown"
-        id="clay-id-3"
+        id="clay-id-7"
         role="dialog"
         style="left: -999px; top: -995px;"
       >
@@ -993,9 +992,8 @@ exports[`Internationalization FirstDayOfWeek first day of the week should start 
                 class="date-picker-nav-item input-date-picker-year"
               >
                 <select
-                  class="form-control form-control-sm"
+                  class="form-control form-control-select form-control-select-secondary form-control-sm"
                   data-testid="year-select"
-                  name="year"
                 >
                   <option
                     value="2019"
@@ -1018,7 +1016,7 @@ exports[`Internationalization FirstDayOfWeek first day of the week should start 
                     role="presentation"
                   >
                     <use
-                      xlink:href="icons.svg#angle-left"
+                      href="icons.svg#angle-left"
                     />
                   </svg>
                 </button>
@@ -1033,7 +1031,7 @@ exports[`Internationalization FirstDayOfWeek first day of the week should start 
                     role="presentation"
                   >
                     <use
-                      xlink:href="icons.svg#simple-circle"
+                      href="icons.svg#simple-circle"
                     />
                   </svg>
                 </button>
@@ -1048,7 +1046,7 @@ exports[`Internationalization FirstDayOfWeek first day of the week should start 
                     role="presentation"
                   >
                     <use
-                      xlink:href="icons.svg#angle-right"
+                      href="icons.svg#angle-right"
                     />
                   </svg>
                 </button>
@@ -1690,7 +1688,7 @@ exports[`Internationalization FirstDayOfWeek first day of the week should start 
         style=""
       >
         <div
-          class="input-group-item"
+          class="input-group-item input-group-item-focusable"
         >
           <input
             name="datePicker"
@@ -1708,7 +1706,7 @@ exports[`Internationalization FirstDayOfWeek first day of the week should start 
             class="input-group-inset-item input-group-inset-item-after"
           >
             <button
-              aria-controls="clay-id-8"
+              aria-controls="clay-id-22"
               aria-expanded="true"
               aria-haspopup="dialog"
               aria-label="Choose your desired date"
@@ -1721,7 +1719,7 @@ exports[`Internationalization FirstDayOfWeek first day of the week should start 
                 role="presentation"
               >
                 <use
-                  xlink:href="icons.svg#calendar"
+                  href="icons.svg#calendar"
                 />
               </svg>
             </button>
@@ -1740,9 +1738,9 @@ exports[`Internationalization FirstDayOfWeek first day of the week should start 
     <div>
       <div
         aria-modal="true"
-        class="dropdown-menu date-picker-dropdown-menu show"
+        class="dropdown-menu date-picker date-picker-dropdown-menu show"
         data-testid="dropdown"
-        id="clay-id-8"
+        id="clay-id-22"
         role="dialog"
         style="left: -999px; top: -995px;"
       >
@@ -1831,9 +1829,8 @@ exports[`Internationalization FirstDayOfWeek first day of the week should start 
                 class="date-picker-nav-item input-date-picker-year"
               >
                 <select
-                  class="form-control form-control-sm"
+                  class="form-control form-control-select form-control-select-secondary form-control-sm"
                   data-testid="year-select"
-                  name="year"
                 >
                   <option
                     value="2019"
@@ -1856,7 +1853,7 @@ exports[`Internationalization FirstDayOfWeek first day of the week should start 
                     role="presentation"
                   >
                     <use
-                      xlink:href="icons.svg#angle-left"
+                      href="icons.svg#angle-left"
                     />
                   </svg>
                 </button>
@@ -1871,7 +1868,7 @@ exports[`Internationalization FirstDayOfWeek first day of the week should start 
                     role="presentation"
                   >
                     <use
-                      xlink:href="icons.svg#simple-circle"
+                      href="icons.svg#simple-circle"
                     />
                   </svg>
                 </button>
@@ -1886,7 +1883,7 @@ exports[`Internationalization FirstDayOfWeek first day of the week should start 
                     role="presentation"
                   >
                     <use
-                      xlink:href="icons.svg#angle-right"
+                      href="icons.svg#angle-right"
                     />
                   </svg>
                 </button>
@@ -2528,7 +2525,7 @@ exports[`Internationalization FirstDayOfWeek first day of the week should start 
         style=""
       >
         <div
-          class="input-group-item"
+          class="input-group-item input-group-item-focusable"
         >
           <input
             name="datePicker"
@@ -2546,7 +2543,7 @@ exports[`Internationalization FirstDayOfWeek first day of the week should start 
             class="input-group-inset-item input-group-inset-item-after"
           >
             <button
-              aria-controls="clay-id-2"
+              aria-controls="clay-id-4"
               aria-expanded="true"
               aria-haspopup="dialog"
               aria-label="Choose your desired date"
@@ -2559,7 +2556,7 @@ exports[`Internationalization FirstDayOfWeek first day of the week should start 
                 role="presentation"
               >
                 <use
-                  xlink:href="icons.svg#calendar"
+                  href="icons.svg#calendar"
                 />
               </svg>
             </button>
@@ -2578,9 +2575,9 @@ exports[`Internationalization FirstDayOfWeek first day of the week should start 
     <div>
       <div
         aria-modal="true"
-        class="dropdown-menu date-picker-dropdown-menu show"
+        class="dropdown-menu date-picker date-picker-dropdown-menu show"
         data-testid="dropdown"
-        id="clay-id-2"
+        id="clay-id-4"
         role="dialog"
         style="left: -999px; top: -995px;"
       >
@@ -2669,9 +2666,8 @@ exports[`Internationalization FirstDayOfWeek first day of the week should start 
                 class="date-picker-nav-item input-date-picker-year"
               >
                 <select
-                  class="form-control form-control-sm"
+                  class="form-control form-control-select form-control-select-secondary form-control-sm"
                   data-testid="year-select"
-                  name="year"
                 >
                   <option
                     value="2019"
@@ -2694,7 +2690,7 @@ exports[`Internationalization FirstDayOfWeek first day of the week should start 
                     role="presentation"
                   >
                     <use
-                      xlink:href="icons.svg#angle-left"
+                      href="icons.svg#angle-left"
                     />
                   </svg>
                 </button>
@@ -2709,7 +2705,7 @@ exports[`Internationalization FirstDayOfWeek first day of the week should start 
                     role="presentation"
                   >
                     <use
-                      xlink:href="icons.svg#simple-circle"
+                      href="icons.svg#simple-circle"
                     />
                   </svg>
                 </button>
@@ -2724,7 +2720,7 @@ exports[`Internationalization FirstDayOfWeek first day of the week should start 
                     role="presentation"
                   >
                     <use
-                      xlink:href="icons.svg#angle-right"
+                      href="icons.svg#angle-right"
                     />
                   </svg>
                 </button>
@@ -3366,7 +3362,7 @@ exports[`Internationalization FirstDayOfWeek first day of the week should start 
         style=""
       >
         <div
-          class="input-group-item"
+          class="input-group-item input-group-item-focusable"
         >
           <input
             name="datePicker"
@@ -3384,7 +3380,7 @@ exports[`Internationalization FirstDayOfWeek first day of the week should start 
             class="input-group-inset-item input-group-inset-item-after"
           >
             <button
-              aria-controls="clay-id-6"
+              aria-controls="clay-id-16"
               aria-expanded="true"
               aria-haspopup="dialog"
               aria-label="Choose your desired date"
@@ -3397,7 +3393,7 @@ exports[`Internationalization FirstDayOfWeek first day of the week should start 
                 role="presentation"
               >
                 <use
-                  xlink:href="icons.svg#calendar"
+                  href="icons.svg#calendar"
                 />
               </svg>
             </button>
@@ -3416,9 +3412,9 @@ exports[`Internationalization FirstDayOfWeek first day of the week should start 
     <div>
       <div
         aria-modal="true"
-        class="dropdown-menu date-picker-dropdown-menu show"
+        class="dropdown-menu date-picker date-picker-dropdown-menu show"
         data-testid="dropdown"
-        id="clay-id-6"
+        id="clay-id-16"
         role="dialog"
         style="left: -999px; top: -995px;"
       >
@@ -3507,9 +3503,8 @@ exports[`Internationalization FirstDayOfWeek first day of the week should start 
                 class="date-picker-nav-item input-date-picker-year"
               >
                 <select
-                  class="form-control form-control-sm"
+                  class="form-control form-control-select form-control-select-secondary form-control-sm"
                   data-testid="year-select"
-                  name="year"
                 >
                   <option
                     value="2019"
@@ -3532,7 +3527,7 @@ exports[`Internationalization FirstDayOfWeek first day of the week should start 
                     role="presentation"
                   >
                     <use
-                      xlink:href="icons.svg#angle-left"
+                      href="icons.svg#angle-left"
                     />
                   </svg>
                 </button>
@@ -3547,7 +3542,7 @@ exports[`Internationalization FirstDayOfWeek first day of the week should start 
                     role="presentation"
                   >
                     <use
-                      xlink:href="icons.svg#simple-circle"
+                      href="icons.svg#simple-circle"
                     />
                   </svg>
                 </button>
@@ -3562,7 +3557,7 @@ exports[`Internationalization FirstDayOfWeek first day of the week should start 
                     role="presentation"
                   >
                     <use
-                      xlink:href="icons.svg#angle-right"
+                      href="icons.svg#angle-right"
                     />
                   </svg>
                 </button>
@@ -4204,7 +4199,7 @@ exports[`Internationalization FirstDayOfWeek first day of the week should start 
         style=""
       >
         <div
-          class="input-group-item"
+          class="input-group-item input-group-item-focusable"
         >
           <input
             name="datePicker"
@@ -4222,7 +4217,7 @@ exports[`Internationalization FirstDayOfWeek first day of the week should start 
             class="input-group-inset-item input-group-inset-item-after"
           >
             <button
-              aria-controls="clay-id-4"
+              aria-controls="clay-id-10"
               aria-expanded="true"
               aria-haspopup="dialog"
               aria-label="Choose your desired date"
@@ -4235,7 +4230,7 @@ exports[`Internationalization FirstDayOfWeek first day of the week should start 
                 role="presentation"
               >
                 <use
-                  xlink:href="icons.svg#calendar"
+                  href="icons.svg#calendar"
                 />
               </svg>
             </button>
@@ -4254,9 +4249,9 @@ exports[`Internationalization FirstDayOfWeek first day of the week should start 
     <div>
       <div
         aria-modal="true"
-        class="dropdown-menu date-picker-dropdown-menu show"
+        class="dropdown-menu date-picker date-picker-dropdown-menu show"
         data-testid="dropdown"
-        id="clay-id-4"
+        id="clay-id-10"
         role="dialog"
         style="left: -999px; top: -995px;"
       >
@@ -4345,9 +4340,8 @@ exports[`Internationalization FirstDayOfWeek first day of the week should start 
                 class="date-picker-nav-item input-date-picker-year"
               >
                 <select
-                  class="form-control form-control-sm"
+                  class="form-control form-control-select form-control-select-secondary form-control-sm"
                   data-testid="year-select"
-                  name="year"
                 >
                   <option
                     value="2019"
@@ -4370,7 +4364,7 @@ exports[`Internationalization FirstDayOfWeek first day of the week should start 
                     role="presentation"
                   >
                     <use
-                      xlink:href="icons.svg#angle-left"
+                      href="icons.svg#angle-left"
                     />
                   </svg>
                 </button>
@@ -4385,7 +4379,7 @@ exports[`Internationalization FirstDayOfWeek first day of the week should start 
                     role="presentation"
                   >
                     <use
-                      xlink:href="icons.svg#simple-circle"
+                      href="icons.svg#simple-circle"
                     />
                   </svg>
                 </button>
@@ -4400,7 +4394,7 @@ exports[`Internationalization FirstDayOfWeek first day of the week should start 
                     role="presentation"
                   >
                     <use
-                      xlink:href="icons.svg#angle-right"
+                      href="icons.svg#angle-right"
                     />
                   </svg>
                 </button>
@@ -5146,7 +5140,7 @@ exports[`Internationalization FirstDayOfWeek first day of the week should start 
         style=""
       >
         <div
-          class="input-group-item"
+          class="input-group-item input-group-item-focusable"
         >
           <input
             name="datePicker"
@@ -5164,7 +5158,7 @@ exports[`Internationalization FirstDayOfWeek first day of the week should start 
             class="input-group-inset-item input-group-inset-item-after"
           >
             <button
-              aria-controls="clay-id-5"
+              aria-controls="clay-id-13"
               aria-expanded="true"
               aria-haspopup="dialog"
               aria-label="Choose your desired date"
@@ -5177,7 +5171,7 @@ exports[`Internationalization FirstDayOfWeek first day of the week should start 
                 role="presentation"
               >
                 <use
-                  xlink:href="icons.svg#calendar"
+                  href="icons.svg#calendar"
                 />
               </svg>
             </button>
@@ -5196,9 +5190,9 @@ exports[`Internationalization FirstDayOfWeek first day of the week should start 
     <div>
       <div
         aria-modal="true"
-        class="dropdown-menu date-picker-dropdown-menu show"
+        class="dropdown-menu date-picker date-picker-dropdown-menu show"
         data-testid="dropdown"
-        id="clay-id-5"
+        id="clay-id-13"
         role="dialog"
         style="left: -999px; top: -995px;"
       >
@@ -5287,9 +5281,8 @@ exports[`Internationalization FirstDayOfWeek first day of the week should start 
                 class="date-picker-nav-item input-date-picker-year"
               >
                 <select
-                  class="form-control form-control-sm"
+                  class="form-control form-control-select form-control-select-secondary form-control-sm"
                   data-testid="year-select"
-                  name="year"
                 >
                   <option
                     value="2019"
@@ -5312,7 +5305,7 @@ exports[`Internationalization FirstDayOfWeek first day of the week should start 
                     role="presentation"
                   >
                     <use
-                      xlink:href="icons.svg#angle-left"
+                      href="icons.svg#angle-left"
                     />
                   </svg>
                 </button>
@@ -5327,7 +5320,7 @@ exports[`Internationalization FirstDayOfWeek first day of the week should start 
                     role="presentation"
                   >
                     <use
-                      xlink:href="icons.svg#simple-circle"
+                      href="icons.svg#simple-circle"
                     />
                   </svg>
                 </button>
@@ -5342,7 +5335,7 @@ exports[`Internationalization FirstDayOfWeek first day of the week should start 
                     role="presentation"
                   >
                     <use
-                      xlink:href="icons.svg#angle-right"
+                      href="icons.svg#angle-right"
                     />
                   </svg>
                 </button>
@@ -5984,7 +5977,7 @@ exports[`Internationalization renders the date picker in russian 1`] = `
         style=""
       >
         <div
-          class="input-group-item"
+          class="input-group-item input-group-item-focusable"
         >
           <input
             name="datePicker"
@@ -6015,7 +6008,7 @@ exports[`Internationalization renders the date picker in russian 1`] = `
                 role="presentation"
               >
                 <use
-                  xlink:href="icons.svg#calendar"
+                  href="icons.svg#calendar"
                 />
               </svg>
             </button>
@@ -6034,7 +6027,7 @@ exports[`Internationalization renders the date picker in russian 1`] = `
     <div>
       <div
         aria-modal="true"
-        class="dropdown-menu date-picker-dropdown-menu show"
+        class="dropdown-menu date-picker date-picker-dropdown-menu show"
         data-testid="dropdown"
         id="clay-id-1"
         role="dialog"
@@ -6125,9 +6118,8 @@ exports[`Internationalization renders the date picker in russian 1`] = `
                 class="date-picker-nav-item input-date-picker-year"
               >
                 <select
-                  class="form-control form-control-sm"
+                  class="form-control form-control-select form-control-select-secondary form-control-sm"
                   data-testid="year-select"
-                  name="year"
                 >
                   <option
                     value="1997"
@@ -6285,7 +6277,7 @@ exports[`Internationalization renders the date picker in russian 1`] = `
                     role="presentation"
                   >
                     <use
-                      xlink:href="icons.svg#angle-left"
+                      href="icons.svg#angle-left"
                     />
                   </svg>
                 </button>
@@ -6300,7 +6292,7 @@ exports[`Internationalization renders the date picker in russian 1`] = `
                     role="presentation"
                   >
                     <use
-                      xlink:href="icons.svg#simple-circle"
+                      href="icons.svg#simple-circle"
                     />
                   </svg>
                 </button>
@@ -6315,7 +6307,7 @@ exports[`Internationalization renders the date picker in russian 1`] = `
                     role="presentation"
                   >
                     <use
-                      xlink:href="icons.svg#angle-right"
+                      href="icons.svg#angle-right"
                     />
                   </svg>
                 </button>
@@ -6953,13 +6945,13 @@ exports[`Internationalization renders the date picker in russian 1`] = `
                         role="presentation"
                       >
                         <use
-                          xlink:href="icons.svg#time"
+                          href="icons.svg#time"
                         />
                       </svg>
                     </div>
                   </div>
                   <div
-                    class="input-group-item input-group-item-shrink"
+                    class="input-group-item"
                   >
                     <div
                       class="form-control"
@@ -7010,7 +7002,7 @@ exports[`Internationalization renders the date picker in russian 1`] = `
                               role="presentation"
                             >
                               <use
-                                xlink:href="icons.svg#times-circle"
+                                href="icons.svg#times-circle"
                               />
                             </svg>
                           </button>
@@ -7035,7 +7027,7 @@ exports[`Internationalization renders the date picker in russian 1`] = `
                                 role="presentation"
                               >
                                 <use
-                                  xlink:href="icons.svg#angle-up"
+                                  href="icons.svg#angle-up"
                                 />
                               </svg>
                             </button>
@@ -7050,7 +7042,7 @@ exports[`Internationalization renders the date picker in russian 1`] = `
                                 role="presentation"
                               >
                                 <use
-                                  xlink:href="icons.svg#angle-down"
+                                  href="icons.svg#angle-down"
                                 />
                               </svg>
                             </button>

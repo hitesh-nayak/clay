@@ -17,6 +17,10 @@ mainTabURL: 'docs/components/empty-state.html'
 </div>
 </div>
 
+<div class="clay-site-alert alert alert-warning">
+	The usage of animated GIFs are deprecated. 
+</div>
+
 ## Without Animation(#css-without-animation)
 
 <div class="sheet-example">
@@ -56,7 +60,7 @@ mainTabURL: 'docs/components/empty-state.html'
 				<img
 					alt="empty-state-image"
 					class="aspect-ratio-item aspect-ratio-item-fluid"
-					src="/images/empty_state.gif"
+					src="/images/empty_state.svg"
 				/>
 			</div>
 		</div>
@@ -79,7 +83,7 @@ mainTabURL: 'docs/components/empty-state.html'
 			<img
 				alt="empty-state-image"
 				class="aspect-ratio-item aspect-ratio-item-fluid"
-				src="/images/empty_state.gif"
+				src="/images/empty_state.svg"
 			/>
 		</div>
 	</div>
@@ -104,7 +108,7 @@ mainTabURL: 'docs/components/empty-state.html'
 				<img
 					alt="empty-state-image"
 					class="aspect-ratio-item aspect-ratio-item-fluid"
-					src="/images/search_state.gif"
+					src="/images/search_state.svg"
 				/>
 			</div>
 		</div>
@@ -126,7 +130,7 @@ mainTabURL: 'docs/components/empty-state.html'
 			<img
 				alt="empty-state-image"
 				class="aspect-ratio-item aspect-ratio-item-fluid"
-				src="/images/search_state.gif"
+				src="/images/search_state.svg"
 			/>
 		</div>
 	</div>
@@ -150,7 +154,7 @@ mainTabURL: 'docs/components/empty-state.html'
 				<img
 					alt="empty-state-image"
 					class="aspect-ratio-item aspect-ratio-item-fluid"
-					src="/images/success_state.gif"
+					src="/images/success_state.svg"
 				/>
 			</div>
 		</div>
@@ -172,7 +176,7 @@ mainTabURL: 'docs/components/empty-state.html'
 			<img
 				alt="empty-state-image"
 				class="aspect-ratio-item aspect-ratio-item-fluid"
-				src="/images/success_state.gif"
+				src="/images/success_state.svg"
 			/>
 		</div>
 	</div>
@@ -196,7 +200,7 @@ mainTabURL: 'docs/components/empty-state.html'
 				<img
 					alt="Alternative Text"
 					class="aspect-ratio-item aspect-ratio-item-fluid"
-					src="/images/success_state.gif"
+					src="/images/success_state.svg"
 					title="Hello World!"
 				/>
 			</div>
@@ -219,7 +223,7 @@ mainTabURL: 'docs/components/empty-state.html'
 			<img
 				alt="Alternative Text"
 				class="aspect-ratio-item aspect-ratio-item-fluid"
-				src="/images/success_state.gif"
+				src="/images/success_state.svg"
 				title="Hello World!"
 			/>
 		</div>

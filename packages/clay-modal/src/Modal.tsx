@@ -3,8 +3,8 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-import {ClayPortal, IPortalBaseProps} from '@clayui/shared';
-import {hideOthers} from 'aria-hidden';
+import {ClayPortal, IPortalBaseProps, stack} from '@clayui/shared';
+import {suppressOthers} from 'aria-hidden';
 import classNames from 'classnames';
 import React, {useEffect, useMemo, useRef} from 'react';
 import warning from 'warning';
@@ -22,7 +22,7 @@ import Header, {
 	TitleSection,
 } from './Header';
 import {useUserInteractions} from './Hook';
-import {Observer, ObserverType, Size} from './types';
+import {Observer, ObserverType} from './types';
 
 interface IProps
 	extends React.HTMLAttributes<HTMLDivElement>,
@@ -52,7 +52,7 @@ interface IProps
 	/**
 	 * The size of element modal.
 	 */
-	size?: Size;
+	size?: 'full-screen' | 'lg' | 'sm';
 
 	/**
 	 * Observer is Modal's communication system with `useModal`
@@ -74,7 +74,7 @@ const warningMessage = `You need to pass the 'observer' prop to ClayModal for ev
 > 	<ClayModal observer={observer}>
 > 		...
 > 	</ClayModal>
-> ); 
+> );
 `;
 
 let counter = 0;
@@ -87,6 +87,7 @@ const ClayModal = ({
 	containerProps = {},
 	disableAutoClose = false,
 	observer,
+	role = 'dialog',
 	size,
 	spritemap,
 	status,
@@ -96,21 +97,36 @@ const ClayModal = ({
 	const modalElementRef = useRef<HTMLDivElement | null>(null);
 	const modalBodyElementRef = useRef<HTMLDivElement | null>(null);
 
+	const [show, content] =
+		observer && observer.mutation ? observer.mutation : [false, false];
+
 	warning(observer !== undefined, warningMessage);
 
 	useUserInteractions(
 		modalElementRef,
 		modalBodyElementRef,
-		() => !disableAutoClose && observer.dispatch(ObserverType.Close)
+		() => !disableAutoClose && observer.dispatch(ObserverType.Close),
+		show,
+		content
 	);
 
-	useEffect(() => observer.dispatch(ObserverType.Open), []);
+	useEffect(() => {
+		observer.dispatch(ObserverType.RestoreFocus, document.activeElement);
+		observer.dispatch(ObserverType.Open);
+	}, []);
 
 	useEffect(() => {
-		if (modalBodyElementRef.current) {
-			modalBodyElementRef.current.focus();
+		if (modalBodyElementRef.current && show && content) {
+			const focusedElement =
+				modalBodyElementRef.current.querySelector('h1');
+
+			if (focusedElement) {
+				focusedElement.focus();
+			} else {
+				modalBodyElementRef.current.focus();
+			}
 		}
-	}, [modalBodyElementRef]);
+	}, [show, content]);
 
 	const ariaLabelledby = useMemo(() => {
 		counter++;
@@ -118,13 +134,28 @@ const ClayModal = ({
 		return `clay-modal-label-${counter}`;
 	}, []);
 
-	const [show, content] =
-		observer && observer.mutation ? observer.mutation : [false, false];
+	useEffect(() => {
+		if (show && content) {
+			stack.push(modalElementRef);
+		}
+
+		return () => {
+			const index = stack.indexOf(modalElementRef);
+
+			if (index >= 0) {
+				stack.splice(index, 1);
+			}
+		};
+	}, [show, modalElementRef, content]);
 
 	useEffect(() => {
-		if (modalElementRef.current && show) {
+		if (
+			modalElementRef.current &&
+			show &&
+			stack[stack.length - 1] === modalElementRef
+		) {
 			// Hide everything from ARIA except the Modal Body
-			return hideOthers(modalElementRef.current);
+			return suppressOthers(modalElementRef.current);
 		}
 	}, [show]);
 
@@ -150,18 +181,20 @@ const ClayModal = ({
 				style={{zIndex: zIndex && zIndex + 10}}
 			>
 				<div
-					aria-labelledby={ariaLabelledby}
-					aria-modal="true"
 					className={classNames('modal-dialog', {
 						[`modal-${size}`]: size,
 						[`modal-${status}`]: status,
 						'modal-dialog-centered': center,
 					})}
-					ref={modalBodyElementRef}
-					role="dialog"
-					tabIndex={-1}
 				>
-					<div className="modal-content">
+					<div
+						aria-labelledby={ariaLabelledby}
+						aria-modal="true"
+						className="modal-content"
+						ref={modalBodyElementRef}
+						role={role}
+						tabIndex={-1}
+					>
 						<Context.Provider
 							value={{
 								ariaLabelledby,

@@ -28,7 +28,8 @@ export type MoveItemIndex = {
 	previous: number;
 };
 
-export interface ITreeViewContext<T> extends ITreeState<T> {
+export interface ITreeViewContext<T extends Record<string, any>>
+	extends ITreeState<T> {
 	childrenRoot: React.MutableRefObject<ChildrenFunction<Object> | null>;
 	dragAndDrop?: boolean;
 	expandDoubleClick?: boolean;
@@ -37,7 +38,7 @@ export interface ITreeViewContext<T> extends ITreeState<T> {
 	expanderIcons?: Icons;
 	nestedKey?: string;
 	onItemMove?: (item: T, parentItem: T, index: MoveItemIndex) => boolean;
-	onItemHover?: (item: T, parentItem: T, index: MoveItemIndex) => void;
+	onItemHover?: (item: T, parentItem: T, index: MoveItemIndex) => boolean;
 	onLoadMore?: OnLoadMore<T>;
 	onSelect?: (item: T) => void;
 	onRenameItem?: (item: T) => Promise<any>;
@@ -50,12 +51,17 @@ export const TreeViewContext = React.createContext<ITreeViewContext<any>>(
 	{} as ITreeViewContext<any>
 );
 
-export function useTreeViewContext(): ITreeViewContext<unknown> {
+export function useTreeViewContext(): ITreeViewContext<Record<string, any>> {
 	return useContext(TreeViewContext);
 }
 
+type SelectionToggleOptions = {
+	selectionMode?: 'single' | 'multiple' | 'multiple-recursive' | null;
+	parentSelection?: boolean;
+};
+
 export type Selection = {
-	toggle: (key: Key) => void;
+	toggle: (key: Key, options?: SelectionToggleOptions) => void;
 	has: (key: Key) => boolean;
 };
 
@@ -66,7 +72,7 @@ export type Expand = {
 
 export type LoadMore = {
 	get: (key: Key) => any;
-	loadMore: <T>(
+	loadMore: <T extends Record<string, any>>(
 		id: React.Key,
 		item: T,
 		willToggle?: boolean
@@ -85,7 +91,11 @@ export function useAPI(): [Selection, Expand, LoadMore] {
 	} = useTreeViewContext();
 
 	const loadMore = useCallback(
-		<T>(id: Key, item: T, willToggle: boolean = false) => {
+		<T extends Record<string, any>>(
+			id: Key,
+			item: T,
+			willToggle: boolean = false
+		) => {
 			if (!onLoadMore) {
 				return;
 			}
@@ -113,6 +123,10 @@ export function useAPI(): [Selection, Expand, LoadMore] {
 					} else if (items.items) {
 						cursors.current.set(id, items.cursor);
 						insert([...layoutItem.loc, 0], items.items);
+
+						if (willToggle && !expandedKeys.has(id)) {
+							toggle(id);
+						}
 					}
 				})
 				.catch((error) => {

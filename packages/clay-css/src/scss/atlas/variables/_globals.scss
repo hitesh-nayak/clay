@@ -13,9 +13,23 @@ $clay-unset-placeholder: clay-unset-placeholder !default;
 $atlas-theme: true !default;
 
 $enable-bs4-deprecated: true !default;
+$enable-c-inner: true !default;
+$enable-focus-visible: true !default;
+
+$focus-visible-selector: if(
+	$enable-focus-visible,
+	'&:focus-visible',
+	'&:focus'
+) !default;
+
+$c-prefers-focus-selector: if(
+	$enable-focus-visible,
+	'.c-prefers-focus &:focus',
+	''
+);
+
 $enable-lexicon-flat-colors: true !default;
 $enable-scaling-components: true !default;
-$enable-c-inner: true !default;
 $scaling-breakpoint-down: sm !default;
 
 // This enables Clay color functions to get the fallback color of a CSS Custom Property, convert it to the correct Sass type color, then process it using the corresponding Sass color function. The Clay color function will return a CSS color value. Set this variable to `false` if you want the Clay color function to return the CSS Custom Property without any modifications.
@@ -69,16 +83,115 @@ $grays: map-merge(
 	$grays
 );
 
-$blue: if($enable-lexicon-flat-colors, #4b9fff, #0b5fff) !default;
-$indigo: if($enable-lexicon-flat-colors, #7785ff, #6610f2) !default;
-$purple: if($enable-lexicon-flat-colors, #af78ff, #6f42c1) !default;
-$pink: if($enable-lexicon-flat-colors, #ff73c3, #e83e8c) !default;
-$red: if($enable-lexicon-flat-colors, #ff5f5f, #da1414) !default;
-$orange: if($enable-lexicon-flat-colors, #ffb46e, #b95000) !default;
-$yellow: if($enable-lexicon-flat-colors, #ffd76e, #ffc107) !default;
-$green: if($enable-lexicon-flat-colors, #9be169, #287d3d) !default;
-$teal: if($enable-lexicon-flat-colors, #50d2a0, #20c997) !default;
-$cyan: if($enable-lexicon-flat-colors, #5fc8ff, #17a2b8) !default;
+$blue-d4: #004799 !default;
+$blue-d3: #0053b3 !default;
+$blue-d2: #005fcc !default;
+$blue-d1: #006be6 !default;
+$blue: if($enable-lexicon-flat-colors, #006eff, #0b5fff) !default;
+$blue-l1: #338fff !default;
+$blue-l2: #66abff !default;
+$blue-l3: #97c5ff !default;
+$blue-l4: #cce3ff !default;
+$blue-l5: #e5f1ff !default;
+
+$indigo-d4: #0017e5 !default;
+$indigo-d3: #001aff !default;
+$indigo-d2: #1a30ff !default;
+$indigo-d1: #3347ff !default;
+$indigo: if($enable-lexicon-flat-colors, #4d5fff, #6610f2) !default;
+$indigo-l1: #808cff !default;
+$indigo-l2: #99a3ff !default;
+$indigo-l3: #b2baff !default;
+$indigo-l4: #ccd1ff !default;
+$indigo-l5: #e5e8ff !default;
+
+$purple-d4: #7700cc !default;
+$purple-d3: #8600e6 !default;
+$purple-d2: #9500ff !default;
+$purple-d1: #9f1aff !default;
+$purple: if($enable-lexicon-flat-colors, #aa33ff, #6f42c1) !default;
+$purple-l1: #bf66ff !default;
+$purple-l2: #ca80ff !default;
+$purple-l3: #d499ff !default;
+$purple-l4: #dfb3ff !default;
+$purple-l5: #f2e5ff !default;
+
+$pink-d4: #800048 !default;
+$pink-d3: #990057 !default;
+$pink-d2: #b30065 !default;
+$pink-d1: #cc0074 !default;
+$pink: if($enable-lexicon-flat-colors, #e50082, #e83e8c) !default;
+$pink-l1: #ff4db2 !default;
+$pink-l2: #ff80c8 !default;
+$pink-l3: #ff99d3 !default;
+$pink-l4: #ffb3de !default;
+$pink-l5: #ffe5f4 !default;
+
+$red-d4: #800000 !default;
+$red-d3: #990000 !default;
+$red-d2: #b30000 !default;
+$red-d1: #cc0000 !default;
+$red: if($enable-lexicon-flat-colors, #e60000, #da1414) !default;
+$red-l1: #ff4d4d !default;
+$red-l2: #ff6666 !default;
+$red-l3: #ff8080 !default;
+$red-l4: #ff9999 !default;
+$red-l5: #ffe5e5 !default;
+
+$orange-d4: #662700 !default;
+$orange-d3: #803100 !default;
+$orange-d2: #993b00 !default;
+$orange-d1: #b34400 !default;
+$orange: if($enable-lexicon-flat-colors, #cc4e00, #b95000) !default;
+$orange-l1: #ff6200 !default;
+$orange-l2: #ff8133 !default;
+$orange-l3: #ffa166 !default;
+$orange-l4: #ffc099 !default;
+$orange-l5: #fff0e5 !default;
+
+$yellow-d4: #997000 !default;
+$yellow-d3: #b38900 !default;
+$yellow-d2: #cc9600 !default;
+$yellow-d1: #e6a800 !default;
+$yellow: if($enable-lexicon-flat-colors, #ffbb00, #ffc107) !default;
+$yellow-l1: #ffc933 !default;
+$yellow-l2: #ffd666 !default;
+$yellow-l3: #ffe499 !default;
+$yellow-l4: #fff1cc !default;
+$yellow-l5: #fff8e5 !default;
+
+$green-d4: #162d06 !default;
+$green-d3: #22430a !default;
+$green-d2: #2e590d !default;
+$green-d1: #397010 !default;
+$green: if($enable-lexicon-flat-colors, #458613, #287d3d) !default;
+$green-l1: #53a117 !default;
+$green-l2: #67c91d !default;
+$green-l3: #81e236 !default;
+$green-l4: #9de963 !default;
+$green-l5: #f1fce9 !default;
+
+$teal-d4: #092a25 !default;
+$teal-d3: #0d3f37 !default;
+$teal-d2: #125449 !default;
+$teal-d1: #16695b !default;
+$teal: if($enable-lexicon-flat-colors, #1b7e6e, #20c997) !default;
+$teal-l1: #24a892 !default;
+$teal-l2: #42d7be !default;
+$teal-l3: #6ce0cc !default;
+$teal-l4: #96e9db !default;
+$teal-l5: #eafbf8 !default;
+
+$cyan-d4: #00334d !default;
+$cyan-d3: #004466 !default;
+$cyan-d2: #005580 !default;
+$cyan-d1: #006699 !default;
+$cyan: if($enable-lexicon-flat-colors, #0077b3, #17a2b8) !default;
+$cyan-l1: #0099e6 !default;
+$cyan-l2: #33bbff !default;
+$cyan-l3: #66ccff !default;
+$cyan-l4: #99ddff !default;
+$cyan-l5: #e5f6ff !default;
 
 $colors: () !default;
 $colors: map-merge(
@@ -103,6 +216,7 @@ $colors: map-merge(
 $primary: #0b5fff !default;
 $primary-d1: clay-darken($primary, 5.1) !default;
 $primary-d2: clay-darken($primary, 10) !default;
+$primary-l0: clay-lighten($primary, 14.9) !default;
 $primary-l1: clay-lighten($primary, 22.94) !default;
 $primary-l2: clay-lighten($primary, 32.94) !default;
 $primary-l3: clay-lighten($primary, 44.9) !default;
@@ -110,6 +224,10 @@ $primary-l3: clay-lighten($primary, 44.9) !default;
 $secondary: #6b6c7e !default;
 $secondary-d1: clay-darken(clay-saturate($secondary, 4.82), 20) !default;
 $secondary-d2: clay-darken(clay-saturate($secondary, 5.36), 23.92) !default;
+$secondary-l0: clay-lighten(
+	clay-saturate(clay-adjust-hue($secondary, 32), 1.25),
+	15.29
+) !default;
 $secondary-l1: clay-lighten(
 	clay-saturate(clay-adjust-hue($secondary, -3), 5.39),
 	23.92
@@ -268,8 +386,8 @@ $component-transition: color 0.15s ease-in-out,
 	background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
 	box-shadow 0.15s ease-in-out !default;
 
-$component-focus-box-shadow: #{0 0 0 0.125rem $white, 0 0 0 0.25rem $primary-l1} !default;
-$component-focus-inset-box-shadow: #{inset 0 0 0 0.125rem $primary-l1,
+$component-focus-box-shadow: #{0 0 0 0.125rem $white, 0 0 0 0.25rem $primary-l0} !default;
+$component-focus-inset-box-shadow: #{inset 0 0 0 0.125rem $primary-l0,
 	inset 0 0 0 0.25rem $white} !default;
 
 $component-active-color: #fff !default;
@@ -421,7 +539,7 @@ $headings-color: null !default;
 // Body
 
 $body-bg: $white !default;
-$body-color: $gray-900 !default;
+$body-color: $dark-d1 !default;
 $body-moz-osx-font-smoothing: $moz-osx-font-smoothing !default;
 $body-webkit-font-smoothing: $webkit-font-smoothing !default;
 $body-text-align: inherit !default;
@@ -522,11 +640,11 @@ $hr-border-color: rgba($black, 0.1) !default;
 $hr-border-width: $border-width !default;
 $hr-margin-y: $spacer !default;
 
-$mark-padding: 0.2em !default;
+$mark-bg: #ffe399 !default;
 
 $dt-font-weight: $font-weight-bold !default;
 
-$code-color: $pink !default;
+$code-color: $red !default;
 $code-font-size: 87.5% !default;
 
 $kbd-bg: $gray-900 !default;
@@ -542,8 +660,6 @@ $pre-color: $gray-900 !default;
 $pre-scrollable-max-height: 340px !default;
 
 $list-inline-padding: 0.5rem !default;
-
-$mark-bg: #fcf8e3 !default;
 
 // Buttons + Forms
 

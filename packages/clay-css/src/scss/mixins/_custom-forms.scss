@@ -140,21 +140,36 @@
 				}
 			}
 
-			&:focus {
-				~ .custom-control-label::before {
-					@include clay-css(
-						map-deep-get($map, focus, custom-control-label, before)
-					);
-				}
+			@at-root {
+				#{$focus-visible-selector},
+				#{if($c-prefers-focus-selector,$c-prefers-focus-selector,clay-insert-before('.cadmin', '.c-prefers-focus ', '&:focus'))} {
+					~ .custom-control-label::before {
+						@include clay-css(
+							map-deep-get(
+								$map,
+								focus,
+								custom-control-label,
+								before
+							)
+						);
+					}
 
-				~ .custom-control-label::after {
-					@include clay-css(
-						map-deep-get($map, focus, custom-control-label, after)
-					);
-				}
+					~ .custom-control-label::after {
+						@include clay-css(
+							map-deep-get(
+								$map,
+								focus,
+								custom-control-label,
+								after
+							)
+						);
+					}
 
-				~ .card {
-					@include clay-card-variant(map-deep-get($map, focus, card));
+					~ .card {
+						@include clay-card-variant(
+							map-deep-get($map, focus, card)
+						);
+					}
 				}
 			}
 
@@ -384,35 +399,40 @@
 				}
 			}
 
-			&:checked:focus {
-				~ .custom-control-label::before {
-					@include clay-css(
-						map-deep-get(
-							$map,
-							checked,
-							focus,
-							custom-control-label,
-							before
-						)
-					);
-				}
+			@at-root {
+				&:checked {
+					#{$focus-visible-selector},
+					#{if($c-prefers-focus-selector,$c-prefers-focus-selector,clay-insert-before('.cadmin', '.c-prefers-focus ', '&:focus'))} {
+						~ .custom-control-label::before {
+							@include clay-css(
+								map-deep-get(
+									$map,
+									checked,
+									focus,
+									custom-control-label,
+									before
+								)
+							);
+						}
 
-				~ .custom-control-label::after {
-					@include clay-css(
-						map-deep-get(
-							$map,
-							checked,
-							focus,
-							custom-control-label,
-							after
-						)
-					);
-				}
+						~ .custom-control-label::after {
+							@include clay-css(
+								map-deep-get(
+									$map,
+									checked,
+									focus,
+									custom-control-label,
+									after
+								)
+							);
+						}
 
-				~ .card {
-					@include clay-card-variant(
-						map-deep-get($map, checked, focus, card)
-					);
+						~ .card {
+							@include clay-card-variant(
+								map-deep-get($map, checked, focus, card)
+							);
+						}
+					}
 				}
 			}
 
@@ -609,35 +629,40 @@
 				}
 			}
 
-			&:indeterminate:focus {
-				~ .custom-control-label::before {
-					@include clay-css(
-						map-deep-get(
-							$map,
-							indeterminate,
-							focus,
-							custom-control-label,
-							before
-						)
-					);
-				}
+			@at-root {
+				&:indeterminate {
+					#{$focus-visible-selector},
+					#{if($c-prefers-focus-selector,$c-prefers-focus-selector,clay-insert-before('.cadmin', '.c-prefers-focus ', '&:focus'))} {
+						~ .custom-control-label::before {
+							@include clay-css(
+								map-deep-get(
+									$map,
+									indeterminate,
+									focus,
+									custom-control-label,
+									before
+								)
+							);
+						}
 
-				~ .custom-control-label::after {
-					@include clay-css(
-						map-deep-get(
-							$map,
-							indeterminate,
-							focus,
-							custom-control-label,
-							after
-						)
-					);
-				}
+						~ .custom-control-label::after {
+							@include clay-css(
+								map-deep-get(
+									$map,
+									indeterminate,
+									focus,
+									custom-control-label,
+									after
+								)
+							);
+						}
 
-				~ .card {
-					@include clay-card-variant(
-						map-deep-get($map, indeterminate, focus, card)
-					);
+						~ .card {
+							@include clay-card-variant(
+								map-deep-get($map, indeterminate, focus, card)
+							);
+						}
+					}
 				}
 			}
 

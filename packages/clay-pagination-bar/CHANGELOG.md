@@ -3,6 +3,230 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.127.0](https://github.com/liferay/clay/compare/v3.126.0...v3.127.0) (2025-01-23)
+
+**Note:** Version bump only for package @clayui/pagination-bar
+
+# [3.125.0](https://github.com/liferay/clay/compare/v3.124.0...v3.125.0) (2025-01-13)
+
+**Note:** Version bump only for package @clayui/pagination-bar
+
+# [3.124.0](https://github.com/liferay/clay/compare/v3.123.1...v3.124.0) (2024-12-18)
+
+**Note:** Version bump only for package @clayui/pagination-bar
+
+## [3.123.1](https://github.com/liferay/clay/compare/v3.123.0...v3.123.1) (2024-11-27)
+
+**Note:** Version bump only for package @clayui/pagination-bar
+
+# [3.123.0](https://github.com/liferay/clay/compare/v3.122.0...v3.123.0) (2024-11-21)
+
+**Note:** Version bump only for package @clayui/pagination-bar
+
+# [3.122.0](https://github.com/liferay/clay/compare/v3.121.0...v3.122.0) (2024-11-13)
+
+### Bug Fixes
+
+-   **@clayui/pagination-bar:** LPD-38518 - Add case test for pagination bar ([0294c7d](https://github.com/liferay/clay/commit/0294c7ddfe4ec96f0a064c748938c2c27076173a))
+
+# [3.121.0](https://github.com/liferay/clay/compare/v3.120.0...v3.121.0) (2024-10-17)
+
+**Note:** Version bump only for package @clayui/pagination-bar
+
+# [3.120.0](https://github.com/liferay/clay/compare/v3.119.1...v3.120.0) (2024-09-13)
+
+**Note:** Version bump only for package @clayui/pagination-bar
+
+# [3.119.0](https://github.com/liferay/clay/compare/v3.118.0...v3.119.0) (2024-08-30)
+
+**Note:** Version bump only for package @clayui/pagination-bar
+
+# [3.118.0](https://github.com/liferay/clay/compare/v3.117.0...v3.118.0) (2024-08-13)
+
+**Note:** Version bump only for package @clayui/pagination-bar
+
+# [3.117.0](https://github.com/liferay/clay/compare/v3.116.1...v3.117.0) (2024-07-30)
+
+**Note:** Version bump only for package @clayui/pagination-bar
+
+## [3.116.1](https://github.com/liferay/clay/compare/v3.116.0...v3.116.1) (2024-06-27)
+
+**Note:** Version bump only for package @clayui/pagination-bar
+
+# [3.116.0](https://github.com/liferay/clay/compare/v3.115.2...v3.116.0) (2024-06-10)
+
+**Note:** Version bump only for package @clayui/pagination-bar
+
+## [3.115.1](https://github.com/liferay/clay/compare/v3.115.0...v3.115.1) (2024-05-21)
+
+**Note:** Version bump only for package @clayui/pagination-bar
+
+# [3.115.0](https://github.com/liferay/clay/compare/v3.114.0...v3.115.0) (2024-05-16)
+
+**Note:** Version bump only for package @clayui/pagination-bar
+
+# [3.114.0](https://github.com/liferay/clay/compare/v3.113.0...v3.114.0) (2024-04-22)
+
+### Bug Fixes
+
+-   **@clayui/pagination-bar:** LPD-17368 Follow up - Add aria-label ([ba21e0e](https://github.com/liferay/clay/commit/ba21e0e1408bfe3a267c504edb21527f95cbafdb))
+
+# [3.113.0](https://github.com/liferay/clay/compare/v3.112.0...v3.113.0) (2024-03-28)
+
+**Note:** Version bump only for package @clayui/pagination-bar
+
+# [3.112.0](https://github.com/liferay/clay/compare/v3.111.1...v3.112.0) (2024-03-11)
+
+**Note:** Version bump only for package @clayui/pagination-bar
+
+## [3.111.1](https://github.com/liferay/clay/compare/v3.111.0...v3.111.1) (2024-02-20)
+
+### Bug Fixes
+
+-   **@clayui/pagination:** LPD-17368 Add aria-label on pagination picker to ideentify the combobox ([7df8b4c](https://github.com/liferay/clay/commit/7df8b4ce7bcf3502c162c29d842b44cf8e6e2e6c))
+-   **@clayui/pagination:** LPD-17368 Update snapshot ([74f3f21](https://github.com/liferay/clay/commit/74f3f21bcaa53c53566fa81a2bb977afa064365f))
+
+# [3.111.0](https://github.com/liferay/clay/compare/v3.110.0...v3.111.0) (2024-02-15)
+
+**Note:** Version bump only for package @clayui/pagination-bar
+
+# [3.109.0](https://github.com/liferay/clay/compare/v3.108.0...v3.109.0) (2024-01-22)
+
+**Note:** Version bump only for package @clayui/pagination-bar
+
+# [3.108.0](https://github.com/liferay/clay/compare/v3.107.1...v3.108.0) (2023-12-12)
+
+**Note:** Version bump only for package @clayui/pagination-bar
+
+## [3.107.1](https://github.com/liferay/clay/compare/v3.107.0...v3.107.1) (2023-11-27)
+
+**Note:** Version bump only for package @clayui/pagination-bar
+
+# [3.107.0](https://github.com/liferay/clay/compare/v3.106.1...v3.107.0) (2023-11-27)
+
+**Note:** Version bump only for package @clayui/pagination-bar
+
+## [3.106.1](https://github.com/liferay/clay/compare/v3.106.0...v3.106.1) (2023-10-26)
+
+**Note:** Version bump only for package @clayui/pagination-bar
+
+# [3.106.0](https://github.com/liferay/clay/compare/v3.105.0...v3.106.0) (2023-10-25)
+
+### Bug Fixes
+
+-   remove 'src' dir from being packaged with npm ([9383e8d](https://github.com/liferay/clay/commit/9383e8d8abb25ca3396e7c6e4dfa53bbc72691c5))
+-   use package's directory for baseDir when generating type ([0a5c710](https://github.com/liferay/clay/commit/0a5c710092f36243bc8d5487f70e831295715072))
+
+# [3.105.0](https://github.com/liferay/clay/compare/v3.104.0...v3.105.0) (2023-09-15)
+
+**Note:** Version bump only for package @clayui/pagination-bar
+
+# [3.104.0](https://github.com/liferay/clay/compare/v3.103.1...v3.104.0) (2023-08-25)
+
+**Note:** Version bump only for package @clayui/pagination-bar
+
+## [3.103.1](https://github.com/liferay/clay/compare/v3.103.0...v3.103.1) (2023-08-15)
+
+**Note:** Version bump only for package @clayui/pagination-bar
+
+# [3.101.0](https://github.com/liferay/clay/compare/v3.100.0...v3.101.0) (2023-07-28)
+
+**Note:** Version bump only for package @clayui/pagination-bar
+
+# [3.100.0](https://github.com/liferay/clay/compare/v3.99.4...v3.100.0) (2023-07-13)
+
+**Note:** Version bump only for package @clayui/pagination-bar
+
+## [3.99.4](https://github.com/liferay/clay/compare/v3.99.3...v3.99.4) (2023-07-10)
+
+**Note:** Version bump only for package @clayui/pagination-bar
+
+## [3.99.1](https://github.com/liferay/clay/compare/v3.99.0...v3.99.1) (2023-07-04)
+
+**Note:** Version bump only for package @clayui/pagination-bar
+
+# [3.99.0](https://github.com/liferay/clay/compare/v3.98.0...v3.99.0) (2023-06-28)
+
+**Note:** Version bump only for package @clayui/pagination-bar
+
+# [3.98.0](https://github.com/liferay/clay/compare/v3.97.2...v3.98.0) (2023-06-20)
+
+**Note:** Version bump only for package @clayui/pagination-bar
+
+## [3.97.1](https://github.com/liferay/clay/compare/v3.97.0...v3.97.1) (2023-06-14)
+
+**Note:** Version bump only for package @clayui/pagination-bar
+
+# [3.97.0](https://github.com/liferay/clay/compare/v3.96.1...v3.97.0) (2023-06-13)
+
+**Note:** Version bump only for package @clayui/pagination-bar
+
+# [3.96.0](https://github.com/liferay/clay/compare/v3.95.2...v3.96.0) (2023-05-29)
+
+**Note:** Version bump only for package @clayui/pagination-bar
+
+## [3.95.2](https://github.com/liferay/clay/compare/v3.95.0...v3.95.2) (2023-05-17)
+
+**Note:** Version bump only for package @clayui/pagination-bar
+
+# [3.95.0](https://github.com/liferay/clay/compare/v3.94.0...v3.95.0) (2023-05-15)
+
+**Note:** Version bump only for package @clayui/pagination-bar
+
+# [3.94.0](https://github.com/liferay/clay/compare/v3.93.0...v3.94.0) (2023-05-03)
+
+**Note:** Version bump only for package @clayui/pagination-bar
+
+# [3.93.0](https://github.com/liferay/clay/compare/v3.92.0...v3.93.0) (2023-04-19)
+
+**Note:** Version bump only for package @clayui/pagination-bar
+
+# [3.92.0](https://github.com/liferay/clay/compare/v3.91.0...v3.92.0) (2023-04-06)
+
+**Note:** Version bump only for package @clayui/pagination-bar
+
+# [3.91.0](https://github.com/liferay/clay/compare/v3.90.0...v3.91.0) (2023-03-24)
+
+### Bug Fixes
+
+-   **@clayui/pagination-bar:** fix bug in documentation example ([8924412](https://github.com/liferay/clay/commit/8924412729baa8a35f4e3729a632d5399fcab93f))
+
+# [3.90.0](https://github.com/liferay/clay/compare/v3.89.0...v3.90.0) (2023-03-15)
+
+**Note:** Version bump only for package @clayui/pagination-bar
+
+# [3.89.0](https://github.com/liferay/clay/compare/v3.88.0...v3.89.0) (2023-03-01)
+
+**Note:** Version bump only for package @clayui/pagination-bar
+
+# [3.88.0](https://github.com/liferay/clay/compare/v3.87.2...v3.88.0) (2023-02-14)
+
+**Note:** Version bump only for package @clayui/pagination-bar
+
+# [3.87.0](https://github.com/liferay/clay/compare/v3.86.1...v3.87.0) (2023-02-08)
+
+**Note:** Version bump only for package @clayui/pagination-bar
+
+## [3.86.1](https://github.com/liferay/clay/compare/v3.86.0...v3.86.1) (2023-02-02)
+
+**Note:** Version bump only for package @clayui/pagination-bar
+
+# [3.86.0](https://github.com/liferay/clay/compare/v3.85.0...v3.86.0) (2023-01-31)
+
+**Note:** Version bump only for package @clayui/pagination-bar
+
+# [3.85.0](https://github.com/liferay/clay/compare/v3.84.0...v3.85.0) (2023-01-23)
+
+### Bug Fixes
+
+-   **@clayui/pagination-bar:** PaginationBarWithBasicItems shouldn't render if totalItems is 0 ([13519e8](https://github.com/liferay/clay/commit/13519e89e5c381627574e06b9bdf0277737e91ee))
+-   **@clayui/pagination:** fix error when `totalPages` is 0 ([16d6094](https://github.com/liferay/clay/commit/16d60941ecd7d5f50c0cd5d51ff6bb925cc26707))
+-   **@clayui/pagination:** remove link from Prev and Next when disabled ([6552d93](https://github.com/liferay/clay/commit/6552d93a6c103c9c8e9bfc1fbcc654821afeaea0))
+
+### Features
+
+-   **@clayui/pagination-bar:** change the DropDown component to the Picker in the high-level component ([6a641d4](https://github.com/liferay/clay/commit/6a641d48cfa14630d68c146527b7afbfff836d21))
+
 # [3.84.0](https://github.com/liferay/clay/compare/v3.83.1...v3.84.0) (2022-12-23)
 
 **Note:** Version bump only for package @clayui/pagination-bar

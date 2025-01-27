@@ -3,29 +3,10 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-import ClayNav, {ClayVerticalNav} from '..';
-import {
-	cleanup,
-	fireEvent,
-	getAllByRole as docGetAllByRole,
-	render,
-} from '@testing-library/react';
+import {ClayVerticalNav} from '..';
+import {cleanup, fireEvent, render} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import React from 'react';
-
-describe('ClayNav', () => {
-	afterEach(() => cleanup());
-
-	it('renders', () => {
-		const {container} = render(
-			<ClayNav>
-				<div />
-			</ClayNav>
-		);
-
-		expect(container).toMatchSnapshot();
-	});
-});
 
 const ITEMS = [
 	{
@@ -83,7 +64,11 @@ describe('ClayVerticalNav', () => {
 
 	it('renders', () => {
 		const {container} = render(
-			<ClayVerticalNav items={items} spritemap="/path/to" />
+			<ClayVerticalNav
+				aria-label="vertical navbar"
+				items={items}
+				spritemap="/path/to"
+			/>
 		);
 
 		expect(container).toMatchSnapshot();
@@ -91,7 +76,11 @@ describe('ClayVerticalNav', () => {
 
 	it('expands items when clicked', () => {
 		const {container, getByText} = render(
-			<ClayVerticalNav items={items} spritemap="/path/to" />
+			<ClayVerticalNav
+				aria-label="vertical navbar"
+				items={items}
+				spritemap="/path/to"
+			/>
 		);
 
 		expect(
@@ -106,11 +95,15 @@ describe('ClayVerticalNav', () => {
 	});
 
 	it('expand items by pressing the right arrow key', () => {
-		const {getAllByRole} = render(
-			<ClayVerticalNav items={ITEMS} spritemap="/path/to" />
+		const {getByText} = render(
+			<ClayVerticalNav
+				aria-label="vertical navbar"
+				items={ITEMS}
+				spritemap="/path/to"
+			/>
 		);
 
-		const [, , projects] = getAllByRole('button');
+		const projects = getByText('Projects');
 
 		userEvent.tab();
 		userEvent.tab();
@@ -119,15 +112,19 @@ describe('ClayVerticalNav', () => {
 
 		userEvent.keyboard('[ArrowRight]');
 
-		expect(projects.getAttribute('aria-expanded')).toBe('true');
+		expect(projects!.getAttribute('aria-expanded')).toBe('true');
 	});
 
 	it('collapse items by pressing the left arrow key', () => {
-		const {getAllByRole} = render(
-			<ClayVerticalNav items={ITEMS} spritemap="/path/to" />
+		const {getByText} = render(
+			<ClayVerticalNav
+				aria-label="vertical navbar"
+				items={ITEMS}
+				spritemap="/path/to"
+			/>
 		);
 
-		const [, , projects] = getAllByRole('button');
+		const projects = getByText('Projects');
 
 		userEvent.tab();
 		userEvent.tab();
@@ -136,19 +133,23 @@ describe('ClayVerticalNav', () => {
 
 		userEvent.keyboard('[ArrowRight]');
 
-		expect(projects.getAttribute('aria-expanded')).toBe('true');
+		expect(projects!.getAttribute('aria-expanded')).toBe('true');
 
 		userEvent.keyboard('[ArrowLeft]');
 
-		expect(projects.getAttribute('aria-expanded')).toBe('false');
+		expect(projects!.getAttribute('aria-expanded')).toBe('false');
 	});
 
 	it('moves focus to first item if item is expanded', () => {
-		const {getAllByRole} = render(
-			<ClayVerticalNav items={ITEMS} spritemap="/path/to" />
+		const {getByText} = render(
+			<ClayVerticalNav
+				aria-label="vertical navbar"
+				items={ITEMS}
+				spritemap="/path/to"
+			/>
 		);
 
-		const [, , projects] = getAllByRole('button');
+		const projects = getByText('Projects');
 
 		userEvent.tab();
 		userEvent.tab();
@@ -157,24 +158,25 @@ describe('ClayVerticalNav', () => {
 
 		userEvent.keyboard('[ArrowRight]');
 
-		expect(projects.getAttribute('aria-expanded')).toBe('true');
+		expect(projects!.getAttribute('aria-expanded')).toBe('true');
 
 		userEvent.keyboard('[ArrowRight]');
 
-		const [first] = docGetAllByRole(
-			projects.parentNode as HTMLElement,
-			'menuitem'
-		);
+		const first = getByText('Five');
 
 		expect(first).toEqual(document.activeElement);
 	});
 
 	it('move focus to parent if focus is on child when pressing left arrow key', () => {
-		const {getAllByRole} = render(
-			<ClayVerticalNav items={ITEMS} spritemap="/path/to" />
+		const {getByText} = render(
+			<ClayVerticalNav
+				aria-label="vertical navbar"
+				items={ITEMS}
+				spritemap="/path/to"
+			/>
 		);
 
-		const [, , projects] = getAllByRole('button');
+		const projects = getByText('Projects');
 
 		userEvent.tab();
 		userEvent.tab();
@@ -183,14 +185,11 @@ describe('ClayVerticalNav', () => {
 
 		userEvent.keyboard('[ArrowRight]');
 
-		expect(projects.getAttribute('aria-expanded')).toBe('true');
+		expect(projects!.getAttribute('aria-expanded')).toBe('true');
 
 		userEvent.keyboard('[ArrowRight]');
 
-		const [first] = docGetAllByRole(
-			projects.parentNode as HTMLElement,
-			'menuitem'
-		);
+		const first = getByText('Five');
 
 		expect(first).toEqual(document.activeElement);
 

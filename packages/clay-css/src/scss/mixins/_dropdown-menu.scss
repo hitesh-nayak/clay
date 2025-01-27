@@ -117,7 +117,25 @@
 
 			.dropdown-item {
 				@include clay-dropdown-item-variant(
-					map-deep-get($map, dropdown-item)
+					map-get($map, dropdown-item)
+				);
+			}
+
+			.dropdown-item-scroll {
+				@include clay-dropdown-item-variant(
+					map-get($map, dropdown-item-scroll)
+				);
+			}
+
+			.dropdown-item-scroll-down {
+				@include clay-dropdown-item-variant(
+					map-get($map, dropdown-item-scroll-down)
+				);
+			}
+
+			.dropdown-item-scroll-up {
+				@include clay-dropdown-item-variant(
+					map-get($map, dropdown-item-scroll-up)
 				);
 			}
 
@@ -183,6 +201,20 @@
 						)
 					);
 				}
+			}
+
+			.inline-scroller {
+				@include clay-css(map-get($map, inline-scroller));
+			}
+
+			$_media-breakpoint-down: map-get($map, media-breakpoint-down);
+			$_media-breakpoint-up: map-get($map, media-breakpoint-up);
+
+			@if ($_media-breakpoint-down) or ($_media-breakpoint-up) {
+				@include clay-generate-media-breakpoints(
+					$map,
+					'clay-dropdown-menu-variant'
+				);
 			}
 		}
 	}
@@ -549,6 +581,42 @@
 		@if ($enabled) {
 			@include clay-css($base);
 
+			&:link {
+				$_link: setter(map-get($map, link), ());
+
+				@include clay-css($_link);
+
+				&::before {
+					@include clay-css(map-get($_link, before));
+				}
+
+				&::after {
+					@include clay-css(map-get($_link, after));
+				}
+
+				.c-kbd-inline {
+					@include clay-css(map-get($_link, c-kbd-inline));
+				}
+			}
+
+			&:visited {
+				$_visited: setter(map-get($map, visited), ());
+
+				@include clay-css($_visited);
+
+				&::before {
+					@include clay-css(map-get($_visited, before));
+				}
+
+				&::after {
+					@include clay-css(map-get($_visited, after));
+				}
+
+				.c-kbd-inline {
+					@include clay-css(map-get($_visited, c-kbd-inline));
+				}
+			}
+
 			&:hover,
 			&.hover {
 				@include clay-css($hover);
@@ -566,20 +634,23 @@
 				}
 			}
 
-			&:focus,
-			&.focus {
-				@include clay-css($focus);
+			@at-root {
+				&.focus,
+				#{$focus-visible-selector},
+				#{if($c-prefers-focus-selector,$c-prefers-focus-selector,clay-insert-before('.cadmin', '.c-prefers-focus ', '&:focus'))} {
+					@include clay-css($focus);
 
-				&::before {
-					@include clay-css(map-get($focus, before));
-				}
+					&::before {
+						@include clay-css(map-get($focus, before));
+					}
 
-				&::after {
-					@include clay-css(map-get($focus, after));
-				}
+					&::after {
+						@include clay-css(map-get($focus, after));
+					}
 
-				.c-kbd-inline {
-					@include clay-css($focus-c-kbd-inline);
+					.c-kbd-inline {
+						@include clay-css($focus-c-kbd-inline);
+					}
 				}
 			}
 
@@ -644,10 +715,13 @@
 			// Overwrite Bootstrap's Ensure active button styles are not applied to disabled buttons
 			// https://github.com/twbs/bootstrap/commit/de3973b5e74058e37fd15fecc4cb7b9fd3409def
 
-			&.btn:not([disabled]):not(.disabled):active,
-			&.btn:not([disabled]):not(.disabled).active {
-				&:focus {
-					box-shadow: map-get($focus, box-shadow);
+			@at-root {
+				&.btn:not([disabled]):not(.disabled):active,
+				&.btn:not([disabled]):not(.disabled).active {
+					#{$focus-visible-selector},
+					#{if($c-prefers-focus-selector,$c-prefers-focus-selector,clay-insert-before('.cadmin', '.c-prefers-focus ', '&:focus'))} {
+						box-shadow: map-get($focus, box-shadow);
+					}
 				}
 			}
 
@@ -682,6 +756,20 @@
 					&::after {
 						@include clay-css(map-get($disabled-active, after));
 					}
+				}
+			}
+
+			&.show {
+				$show: setter(map-get($map, show), ());
+
+				@include clay-css($show);
+
+				&::before {
+					@include clay-css(map-get($show, before));
+				}
+
+				&::after {
+					@include clay-css(map-get($show, after));
 				}
 			}
 
@@ -741,6 +829,20 @@
 
 			.custom-control-label {
 				font-weight: map-get($map, font-weight);
+			}
+
+			.inline-item {
+				$_inline-item: setter(map-get($map, inline-item), ());
+
+				@include clay-css($_inline-item);
+
+				.lexicon-icon {
+					@include clay-css(map-get($_inline-item, lexicon-icon));
+				}
+			}
+
+			.label {
+				@include clay-label-variant(map-get($map, label));
 			}
 		}
 	}

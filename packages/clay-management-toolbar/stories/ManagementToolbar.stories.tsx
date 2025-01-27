@@ -43,6 +43,7 @@ const viewTypes = [
 
 export const Default = () => {
 	const [searchMobile, setSearchMobile] = useState<boolean>(false);
+	const [checked, setChecked] = useState<boolean>(false);
 	const viewTypeActive = viewTypes.find((type) => type.active);
 
 	return (
@@ -50,7 +51,13 @@ export const Default = () => {
 			<ClayManagementToolbar aria-label="Management toolbar">
 				<ClayManagementToolbar.ItemList>
 					<ClayManagementToolbar.Item>
-						<ClayCheckbox checked={false} onChange={() => {}} />
+						<ClayCheckbox
+							aria-label={checked ? 'Unselect all' : 'Select all'}
+							checked={checked}
+							onChange={(event) =>
+								setChecked(event.target.checked)
+							}
+						/>
 					</ClayManagementToolbar.Item>
 
 					<ClayManagementToolbar.Item>
@@ -66,17 +73,13 @@ export const Default = () => {
 										<span className="navbar-text-truncate">
 											Filter and Order
 										</span>
-
-										<ClayIcon
-											className="inline-item inline-item-after"
-											symbol="caret-bottom"
-										/>
 									</span>
 									<span className="navbar-breakpoint-d-none">
 										<ClayIcon symbol="filter" />
 									</span>
 								</ClayButton>
 							}
+							triggerIcon="caret-bottom"
 						/>
 					</ClayManagementToolbar.Item>
 
@@ -94,7 +97,7 @@ export const Default = () => {
 
 				<ClayManagementToolbar.Search showMobile={searchMobile}>
 					<ClayInput.Group>
-						<ClayInput.GroupItem>
+						<ClayInput.GroupItem className="input-group-item-focusable">
 							<ClayInput
 								aria-label="Search"
 								className="form-control input-group-inset input-group-inset-after"
@@ -161,6 +164,7 @@ export const Default = () => {
 								/>
 							</ClayButton>
 						}
+						triggerIcon="caret-double-l"
 					/>
 
 					<ClayManagementToolbar.Item>

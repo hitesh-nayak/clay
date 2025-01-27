@@ -8,6 +8,7 @@ $treeview: map-merge(
 		margin-bottom: 0,
 		padding: 2px 0,
 		btn: (
+			color: inherit,
 			font-size: 12px,
 			line-height: 1,
 			padding: 6px 8px,
@@ -31,7 +32,7 @@ $treeview: map-merge(
 		),
 		treeview-dragging: (
 			background-color: $white,
-			border-color: $primary-l1,
+			border-color: $primary-l0,
 			border-radius: $border-radius-sm,
 			border-style: solid,
 			border-width: 1px,
@@ -60,6 +61,25 @@ $treeview: map-merge(
 				box-shadow: none,
 			),
 		),
+		treeview-dropping-indicator-top: (
+			background-color: transparent,
+			display: block,
+			height: 2px,
+			margin-top: -2px,
+			outline: none,
+			width: 100%,
+		),
+		treeview-dropping-indicator-bottom: (
+			background-color: transparent,
+			display: block,
+			height: 2px,
+			margin-bottom: -2px,
+			outline: none,
+			width: 100%,
+		),
+		treeview-dropping-indicator-over: (
+			background-color: $primary-l0,
+		),
 		treeview-link: (
 			background-color: transparent,
 			cursor: pointer,
@@ -74,15 +94,9 @@ $treeview: map-merge(
 			position: relative,
 			text-align: left,
 			user-select: none,
-			treeview-dropping-bottom: (
-				box-shadow: 0 2px 0 0 $primary-l1,
-			),
 			treeview-dropping-middle: (
 				background-color: $primary-l3,
-				border-color: $primary-l1,
-			),
-			treeview-dropping-top: (
-				box-shadow: 0 -2px 0 0 $primary-l1,
+				border-color: $primary-l0,
 			),
 			hover: (
 				text-decoration: none,
@@ -114,6 +128,7 @@ $treeview: map-merge(
 			),
 		),
 		component-icon: (
+			color: $secondary,
 			display: inline-block,
 			font-size: 16px,
 			height: auto,
@@ -185,9 +200,6 @@ $treeview-light: map-deep-merge(
 	(
 		component-expander: (
 			color: $secondary,
-			hover: (
-				color: $primary,
-			),
 			disabled: (
 				color: $secondary,
 				opacity: 0.5,
@@ -205,24 +217,35 @@ $treeview-light: map-deep-merge(
 				),
 			),
 			hover: (
-				background-color: $gray-100,
-				color: $gray-900,
+				box-shadow: inset 0 0 0 1px $secondary-l0,
+			),
+			focus: (
+				box-shadow: $component-focus-inset-box-shadow,
 			),
 			active: (
-				background-color: $gray-200,
-				color: $gray-900,
+				background-color: $primary-l3,
+				box-shadow: inset 0 0 0 1px $primary,
+				color: $dark-l2,
+				focus: (
+					box-shadow: $component-focus-inset-box-shadow,
+				),
 			),
 			active-class: (
-				background-color: $gray-200,
-				color: $gray-900,
+				background-color: $primary-l3,
+				box-shadow: inset 0 0 0 1px $primary,
+				color: $dark-l2,
+				focus: (
+					box-shadow: $component-focus-inset-box-shadow,
+				),
 			),
 			disabled: (
 				background-color: transparent,
 				color: rgba($gray-600, 0.5),
 			),
 			show: (
-				background-color: null,
-				color: null,
+				background-color: c-unset,
+				box-shadow: c-unset,
+				color: c-unset,
 			),
 		),
 	),
@@ -234,9 +257,6 @@ $treeview-dark: map-deep-merge(
 	(
 		component-expander: (
 			color: $secondary-l1,
-			hover: (
-				color: $primary-l1,
-			),
 			disabled: (
 				color: $secondary-l1,
 				opacity: 0.5,
@@ -251,19 +271,35 @@ $treeview-dark: map-deep-merge(
 				),
 			),
 			hover: (
-				background-color: rgba($white, 0.04),
+				box-shadow: inset 0 0 0 1px $secondary-l0,
+			),
+			focus: (
+				box-shadow: $component-focus-inset-box-shadow,
+			),
+			active: (
+				background-color: $dark-l2,
+				box-shadow: inset 0 0 0 1px $primary,
+				color: $primary-l3,
+				focus: (
+					box-shadow: $component-focus-inset-box-shadow,
+				),
 			),
 			active-class: (
-				background-color: rgba($white, 0.06),
-				color: $white,
+				background-color: $dark-l2,
+				box-shadow: inset 0 0 0 1px $primary,
+				color: $primary-l3,
+				focus: (
+					box-shadow: $component-focus-inset-box-shadow,
+				),
 			),
 			disabled: (
 				background-color: transparent,
 				color: rgba($secondary-l1, 0.5),
 			),
 			show: (
-				background-color: null,
-				color: null,
+				background-color: c-unset,
+				box-shadow: c-unset,
+				color: c-unset,
 			),
 		),
 		component-action: (

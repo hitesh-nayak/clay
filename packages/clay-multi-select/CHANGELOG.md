@@ -3,6 +3,266 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.127.0](https://github.com/liferay/clay/compare/v3.126.0...v3.127.0) (2025-01-23)
+
+**Note:** Version bump only for package @clayui/multi-select
+
+# [3.125.0](https://github.com/liferay/clay/compare/v3.124.0...v3.125.0) (2025-01-13)
+
+**Note:** Version bump only for package @clayui/multi-select
+
+# [3.124.0](https://github.com/liferay/clay/compare/v3.123.1...v3.124.0) (2024-12-18)
+
+**Note:** Version bump only for package @clayui/multi-select
+
+## [3.123.1](https://github.com/liferay/clay/compare/v3.123.0...v3.123.1) (2024-11-27)
+
+**Note:** Version bump only for package @clayui/multi-select
+
+# [3.123.0](https://github.com/liferay/clay/compare/v3.122.0...v3.123.0) (2024-11-21)
+
+**Note:** Version bump only for package @clayui/multi-select
+
+# [3.122.0](https://github.com/liferay/clay/compare/v3.121.0...v3.122.0) (2024-11-13)
+
+**Note:** Version bump only for package @clayui/multi-select
+
+# [3.121.0](https://github.com/liferay/clay/compare/v3.120.0...v3.121.0) (2024-10-17)
+
+**Note:** Version bump only for package @clayui/multi-select
+
+# [3.120.0](https://github.com/liferay/clay/compare/v3.119.1...v3.120.0) (2024-09-13)
+
+**Note:** Version bump only for package @clayui/multi-select
+
+# [3.119.0](https://github.com/liferay/clay/compare/v3.118.0...v3.119.0) (2024-08-30)
+
+**Note:** Version bump only for package @clayui/multi-select
+
+# [3.118.0](https://github.com/liferay/clay/compare/v3.117.0...v3.118.0) (2024-08-13)
+
+**Note:** Version bump only for package @clayui/multi-select
+
+# [3.117.0](https://github.com/liferay/clay/compare/v3.116.1...v3.117.0) (2024-07-30)
+
+**Note:** Version bump only for package @clayui/multi-select
+
+## [3.116.1](https://github.com/liferay/clay/compare/v3.116.0...v3.116.1) (2024-06-27)
+
+**Note:** Version bump only for package @clayui/multi-select
+
+# [3.116.0](https://github.com/liferay/clay/compare/v3.115.2...v3.116.0) (2024-06-10)
+
+**Note:** Version bump only for package @clayui/multi-select
+
+## [3.115.1](https://github.com/liferay/clay/compare/v3.115.0...v3.115.1) (2024-05-21)
+
+**Note:** Version bump only for package @clayui/multi-select
+
+# [3.115.0](https://github.com/liferay/clay/compare/v3.114.0...v3.115.0) (2024-05-16)
+
+**Note:** Version bump only for package @clayui/multi-select
+
+# [3.114.0](https://github.com/liferay/clay/compare/v3.113.0...v3.114.0) (2024-04-22)
+
+**Note:** Version bump only for package @clayui/multi-select
+
+# [3.113.0](https://github.com/liferay/clay/compare/v3.112.0...v3.113.0) (2024-03-28)
+
+**Note:** Version bump only for package @clayui/multi-select
+
+# [3.112.0](https://github.com/liferay/clay/compare/v3.111.1...v3.112.0) (2024-03-11)
+
+**Note:** Version bump only for package @clayui/multi-select
+
+# [3.111.0](https://github.com/liferay/clay/compare/v3.110.0...v3.111.0) (2024-02-15)
+
+**Note:** Version bump only for package @clayui/multi-select
+
+# [3.109.0](https://github.com/liferay/clay/compare/v3.108.0...v3.109.0) (2024-01-22)
+
+**Note:** Version bump only for package @clayui/multi-select
+
+# [3.108.0](https://github.com/liferay/clay/compare/v3.107.1...v3.108.0) (2023-12-12)
+
+**Note:** Version bump only for package @clayui/multi-select
+
+## [3.107.1](https://github.com/liferay/clay/compare/v3.107.0...v3.107.1) (2023-11-27)
+
+**Note:** Version bump only for package @clayui/multi-select
+
+# [3.107.0](https://github.com/liferay/clay/compare/v3.106.1...v3.107.0) (2023-11-27)
+
+**Note:** Version bump only for package @clayui/multi-select
+
+## [3.106.1](https://github.com/liferay/clay/compare/v3.106.0...v3.106.1) (2023-10-26)
+
+**Note:** Version bump only for package @clayui/multi-select
+
+# [3.106.0](https://github.com/liferay/clay/compare/v3.105.0...v3.106.0) (2023-10-25)
+
+### Bug Fixes
+
+-   remove 'src' dir from being packaged with npm ([9383e8d](https://github.com/liferay/clay/commit/9383e8d8abb25ca3396e7c6e4dfa53bbc72691c5))
+-   use package's directory for baseDir when generating type ([0a5c710](https://github.com/liferay/clay/commit/0a5c710092f36243bc8d5487f70e831295715072))
+
+# [3.105.0](https://github.com/liferay/clay/compare/v3.104.0...v3.105.0) (2023-09-15)
+
+**Note:** Version bump only for package @clayui/multi-select
+
+# [3.104.0](https://github.com/liferay/clay/compare/v3.103.1...v3.104.0) (2023-08-25)
+
+**Note:** Version bump only for package @clayui/multi-select
+
+## [3.103.1](https://github.com/liferay/clay/compare/v3.103.0...v3.103.1) (2023-08-15)
+
+**Note:** Version bump only for package @clayui/multi-select
+
+## [3.101.1](https://github.com/liferay/clay/compare/v3.101.0...v3.101.1) (2023-07-28)
+
+**Note:** Version bump only for package @clayui/multi-select
+
+# [3.101.0](https://github.com/liferay/clay/compare/v3.100.0...v3.101.0) (2023-07-28)
+
+**Note:** Version bump only for package @clayui/multi-select
+
+# [3.100.0](https://github.com/liferay/clay/compare/v3.99.4...v3.100.0) (2023-07-13)
+
+**Note:** Version bump only for package @clayui/multi-select
+
+## [3.99.4](https://github.com/liferay/clay/compare/v3.99.3...v3.99.4) (2023-07-10)
+
+### Bug Fixes
+
+-   **@clayui/multi-select:** fix loading indicator markup in MultiSelect ([b883824](https://github.com/liferay/clay/commit/b8838247d1638524691fda2a74934e0676e6597d))
+-   **@clayui/multi-select:** pass async properties to autocomplete ([0faaab8](https://github.com/liferay/clay/commit/0faaab89049dd9a808666c82b8b8cba455d461f6))
+-   **@clayui/multi-select:** stabilize the children reference to avoid unnecessary renderings ([7ff4af5](https://github.com/liferay/clay/commit/7ff4af5ffab85e64220623042e8085a2afd0d565))
+
+## [3.99.3](https://github.com/liferay/clay/compare/v3.99.2...v3.99.3) (2023-07-05)
+
+### Bug Fixes
+
+-   **@clayui/multi-select:** fix error when not getting list data when pressing enter or comma ([485e0e8](https://github.com/liferay/clay/commit/485e0e8f245c4a366037f3d88f23d48774b2e1dc))
+
+## [3.99.2](https://github.com/liferay/clay/compare/v3.99.1...v3.99.2) (2023-07-05)
+
+### Bug Fixes
+
+-   **@clayui/autocomplete:** makes new `messages` properties optional ([94eceb6](https://github.com/liferay/clay/commit/94eceb6261334272d0b3a000052a7a9592505284))
+
+## [3.99.1](https://github.com/liferay/clay/compare/v3.99.0...v3.99.1) (2023-07-04)
+
+### Bug Fixes
+
+-   **@clayui/multi-select:** fixes type inference for properties and generic type ([ae7b2a3](https://github.com/liferay/clay/commit/ae7b2a383de1a710dcfe88e92335ad6afc6613a9))
+
+# [3.99.0](https://github.com/liferay/clay/compare/v3.98.0...v3.99.0) (2023-06-28)
+
+### Bug Fixes
+
+-   **@clayui/autocomplete:** fix bug not announcing available options when autocomplete is open ([1dc9581](https://github.com/liferay/clay/commit/1dc9581bd2e96b7cdf250bf02c4858c5df4eb833))
+-   **@clayui/multi-select:** fixes error when not disabling the MultiSelect component ([51dafd3](https://github.com/liferay/clay/commit/51dafd3f729034f0cac40dce87315e8ad2ae413d))
+
+# [3.98.0](https://github.com/liferay/clay/compare/v3.97.2...v3.98.0) (2023-06-20)
+
+### Bug Fixes
+
+-   **@clayui/multi-select:** fix error of not showing menu if it has suggestions when menuRenderer is used ([ebc719f](https://github.com/liferay/clay/commit/ebc719ff77ba88dc407d648936cd1edf0e3372e5))
+
+## [3.97.2](https://github.com/liferay/clay/compare/v3.97.1...v3.97.2) (2023-06-16)
+
+### Bug Fixes
+
+-   **@clayui/multi-select:** fix error when changing active state from uncontrolled to controlled ([f6ef5be](https://github.com/liferay/clay/commit/f6ef5beff49f6e703c31694bca542f160be417af))
+-   **@clayui/multi-select:** fix error when not invoking method of `onFocus` when defined ([934878a](https://github.com/liferay/clay/commit/934878ab4a1ee74735a4b06369e2581826acf9b2))
+
+## [3.97.1](https://github.com/liferay/clay/compare/v3.97.0...v3.97.1) (2023-06-14)
+
+**Note:** Version bump only for package @clayui/multi-select
+
+# [3.97.0](https://github.com/liferay/clay/compare/v3.96.1...v3.97.0) (2023-06-13)
+
+### Bug Fixes
+
+-   **@clayui/multi-select:** explicitly add the `active` API in the component's typing ([e956828](https://github.com/liferay/clay/commit/e95682814d3ec7ab45e65e41bba291a2da023e74))
+-   **@clayui/multi-select:** maintains backwards compatibility with the `menuRenderer` API but without the new features ([63ffb84](https://github.com/liferay/clay/commit/63ffb8449ec2c8e14d433be360bae8b29a6962e3))
+
+### Features
+
+-   **@clayui/multi-select:** adds the possibility to ignore the item's default behavior ([5412700](https://github.com/liferay/clay/commit/5412700e3118575588907ff551a27c594d9fe4d8))
+-   **@clayui/multi-select:** deprecated the `liveRegion` and `hotkeysDescription` APIs to use the `messages` API ([2cf0766](https://github.com/liferay/clay/commit/2cf07669bc295918e4bacbbaaffc1c4996b67a65))
+
+## [3.96.1](https://github.com/liferay/clay/compare/v3.96.0...v3.96.1) (2023-05-31)
+
+### Bug Fixes
+
+-   **@clayui/multi-select:** fix error when not doing OOTB filter ([0da49e2](https://github.com/liferay/clay/commit/0da49e22a0483350af87ba417a6c9d1826add723))
+
+# [3.96.0](https://github.com/liferay/clay/compare/v3.95.2...v3.96.0) (2023-05-29)
+
+### Features
+
+-   **@clayui/multi-select:** adds implementation of new autocomplete ([506c72f](https://github.com/liferay/clay/commit/506c72f4bcfa4beaec74d09bbf2fc0d58577cd35))
+
+## [3.95.2](https://github.com/liferay/clay/compare/v3.95.0...v3.95.2) (2023-05-17)
+
+**Note:** Version bump only for package @clayui/multi-select
+
+# [3.95.0](https://github.com/liferay/clay/compare/v3.94.0...v3.95.0) (2023-05-15)
+
+**Note:** Version bump only for package @clayui/multi-select
+
+# [3.94.0](https://github.com/liferay/clay/compare/v3.93.0...v3.94.0) (2023-05-03)
+
+**Note:** Version bump only for package @clayui/multi-select
+
+# [3.93.0](https://github.com/liferay/clay/compare/v3.92.0...v3.93.0) (2023-04-19)
+
+**Note:** Version bump only for package @clayui/multi-select
+
+# [3.92.0](https://github.com/liferay/clay/compare/v3.91.0...v3.92.0) (2023-04-06)
+
+**Note:** Version bump only for package @clayui/multi-select
+
+# [3.91.0](https://github.com/liferay/clay/compare/v3.90.0...v3.91.0) (2023-03-24)
+
+**Note:** Version bump only for package @clayui/multi-select
+
+# [3.90.0](https://github.com/liferay/clay/compare/v3.89.0...v3.90.0) (2023-03-15)
+
+**Note:** Version bump only for package @clayui/multi-select
+
+# [3.89.0](https://github.com/liferay/clay/compare/v3.88.0...v3.89.0) (2023-03-01)
+
+**Note:** Version bump only for package @clayui/multi-select
+
+# [3.88.0](https://github.com/liferay/clay/compare/v3.87.2...v3.88.0) (2023-02-14)
+
+**Note:** Version bump only for package @clayui/multi-select
+
+# [3.87.0](https://github.com/liferay/clay/compare/v3.86.1...v3.87.0) (2023-02-08)
+
+**Note:** Version bump only for package @clayui/multi-select
+
+## [3.86.1](https://github.com/liferay/clay/compare/v3.86.0...v3.86.1) (2023-02-02)
+
+**Note:** Version bump only for package @clayui/multi-select
+
+# [3.86.0](https://github.com/liferay/clay/compare/v3.85.0...v3.86.0) (2023-01-31)
+
+**Note:** Version bump only for package @clayui/multi-select
+
+# [3.85.0](https://github.com/liferay/clay/compare/v3.84.0...v3.85.0) (2023-01-23)
+
+### Bug Fixes
+
+-   **@clayui/multi-select:** prevents items from having the same key ([ea62915](https://github.com/liferay/clay/commit/ea62915c1fc664fb3a68164051f596870d134983))
+
+### Features
+
+-   **@clayui/multi-select:** Adds new API to disallow adding custom values as label ([b858246](https://github.com/liferay/clay/commit/b85824693bcab80f2494137e06dfb96fd49a28df))
+-   **@clayui/multi-select:** allows to prevent default behavior of `onPaste` and `onKeyDown` ([57e62a4](https://github.com/liferay/clay/commit/57e62a49fb26ebe344fbee140541a2dbc7e5c2e0))
+
 # [3.84.0](https://github.com/liferay/clay/compare/v3.83.1...v3.84.0) (2022-12-23)
 
 ### Features

@@ -2,12 +2,12 @@
 	"private": true,
 	"repository": "https://github.com/liferay/clay",
 	"engines": {
-		"node": ">=14"
+		"node": ">=18"
 	},
 	"size-limit": [
 		{
 			"path": "all.js",
-			"limit": "140 kb",
+			"limit": "157 kb",
 			"ignore": [
 				"react",
 				"react-dom"
@@ -29,6 +29,8 @@
 		"genBuildSize": "NODE_ENV=production node scripts/check-size/index.js",
 		"genGlobalChangeLog": "node scripts/generate-global-changelog.js && prettier --write -- \"CHANGELOG.md\"",
 		"lerna": "lerna bootstrap -- --no-optional --no-package-lock",
+		"lerna:version": "lerna version --conventional-commits",
+		"lerna:publish": "lerna publish from-package --no-verify-access --yes",
 		"lint:changed": "git ls-files -mz \"*.js\" \"**/*.js\" \"**/*.ts\" \"**/*.tsx\" | xargs -0 eslint",
 		"lint:fix": "eslint --fix \".*.js\" \"**/*.{js,ts,tsx}\"",
 		"lint:quiet": "eslint --quiet \".*.js\" \"**/*.{js,ts,tsx}\"",
@@ -59,7 +61,7 @@
 		"@storybook/preset-scss": "^1.0.3",
 		"@storybook/react": "^6.5.10",
 		"@testing-library/dom": "^8.9.0",
-		"@testing-library/jest-dom": "^5.14.1",
+		"@testing-library/jest-dom": "5",
 		"@testing-library/react": "^12.1.2",
 		"@testing-library/user-event": "^13.2.1",
 		"@types/d3": "^5.7.2",
@@ -85,10 +87,11 @@
 		"cross-env": "^7.0.3",
 		"css-loader": "^2.1.1",
 		"eslint": "^7.1.0",
+		"eslint-plugin-react-compiler": "^19.0.0-beta-6fc168f-20241025",
 		"fork-ts-checker-webpack-plugin": "^4.0.3",
 		"jest": "27.5.1",
 		"jest-fetch-mock": "^3.0.3",
-		"lerna": "^4.0.0",
+		"lerna": "6.6.2",
 		"ncp": "^2.0.0",
 		"parcel-bundler": "^1.12.4",
 		"prettier": "^2.4.1",
@@ -101,9 +104,10 @@
 		"size-limit": "^6.0.3",
 		"source-map-loader": "^0.2.4",
 		"style-loader": "^0.23.1",
+		"svg4everybody": "^2.1.9",
 		"ts-jest": "^28.0.8",
 		"turbo": "^1.2.6",
-		"typescript": "^4.7.4",
+		"typescript": "4.7.4",
 		"webpack": "^5.72.0"
 	},
 	"workspaces": {

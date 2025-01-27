@@ -16,7 +16,7 @@ import {ItemContextProvider, useItem} from './useItem';
 export type ChildrenFunction<T extends Record<string, any>> =
 	ChildrenFunctionBase<T, [Selection, Expand, LoadMore]>;
 
-export interface ICollectionProps<T> {
+export interface ICollectionProps<T extends Record<string, any>> {
 	children: React.ReactNode | ChildrenFunction<T>;
 
 	/**
@@ -36,6 +36,8 @@ const exclude = new Set([
 	'itemRef',
 	'key',
 	'parentItemRef',
+	'prevKey',
+	'nextKey',
 ]);
 
 const ItemContainer = ({
@@ -57,12 +59,14 @@ export function Collection<T extends Record<string, any>>({
 	as,
 	children,
 	items,
+	...otherProps
 }: Props & ICollectionProps<T>) {
 	const api = useAPI();
 	const {key: parentKey} = useItem();
 
 	return (
 		<CollectionBase
+			{...otherProps}
 			as={as}
 			exclude={exclude}
 			itemContainer={ItemContainer}

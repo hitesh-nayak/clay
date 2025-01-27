@@ -6,7 +6,7 @@
 import ClayButton from '@clayui/button';
 import {ClayInput} from '@clayui/form';
 import ClayIcon from '@clayui/icon';
-import {FocusScope, InternalDispatch, useInternalState} from '@clayui/shared';
+import {FocusScope, InternalDispatch, useControlledState} from '@clayui/shared';
 import classNames from 'classnames';
 import React, {useEffect, useRef, useState} from 'react';
 
@@ -190,7 +190,7 @@ const ClayTimePicker = ({
 	value,
 	values,
 }: IProps) => {
-	const [internalValue, setValue] = useInternalState({
+	const [internalValue, setValue] = useControlledState({
 		defaultName: 'defaultValue',
 		defaultValue,
 		handleName: 'onChange',
@@ -202,7 +202,6 @@ const ClayTimePicker = ({
 	const useConfig: Config = config[use12Hours ? 'use12Hours' : 'use24Hours'];
 
 	const [actionVisible, setActionVisible] = useState(false);
-	const [isFocused, setIsFocused] = useState(false);
 	const elementRef = useRef<null | HTMLDivElement>(null);
 
 	const defaultFocused = {
@@ -357,7 +356,6 @@ const ClayTimePicker = ({
 		) {
 			setActionVisible(false);
 			setCurrentInputFocused(defaultFocused);
-			setIsFocused(false);
 		}
 	};
 
@@ -367,7 +365,6 @@ const ClayTimePicker = ({
 			configName,
 			focused: true,
 		});
-		setIsFocused(true);
 	};
 
 	useEffect(() => {
@@ -395,11 +392,10 @@ const ClayTimePicker = ({
 					</ClayInput.GroupItem>
 				)}
 				<FocusScope arrowKeysLeftRight arrowKeysUpDown={false}>
-					<ClayInput.GroupItem shrink>
+					<ClayInput.GroupItem>
 						<div
 							className={classNames('form-control', {
 								disabled,
-								focus: isFocused,
 							})}
 							data-testid="formControl"
 							onMouseEnter={() => {

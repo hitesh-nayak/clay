@@ -3,6 +3,231 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.127.0](https://github.com/liferay/clay/compare/v3.126.0...v3.127.0) (2025-01-23)
+
+**Note:** Version bump only for package @clayui/card
+
+# [3.125.0](https://github.com/liferay/clay/compare/v3.124.0...v3.125.0) (2025-01-13)
+
+**Note:** Version bump only for package @clayui/card
+
+# [3.124.0](https://github.com/liferay/clay/compare/v3.123.1...v3.124.0) (2024-12-18)
+
+**Note:** Version bump only for package @clayui/card
+
+## [3.123.1](https://github.com/liferay/clay/compare/v3.123.0...v3.123.1) (2024-11-27)
+
+**Note:** Version bump only for package @clayui/card
+
+# [3.123.0](https://github.com/liferay/clay/compare/v3.122.0...v3.123.0) (2024-11-21)
+
+**Note:** Version bump only for package @clayui/card
+
+# [3.122.0](https://github.com/liferay/clay/compare/v3.121.0...v3.122.0) (2024-11-13)
+
+**Note:** Version bump only for package @clayui/card
+
+# [3.121.0](https://github.com/liferay/clay/compare/v3.120.0...v3.121.0) (2024-10-17)
+
+**Note:** Version bump only for package @clayui/card
+
+# [3.120.0](https://github.com/liferay/clay/compare/v3.119.1...v3.120.0) (2024-09-13)
+
+**Note:** Version bump only for package @clayui/card
+
+# [3.119.0](https://github.com/liferay/clay/compare/v3.118.0...v3.119.0) (2024-08-30)
+
+**Note:** Version bump only for package @clayui/card
+
+# [3.118.0](https://github.com/liferay/clay/compare/v3.117.0...v3.118.0) (2024-08-13)
+
+**Note:** Version bump only for package @clayui/card
+
+# [3.117.0](https://github.com/liferay/clay/compare/v3.116.1...v3.117.0) (2024-07-30)
+
+**Note:** Version bump only for package @clayui/card
+
+## [3.116.1](https://github.com/liferay/clay/compare/v3.116.0...v3.116.1) (2024-06-27)
+
+**Note:** Version bump only for package @clayui/card
+
+# [3.116.0](https://github.com/liferay/clay/compare/v3.115.2...v3.116.0) (2024-06-10)
+
+### Features
+
+-   **@clayui/card:** LPD-1261 Add name to group all radio type inputs ([71bee15](https://github.com/liferay/clay/commit/71bee153028969c857783346f2dbece96eafb544))
+-   **@clayui/card:** LPD-1261 Update stories adding name in radioProps ([b07d58a](https://github.com/liferay/clay/commit/b07d58aea871d437b9e15bf39e0edf707281fcbf))
+-   **@clayui/card:** LPD-1261 Update tests adding name in radioProps ([bd32f54](https://github.com/liferay/clay/commit/bd32f54255fdd14ed0c14738867d51608d95be14))
+
+## [3.115.1](https://github.com/liferay/clay/compare/v3.115.0...v3.115.1) (2024-05-21)
+
+**Note:** Version bump only for package @clayui/card
+
+# [3.115.0](https://github.com/liferay/clay/compare/v3.114.0...v3.115.0) (2024-05-16)
+
+**Note:** Version bump only for package @clayui/card
+
+# [3.114.0](https://github.com/liferay/clay/compare/v3.113.0...v3.114.0) (2024-04-22)
+
+### Features
+
+-   **@clayui/card:** LPD-1261 Add ClayRadio component and its radioProps ([1960c4d](https://github.com/liferay/clay/commit/1960c4df8ac544cd7c14ee64bf57139d74f8bd73))
+-   **@clayui/card:** LPD-1261 Add new radio card case in CardWithInfo stories ([188a70c](https://github.com/liferay/clay/commit/188a70c3ce54e91d50e13bbac4086fd57342397d))
+-   **@clayui/card:** LPD-1261 Add radio selectable example in CardWithHorizontal story ([8e9b395](https://github.com/liferay/clay/commit/8e9b39539a278c0c8916020d035c402a419f46e9))
+-   **@clayui/card:** LPD-1261 Add radio selectable example in CardWithUser story ([74a7a59](https://github.com/liferay/clay/commit/74a7a59b737a05de3ca50a07e2e6c382009c0a6e))
+-   **@clayui/card:** LPD-1261 Add radio selectable to CardWithHorizontal ([5231664](https://github.com/liferay/clay/commit/52316644cba723d8d28e9809ccc3dfafa804f507))
+-   **@clayui/card:** LPD-1261 Add radio selectable to CardWithUser ([8326f49](https://github.com/liferay/clay/commit/8326f49c7d7246444cc66ff0f840c2e866c15fa7))
+-   **@clayui/card:** LPD-1261 Add selectableType prop to choose between checkbox and radio ([ca499f8](https://github.com/liferay/clay/commit/ca499f8524b1772b094cf7933b19261813bbdee2))
+-   **@clayui/card:** LPD-1261 Add tests ([843ace6](https://github.com/liferay/clay/commit/843ace6c63d7ef8bd2ef80247e5cb0c8d2803384))
+-   **@clayui/card:** LPD-1261 Add tests for ClayCardWithHorizontal ([9cd1e0a](https://github.com/liferay/clay/commit/9cd1e0a38e6722463d3d92d7486bfe105bc46e08))
+-   **@clayui/card:** LPD-1261 Add tests for ClayCardWithUser ([04cc498](https://github.com/liferay/clay/commit/04cc4982bfd17b78cdbe5cf0c8638e4f4bb9b350))
+-   **@clayui/card:** LPD-1261 Add truncate prop to CardWithHorizontal ([6f88188](https://github.com/liferay/clay/commit/6f88188e1065bfe5eb3081487728162249c49267))
+-   **@clayui/card:** LPD-1261 Add truncate prop to CardWithUser ([43793e3](https://github.com/liferay/clay/commit/43793e368b4288e03a2bcc7c87e70fe1e6bae724))
+-   **@clayui/card:** LPD-1261 Add truncate props to determine if the card text is truncated or not ([a786599](https://github.com/liferay/clay/commit/a786599314b3a59953e01592e6c1da21e5dfd604))
+
+# [3.113.0](https://github.com/liferay/clay/compare/v3.112.0...v3.113.0) (2024-03-28)
+
+**Note:** Version bump only for package @clayui/card
+
+# [3.112.0](https://github.com/liferay/clay/compare/v3.111.1...v3.112.0) (2024-03-11)
+
+**Note:** Version bump only for package @clayui/card
+
+# [3.111.0](https://github.com/liferay/clay/compare/v3.110.0...v3.111.0) (2024-02-15)
+
+**Note:** Version bump only for package @clayui/card
+
+# [3.109.0](https://github.com/liferay/clay/compare/v3.108.0...v3.109.0) (2024-01-22)
+
+**Note:** Version bump only for package @clayui/card
+
+# [3.108.0](https://github.com/liferay/clay/compare/v3.107.1...v3.108.0) (2023-12-12)
+
+**Note:** Version bump only for package @clayui/card
+
+## [3.107.1](https://github.com/liferay/clay/compare/v3.107.0...v3.107.1) (2023-11-27)
+
+**Note:** Version bump only for package @clayui/card
+
+# [3.107.0](https://github.com/liferay/clay/compare/v3.106.1...v3.107.0) (2023-11-27)
+
+**Note:** Version bump only for package @clayui/card
+
+## [3.106.1](https://github.com/liferay/clay/compare/v3.106.0...v3.106.1) (2023-10-26)
+
+**Note:** Version bump only for package @clayui/card
+
+# [3.106.0](https://github.com/liferay/clay/compare/v3.105.0...v3.106.0) (2023-10-25)
+
+### Bug Fixes
+
+-   remove 'src' dir from being packaged with npm ([9383e8d](https://github.com/liferay/clay/commit/9383e8d8abb25ca3396e7c6e4dfa53bbc72691c5))
+-   use package's directory for baseDir when generating type ([0a5c710](https://github.com/liferay/clay/commit/0a5c710092f36243bc8d5487f70e831295715072))
+
+# [3.105.0](https://github.com/liferay/clay/compare/v3.104.0...v3.105.0) (2023-09-15)
+
+**Note:** Version bump only for package @clayui/card
+
+# [3.104.0](https://github.com/liferay/clay/compare/v3.103.1...v3.104.0) (2023-08-25)
+
+**Note:** Version bump only for package @clayui/card
+
+## [3.103.1](https://github.com/liferay/clay/compare/v3.103.0...v3.103.1) (2023-08-15)
+
+**Note:** Version bump only for package @clayui/card
+
+# [3.101.0](https://github.com/liferay/clay/compare/v3.100.0...v3.101.0) (2023-07-28)
+
+**Note:** Version bump only for package @clayui/card
+
+# [3.100.0](https://github.com/liferay/clay/compare/v3.99.4...v3.100.0) (2023-07-13)
+
+**Note:** Version bump only for package @clayui/card
+
+## [3.99.4](https://github.com/liferay/clay/compare/v3.99.3...v3.99.4) (2023-07-10)
+
+**Note:** Version bump only for package @clayui/card
+
+## [3.99.1](https://github.com/liferay/clay/compare/v3.99.0...v3.99.1) (2023-07-04)
+
+**Note:** Version bump only for package @clayui/card
+
+# [3.99.0](https://github.com/liferay/clay/compare/v3.98.0...v3.99.0) (2023-06-28)
+
+**Note:** Version bump only for package @clayui/card
+
+# [3.98.0](https://github.com/liferay/clay/compare/v3.97.2...v3.98.0) (2023-06-20)
+
+**Note:** Version bump only for package @clayui/card
+
+## [3.97.1](https://github.com/liferay/clay/compare/v3.97.0...v3.97.1) (2023-06-14)
+
+**Note:** Version bump only for package @clayui/card
+
+# [3.97.0](https://github.com/liferay/clay/compare/v3.96.1...v3.97.0) (2023-06-13)
+
+**Note:** Version bump only for package @clayui/card
+
+# [3.96.0](https://github.com/liferay/clay/compare/v3.95.2...v3.96.0) (2023-05-29)
+
+### Features
+
+-   **@clayui/card:** moves root `aria-label` to card titles ([6dc08c2](https://github.com/liferay/clay/commit/6dc08c219c2df8a37ce0bf414724348e2fe0003d))
+
+## [3.95.2](https://github.com/liferay/clay/compare/v3.95.0...v3.95.2) (2023-05-17)
+
+**Note:** Version bump only for package @clayui/card
+
+# [3.95.0](https://github.com/liferay/clay/compare/v3.94.0...v3.95.0) (2023-05-15)
+
+**Note:** Version bump only for package @clayui/card
+
+# [3.94.0](https://github.com/liferay/clay/compare/v3.93.0...v3.94.0) (2023-05-03)
+
+### Features
+
+-   **clay-card:** Added card-title aria labels and sticker titles. ([0f3038e](https://github.com/liferay/clay/commit/0f3038e2f1d0f0d0a656c98def63bab86d1c5f13))
+
+# [3.93.0](https://github.com/liferay/clay/compare/v3.92.0...v3.93.0) (2023-04-19)
+
+**Note:** Version bump only for package @clayui/card
+
+# [3.92.0](https://github.com/liferay/clay/compare/v3.91.0...v3.92.0) (2023-04-06)
+
+**Note:** Version bump only for package @clayui/card
+
+# [3.91.0](https://github.com/liferay/clay/compare/v3.90.0...v3.91.0) (2023-03-24)
+
+**Note:** Version bump only for package @clayui/card
+
+# [3.90.0](https://github.com/liferay/clay/compare/v3.89.0...v3.90.0) (2023-03-15)
+
+**Note:** Version bump only for package @clayui/card
+
+# [3.89.0](https://github.com/liferay/clay/compare/v3.88.0...v3.89.0) (2023-03-01)
+
+**Note:** Version bump only for package @clayui/card
+
+# [3.88.0](https://github.com/liferay/clay/compare/v3.87.2...v3.88.0) (2023-02-14)
+
+**Note:** Version bump only for package @clayui/card
+
+# [3.87.0](https://github.com/liferay/clay/compare/v3.86.1...v3.87.0) (2023-02-08)
+
+**Note:** Version bump only for package @clayui/card
+
+## [3.86.1](https://github.com/liferay/clay/compare/v3.86.0...v3.86.1) (2023-02-02)
+
+**Note:** Version bump only for package @clayui/card
+
+# [3.86.0](https://github.com/liferay/clay/compare/v3.85.0...v3.86.0) (2023-01-31)
+
+**Note:** Version bump only for package @clayui/card
+
+# [3.85.0](https://github.com/liferay/clay/compare/v3.84.0...v3.85.0) (2023-01-23)
+
+**Note:** Version bump only for package @clayui/card
+
 # [3.84.0](https://github.com/liferay/clay/compare/v3.83.1...v3.84.0) (2022-12-23)
 
 **Note:** Version bump only for package @clayui/card

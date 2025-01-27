@@ -9,10 +9,12 @@ import {
 	InternalDispatch,
 	Keys,
 	MouseSafeArea,
-	useInternalState,
+	throttle,
+	useControlledState,
 	useNavigation,
 } from '@clayui/shared';
-import React, {useContext, useRef, useState} from 'react';
+import classNames from 'classnames';
+import React, {useCallback, useContext, useRef, useState} from 'react';
 import warning from 'warning';
 
 import Caption from './Caption';
@@ -139,6 +141,11 @@ export interface IProps
 	menuWidth?: React.ComponentProps<typeof ClayDropDown>['menuWidth'];
 
 	/**
+	 * Prop to use language keys.
+	 */
+	messages?: string;
+
+	/**
 	 * Function for setting the offset of the menu from the trigger.
 	 */
 	offsetFn?: React.ComponentProps<typeof ClayDropDown>['offsetFn'];
@@ -177,6 +184,11 @@ export interface IProps
 	 * The value that will be passed to the search input element.
 	 */
 	searchValue?: string;
+
+	/**
+	 * Flag indicating if the caret icon should be displayed on the right side.
+	 */
+	triggerIcon?: string | null;
 }
 
 const findNested = <
@@ -195,7 +207,7 @@ const findNested = <
 		// because it will be in another menu and the current menu does not need
 		// to know the information of what exists inside the contextual one, like
 		// knowing if there is an icon.
-		if (item.items && item.type !== 'contextual') {
+		if (item.items && item['type'] !== 'contextual') {
 			return findNested(item.items, key);
 		}
 
@@ -267,11 +279,49 @@ const Item = ({
 	);
 };
 
-const Group = ({items, label, spritemap}: IItem & IInternalItem) => (
-	<ClayDropDownGroup header={label}>
-		{items && <Items items={items} spritemap={spritemap} />}
-	</ClayDropDownGroup>
-);
+const Group = ({items, label, spritemap}: IItem & IInternalItem) => {
+	warning(
+		typeof items !== 'undefined',
+		`ClayDropDownWithItems -> The '${label}' group contains no items to render.`
+	);
+
+	if (typeof items === 'undefined') {
+		return null;
+	}
+
+	return (
+		<ClayDropDownGroup header={label}>
+			{items && <Items items={items} spritemap={spritemap} />}
+		</ClayDropDownGroup>
+	);
+};
+
+const BOTTOM_OFFSET = [0, 1] as const;
+const LEFT_OFFSET = [-1, 6] as const;
+const RIGHT_OFFSET = [1, -6] as const;
+const TOP_OFFSET = [0, -1] as const;
+
+const OFFSET_MAP = {
+	bctc: TOP_OFFSET,
+	blbr: RIGHT_OFFSET,
+	bltl: TOP_OFFSET,
+	brbl: LEFT_OFFSET,
+	brtr: TOP_OFFSET,
+	clcr: RIGHT_OFFSET,
+	crcl: LEFT_OFFSET,
+	tcbc: BOTTOM_OFFSET,
+	tlbl: BOTTOM_OFFSET,
+	tltr: RIGHT_OFFSET,
+	trbr: BOTTOM_OFFSET,
+	trtl: LEFT_OFFSET,
+};
+
+function offsetFn(points: any) {
+	return OFFSET_MAP[points.join('') as keyof typeof OFFSET_MAP] as [
+		number,
+		number
+	];
+}
 
 const Contextual = ({
 	items,
@@ -306,11 +356,19 @@ const Contextual = ({
 		visible,
 	});
 
+	const setThrottleVisible = useCallback(
+		throttle((value: boolean) => setVisible(value), 100),
+		[]
+	);
+
 	return (
 		<ClayDropDown.Item
 			{...otherProps}
 			aria-expanded={visible}
 			aria-haspopup={Boolean(items)}
+			className={classNames({
+				active: visible,
+			})}
 			onClick={(event) => {
 				keyboardRef.current = false;
 				if (event.currentTarget === event.target) {
@@ -335,14 +393,14 @@ const Contextual = ({
 				if (!visible) {
 					keyboardRef.current = false;
 					timeoutHandleRef.current = setTimeout(
-						() => setVisible(true),
-						500
+						() => setThrottleVisible(true),
+						400
 					);
 				}
 			}}
 			onMouseLeave={() => {
 				keyboardRef.current = false;
-				setVisible(false);
+				setThrottleVisible(false);
 
 				clearTimeout(timeoutHandleRef.current);
 				timeoutHandleRef.current = null;
@@ -360,6 +418,7 @@ const Contextual = ({
 					alignmentPosition={8}
 					hasLeftSymbols={hasLeftSymbols}
 					hasRightSymbols={hasRightSymbols}
+					offsetFn={offsetFn}
 					onActiveChange={setVisible}
 					onKeyDown={navigationProps.onKeyDown}
 					ref={menuElementRef}
@@ -530,12 +589,13 @@ export const ClayDropDownWithItems = ({
 	searchable,
 	searchProps,
 	searchValue = '',
+	triggerIcon = null,
 	spritemap,
 	trigger,
 }: IProps) => {
 	const triggerElementRef = useRef<HTMLButtonElement | null>(null);
 
-	const [internalActive, setInternalActive] = useInternalState({
+	const [internalActive, setInternalActive] = useControlledState({
 		defaultName: 'defaultActive',
 		defaultValue: defaultActive,
 		handleName: 'onActiveChange',
@@ -583,6 +643,7 @@ export const ClayDropDownWithItems = ({
 					}
 				},
 			})}
+			triggerIcon={triggerIcon}
 		>
 			<ClayDropDownContext.Provider
 				value={{

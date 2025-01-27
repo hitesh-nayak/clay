@@ -3,19 +3,12 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-import {useVirtualizer} from '@tanstack/react-virtual';
-import React, {useEffect, useRef} from 'react';
+import React, {useCallback, useEffect, useRef} from 'react';
 
 import {useCollection} from './useCollection';
-import {excludeProps, getKey} from './utils';
+import {useVirtual} from './useVirtual';
 
-import type {
-	ChildElement,
-	ChildrenFunction,
-	CollectionState,
-	ICollectionProps,
-	Props,
-} from './types';
+import type {CollectionState, ICollectionProps, Props} from './types';
 
 interface IProps
 	extends Omit<React.HTMLAttributes<HTMLDivElement>, 'children'> {
@@ -35,14 +28,15 @@ interface IProps
 	estimateSize?: number;
 
 	/**
-	 * Flag to enable infinite scroll.
-	 */
-	infiniteScroll?: boolean;
-
-	/**
 	 * Flag if a request is in progress.
 	 */
 	isLoading?: boolean;
+
+	/**
+	 * Defines the method for enable infinite scroll and loading more data into
+	 * the list.
+	 */
+	onLoadMore?: () => Promise<any> | null;
 
 	/**
 	 * Add the reference of the parent element that will be used to define the
@@ -50,158 +44,39 @@ interface IProps
 	 * collection.
 	 */
 	parentRef: React.RefObject<HTMLElement>;
-
-	/**
-	 * Callback called when the last element of the list is rendered in
-	 * virtualization and infiniteScroll is enabled.
-	 */
-	onBottom?: () => void;
 }
 
-type VirtualProps<T, P, K> = Omit<IProps, 'filter' | 'collection'> &
-	Props<P, K> & {
-		children: ChildrenFunction<T, P>;
-		items: Array<T>;
-	};
-
-function VirtualDynamicCollection<T extends Record<any, any>, P, K>({
-	as: Container = 'div',
-	children,
-	estimateSize = 37,
-	exclude,
-	infiniteScroll,
-	isLoading,
-	itemContainer: ItemContainer,
-	items,
-	onBottom,
-	parentKey,
-	parentRef,
-	passthroughKey,
-	publicApi,
-	...otherProps
-}: VirtualProps<T, P, K>) {
-	const previousLengthRef = useRef(items.length);
-
-	const virtualizer = useVirtualizer({
-		count: items.length,
-		estimateSize: () => estimateSize,
-		getScrollElement: () => parentRef.current,
-	});
-
-	const callbackCaptureRef = useRef<boolean>(false);
-
-	useEffect(() => {
-		if (items.length < previousLengthRef.current) {
-			virtualizer.scrollToIndex(0, {smoothScroll: false});
-		}
-
-		previousLengthRef.current = items.length;
-	}, [items.length]);
-
-	useEffect(() => {
-		if (!isLoading) {
-			callbackCaptureRef.current = false;
-		}
-	}, [isLoading]);
-
-	return (
-		<Container
-			{...otherProps}
-			style={{
-				height: virtualizer.getTotalSize(),
-				position: 'relative',
-				width: '100%',
-			}}
-		>
-			{virtualizer.getVirtualItems().map((virtual) => {
-				const item = items[virtual.index];
-
-				// Virtual item to loading
-				if (
-					infiniteScroll &&
-					items.length !== 0 &&
-					virtual.index === items.length - 1 &&
-					onBottom &&
-					!callbackCaptureRef.current
-				) {
-					callbackCaptureRef.current = true;
-
-					onBottom();
-				}
-
-				const publicItem = exclude ? excludeProps(item, exclude) : item;
-
-				const child = Array.isArray(publicApi)
-					? children(publicItem, ...publicApi)
-					: children(publicItem);
-
-				const key = getKey(
-					virtual.index,
-					item.id ?? child.key,
-					parentKey
-				);
-
-				const props = {
-					ref: (node: HTMLElement) => {
-						virtual.measureElement(node);
-
-						const ref = (child as ChildElement).ref;
-
-						if (typeof ref === 'function') {
-							ref(node);
-						}
-					},
-					style: {
-						left: 0,
-						position: 'absolute',
-						top: 0,
-						transform: `translateY(${virtual.start}px)`,
-						width: '100%',
-					},
-				};
-
-				if (ItemContainer) {
-					return (
-						<ItemContainer
-							index={virtual.index}
-							item={item}
-							key={key}
-							keyValue={key}
-						>
-							{React.cloneElement(child, props)}
-						</ItemContainer>
-					);
-				}
-
-				return React.cloneElement(child, {
-					key,
-					...(passthroughKey
-						? {index: virtual.index, keyValue: key}
-						: {}),
-					...props,
-				});
-			})}
-		</Container>
-	);
-}
-
-function DynamicCollection<
-	T extends Record<any, any>,
+function VirtualDynamicCollection<
+	T extends Record<string, any> | string | number,
 	P = unknown,
 	K = unknown
 >({
+	as,
 	children,
+	connectNested,
+	estimateSize = 37,
 	exclude,
 	filter,
 	filterKey,
 	itemContainer,
 	items,
 	parentKey,
+	parentRef,
 	passthroughKey,
 	publicApi,
-}: ICollectionProps<T, P> & Props<P, K>) {
+	...otherProps
+}: Required<Omit<ICollectionProps<T, P>, 'virtualize'>> &
+	Props<P, K> &
+	IProps) {
+	const virtualizer = useVirtual({
+		estimateSize,
+		items,
+		parentRef,
+	});
+
 	const state = useCollection({
 		children,
+		connectNested,
 		exclude,
 		filter,
 		filterKey,
@@ -210,78 +85,180 @@ function DynamicCollection<
 		parentKey,
 		passthroughKey,
 		publicApi,
+		virtualizer,
+	});
+
+	const As = as ?? React.Fragment;
+
+	return (
+		<As
+			{...otherProps}
+			style={{
+				height: `${state.size}px`,
+				position: 'relative',
+				width: '100%',
+			}}
+		>
+			{state.collection}
+		</As>
+	);
+}
+
+function DynamicCollection<
+	T extends Record<string, any> | string | number,
+	P = unknown,
+	K = unknown
+>({
+	children,
+	connectNested,
+	exclude,
+	filter,
+	filterKey,
+	itemContainer,
+	itemIdKey,
+	items,
+	parentKey,
+	passthroughKey,
+	publicApi,
+	suppressTextValueWarning,
+}: ICollectionProps<T, P> & Props<P, K>) {
+	const state = useCollection({
+		children,
+		connectNested,
+		exclude,
+		filter,
+		filterKey,
+		itemContainer,
+		itemIdKey,
+		items,
+		parentKey,
+		passthroughKey,
+		publicApi,
+		suppressTextValueWarning,
 	});
 
 	return <>{state.collection}</>;
 }
 
 export function Collection<
-	T extends Record<any, any>,
+	T extends Record<string, any> | string | number,
 	P = unknown,
 	K = unknown
 >({
 	as,
 	children,
 	collection,
+	connectNested,
 	estimateSize,
 	exclude,
 	filter,
 	filterKey,
-	infiniteScroll,
 	isLoading,
 	itemContainer,
+	itemIdKey = 'id',
 	items,
-	onBottom,
+	onLoadMore,
 	parentKey,
 	parentRef,
 	passthroughKey = true,
 	publicApi,
+	suppressTextValueWarning,
 	virtualize = false,
 	...otherProps
 }: Partial<ICollectionProps<T, P>> & Props<P, K> & Partial<IProps>) {
-	if (virtualize && children instanceof Function && items && parentRef) {
-		return (
-			<VirtualDynamicCollection
-				{...otherProps}
-				as={as}
-				estimateSize={estimateSize}
-				infiniteScroll={infiniteScroll}
-				isLoading={isLoading}
-				itemContainer={itemContainer}
-				items={items}
-				onBottom={onBottom}
-				parentKey={parentKey}
-				parentRef={parentRef}
-				passthroughKey={passthroughKey}
-				publicApi={publicApi}
-			>
-				{children}
-			</VirtualDynamicCollection>
-		);
-	}
+	const containerRef = useRef<HTMLDivElement>(null);
+	const isVirtual = collection?.virtualize;
+	const Container = as ? as : isVirtual ? 'div' : React.Fragment;
 
-	const Container = as ?? React.Fragment;
+	const onScroll = useCallback(
+		(event: Event) => {
+			const target = event.target as HTMLElement;
+
+			if (
+				target.scrollTop + target.clientHeight >=
+					target.scrollHeight - 40 &&
+				!isLoading
+			) {
+				onLoadMore!();
+			}
+		},
+		[onLoadMore, isLoading]
+	);
+
+	useEffect(() => {
+		if (onLoadMore && containerRef.current) {
+			const element = containerRef.current.parentElement!;
+			element.addEventListener('scroll', onScroll, true);
+
+			return () => {
+				element.removeEventListener('scroll', onScroll, true);
+			};
+		}
+	}, [onScroll]);
 
 	let content;
 
 	if (collection) {
 		content = <>{collection.collection}</>;
+	} else if (
+		virtualize &&
+		children instanceof Function &&
+		items &&
+		parentRef
+	) {
+		return (
+			<VirtualDynamicCollection
+				{...otherProps}
+				as={as}
+				connectNested={connectNested}
+				estimateSize={estimateSize}
+				itemContainer={itemContainer}
+				itemIdKey={itemIdKey}
+				items={items}
+				parentKey={parentKey}
+				parentRef={parentRef}
+				passthroughKey={passthroughKey}
+				publicApi={publicApi}
+				suppressTextValueWarning={suppressTextValueWarning}
+			>
+				{children}
+			</VirtualDynamicCollection>
+		);
 	} else {
 		content = (
 			<DynamicCollection
+				connectNested={connectNested}
 				exclude={exclude}
 				filter={filter}
 				filterKey={filterKey}
 				itemContainer={itemContainer}
+				itemIdKey={itemIdKey}
 				items={items}
 				parentKey={parentKey}
 				passthroughKey={passthroughKey}
 				publicApi={publicApi}
+				suppressTextValueWarning={suppressTextValueWarning}
 			>
 				{children}
 			</DynamicCollection>
 		);
 	}
 
-	return <Container {...otherProps}>{content}</Container>;
+	const virtualProps = isVirtual
+		? {
+				style: {
+					height: `${collection.size}px`,
+					position: 'relative',
+					width: '100%',
+				} as React.CSSProperties,
+		  }
+		: {};
+
+	const props = as || isVirtual ? {ref: containerRef} : {};
+
+	return (
+		<Container {...otherProps} {...virtualProps} {...props}>
+			{content}
+		</Container>
+	);
 }

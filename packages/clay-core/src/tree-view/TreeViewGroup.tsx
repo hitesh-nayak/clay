@@ -3,6 +3,7 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
+import {useProvider} from '@clayui/provider';
 import {setElementFullHeight} from '@clayui/shared';
 import classNames from 'classnames';
 import React from 'react';
@@ -12,19 +13,27 @@ import {Collection, ICollectionProps} from './Collection';
 import {useTreeViewContext} from './context';
 import {useItem} from './useItem';
 
-interface ITreeViewGroupProps<T>
+interface ITreeViewGroupProps<T extends Record<string, any>>
 	extends ICollectionProps<T>,
 		Omit<React.HTMLAttributes<HTMLDivElement>, 'children'> {}
 
-function List({children}: React.HTMLAttributes<HTMLUListElement>) {
+const List = React.forwardRef<
+	HTMLUListElement,
+	React.HTMLAttributes<HTMLUListElement>
+>(function ListInner(
+	{children, ...otherProps}: React.HTMLAttributes<HTMLUListElement>,
+	ref
+) {
 	return (
-		<ul className="treeview-group" role="group">
+		<ul {...otherProps} className="treeview-group" ref={ref} role="group">
 			{children}
 		</ul>
 	);
-}
+});
 
-export function TreeViewGroup<T>(props: ITreeViewGroupProps<T>): JSX.Element & {
+export function TreeViewGroup<T extends Record<string, any>>(
+	props: ITreeViewGroupProps<T>
+): JSX.Element & {
 	displayName: string;
 };
 
@@ -36,11 +45,12 @@ export function TreeViewGroup<T extends Record<any, any>>({
 }: ITreeViewGroupProps<T>) {
 	const {expandedKeys} = useTreeViewContext();
 
+	const {prefersReducedMotion} = useProvider();
+
 	const item = useItem();
 
 	return (
 		<CSSTransition
-			{...otherProps}
 			className={classNames('collapse', className, {
 				show: expandedKeys.has(item.key),
 			})}
@@ -51,6 +61,11 @@ export function TreeViewGroup<T extends Record<any, any>>({
 				exit: 'show',
 				exitActive: 'collapsing',
 			}}
+			data-id={
+				typeof item.key === 'number'
+					? `number,${item.key}`
+					: `string,${item.key}`
+			}
 			id={item.key}
 			in={expandedKeys.has(item.key)}
 			onEnter={(element: HTMLElement) =>
@@ -64,11 +79,11 @@ export function TreeViewGroup<T extends Record<any, any>>({
 			onExiting={(element) =>
 				element.setAttribute('style', 'height: 0px')
 			}
-			timeout={250}
+			timeout={prefersReducedMotion ? 0 : 250}
 			unmountOnExit
 		>
 			<div>
-				<Collection<T> as={List} items={items}>
+				<Collection<T> as={List} items={items} {...otherProps}>
 					{children}
 				</Collection>
 			</div>

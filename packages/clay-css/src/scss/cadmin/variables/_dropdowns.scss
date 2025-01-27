@@ -79,7 +79,7 @@ $cadmin-dropdown-item-padding-y: 8px !default;
 $cadmin-dropdown-item-disabled-cursor: $cadmin-disabled-cursor !default;
 
 $cadmin-dropdown-item-indicator-size: 16px !default;
-$cadmin-dropdown-item-indicator-spacer-x: 16px !default;
+$cadmin-dropdown-item-indicator-spacer-x: 12px !default;
 
 $cadmin-dropdown-link-color: $cadmin-gray-600 !default;
 $cadmin-dropdown-link-font-weight: $cadmin-font-weight-normal !default;
@@ -163,6 +163,7 @@ $cadmin-dropdown-item-base: map-deep-merge(
 			line-height: $cadmin-dropdown-font-size * $cadmin-line-height-base,
 		),
 		'&.autofit-row': (
+			align-items: center,
 			padding-left: calc(#{$cadmin-dropdown-item-padding-x} - 4px),
 			padding-right: calc(#{$cadmin-dropdown-item-padding-x} - 4px),
 			autofit-col: (
@@ -171,6 +172,7 @@ $cadmin-dropdown-item-base: map-deep-merge(
 			),
 		),
 		autofit-row: (
+			align-items: center,
 			margin-left: -4px,
 			margin-right: -4px,
 			width: auto,
@@ -178,6 +180,17 @@ $cadmin-dropdown-item-base: map-deep-merge(
 				padding-left: 4px,
 				padding-right: 4px,
 			),
+		),
+		inline-item: (
+			line-height: 1,
+			lexicon-icon: (
+				font-size: 16px,
+				margin-top: 0,
+			),
+		),
+		label: (
+			margin-bottom: 0,
+			margin-top: 5px,
 		),
 	),
 	$cadmin-dropdown-item-base
@@ -353,6 +366,11 @@ $cadmin-dropdown-section: map-deep-merge(
 		custom-control-label: $cadmin-dropdown-section-custom-control-label,
 		custom-control-label-text:
 			$cadmin-dropdown-section-custom-control-label-text,
+		custom-control-outside: (
+			label: (
+				padding-left: 28px,
+			),
+		),
 		active: (
 			custom-control-label:
 				$cadmin-dropdown-section-active-custom-control-label,
@@ -403,6 +421,7 @@ $cadmin-dropdown-item-indicator-start: map-deep-merge(
 			),
 		width: $cadmin-dropdown-item-indicator-size,
 		lexicon-icon: (
+			font-size: 16px,
 			margin-top: 0,
 		),
 	),
@@ -450,6 +469,7 @@ $cadmin-dropdown-item-indicator-end: map-deep-merge(
 			),
 		width: $cadmin-dropdown-item-indicator-size,
 		lexicon-icon: (
+			font-size: 16px,
 			margin-top: 0,
 		),
 	),
@@ -659,7 +679,6 @@ $cadmin-dropdown-menu-width-shrink: () !default;
 $cadmin-dropdown-menu-width-shrink: map-deep-merge(
 	(
 		min-width: 0,
-		white-space: nowrap,
 	),
 	$cadmin-dropdown-menu-width-shrink
 );
@@ -780,3 +799,106 @@ $cadmin-dropdown-alert-line-height: normal !default;
 $cadmin-dropdown-alert-margin: $cadmin-spacer * 0.5 !default;
 $cadmin-dropdown-alert-padding-x: $cadmin-dropdown-header-padding-x !default;
 $cadmin-dropdown-alert-padding-y: $cadmin-dropdown-header-padding-y !default;
+
+// Dropdown Menu Variants
+
+$cadmin-dropdown-menu-palette: () !default;
+$cadmin-dropdown-menu-palette: map-deep-merge(
+	(
+		'.dropdown-menu-select.dropdown-menu': (
+			dropdown-header: (
+				padding-bottom: 6px,
+				padding-left: 28px,
+				padding-right: 8px,
+				padding-top: 5px,
+			),
+			dropdown-subheader: (
+				padding-bottom: 7px,
+				padding-left: 28px,
+				padding-right: 8px,
+				padding-top: 7px,
+			),
+			dropdown-section: (
+				padding-left: 28px,
+				padding-right: 8px,
+			),
+			dropdown-item: (
+				padding-bottom: 6px,
+				padding-left: 28px,
+				padding-right: 8px,
+				padding-top: 5px,
+			),
+			dropdown-item-scroll: (
+				font-size: 16px,
+				height: 32px,
+				padding: 0,
+				position: absolute,
+				text-align: center,
+				z-index: 1,
+				hover: (
+					background-color: $cadmin-dropdown-link-hover-bg,
+					background-image: none,
+					color: $cadmin-dropdown-link-hover-color,
+				),
+				focus: (
+					background-color: $cadmin-dropdown-link-hover-bg,
+					background-image: none,
+					color: $cadmin-dropdown-link-hover-color,
+				),
+				active: (
+					background-color: $cadmin-dropdown-link-active-bg,
+					background-image: none,
+					color: $cadmin-dropdown-link-active-color,
+				),
+				disabled: (
+					background-color: transparent,
+					background-image: none,
+					color: $cadmin-dropdown-link-disabled-color,
+					cursor: $cadmin-dropdown-item-disabled-cursor,
+				),
+			),
+			dropdown-item-scroll-up: (
+				background-image: (
+					linear-gradient(
+						to bottom,
+						rgba(255, 255, 255, 1) 84%,
+						rgba(255, 255, 255, 0) 100%
+					),
+				),
+				top: $cadmin-dropdown-padding-y,
+			),
+			dropdown-item-scroll-down: (
+				background-image: (
+					linear-gradient(
+						to top,
+						rgba(255, 255, 255, 1) 84%,
+						rgba(255, 255, 255, 0) 100%
+					),
+				),
+				bottom: $cadmin-dropdown-padding-y,
+			),
+			dropdown-divider: (
+				margin: 5px 0,
+			),
+			dropdown-menu-indicator-start: (
+				dropdown-item-indicator-start: (
+					left: 8px,
+				),
+			),
+			dropdown-menu-indicator-end: (
+				dropdown-item-indicator-end: (
+					right: 8px,
+				),
+			),
+			inline-scroller: (
+				max-height: 224px,
+			),
+		),
+		'.dropdown-menu-select.dropdown-menu-height-lg': (
+			inline-scroller: (
+				max-height: 432px,
+			),
+		),
+	),
+	$cadmin-dropdown-menu-palette
+);

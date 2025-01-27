@@ -8,7 +8,7 @@ import {
 	InternalDispatch,
 	getEllipsisItems,
 	sub,
-	useInternalState,
+	useControlledState,
 } from '@clayui/shared';
 import React from 'react';
 
@@ -128,7 +128,11 @@ const ClayPaginationWithBasicItems = React.forwardRef<HTMLUListElement, IProps>(
 		}: IProps,
 		ref
 	) => {
-		const [internalActive, setActive] = useInternalState({
+		if (totalPages === 0) {
+			totalPages = 1;
+		}
+
+		const [internalActive, setActive] = useControlledState({
 			defaultName: 'defaultActive',
 			defaultValue: defaultActive,
 			handleName: 'onActiveChange',
@@ -145,16 +149,26 @@ const ClayPaginationWithBasicItems = React.forwardRef<HTMLUListElement, IProps>(
 
 		const pages = Array(totalPages)
 			.fill(0)
-			.map((item, index) => index + 1);
+			.map((_item, index) => index + 1);
 
 		return (
 			<Pagination {...otherProps} ref={ref}>
 				<Pagination.Item
-					aria-label={sub(ariaLabels.previous, [previousPage])}
+					aria-label={
+						internalActive !== 1
+							? sub(ariaLabels.previous, [previousPage])
+							: undefined
+					}
+					as={internalActive === 1 ? 'div' : undefined}
 					data-testid="prevArrow"
 					disabled={internalActive === 1}
 					href={previousHref}
 					onClick={() => setActive(previousPage)}
+					role={
+						previousHref || internalActive === 1
+							? undefined
+							: 'button'
+					}
 				>
 					<ClayIcon spritemap={spritemap} symbol="angle-left" />
 				</Pagination.Item>
@@ -198,11 +212,21 @@ const ClayPaginationWithBasicItems = React.forwardRef<HTMLUListElement, IProps>(
 				)}
 
 				<Pagination.Item
-					aria-label={sub(ariaLabels.next, [nextPage])}
+					aria-label={
+						internalActive !== totalPages
+							? sub(ariaLabels.next, [nextPage])
+							: undefined
+					}
+					as={internalActive === totalPages ? 'div' : undefined}
 					data-testid="nextArrow"
 					disabled={internalActive === totalPages}
 					href={nextHref}
 					onClick={() => setActive(nextPage)}
+					role={
+						nextHref || internalActive === totalPages
+							? undefined
+							: 'button'
+					}
 				>
 					<ClayIcon spritemap={spritemap} symbol="angle-right" />
 				</Pagination.Item>

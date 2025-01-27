@@ -4,7 +4,7 @@
  */
 
 import classNames from 'classnames';
-import React from 'react';
+import React, {useMemo, useState} from 'react';
 
 interface IProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'title'> {
 	/**
@@ -18,9 +18,19 @@ interface IProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'title'> {
 	imgProps?: React.ImgHTMLAttributes<HTMLImageElement>;
 
 	/**
+	 * HTMLImage element attributes to add to the reduced motion image within the component
+	 */
+	imgPropsReducedMotion?: React.ImgHTMLAttributes<HTMLImageElement>;
+
+	/**
 	 * Source of the image to signify the state
 	 */
 	imgSrc?: string;
+
+	/**
+	 * Source of the image to show when `.c-prefers-reduced-motion` is active
+	 */
+	imgSrcReducedMotion?: string | null;
 
 	/**
 	 * Indicates empty state should be a small variant.
@@ -32,18 +42,59 @@ interface IProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'title'> {
 	 */
 	title?: string | null;
 }
+const defaultTile = 'No results found';
 
 const ClayEmptyState = ({
 	children,
 	className,
 	description = 'Sorry, there are no results found',
 	imgProps,
+	imgPropsReducedMotion,
 	imgSrc,
+	imgSrcReducedMotion,
 	small,
-	title = 'No results found',
+	title = defaultTile,
 	...otherProps
 }: IProps) => {
 	const hasImg = imgSrc || imgProps;
+	const [error, setError] = useState(false);
+
+	const reducedMotionImage = useMemo(() => {
+		if (error) {
+			console.warn(
+				'The image url defined in `imgSrcReducedMotion` does not exist on the server. You can provide an updated url through the attribute `imgSrcReducedMotion` or set it to `{null}`.'
+			);
+
+			return null;
+		}
+		if (imgSrcReducedMotion) {
+			return imgSrcReducedMotion;
+		} else if (imgSrc && imgSrcReducedMotion !== null) {
+			const url = new URL(
+				imgSrc,
+				imgSrc?.match(/http:\/\/|https:\/\//)
+					? undefined
+					: `https://${location.host}`
+			);
+
+			const hasImgExtension = url.pathname.match(
+				/.(gif|png|jpeg|jpg|svg)/
+			);
+
+			return hasImgExtension
+				? `${url.pathname.substring(
+						0,
+						hasImgExtension.index
+				  )}_reduced_motion${url.pathname.substring(
+						hasImgExtension.index!
+				  )}`
+				: null;
+		}
+	}, [error, imgSrcReducedMotion]);
+
+	imgPropsReducedMotion = imgPropsReducedMotion
+		? imgPropsReducedMotion
+		: imgProps;
 
 	return (
 		<div
@@ -57,31 +108,39 @@ const ClayEmptyState = ({
 				<div className="c-empty-state-image">
 					<div className="c-empty-state-aspect-ratio">
 						<img
-							alt="c-empty-state-image"
+							alt=""
 							className={classNames(
 								'aspect-ratio-item aspect-ratio-item-fluid',
+								reducedMotionImage &&
+									'd-none-c-prefers-reduced-motion',
 								imgProps && imgProps.className
 							)}
 							src={imgSrc}
 							{...imgProps}
 						/>
+						{reducedMotionImage && (
+							<img
+								alt=""
+								className={classNames(
+									'aspect-ratio-item aspect-ratio-item-fluid d-block-c-prefers-reduced-motion',
+									imgPropsReducedMotion &&
+										imgPropsReducedMotion.className
+								)}
+								onError={() => setError(true)}
+								src={reducedMotionImage}
+								{...imgPropsReducedMotion}
+							/>
+						)}
 					</div>
 				</div>
 			)}
 
-			{title && (
-				<div className="c-empty-state-title">
-					<span className="text-truncate-inline">
-						<span className="text-truncate">{title}</span>
-					</span>
-				</div>
-			)}
-
+			<div className="c-empty-state-title">
+				<span>{title || defaultTile}</span>
+			</div>
 			<div className="c-empty-state-text">{description}</div>
-
 			{children && <div className="c-empty-state-footer">{children}</div>}
 		</div>
 	);
 };
-
 export default ClayEmptyState;

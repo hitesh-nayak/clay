@@ -34,6 +34,22 @@ $list-group-item-flex-checkbox-offset-top: 0.1875rem !default;
 $list-group-item-flex-offset-top: 0.0625rem !default;
 $list-group-item-flex-list-group-title-offset-top: -0.25rem !default;
 
+$list-group-item-flex: () !default;
+$list-group-item-flex: map-deep-merge(
+	(
+		display: flex,
+		margin-bottom: math-sign($list-group-border-width),
+		padding-left: calc(#{$list-group-item-padding-x} * 0.5),
+		padding-right: calc(#{$list-group-item-padding-x} * 0.5),
+		autofit-col: (
+			justify-content: $list-group-item-flex-align-items,
+			padding-left: calc(#{$list-group-item-padding-x} * 0.5),
+			padding-right: calc(#{$list-group-item-padding-x} * 0.5),
+		),
+	),
+	$list-group-item-flex
+);
+
 $list-group-active-bg: $component-active-bg !default;
 $list-group-active-border-color: $list-group-active-bg !default;
 $list-group-active-color: $component-active-color !default;
@@ -171,6 +187,25 @@ $list-group-detail-margin-top: null !default;
 $list-group-link-color: null !default;
 $list-group-link-hover-color: null !default;
 $list-group-link-active-color: $white !default;
+
+$list-group: () !default;
+$list-group: map-deep-merge(
+	(
+		border-radius: clay-enable-rounded($list-group-border-radius),
+		box-shadow: clay-enable-shadows($list-group-box-shadow),
+		color: $list-group-color,
+		display: flex,
+		flex-direction: column,
+		font-size: $list-group-font-size,
+		margin-bottom: $list-group-margin-bottom,
+		margin-top: $list-group-margin-top,
+		padding-left: 0,
+		list-group: (
+			box-shadow: if($list-group-box-shadow != null, none, null),
+		),
+	),
+	$list-group
+);
 
 // List Group Item Variants
 

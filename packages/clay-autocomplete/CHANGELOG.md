@@ -3,6 +3,271 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.127.0](https://github.com/liferay/clay/compare/v3.126.0...v3.127.0) (2025-01-23)
+
+**Note:** Version bump only for package @clayui/autocomplete
+
+# [3.125.0](https://github.com/liferay/clay/compare/v3.124.0...v3.125.0) (2025-01-13)
+
+**Note:** Version bump only for package @clayui/autocomplete
+
+# [3.124.0](https://github.com/liferay/clay/compare/v3.123.1...v3.124.0) (2024-12-18)
+
+**Note:** Version bump only for package @clayui/autocomplete
+
+## [3.123.1](https://github.com/liferay/clay/compare/v3.123.0...v3.123.1) (2024-11-27)
+
+**Note:** Version bump only for package @clayui/autocomplete
+
+# [3.123.0](https://github.com/liferay/clay/compare/v3.122.0...v3.123.0) (2024-11-21)
+
+**Note:** Version bump only for package @clayui/autocomplete
+
+# [3.122.0](https://github.com/liferay/clay/compare/v3.121.0...v3.122.0) (2024-11-13)
+
+**Note:** Version bump only for package @clayui/autocomplete
+
+# [3.121.0](https://github.com/liferay/clay/compare/v3.120.0...v3.121.0) (2024-10-17)
+
+**Note:** Version bump only for package @clayui/autocomplete
+
+# [3.120.0](https://github.com/liferay/clay/compare/v3.119.1...v3.120.0) (2024-09-13)
+
+**Note:** Version bump only for package @clayui/autocomplete
+
+# [3.119.0](https://github.com/liferay/clay/compare/v3.118.0...v3.119.0) (2024-08-30)
+
+**Note:** Version bump only for package @clayui/autocomplete
+
+# [3.118.0](https://github.com/liferay/clay/compare/v3.117.0...v3.118.0) (2024-08-13)
+
+**Note:** Version bump only for package @clayui/autocomplete
+
+# [3.117.0](https://github.com/liferay/clay/compare/v3.116.1...v3.117.0) (2024-07-30)
+
+**Note:** Version bump only for package @clayui/autocomplete
+
+## [3.116.1](https://github.com/liferay/clay/compare/v3.116.0...v3.116.1) (2024-06-27)
+
+**Note:** Version bump only for package @clayui/autocomplete
+
+# [3.116.0](https://github.com/liferay/clay/compare/v3.115.2...v3.116.0) (2024-06-10)
+
+**Note:** Version bump only for package @clayui/autocomplete
+
+## [3.115.1](https://github.com/liferay/clay/compare/v3.115.0...v3.115.1) (2024-05-21)
+
+**Note:** Version bump only for package @clayui/autocomplete
+
+# [3.115.0](https://github.com/liferay/clay/compare/v3.114.0...v3.115.0) (2024-05-16)
+
+**Note:** Version bump only for package @clayui/autocomplete
+
+# [3.114.0](https://github.com/liferay/clay/compare/v3.113.0...v3.114.0) (2024-04-22)
+
+### Bug Fixes
+
+-   **clay-autocomplete:** Remove autocomplete async filter paginated example ([6366d29](https://github.com/liferay/clay/commit/6366d296e17be2f8aac6474951cc1728a208eca5))
+
+# [3.113.0](https://github.com/liferay/clay/compare/v3.112.0...v3.113.0) (2024-03-28)
+
+**Note:** Version bump only for package @clayui/autocomplete
+
+# [3.112.0](https://github.com/liferay/clay/compare/v3.111.1...v3.112.0) (2024-03-11)
+
+### Features
+
+-   **@clayui/autocomplete:** update component highlight ([b6fd6a9](https://github.com/liferay/clay/commit/b6fd6a969099a5c89bc48bfa06b2ec1ccf1a28cc))
+
+# [3.111.0](https://github.com/liferay/clay/compare/v3.110.0...v3.111.0) (2024-02-15)
+
+**Note:** Version bump only for package @clayui/autocomplete
+
+# [3.109.0](https://github.com/liferay/clay/compare/v3.108.0...v3.109.0) (2024-01-22)
+
+**Note:** Version bump only for package @clayui/autocomplete
+
+# [3.108.0](https://github.com/liferay/clay/compare/v3.107.1...v3.108.0) (2023-12-12)
+
+**Note:** Version bump only for package @clayui/autocomplete
+
+## [3.107.1](https://github.com/liferay/clay/compare/v3.107.0...v3.107.1) (2023-11-27)
+
+**Note:** Version bump only for package @clayui/autocomplete
+
+# [3.107.0](https://github.com/liferay/clay/compare/v3.106.1...v3.107.0) (2023-11-27)
+
+**Note:** Version bump only for package @clayui/autocomplete
+
+## [3.106.1](https://github.com/liferay/clay/compare/v3.106.0...v3.106.1) (2023-10-26)
+
+**Note:** Version bump only for package @clayui/autocomplete
+
+# [3.106.0](https://github.com/liferay/clay/compare/v3.105.0...v3.106.0) (2023-10-25)
+
+### Bug Fixes
+
+-   remove 'src' dir from being packaged with npm ([9383e8d](https://github.com/liferay/clay/commit/9383e8d8abb25ca3396e7c6e4dfa53bbc72691c5))
+-   use package's directory for baseDir when generating type ([0a5c710](https://github.com/liferay/clay/commit/0a5c710092f36243bc8d5487f70e831295715072))
+
+# [3.105.0](https://github.com/liferay/clay/compare/v3.104.0...v3.105.0) (2023-09-15)
+
+### Bug Fixes
+
+-   **@clayui/autocomplete:** fix error when navigating via keyboard with the mouse over the item ([f13e062](https://github.com/liferay/clay/commit/f13e062033445f70df32bdf31d068646215c9a78))
+
+# [3.104.0](https://github.com/liferay/clay/compare/v3.103.1...v3.104.0) (2023-08-25)
+
+**Note:** Version bump only for package @clayui/autocomplete
+
+## [3.103.1](https://github.com/liferay/clay/compare/v3.103.0...v3.103.1) (2023-08-15)
+
+**Note:** Version bump only for package @clayui/autocomplete
+
+## [3.101.1](https://github.com/liferay/clay/compare/v3.101.0...v3.101.1) (2023-07-28)
+
+### Bug Fixes
+
+-   **@clayui/autocomplete:** does not revalidate the value if it is reset by the controlled state ([73ec258](https://github.com/liferay/clay/commit/73ec258196572004430780bc4330137437e36377))
+-   **@clayui/autocomplete:** improves value matching behavior with suggestion list when state is controlled ([5f33f5c](https://github.com/liferay/clay/commit/5f33f5c42a4dc2cef85de01743baebe2d6d1f829))
+
+# [3.101.0](https://github.com/liferay/clay/compare/v3.100.0...v3.101.0) (2023-07-28)
+
+### Bug Fixes
+
+-   **@clayui/autocomplete:** fix error when not validating value with items ([ab4421e](https://github.com/liferay/clay/commit/ab4421ede3b8b97084e694e3500b07f4ff1957f1))
+
+### Features
+
+-   **@clayui/autocomplete:** adds new API to allow custom value ([516de02](https://github.com/liferay/clay/commit/516de02e9cd2d8dbbecc60d7fc79935e377decf1))
+
+# [3.100.0](https://github.com/liferay/clay/compare/v3.99.4...v3.100.0) (2023-07-13)
+
+**Note:** Version bump only for package @clayui/autocomplete
+
+## [3.99.4](https://github.com/liferay/clay/compare/v3.99.3...v3.99.4) (2023-07-10)
+
+### Bug Fixes
+
+-   **@clayui/multi-select:** fix loading indicator markup in MultiSelect ([b883824](https://github.com/liferay/clay/commit/b8838247d1638524691fda2a74934e0676e6597d))
+
+## [3.99.2](https://github.com/liferay/clay/compare/v3.99.1...v3.99.2) (2023-07-05)
+
+### Bug Fixes
+
+-   **@clayui/autocomplete:** makes new `messages` properties optional ([94eceb6](https://github.com/liferay/clay/commit/94eceb6261334272d0b3a000052a7a9592505284))
+
+## [3.99.1](https://github.com/liferay/clay/compare/v3.99.0...v3.99.1) (2023-07-04)
+
+### Bug Fixes
+
+-   **@clayui/autocomplete:** adds warning when `filterKey` is not defined and tries to filter an option that is object ([48dd887](https://github.com/liferay/clay/commit/48dd887b7fb6afbade67a98e6d325d1068ddc6b7))
+-   **@clayui/autocomplete:** fixes type inference for properties and generic type ([cfc4309](https://github.com/liferay/clay/commit/cfc4309313b46bea777ddae3f9d810ae032b2a3c))
+
+# [3.99.0](https://github.com/liferay/clay/compare/v3.98.0...v3.99.0) (2023-06-28)
+
+### Bug Fixes
+
+-   **@clayui/autocomplete:** fix bug not announcing available options when autocomplete is open ([1dc9581](https://github.com/liferay/clay/commit/1dc9581bd2e96b7cdf250bf02c4858c5df4eb833))
+-   **@clayui/autocomplete:** fixes suppressing the `+` from the value when filtering the list ([1ba8356](https://github.com/liferay/clay/commit/1ba8356fce973dce24a63b5154e9ae9370c43562))
+
+# [3.98.0](https://github.com/liferay/clay/compare/v3.97.2...v3.98.0) (2023-06-20)
+
+**Note:** Version bump only for package @clayui/autocomplete
+
+## [3.97.2](https://github.com/liferay/clay/compare/v3.97.1...v3.97.2) (2023-06-16)
+
+### Bug Fixes
+
+-   **@clayui/autocomplete:** fix error keeping menu open after selecting option with `menuTrigger="focus"` ([5f305f7](https://github.com/liferay/clay/commit/5f305f7962677c5e0c2b1b7a366f507755fc9947))
+-   **@clayui/autocomplete:** fixes error when losing reference to nodes at each rerender ([a28aa05](https://github.com/liferay/clay/commit/a28aa050ab3dbe8d337518361289f4a4fbc87cac))
+-   **@clayui/autocomplete:** fixes error when not resetting visual focus when menu is closed by custom logic ([b45c87e](https://github.com/liferay/clay/commit/b45c87e15456639def329731a0fc0a038df87906))
+
+## [3.97.1](https://github.com/liferay/clay/compare/v3.97.0...v3.97.1) (2023-06-14)
+
+**Note:** Version bump only for package @clayui/autocomplete
+
+# [3.97.0](https://github.com/liferay/clay/compare/v3.96.1...v3.97.0) (2023-06-13)
+
+### Bug Fixes
+
+-   **@clayui/autocomplete:** removes unnecessary use of the `dropdown-menu-indicator-start` CSS class ([ce09cd8](https://github.com/liferay/clay/commit/ce09cd814bf547e3437a45956f315a0588c52114))
+-   **@clayui/multi-select:** explicitly add the `active` API in the component's typing ([e956828](https://github.com/liferay/clay/commit/e95682814d3ec7ab45e65e41bba291a2da023e74))
+
+## [3.96.1](https://github.com/liferay/clay/compare/v3.96.0...v3.96.1) (2023-05-31)
+
+### Bug Fixes
+
+-   **@clayui/autocomplete:** fix error when rendering two collections ([03473be](https://github.com/liferay/clay/commit/03473be98f22d52613b741528cbebec64073b771))
+
+# [3.96.0](https://github.com/liferay/clay/compare/v3.95.2...v3.96.0) (2023-05-29)
+
+### Bug Fixes
+
+-   **@clayui/autocomplete:** don't open menu if items is null ([300fb73](https://github.com/liferay/clay/commit/300fb73452613c588d613e8d9cc687faaab99b68))
+
+### Features
+
+-   **@clayui/autocomplete:** adds new API to customize input ([b6a213b](https://github.com/liferay/clay/commit/b6a213b325e82d2472977463e76762252a519fe6))
+
+## [3.95.2](https://github.com/liferay/clay/compare/v3.95.0...v3.95.2) (2023-05-17)
+
+**Note:** Version bump only for package @clayui/autocomplete
+
+# [3.95.0](https://github.com/liferay/clay/compare/v3.94.0...v3.95.0) (2023-05-15)
+
+**Note:** Version bump only for package @clayui/autocomplete
+
+# [3.94.0](https://github.com/liferay/clay/compare/v3.93.0...v3.94.0) (2023-05-03)
+
+### Features
+
+-   **@clayui/autocomplete:** add list virtualization for dynamic content ([9710fd7](https://github.com/liferay/clay/commit/9710fd7693f9ba14d1b2b617fc12e15f71a311e3))
+-   **@clayui/autocomplete:** refactors autocomplete implementation with accessibility improvements ([1dc82e6](https://github.com/liferay/clay/commit/1dc82e63b0d51e6cc3bf2cb1c7d08f4e698e6ba1))
+-   **@clayui/core:** add infinite scroll to autocomplete ([d3358b4](https://github.com/liferay/clay/commit/d3358b47f8ff872f941e4eba64abd219189110c9))
+
+# [3.93.0](https://github.com/liferay/clay/compare/v3.92.0...v3.93.0) (2023-04-19)
+
+**Note:** Version bump only for package @clayui/autocomplete
+
+# [3.92.0](https://github.com/liferay/clay/compare/v3.91.0...v3.92.0) (2023-04-06)
+
+**Note:** Version bump only for package @clayui/autocomplete
+
+# [3.91.0](https://github.com/liferay/clay/compare/v3.90.0...v3.91.0) (2023-03-24)
+
+**Note:** Version bump only for package @clayui/autocomplete
+
+# [3.90.0](https://github.com/liferay/clay/compare/v3.89.0...v3.90.0) (2023-03-15)
+
+**Note:** Version bump only for package @clayui/autocomplete
+
+# [3.89.0](https://github.com/liferay/clay/compare/v3.88.0...v3.89.0) (2023-03-01)
+
+**Note:** Version bump only for package @clayui/autocomplete
+
+# [3.88.0](https://github.com/liferay/clay/compare/v3.87.2...v3.88.0) (2023-02-14)
+
+**Note:** Version bump only for package @clayui/autocomplete
+
+# [3.87.0](https://github.com/liferay/clay/compare/v3.86.1...v3.87.0) (2023-02-08)
+
+### Bug Fixes
+
+-   **@clayui/autocomplete:** fix error when filtering autocomplete with regex special character ([079e4f7](https://github.com/liferay/clay/commit/079e4f7985a50a54dfbda36e1460204a0562a922))
+
+## [3.86.1](https://github.com/liferay/clay/compare/v3.86.0...v3.86.1) (2023-02-02)
+
+**Note:** Version bump only for package @clayui/autocomplete
+
+# [3.86.0](https://github.com/liferay/clay/compare/v3.85.0...v3.86.0) (2023-01-31)
+
+**Note:** Version bump only for package @clayui/autocomplete
+
+# [3.85.0](https://github.com/liferay/clay/compare/v3.84.0...v3.85.0) (2023-01-23)
+
+**Note:** Version bump only for package @clayui/autocomplete
+
 # [3.84.0](https://github.com/liferay/clay/compare/v3.83.1...v3.84.0) (2022-12-23)
 
 **Note:** Version bump only for package @clayui/autocomplete

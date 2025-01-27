@@ -3,6 +3,1060 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.127.0](https://github.com/liferay/clay/compare/v3.126.0...v3.127.0) (2025-01-23)
+
+### Bug Fixes
+
+-   **@clay/css:** LPD-46380 Labels in dropdown-item are slightly misaligned ([b46a14e](https://github.com/liferay/clay/commit/b46a14efde05f15d53ce318fde84078794395969))
+-   **@clayui/css:** LPD-45799 Cadmin c-prefers-focus should output correct selector ([346126e](https://github.com/liferay/clay/commit/346126e50b22faa41b4a848e452b2f19b68dc15d))
+-   **@clayui/date-picker:** LPD-46943 Fix date format when use12Hours true ([c73a4eb](https://github.com/liferay/clay/commit/c73a4eb75740f7bd0014b5f35cf67e12af3731cb))
+
+### Features
+
+-   **@clayui/language-picker:** LPD-45714 Add aria-labels or correct reading with the screen reader ([35eb475](https://github.com/liferay/clay/commit/35eb47591e7237562ce043111d30af117d7fa0ca))
+-   **@clayui/language-picker:** LPD-45714 Add defaultActive prop ([ef3b2fa](https://github.com/liferay/clay/commit/ef3b2fa7583fadda12fd01c53f69ed2b85aa3c0d))
+-   **@clayui/language-picker:** LPD-45714 Add defaultLocaleId to the API ([559b176](https://github.com/liferay/clay/commit/559b1761af9a1361bc0f341bd4de39132efd58f9))
+-   **@clayui/language-picker:** LPD-45714 Add defaultSelectedLocaleId ([29a032b](https://github.com/liferay/clay/commit/29a032bfa6d036f81032c614b793eb84722cfc18))
+-   **@clayui/language-picker:** LPD-45714 Add different labels to indicate the translation ([a9f6c7f](https://github.com/liferay/clay/commit/a9f6c7f61548318e04ca0b2ae190e089d3306e13))
+-   **@clayui/language-picker:** LPD-45714 Add LanguagePicker component ([3cc0966](https://github.com/liferay/clay/commit/3cc0966eb2f287048089869b1e0b85df4119e441))
+-   **@clayui/language-picker:** LPD-45714 Add prop to hide the trigger text ([847228e](https://github.com/liferay/clay/commit/847228eb30491dd584ffebc1f9e386673657b0a4))
+-   **@clayui/language-picker:** LPD-45714 Add security margin ([6c6f952](https://github.com/liferay/clay/commit/6c6f952e6a5bf136dfcc48ddb77ec1f445548f26))
+-   **@clayui/language-picker:** LPD-45714 Add tests ([cc668ff](https://github.com/liferay/clay/commit/cc668ff3a5707cbf3511ae6c1dfee6cd9f3b50b6))
+-   **@clayui/language-picker:** LPD-45714 Add translations ([f32db5b](https://github.com/liferay/clay/commit/f32db5bc95de197f46747434abccfd21ba4bcb31))
+-   **@clayui/language-picker:** LPD-45714 Does not use ClayButton to avoid the btn class and update the styles ([5797aa4](https://github.com/liferay/clay/commit/5797aa463a488d64b619a1f8f7bcbd7f5c78bfd3))
+-   **@clayui/language-picker:** LPD-45714 Export component as LanguagePicker ([b030db1](https://github.com/liferay/clay/commit/b030db1e788bc943332e3a08b9dac78e3a844501))
+-   **@clayui/language-picker:** LPD-45714 Make the language picker work in an uncontrolled way ([6f0a6c0](https://github.com/liferay/clay/commit/6f0a6c08a7617448666bee60fc1625878af98183))
+-   **@clayui/language-picker:** LPD-45714 Move component to clay-core ([1ebff3b](https://github.com/liferay/clay/commit/1ebff3b6f71fa091d94eb0dc8de358c8f818f132))
+-   **@clayui/language-picker:** LPD-45714 Move the label for the SR to the Option component ([effc1b6](https://github.com/liferay/clay/commit/effc1b6cb8f513b3252cc58389a147ea7456ce5d))
+-   **@clayui/language-picker:** LPD-45714 Remove unnecessary href ([077031a](https://github.com/liferay/clay/commit/077031aac7720234057be058f3ccb48cb9c5c5fd))
+-   **@clayui/language-picker:** LPD-45714 Rename labels to messages ([ca04d51](https://github.com/liferay/clay/commit/ca04d5137dcce223c377b4fc3f8e77ba042a8eb5))
+-   **@clayui/language-picker:** LPD-45714 Replace displayName by name ([35025a8](https://github.com/liferay/clay/commit/35025a821bb26c12d848da382c5d59eb72746d0f))
+-   **@clayui/language-picker:** LPD-45714 Replace selectedLocale with selectedLocaleId to be consistent with the design of the onSelectedLocaleChange API ([b68567e](https://github.com/liferay/clay/commit/b68567e244e1efb282ca607fc8e230e0122cb402))
+-   **@clayui/language-picker:** LPD-45714 Update tests ([983d7fc](https://github.com/liferay/clay/commit/983d7fc502792122f361d22c024bba98ea338cd8))
+-   **@clayui/language-picker:** LPD-45714 Wrap label to add right margin ([9eaf740](https://github.com/liferay/clay/commit/9eaf740f22f14de05dd0a7fbaaf7a898c2dd52b6))
+-   **@clayui/vertical-nav:** LPD-46396 - Include an aria-label property on the Clay Vertical Navigation component and ensure its proper implementation in usage. ([e86d6cc](https://github.com/liferay/clay/commit/e86d6ccc46ea2566146e110f453a5e4b1d1bf7bb))
+-   **@clayui/vertical-nav:** LPD-46396 - Update stories ([2fc9c3d](https://github.com/liferay/clay/commit/2fc9c3d80f028f8c0d26da2fb28db33532a60d88))
+-   **@clayui/vertical-nav:** LPD-46396 - Update tests and snapshots ([859c893](https://github.com/liferay/clay/commit/859c893ea28d7dbeaf8719e594ebe5ae3b294ba6))
+
+# [3.126.0](https://github.com/liferay/clay/compare/v3.125.0...v3.126.0) (2025-01-15)
+
+### Features
+
+-   **@clayui/css:** LPD-45032 regen icons ([51f48b7](https://github.com/liferay/clay/commit/51f48b7067a0529c84afa160512daeb594247576))
+
+# [3.125.0](https://github.com/liferay/clay/compare/v3.124.0...v3.125.0) (2025-01-13)
+
+### Bug Fixes
+
+-   **@clayui.css:** LPD-44793 toggle-switch-sm label text breaks to new line too early ([4ebdd4d](https://github.com/liferay/clay/commit/4ebdd4da99ecd6d54e5aef8c047a85855fdb7e12))
+-   **@clayui/css:** LPD-40824 Update code color to #e60000 red ([750f56f](https://github.com/liferay/clay/commit/750f56f5779b111b088cb490122ac72e0e791b00)), closes [#e60000](https://github.com/liferay/clay/issues/e60000)
+-   **@clayui/css:** LPD-45052 Remove letter-spacing from diabled link in menubar-primary ([ea66fae](https://github.com/liferay/clay/commit/ea66faebaa89a835a91e34d2e300e78eb4a7906f))
+-   **@clayui/css:** LPD-45685 Multi Step Nav should use focus-visible ([9a18636](https://github.com/liferay/clay/commit/9a1863683ae5b9f766d8fe5af3739a116b0abd68))
+-   **@clayui/form:** LPD-45345 Radio Toggle Switch should use role="radio" ([a7d88a5](https://github.com/liferay/clay/commit/a7d88a575c0f75badee3b910111b3137cc542682))
+
+### Features
+
+-   **@clayui/css:** LPD-36816 Multi Step Nav adds multi-step-nav-center ([ad0abb8](https://github.com/liferay/clay/commit/ad0abb87da3f6b846af888117c6898da2a6fb5e2))
+-   **@clayui/css:** LPD-40080 Add new sticker variants sticker-outline-\* ([86c8523](https://github.com/liferay/clay/commit/86c852362fcaa7d4d0c0e1272088aa6af2ee9729))
+-   **@clayui/css:** LPD-45032 Add new gallery icon ([89ff50a](https://github.com/liferay/clay/commit/89ff50a5f4feee7eab2f1e74160f0c0682751d63))
+-   **@clayui/multi-step-nav:** LPD-36816 Adds prop center to center the nav ([4a2de61](https://github.com/liferay/clay/commit/4a2de61b8d201616bf8fca2b22ba77b93f8b9054))
+-   **@clayui/sticker:** LPD-40080 Add new displayType outline-\* ([9a86f6d](https://github.com/liferay/clay/commit/9a86f6ddbd61d17878ecd5669a26064e356ffe0a))
+
+# [3.124.0](https://github.com/liferay/clay/compare/v3.123.1...v3.124.0) (2024-12-18)
+
+### Bug Fixes
+
+-   **@clayui/charts:** LPD-44040 Update Clay Chart colors for accessibility ([63575e3](https://github.com/liferay/clay/commit/63575e3b8a3009e0d3d9d975028e0f7a18027611))
+-   **@clayui/core:** fixes bug when keeping the column visible when it should be hidden ([2bcbcf3](https://github.com/liferay/clay/commit/2bcbcf3a6448675252106c17c50e5ebc44ebac03))
+-   **@clayui/core:** fixes bug when updating the state at render time a… 27bf8ca …nd the number of table columns when the state changes ([1b4a50e](https://github.com/liferay/clay/commit/1b4a50ef505ba0fc15871d00b755e8829445005c))
+-   **@clayui/core:** fixes keyboard navigation bug for VerticalNav with `displayType` primary ([40dfe9b](https://github.com/liferay/clay/commit/40dfe9b9eff8f8fc93b3d3500c9c7ac887fdbf2a))
+-   **@clayui/css:** LPD-44040 Update Atlas base colors ([11d00af](https://github.com/liferay/clay/commit/11d00af8b378fac5363c108de836c0c9cb5da027))
+
+### Features
+
+-   **@clayui/core:** LPD-40160 Add displayType primary for VerticalNav for CMS Product Menu variant ([8cbefc8](https://github.com/liferay/clay/commit/8cbefc8b9ac21e85d3c1566709d53dc15924fff7))
+-   **@clayui/core:** LPD-40160 Add floating menubar action button ([1a2e082](https://github.com/liferay/clay/commit/1a2e082a906c463a91cd2a0d2058b5e713ae6669))
+-   **@clayui/core:** LPD-40160 Add floating menubar action button ([7782b3a](https://github.com/liferay/clay/commit/7782b3a204a96bfe70f66970051ce818ea5f1007))
+-   **@clayui/css:** LPD-40160 Adds menubar-action for adding New Space ([2bbfd72](https://github.com/liferay/clay/commit/2bbfd7202be9b8569605ee0e2d43e120faa97565))
+-   **@clayui/css:** LPD-40160 Adds menubar-primary for CMS Product Menu variant ([5144840](https://github.com/liferay/clay/commit/514484057c7192019919b1c13cdd29e1800ae789))
+-   **@clayui/css:** LPD-42908 Adds language flags fr-BE, fr-CH, de-CH, it-CH, mk-MK, de-AT ([98411df](https://github.com/liferay/clay/commit/98411df8ea06dc73617e2ee152153c80111deb84))
+-   **@clayui/css:** LPD-44385 Add language flag no-No.svg ([84999dd](https://github.com/liferay/clay/commit/84999dd061470b3b96bf379ba66f46a102adeb0d))
+
+## [3.123.1](https://github.com/liferay/clay/compare/v3.123.0...v3.123.1) (2024-11-27)
+
+### Bug Fixes
+
+-   **@clayui/core:** Adapt snapshots ([c218410](https://github.com/liferay/clay/commit/c218410398160abb942b68c2a73d42fe058cfe74))
+-   **@clayui/core:** Remove navbar-text-truncate class ([3ca40d6](https://github.com/liferay/clay/commit/3ca40d6b7b26de39ed1c8089f21047c2f749d160))
+
+### Reverts
+
+-   Revert "feat(@clayui/dropdown): LPD-41310 Add "triggerIcon=undefined" prop to prevent caret-icon to be displayed" ([7d9f443](https://github.com/liferay/clay/commit/7d9f443586d32b854953a24ae82318628e7a3676))
+
+# [3.123.0](https://github.com/liferay/clay/compare/v3.122.0...v3.123.0) (2024-11-21)
+
+### Features
+
+-   **@clayui/table:** LPD-42395 Add tooltips to table action buttons in Clay Table ([2834a18](https://github.com/liferay/clay/commit/2834a1823c064d035d223aaf0fe4dfbb14f161fd))
+-   **@clayui/table:** LPD-42395 Update snapshot ([09038db](https://github.com/liferay/clay/commit/09038db3141e12383efc68905240890568a74337))
+
+# [3.122.0](https://github.com/liferay/clay/compare/v3.121.0...v3.122.0) (2024-11-13)
+
+### Bug Fixes
+
+-   **@clayui/core:** LPD-39956 - Not render left arrow button when child array is empty ([2d154b4](https://github.com/liferay/clay/commit/2d154b422c494ffd5c9809d892352734a544f7ea))
+-   **@clayui/core:** LPD-39956 - Update tests ([eb0c15a](https://github.com/liferay/clay/commit/eb0c15a9f7a4e3f4418c6ad00868d3f297331900))
+-   **@clayui/css:** LPD-39960 Fix padding between text and icon on table head ([f0f92e0](https://github.com/liferay/clay/commit/f0f92e0dc0453b1db5cab10fc58e3d3a1b5f24c2))
+-   **@clayui/css:** LPD-39960 make autofit-col spacing smaller in thead ([8649001](https://github.com/liferay/clay/commit/86490017a745c6e1105a0643895ce4b76553dd72))
+-   **@clayui/form:** LPD-36696 DualListBox maximum items should correctly disable buttons and error message ([53e9e80](https://github.com/liferay/clay/commit/53e9e806b38a0fe76d709b0bdab0341ec56b3a5c))
+-   **@clayui/form:** LPD-36696 DualListBox adds children and don't disable left right buttons if no items are selected ([c796665](https://github.com/liferay/clay/commit/c796665296793965109aaf425fa3086d66b465ae))
+-   **@clayui/modal:** LPD-41004 clayui.com Modal should list more detail about size ([1a922a4](https://github.com/liferay/clay/commit/1a922a4766d593210b5b48cec526fc0eca79ca4b))
+-   **@clayui/modal:** LPD-41004 exposes size types in the modal's Table API ([821a939](https://github.com/liferay/clay/commit/821a93946afb6b766ab4b1563c88033f21e58be6))
+-   **@clayui/pagination-bar:** LPD-38518 - Add case test for pagination bar ([0294c7d](https://github.com/liferay/clay/commit/0294c7ddfe4ec96f0a064c748938c2c27076173a))
+-   **@clayui/picker:** LPD-38518 - Add case test for picker option ([97b6bbb](https://github.com/liferay/clay/commit/97b6bbbf777c1127b9545c66b7051fb967cc802d))
+-   **@clayui/picker:** LPD-38518 - Add prop "href" to handle options with links ([2392cb9](https://github.com/liferay/clay/commit/2392cb972a15194a7751ba8cbcbbc59997f73e63))
+-   **@clayui/sidebar:** LPD-39580 Sidebar Header Title should be bold (700) ([e0090c3](https://github.com/liferay/clay/commit/e0090c377d90f1a30f2e9cc348dea82a3b47d120))
+-   **@clayui/vertical-nav:** LPD-39579 Vertical Navigation Items height should be 40px by default, not 41px ([0c17878](https://github.com/liferay/clay/commit/0c17878a5ab308c3553e2b9fa0eed56e4b57a856))
+
+### Features
+
+-   **@clayui/core:** add new API to set item id key for table ([c5b49d3](https://github.com/liferay/clay/commit/c5b49d3ecd8f75da616c9c2a4b35e2b32cb86bc5))
+-   **@clayui/css:** LPD-39977 Add new marketplace icon ([cb64738](https://github.com/liferay/clay/commit/cb647389827dc10cb1c6fd456001cdc2300b2b7e))
+-   **@clayui/css:** LPD-41347 - Add Rwanda Flag Icon ([2c48243](https://github.com/liferay/clay/commit/2c482432299ac635ee1442deca2163114c5b7fdb))
+-   **@clayui/dropdown:** LPD-41310 Add "triggerIcon=undefined" prop to prevent caret-icon to be displayed ([1805059](https://github.com/liferay/clay/commit/18050596e1599f15aeb5959e395360910cba0250))
+-   **@clayui/dropdown:** LPD-41310 Adds caret icon only for trigger that is button ([aebf2f3](https://github.com/liferay/clay/commit/aebf2f3658851cdbb417da69d4376289b4702dd7))
+-   **@clayui/dropdown:** LPD-41310 Update Clay Dropdown Component to Include Caret Icon ([5a5ed73](https://github.com/liferay/clay/commit/5a5ed73880743362a0be7569df4e5ce484b776a5))
+-   **@clayui/dropdown:** LPD-41310 Update spanshots ([56dfcd7](https://github.com/liferay/clay/commit/56dfcd72015021861504e632294441a51c3b9d0b))
+-   **@clayui/form:** LPD-36696 Add new API to set maximum items for Left and Right side with error message ([8e0ab50](https://github.com/liferay/clay/commit/8e0ab5031c2f1ff596ea33e8ad25b6c81b5a1796))
+-   **@clayui/form:** LPD-36696 sf ([766d9a8](https://github.com/liferay/clay/commit/766d9a89570a030c2aa223910c10586e52549df8))
+-   adding react compiler plugin ([a2d14c9](https://github.com/liferay/clay/commit/a2d14c9fe85abc4b7cbdfd4f6456865f28498c84))
+
+# [3.121.0](https://github.com/liferay/clay/compare/v3.120.0...v3.121.0) (2024-10-17)
+
+### Features
+
+-   **@clayui/core:** Update sorting icons for the Clay Table. ([ac89778](https://github.com/liferay/clay/commit/ac8977871220ab1bdad2ea81fd54a7f25943f19a))
+-   **@clayui/css:** LPD-39299 Adds d4-l1 for colors ([083c268](https://github.com/liferay/clay/commit/083c268c6113425790efa92fb121e0d9d7a22fd4))
+
+# [3.120.0](https://github.com/liferay/clay/compare/v3.119.1...v3.120.0) (2024-09-13)
+
+### Features
+
+-   **@clayui/core:** LPD-35826 Add unity test to check if props prefixed by "data-" are rendered as attributes in the option element ([3be3a12](https://github.com/liferay/clay/commit/3be3a120598b89de327a8b771034f43149154fe7))
+-   **@clayui/core:** LPD-35826 Allow props prefixed by "data-" to be rendered as attributes in Picker's Options ([75d052d](https://github.com/liferay/clay/commit/75d052da00a2a495916e6a0058c44f6a63286504))
+-   **@clayui/core:** LPD-35826 Update unit tests snapshots ([ca7c524](https://github.com/liferay/clay/commit/ca7c5243d44ff5df25295481a3510aca1a802291))
+
+## [3.119.1](https://github.com/liferay/clay/compare/v3.119.0...v3.119.1) (2024-09-13)
+
+### Bug Fixes
+
+-   **@clayui/css:** LPD-33185 The clay-css mixin should support more properties ([9ebfbbe](https://github.com/liferay/clay/commit/9ebfbbe4f0e1271b58d7938335b4bff38f4bdf49))
+-   **@clayui/css:** LPD-36088 Table Striped hover states should work ([18a5c48](https://github.com/liferay/clay/commit/18a5c48bb6a9bd94bf49d349ea649776bce248a2))
+-   **@clayui/css:** Remove white-space: nowrap on dropdown-menu-width-shrink ([f3ddc9b](https://github.com/liferay/clay/commit/f3ddc9b04e17bab65a8f294193bc165448c0aedc))
+
+# [3.119.0](https://github.com/liferay/clay/compare/v3.118.0...v3.119.0) (2024-08-30)
+
+### Bug Fixes
+
+-   **@clayui/css:** LPD-2001 c-prefers-expanded-text shouldn't use max-width ([949c73e](https://github.com/liferay/clay/commit/949c73ed5cb5c47c5825187c7a750478e65687e9))
+-   **@clayui/css:** LPD-34095 Reduce the default c-slideout z-index so dropdown-menu's aren't hidden ([1b85ea6](https://github.com/liferay/clay/commit/1b85ea62175a1e05a729570a4d026c297ea2c244))
+-   **@clayui/css:** LPD-34319 Dual List Box disabled styles when wrapped in fieldset[disabled] ([9a39146](https://github.com/liferay/clay/commit/9a39146797f24596ecf89feea108bde4bf3f5bf9))
+-   **@clayui/drop-down:** fixes bug with chrome blocking element focus when clicking outside the menu ([9a99238](https://github.com/liferay/clay/commit/9a99238852f27fc50e3b75ca95a2db72dd79d3ed))
+-   **@clayui/form:** LPD-34319 adds disabled to Dual Listbox ([867dee3](https://github.com/liferay/clay/commit/867dee399e7e88d9bc607bd63ae6464e9a3d8427))
+-   **@clayui/shared:** remove suppression from elements before focus ([c9a9e83](https://github.com/liferay/clay/commit/c9a9e83de3fc017569d7d2e6dfb0393c5f878351))
+-   **@clayui/shared:** Removes suppression of focusable elements from focus trap ([2728431](https://github.com/liferay/clay/commit/27284318283fc4c720dbd8fb86365b731a5d79fd))
+
+### Features
+
+-   **@clayui/navigation-bar:** Add sr-only description for mobile view ([fd7f4c7](https://github.com/liferay/clay/commit/fd7f4c7ed9f0279f680d2dfa19478fb9f4d66e36))
+
+### BREAKING CHANGES
+
+-   **@clayui/css:** c-slideout is no longer above fixed navigation menus. If you need the old z-index please add the class c-slideout-height-full to c-slideout
+
+# [3.118.0](https://github.com/liferay/clay/compare/v3.117.0...v3.118.0) (2024-08-13)
+
+### Bug Fixes
+
+-   **@clayui/tree-view:** LPD-1277 Add aria-labelledby to correlate treeview label with checkbox ([dfd826a](https://github.com/liferay/clay/commit/dfd826a02fb7f0c16d54ed99ecda4a55ef684447))
+-   **@clayui/tree-view:** LPD-1277 Update snapshots ([d368dce](https://github.com/liferay/clay/commit/d368dce9cab6e5cb45410df4d48816dad1dccdca))
+
+### Features
+
+-   **@clayui/color-picker:** Remove color-picker icon and update tests ([3fbe7ac](https://github.com/liferay/clay/commit/3fbe7ac108c65b580018f148ba9cae28f288b8c0))
+-   **@clayui/color-picker:** Remove small color-picker example and add ([2005ade](https://github.com/liferay/clay/commit/2005ade74c49c7af3962cbdd3fee55de8c6def1d))
+
+# [3.117.0](https://github.com/liferay/clay/compare/v3.116.1...v3.117.0) (2024-07-30)
+
+### Bug Fixes
+
+-   **@clayui/css:** LPD-30959 Adds $list-group Sass map for more customization options ([2fa2486](https://github.com/liferay/clay/commit/2fa2486a70fb6ede60e00672de806aa8d4d85d7d))
+-   **@clayui/css:** LPD-32257 adds $list-group-item-flex map and use calc() to calculate padding ([8c9f197](https://github.com/liferay/clay/commit/8c9f19721ef1d9d0b3472b4f0e289b585f61cf7d))
+-   **@clayui/css:** LPD-32258 Convert .mutli-step-title to use Sass map ([ae502d4](https://github.com/liferay/clay/commit/ae502d49b3840deb167fe0a467a2f0ab3abcb294))
+-   **@clayui/css:** LPD-32259 Duplicate .custom-control-label selectors are being output ([5845ea2](https://github.com/liferay/clay/commit/5845ea2a64387ac055c023bdbd857c11b23b71a4))
+-   **@clayui/css:** LPD-32264 clay-range-input-variant hover state should work ([36f37a9](https://github.com/liferay/clay/commit/36f37a9da320ef8ba2969cb66412f259138f55ea))
+-   **@clayui/css:** Modal title shouldn't have focus outline when focused via js ([c563744](https://github.com/liferay/clay/commit/c5637440feeedd6c4037e2453c55fb6302d774af))
+-   **@clayui/modal:** move focus to h1 ([b777174](https://github.com/liferay/clay/commit/b777174cd61d29fe1ebce1d7de5bd25dfed62e69))
+
+### Features
+
+-   **@clayui/css:** LPD-30958 Add ability to style label-item-expand in clay-label-\* mixins ([f7efe45](https://github.com/liferay/clay/commit/f7efe45eb45059931c5641fb176872daf1c9f23a))
+
+## [3.116.1](https://github.com/liferay/clay/compare/v3.116.0...v3.116.1) (2024-06-27)
+
+### Bug Fixes
+
+-   **@clayui/css:** LPD-15615 Add focus style on popover when disableScroll is enabled ([8fa8734](https://github.com/liferay/clay/commit/8fa87341a922d6e97358c5c04f11be501a0f0efe))
+-   **@clayui/css:** LPD-15615 Popovers source format and add focus styles for cadmin ([60a2e07](https://github.com/liferay/clay/commit/60a2e074087a8980047b3e345d3c78e8e13b9f89))
+-   **@clayui/picker:** LPD-28522 Add min width and change function logic ([2f97b9b](https://github.com/liferay/clay/commit/2f97b9b7a56e688f015461a989fd287cee3110c2))
+-   **@clayui/picker:** LPD-28522 Add option to add auto width ([d8517dd](https://github.com/liferay/clay/commit/d8517dd5bc405bf78c84ed238dfc0c7352700a95))
+-   **@clayui/picker:** LPD-28522 Update picker stories and test config ([e11d87b](https://github.com/liferay/clay/commit/e11d87bc98247fe0fe40c2202313f2b25d17295d))
+-   **@clayui/picker:** LPD-28522 Update snapshot ([9985cc5](https://github.com/liferay/clay/commit/9985cc51209dde65faef5fc4e10bccbbd83dda54))
+-   **@clayui/popover:** LPD-15615 Add focus on popover when disableScroll is enabled ([47bb642](https://github.com/liferay/clay/commit/47bb642449e9bd41c072359ef45bab53867642fe))
+-   **@clayui/popover:** LPD-15615 Update snapshot ([cd5ebda](https://github.com/liferay/clay/commit/cd5ebdaed1aa8386b606bb44e0384b790c6c907f))
+
+# [3.116.0](https://github.com/liferay/clay/compare/v3.115.2...v3.116.0) (2024-06-10)
+
+### Bug Fixes
+
+-   **@clayui/css:** LPD-27401 Refactor. Change display property to allow long words break into multiple lines ([3e0ed1d](https://github.com/liferay/clay/commit/3e0ed1df192e0c4b05950fcb958cbf7b8673f8f4))
+-   **@clayui/table:** fixes bug when hiding all columns ([27d0aee](https://github.com/liferay/clay/commit/27d0aee7e048a5ce78d730bab3a8e0695757e6cc))
+
+### Features
+
+-   **@clayui/button:** add regular size ([af300c8](https://github.com/liferay/clay/commit/af300c85566f759d3b77aed7ca58baa0dcfcdc98))
+-   **@clayui/card:** LPD-1261 Add name to group all radio type inputs ([71bee15](https://github.com/liferay/clay/commit/71bee153028969c857783346f2dbece96eafb544))
+-   **@clayui/card:** LPD-1261 Update stories adding name in radioProps ([b07d58a](https://github.com/liferay/clay/commit/b07d58aea871d437b9e15bf39e0edf707281fcbf))
+-   **@clayui/card:** LPD-1261 Update tests adding name in radioProps ([bd32f54](https://github.com/liferay/clay/commit/bd32f54255fdd14ed0c14738867d51608d95be14))
+-   **@clayui/form:** add regular size to input ([53a62b1](https://github.com/liferay/clay/commit/53a62b1cc7ca7c80e471107ba67ddf3fdceca3ee))
+
+## [3.115.2](https://github.com/liferay/clay/compare/v3.115.1...v3.115.2) (2024-05-24)
+
+### Bug Fixes
+
+-   **@clayui/css:** LPD-26719 Cadmin checkboxes should have darker borders for accessibility ([ac48a01](https://github.com/liferay/clay/commit/ac48a01b711363986cc8ed95347bf2f9e9ce3b0e))
+-   **@clayui/empty-state:** fixes bug when always trying to render the image for reduced motion when disabled ([1b117d0](https://github.com/liferay/clay/commit/1b117d03555ddfa8eb70fb7ce169d4e71a9f43d9))
+
+## [3.115.1](https://github.com/liferay/clay/compare/v3.115.0...v3.115.1) (2024-05-21)
+
+### Bug Fixes
+
+-   **@clayui/core:** Fixes bug when rendering the last columns visibility cell for dynamic rendering ([8621482](https://github.com/liferay/clay/commit/862148209afc3952c27ab8018c4e3cb598ebfe0e))
+-   **@clayui/empty-state:** LPD-2278 Add flexbox property to prevent image to overlap text ([cb3285e](https://github.com/liferay/clay/commit/cb3285e22f26058114a29b3ed5a09ae3b0c1097e))
+
+# [3.115.0](https://github.com/liferay/clay/compare/v3.114.0...v3.115.0) (2024-05-16)
+
+### Bug Fixes
+
+-   **@clayui/core:** fixes bug when not rendering the action cell ([5f6eec5](https://github.com/liferay/clay/commit/5f6eec58859d9153a19a92cddcee0d8cc5a2c9fa))
+
+### Features
+
+-   **@clayui/button:** LPD-23703 Use btn-group-spaced to space buttons instead of btn-group-item ([bf1275e](https://github.com/liferay/clay/commit/bf1275e5d132b03e7b52970c5328e4a3ee4b3541))
+-   **@clayui/core:** add new API to omit a column to columns visibility ([2e8d0f6](https://github.com/liferay/clay/commit/2e8d0f60d886251063b1833a38c4c72c8e07f051))
+-   **@clayui/core:** adds new width API for the picker ([c37d3d4](https://github.com/liferay/clay/commit/c37d3d466c5b9ec35e109ffc43f14be04b7a96dc))
+-   **@clayui/core:** changes the API behavior to only define the width ([17681fb](https://github.com/liferay/clay/commit/17681fb2ab356237a10cff11a0cc5ba82eb6720a))
+-   **@clayui/css:** LPD-23703 Adds btn-group-spaced for a separated button group ([bfbd088](https://github.com/liferay/clay/commit/bfbd08844de6d83c8f0d5e27771d80735a9e8104))
+
+# [3.114.0](https://github.com/liferay/clay/compare/v3.113.0...v3.114.0) (2024-04-22)
+
+### Bug Fixes
+
+-   **@clayui/core:** fixes bug when changing column visibility when there is only one column visible and disabled ([bdfcd86](https://github.com/liferay/clay/commit/bdfcd867f50b73efae4569ce3b86c18eedbcc83a))
+-   **@clayui/css:** fix padding in modal footer ([feb9724](https://github.com/liferay/clay/commit/feb972477fa7a09854aa28c38762913a41d824e2))
+-   **@clayui/css:** LPD-21741 c-prefers-reduced-motion should disable animation when on a parent element ([2034f5b](https://github.com/liferay/clay/commit/2034f5b06aedcde9a80485abf8691804e28afe5c))
+-   **@clayui/css:** LPD-22263 remove use of fade-in function ([160152d](https://github.com/liferay/clay/commit/160152d3233b429af4543923f5680b1dbdcd483e))
+-   **@clayui/css:** update footer spacing in the modal ([72a2217](https://github.com/liferay/clay/commit/72a22175bd1a25af30a7a382a66255d60d8e13e5))
+-   **@clayui/css:** update footer spacing in the modal on cadmin ([35231c4](https://github.com/liferay/clay/commit/35231c499ed3d4de113ab185d7534bbe9caef5b2))
+-   **@clayui/navigation-bar:** fixes navbar size bug when resizing ([42bd090](https://github.com/liferay/clay/commit/42bd090b354173234b270ce49bfba7b58431f9c5))
+-   **@clayui/pagination-bar:** LPD-17368 Follow up - Add aria-label ([ba21e0e](https://github.com/liferay/clay/commit/ba21e0e1408bfe3a267c504edb21527f95cbafdb))
+-   **clay-autocomplete:** Remove autocomplete async filter paginated example ([6366d29](https://github.com/liferay/clay/commit/6366d296e17be2f8aac6474951cc1728a208eca5))
+
+### Features
+
+-   **@clayui/card:** LPD-1261 Add ClayRadio component and its radioProps ([1960c4d](https://github.com/liferay/clay/commit/1960c4df8ac544cd7c14ee64bf57139d74f8bd73))
+-   **@clayui/card:** LPD-1261 Add new radio card case in CardWithInfo stories ([188a70c](https://github.com/liferay/clay/commit/188a70c3ce54e91d50e13bbac4086fd57342397d))
+-   **@clayui/card:** LPD-1261 Add radio selectable example in CardWithHorizontal story ([8e9b395](https://github.com/liferay/clay/commit/8e9b39539a278c0c8916020d035c402a419f46e9))
+-   **@clayui/card:** LPD-1261 Add radio selectable example in CardWithUser story ([74a7a59](https://github.com/liferay/clay/commit/74a7a59b737a05de3ca50a07e2e6c382009c0a6e))
+-   **@clayui/card:** LPD-1261 Add radio selectable to CardWithHorizontal ([5231664](https://github.com/liferay/clay/commit/52316644cba723d8d28e9809ccc3dfafa804f507))
+-   **@clayui/card:** LPD-1261 Add radio selectable to CardWithUser ([8326f49](https://github.com/liferay/clay/commit/8326f49c7d7246444cc66ff0f840c2e866c15fa7))
+-   **@clayui/card:** LPD-1261 Add selectableType prop to choose between checkbox and radio ([ca499f8](https://github.com/liferay/clay/commit/ca499f8524b1772b094cf7933b19261813bbdee2))
+-   **@clayui/card:** LPD-1261 Add tests ([843ace6](https://github.com/liferay/clay/commit/843ace6c63d7ef8bd2ef80247e5cb0c8d2803384))
+-   **@clayui/card:** LPD-1261 Add tests for ClayCardWithHorizontal ([9cd1e0a](https://github.com/liferay/clay/commit/9cd1e0a38e6722463d3d92d7486bfe105bc46e08))
+-   **@clayui/card:** LPD-1261 Add tests for ClayCardWithUser ([04cc498](https://github.com/liferay/clay/commit/04cc4982bfd17b78cdbe5cf0c8638e4f4bb9b350))
+-   **@clayui/card:** LPD-1261 Add truncate prop to CardWithHorizontal ([6f88188](https://github.com/liferay/clay/commit/6f88188e1065bfe5eb3081487728162249c49267))
+-   **@clayui/card:** LPD-1261 Add truncate prop to CardWithUser ([43793e3](https://github.com/liferay/clay/commit/43793e368b4288e03a2bcc7c87e70fe1e6bae724))
+-   **@clayui/card:** LPD-1261 Add truncate props to determine if the card text is truncated or not ([a786599](https://github.com/liferay/clay/commit/a786599314b3a59953e01592e6c1da21e5dfd604))
+-   **@clayui/card:** LPD-1261 Update the thresold for clay-card ([daaf917](https://github.com/liferay/clay/commit/daaf91770e73acfd04091cb8e985fae904dbe549))
+-   **@clayui/css:** LPD-21829 Adds content-shield, scim, shield-asterisk svgs ([cc51841](https://github.com/liferay/clay/commit/cc518419ced71f4d3a31dadf076ae282f9d4c6ec))
+-   **@clayui/empty-state:** LPD-21741 Add new SVG empty, success and search state ([0afe5f5](https://github.com/liferay/clay/commit/0afe5f553cd309d9125fd259ec61b27c0c9b0770))
+-   **@clayui/empty-state:** LPD-21741 Add reduced motion SVGs ([9e4798f](https://github.com/liferay/clay/commit/9e4798f744edbb86f0634a8e7cae4f93c483791f))
+-   **@clayui/empty-state:** LPD-21741 add SVG file and change paths ([e6de535](https://github.com/liferay/clay/commit/e6de5358c45ebca7585154f7972b88e00fb9d307))
+-   **@clayui/empty-state:** LPD-21741 adjusting the props name to state and removes redundancy ([d2e32a5](https://github.com/liferay/clay/commit/d2e32a5b6bc17f5e5fddc3b77e1dcfc710f863dd))
+-   **@clayui/empty-state:** LPD-21741 change snapshot and update jest config ([51a31c4](https://github.com/liferay/clay/commit/51a31c4663acf6d308dc5e1afe2ffa27d4360ce1))
+-   **@clayui/empty-state:** LPD-21741 Change style to include reduce motion ([da98cfa](https://github.com/liferay/clay/commit/da98cfac3a9fe54f2eaa300744af57121aeb85cb))
+-   **@clayui/empty-state:** LPD-21741 Cleanup and adjustment of success SVG ([7455b58](https://github.com/liferay/clay/commit/7455b58a60bbdf3c954096076c3e622e11c3ed24))
+-   **@clayui/empty-state:** LPD-21741 Cleanup and update stories ([a0a3f31](https://github.com/liferay/clay/commit/a0a3f31dcfdbdacdfc00c785cca15042a0ef7eb1))
+-   **@clayui/empty-state:** LPD-21741 Move style inline, keep animations styles on Clay CSS ([d84528f](https://github.com/liferay/clay/commit/d84528f51032129b41eaf18efb68f944bea63e13))
+-   **@clayui/empty-state:** LPD-21741 remove changes to the empty state component ([bb132b3](https://github.com/liferay/clay/commit/bb132b346f86f19a0cb32995cef80936bf46bf81))
+-   **@clayui/empty-state:** LPD-21741 SF ([19b1a0d](https://github.com/liferay/clay/commit/19b1a0de2e8be08ae5d0abd2596b33469784c2cc))
+-   **@clayui/empty-state:** LPD-21741 Update docs ([593bdd5](https://github.com/liferay/clay/commit/593bdd51a3b48f5c6bf891c33e79cba75b35e726))
+-   **@clayui/empty-state:** LPD-21741 Update docs and add SVG on pathname match ([22c541b](https://github.com/liferay/clay/commit/22c541b09bf58c97b998ad982acfffd17f667f88))
+-   **@clayui/empty-state:** LPD-21741 update snapshot ([40ebe8b](https://github.com/liferay/clay/commit/40ebe8b3bf67ab24da8cc90d936a7f19307f3dad))
+-   **@clayui/empty-state:** LPD-21741 Update snapshots ([e03f190](https://github.com/liferay/clay/commit/e03f19010830aba90f50ad372f464433635c3720))
+-   **@clayui/empty-state:** LPD-21741 Update tests, snapshots and size limit ([2d84b51](https://github.com/liferay/clay/commit/2d84b51f97c7f8187b8c88da96eccd2da7a50fba))
+-   add cron job to run clayui.com's nightly build ([2ecee5f](https://github.com/liferay/clay/commit/2ecee5fcd33a3142a31932e04b92ce2a331d742f))
+
+# [3.113.0](https://github.com/liferay/clay/compare/v3.112.0...v3.113.0) (2024-03-28)
+
+### Bug Fixes
+
+-   **@clayui/css:** LPD-19703 Change seo icon aliases ([fca81bd](https://github.com/liferay/clay/commit/fca81bd57bd7df52a4a7875d161fa209504bfab8))
+-   **@clayui/css:** LPD-20261 Atlas $secondary-l0 is missing !default flag ([d45422c](https://github.com/liferay/clay/commit/d45422cf7be0f7a1f2f980cb644d8c640f21d84b))
+
+### Features
+
+-   **@clayui/core:** adds the `index` available in the item collection API ([06fc444](https://github.com/liferay/clay/commit/06fc4449e85dc7c89b27c94f46f98a5a70a68a4b))
+
+# [3.112.0](https://github.com/liferay/clay/compare/v3.111.1...v3.112.0) (2024-03-11)
+
+### Bug Fixes
+
+-   **@clayui/core:** fixes bug when switching column visibility ([89a8f07](https://github.com/liferay/clay/commit/89a8f078ef78aeaab3a4056c2522d21ca5811a8c))
+-   **@clayui/core:** fixes columns visibility initial state behavior ([34614f8](https://github.com/liferay/clay/commit/34614f8275da1575424c8ae553d604c88b6f84a5))
+-   **@clayui/core:** remove `hiddenColumns` API in favor of `visibleColumns` ([5c05be4](https://github.com/liferay/clay/commit/5c05be4ee081d074a59095145f0397277ebf97f7))
+-   **@clayui/css:** Change tooltip background color ([fe3cfb3](https://github.com/liferay/clay/commit/fe3cfb33a22898c924ef3e3daa973856f238d02a))
+-   **@clayui/css:** LPD-19394 Removes padding from mark due to spacing issue in autocomplete ([f9943f9](https://github.com/liferay/clay/commit/f9943f9a9886d3b8b86eb6341c89436834a60703))
+-   **@clayui/pagination:** LPD-1285 accessibility issues on prev, next and ellipsis buttons ([640dd96](https://github.com/liferay/clay/commit/640dd960aaab0e67255ec46d121717b36a20133b))
+
+### Features
+
+-   **@clayui/autocomplete:** update component highlight ([b6fd6a9](https://github.com/liferay/clay/commit/b6fd6a969099a5c89bc48bfa06b2ec1ccf1a28cc))
+-   **@clayui/core:** update component highlight ([0993f12](https://github.com/liferay/clay/commit/0993f12909003a6cffa55f642d3bd272e5e6cad9))
+-   **@clayui/css:** LPD-19329 Adds SVG Icons bracket and braces ([b60ea14](https://github.com/liferay/clay/commit/b60ea143b898aecba577f22078bb927f64e8026e))
+-   **@clayui/css:** LPD-19394 Mark update colors and add a dark version ([e2e409a](https://github.com/liferay/clay/commit/e2e409af9e5e7bb57965869db01032c4ce90a346))
+-   **@clayui/css:** LPD-19703 Add new seo icon ([080ab51](https://github.com/liferay/clay/commit/080ab5122da55d4b0c5bdb7d017b2a3d1d11f8d3))
+-   **clayui.com:** adds implementation to render pages consuming from Liferay ([d3d6020](https://github.com/liferay/clay/commit/d3d6020eea92721ec2f2c74cb90bbcc956a89a1f))
+
+## [3.111.1](https://github.com/liferay/clay/compare/v3.111.0...v3.111.1) (2024-02-20)
+
+### Bug Fixes
+
+-   **@clayui/pagination:** LPD-17368 Add aria-label on pagination picker to ideentify the combobox ([7df8b4c](https://github.com/liferay/clay/commit/7df8b4ce7bcf3502c162c29d842b44cf8e6e2e6c))
+-   **@clayui/pagination:** LPD-17368 Update snapshot ([74f3f21](https://github.com/liferay/clay/commit/74f3f21bcaa53c53566fa81a2bb977afa064365f))
+
+# [3.111.0](https://github.com/liferay/clay/compare/v3.110.0...v3.111.0) (2024-02-15)
+
+### Bug Fixes
+
+-   **@clayui/core:** fixes bug when clicking on item does not select ([eadd182](https://github.com/liferay/clay/commit/eadd18246c2e32fb8d8dbb32a299e6d6a8727a15))
+-   **@clayui/core:** fixes bug when not focusing on the first item ([f82643f](https://github.com/liferay/clay/commit/f82643f9bc651db841fc65cce22ee47e6af0c183))
+-   **@clayui/core:** fixes bug when visual focus is lost when items are updated in Picker ([202962b](https://github.com/liferay/clay/commit/202962bd0c51e854994016021715e83751f4c549))
+-   **@clayui/core:** fixes navigation to just Switch component instead of item ([14ad2a6](https://github.com/liferay/clay/commit/14ad2a6b85cb46c5653d065d3c77553fb599cb12))
+-   **@clayui/core:** LPS-203851 fixes bug when keeping DropDown open in TreeView actions in Firefox ([f1a7dc6](https://github.com/liferay/clay/commit/f1a7dc650b2d10b8e64d93455feee2ba8205fd84))
+-   **@clayui/css:** LPD-15629 Accessibility link and text should have 3:1 color contrast ([64584a6](https://github.com/liferay/clay/commit/64584a67cd73220c7011ccef1159784c6b60af57))
+-   **@clayui/css:** LPD-15988 Active nav tab bottom border shouldn't depend on $body-bg ([b89b64a](https://github.com/liferay/clay/commit/b89b64a483b35d571484c722afd2f803898a23b4))
+-   **@clayui/css:** LPD-16364 [@page](https://github.com/page) {.css-selector{}} is not valid css ([2df56c6](https://github.com/liferay/clay/commit/2df56c6cfaf048943d41f975329557d551f5c692))
+
+### Features
+
+-   **@clayui/css:** Add new icon-rule-builder icon ([33db79b](https://github.com/liferay/clay/commit/33db79b42bf25999503be4b6a8fa23111dd7f68d))
+
+# [3.110.0](https://github.com/liferay/clay/compare/v3.109.0...v3.110.0) (2024-01-25)
+
+### Bug Fixes
+
+-   **@clayui/css:** Fix text behaviour in Vertical Navigation component ([f363cc5](https://github.com/liferay/clay/commit/f363cc521118a275286fb565dc7170112fcedb9b))
+-   **@clayui/css:** LPS-205556 Reduce padding on dropdown-menu-select (picker) ([ac93749](https://github.com/liferay/clay/commit/ac93749f075be022afe77ec0e0b29c2913f1f141))
+
+### Features
+
+-   **@clayui/css:** Panels adds new variants and sizes ([35412b5](https://github.com/liferay/clay/commit/35412b51b488ff416e369419eb3092110c63bf38))
+-   **@clayui/panel:** Update displayType and size props (LPS-202818) ([cda77e2](https://github.com/liferay/clay/commit/cda77e25e440876235ea3cec4c3cd8909eb66a96))
+
+# [3.109.0](https://github.com/liferay/clay/compare/v3.108.0...v3.109.0) (2024-01-22)
+
+### Bug Fixes
+
+-   **@clayui/core:** fixes error when not navigating through the head with sortable enabled and fixes error when expanding unnecessarily ([dbe7aff](https://github.com/liferay/clay/commit/dbe7aff9edb13a338f30a78e0a52f82c0eacd123))
+-   **@clayui/core:** Table move table-sort to table element ([ce7acf2](https://github.com/liferay/clay/commit/ce7acf2330e2ec0d410ddd002bdadd47cfe4792b))
+-   **@clayui/core:** updates the sort icon for table ([fda0727](https://github.com/liferay/clay/commit/fda0727922e0dd0b5bc16a59b3c6d25fdc7b679e))
+-   **@clayui/css:** modal-body-iframe should have no padding on screens sm and below ([00dde4e](https://github.com/liferay/clay/commit/00dde4e2a4fc2787962c7518d0d31677e4ca75ab))
+-   **@clayui/css:** SVG Icons update bookmarks and bookmarks-full icons to be centered ([d0b8c38](https://github.com/liferay/clay/commit/d0b8c382c49c3cab4904ba9e2ab1061d9c854688))
+-   **@clayui/css:** Tables adds variant table-sort ([427430b](https://github.com/liferay/clay/commit/427430b99fc2591a05e25963fa9938bddad3b84f))
+-   **@clayui/css:** video-streaming icon should have copyright text and SF ([686475b](https://github.com/liferay/clay/commit/686475b9d272d923bc67d77170f5f65a4a5f22ff))
+-   **@clayui/drop-down:** Fix Dropdown doesnt close when click outside ([f5beaf9](https://github.com/liferay/clay/commit/f5beaf9cf012a0a81c7a2bcc1a440c6143ba37bc))
+-   **@clayui/pagination:** Fix select pages from ellipsis dropdown ([8b73a6d](https://github.com/liferay/clay/commit/8b73a6da1f10f00acfe1d8137ffac00a04ff9a21))
+-   **@clayui/picker:** Update snapshot ([c6e38b1](https://github.com/liferay/clay/commit/c6e38b1223c42348080b466fab64acbf3556723a))
+-   **@clayui/picker:** Update Picker markup with aria-controls ([c2b6b83](https://github.com/liferay/clay/commit/c2b6b8308f23e3d1b5792054d7afcfd103034824))
+-   **@clayui/vertical-nav:** Add aria-controls on vertical navbar itens and change role to menuitem ([7e2a35b](https://github.com/liferay/clay/commit/7e2a35b95912b44a47fe159658dae8bc568466e8))
+-   **@clayui/vertical-nav:** Update tests and snapshots ([714281d](https://github.com/liferay/clay/commit/714281ddce37d70fcb6cf716bfdaf2f1bbe142cc))
+
+### Features
+
+-   **@clayui/core:** Adds attribute sortAriaLabel on Cell for custom aria-label on sort button ([c5675c0](https://github.com/liferay/clay/commit/c5675c0443b4ec25273a4172589e3656cdaabfd7))
+-   **@clayui/core:** adds column visibility feature ([65a07d0](https://github.com/liferay/clay/commit/65a07d00d3db7b1e36c1594c3c43dc8379d2f9cb))
+-   **@clayui/css:** Add new video-streaming icon ([9a088ba](https://github.com/liferay/clay/commit/9a088bad000a62395e58402b908937d75445e412))
+-   **@clayui/css:** add table-sort to change icon appearance ([4a92472](https://github.com/liferay/clay/commit/4a92472fdfa58112221810297e5c83c73ebd4557))
+-   **@clayui/css:** Toggle Switch adds toggle-switch-sm modifier ([ea5fdc5](https://github.com/liferay/clay/commit/ea5fdc55f7f0728827f86952512fdacba7a90720))
+-   **@clayui/form:** Toggle Switch adds sizing attribute ([d29270b](https://github.com/liferay/clay/commit/d29270b6209f3880d3737fd06e778b5c8e9466e8))
+-   **@clayui/shared:** adds support for closing the overlay when clicking outside the body ([0a720b1](https://github.com/liferay/clay/commit/0a720b11ffe1e4d3a5fa02762c5be780093b87e2))
+
+# [3.108.0](https://github.com/liferay/clay/compare/v3.107.1...v3.108.0) (2023-12-12)
+
+### Bug Fixes
+
+-   **@clayui/core:** fix accessibility error for `aria-colindex` value ([931f426](https://github.com/liferay/clay/commit/931f426d24499e8deeb517194d56a60dc4193877))
+-   **@clayui/css:** Modals adjusts sizes in smaller screens for zoom accessibility ([375f83e](https://github.com/liferay/clay/commit/375f83ee7ca075b9cdb254274cb3f16334671dff))
+-   **@clayui/panel:** Disclosure Pattern to Clay Panel Component ([6ffa238](https://github.com/liferay/clay/commit/6ffa2381da4ef3d6e6a98c30b8fd4841ff0edd63))
+-   **@clayui/tooltip:** Fix close tooltip when pressing Escape key ([6f40c16](https://github.com/liferay/clay/commit/6f40c16ad2556a99c839822c1486a2e0b2ee710c))
+-   **@clayui/vertical-nav:** Fix focusable vertica navbar when item has active property equals to false ([aa3078b](https://github.com/liferay/clay/commit/aa3078be54ed2d22f699b1f4736b58e1e84bd0a7))
+-   **clayui.com:** fix build error ([0774484](https://github.com/liferay/clay/commit/0774484d231547f96a8d5e4c175423a143250cc9))
+
+### Features
+
+-   **@clayui/core:** add new API to define the `size` to table ([23d3384](https://github.com/liferay/clay/commit/23d338487bb1bf034a1d5ac54d54381c54cd3ee6))
+-   **@clayui/core:** add the example of Sections with Table ([0b4bfe4](https://github.com/liferay/clay/commit/0b4bfe4f984272512a0dc29dfbe316fee2c8eb76))
+-   **@clayui/css:** add `table-head-bordered` ([9d721a4](https://github.com/liferay/clay/commit/9d721a4e18ea7e5c0d4b25de3caf4c468b40c45d))
+-   **@clayui/css:** adds new size and table size adjustments ([7dd6758](https://github.com/liferay/clay/commit/7dd6758401521775a4f4304667973fbfadff4949))
+-   **@clayui/css:** Adjust new table styles (FDS) ([ba4c5c3](https://github.com/liferay/clay/commit/ba4c5c344eacf3e710aeba87ef691accd26d9cd1))
+-   **@clayui/table:** adds the border to the head by default ([fb2cbdb](https://github.com/liferay/clay/commit/fb2cbdb7ac749756ff4c1749056af54bed9441fe))
+-   **@clayui/table:** sets striped by default ([2ee5787](https://github.com/liferay/clay/commit/2ee5787ef5c2bd83aa66632014577a797645081c))
+
+## [3.107.1](https://github.com/liferay/clay/compare/v3.107.0...v3.107.1) (2023-11-27)
+
+### Bug Fixes
+
+-   **@clayui/core:** fixes error when deselecting the indeterminate state for pre selected items in the first render ([997461e](https://github.com/liferay/clay/commit/997461efe9bcd1f91334e1a1a3f9c50e131e50ac))
+
+# [3.107.0](https://github.com/liferay/clay/compare/v3.106.1...v3.107.0) (2023-11-27)
+
+### Bug Fixes
+
+-   **@clayui/core:** fix infinite loop error in table ([a027700](https://github.com/liferay/clay/commit/a02770055dddb193aa2708da581794aad0f50f4c))
+-   **@clayui/core:** fixes bug when rendering LiveAnnouncer on server side ([5765be2](https://github.com/liferay/clay/commit/5765be264c5898d211220a995c17aa4f235f52e1))
+-   **@clayui/core:** fixes error when cleaning up the collection for explicitly nested collections ([e0714d1](https://github.com/liferay/clay/commit/e0714d1a089f951042364780d705ca89faaff8c0))
+-   **@clayui/css:** Add increase text spacing on nav-link ([7d4b71d](https://github.com/liferay/clay/commit/7d4b71db5a751f0ebc3f9c9911e1eb9d5a36a529))
+-   **@clayui/css:** Adds .table-focus for focus outline around table row ([5121443](https://github.com/liferay/clay/commit/51214435f680b09d288823e91715a1ba09142e97))
+-   **@clayui/css:** Cadmin alert-indicator-start spacing should be 8px between icon and text ([7572f92](https://github.com/liferay/clay/commit/7572f92ed14c7889c8863d840a4ca68c0580c0b1))
+-   **@clayui/css:** Cadmin dropdown-menu-indicator spacing is off by 4px ([3b0a184](https://github.com/liferay/clay/commit/3b0a184e3ec37990371530340363ca46d6de8b0c))
+
+### Features
+
+-   **@clayui/badge:** Adds attributes translucent and dark ([77162ef](https://github.com/liferay/clay/commit/77162efe62cd3822f4a64e23b3469e46cee5c530))
+-   **@clayui/button:** Adds attributes translucent and dark ([c43f9e0](https://github.com/liferay/clay/commit/c43f9e06b015d20801157677945e9acacbc043bb))
+-   **@clayui/core:** adds asynchronous loading for Table items with nested row ([f1aea66](https://github.com/liferay/clay/commit/f1aea664a29c7b411e41ddf9d58c57f296a2c955))
+-   **@clayui/css:** add `outline` to table-focus ([ae702bb](https://github.com/liferay/clay/commit/ae702bb4a6ab7cbc25b9a575a4127ebf6bf6e342))
+-   **@clayui/css:** Add new twitter-x icon ([63486e8](https://github.com/liferay/clay/commit/63486e8677cd241adf9ff1eb17bbb4d063912851))
+-   **@clayui/css:** Adds translucent buttons and badges ([f5792d0](https://github.com/liferay/clay/commit/f5792d0289bdb7bc6a652bb3eb3412d22c535446))
+-   **@clayui/css:** Cadmin c-prefers-letter-spacing-\* should apply to nav-link ([9576c84](https://github.com/liferay/clay/commit/9576c8480d811346095d6bea0a13e2e34c078425))
+-   **@clayui/css:** SVG Icon adds English Canada flag (en-ca) ([322c896](https://github.com/liferay/clay/commit/322c896f8be1e61caf98d309e48adc7a144ddc1f))
+
+## [3.106.1](https://github.com/liferay/clay/compare/v3.106.0...v3.106.1) (2023-10-26)
+
+**Note:** Version bump only for package clay
+
+# [3.106.0](https://github.com/liferay/clay/compare/v3.105.0...v3.106.0) (2023-10-25)
+
+### Bug Fixes
+
+-   **@clayui/core:** does not render the child items of an unexpanded item ([e308365](https://github.com/liferay/clay/commit/e30836554f424480e443c07342eb8f987f2b8428))
+-   **@clayui/core:** fixes nested focus error ([e8e339c](https://github.com/liferay/clay/commit/e8e339c1f83b7a9f94a75a5f36baf9fc482e628c))
+-   **@clayui/css:** [href] CSS selector shouldn't target `<use href=""/>` element in svg ([02a2d19](https://github.com/liferay/clay/commit/02a2d190aed91991fcf94c973bc63abb9b04e678))
+-   **@clayui/css:** Atlas range input map should use newer key value pattern to match better with the css selector ([eebde0f](https://github.com/liferay/clay/commit/eebde0f73cdda7849af5fccdadd079538f4e79f5))
+-   **@clayui/css:** Cadmin nav-tabs remove deprecated styles ([c2ce6dc](https://github.com/liferay/clay/commit/c2ce6dc8798043ee0e81e4821d3495e20bb91686))
+-   **@clayui/css:** Checkbox and Radio text should be vertically aligned at the start ([5ed8cb0](https://github.com/liferay/clay/commit/5ed8cb0e9e090aad61ea6b6f4dfa50c419a5dfab))
+-   **@clayui/css:** Mixins clay-range-input-variant should accept new key value pattern for clay-range-thumb ([5b9199b](https://github.com/liferay/clay/commit/5b9199b1c7b288941a3c982b7e348c17208b0469))
+-   **@clayui/css:** SVG Icons bookmarks and bookmarks-full should be centered ([46b51d7](https://github.com/liferay/clay/commit/46b51d7043db35e30f5ccec0c751602a6be29206))
+-   add proper location for linting ([e221837](https://github.com/liferay/clay/commit/e22183712190cbf72f41d796c7e0729abfca607f))
+-   override paths when generating d.ts files ([2ef177f](https://github.com/liferay/clay/commit/2ef177f8bb9772bf4d1191e6894a87df6dea7fca))
+-   remove 'src' dir from being packaged with npm ([9383e8d](https://github.com/liferay/clay/commit/9383e8d8abb25ca3396e7c6e4dfa53bbc72691c5))
+-   use package's directory for baseDir when generating type ([0a5c710](https://github.com/liferay/clay/commit/0a5c710092f36243bc8d5487f70e831295715072))
+
+### Features
+
+-   **@clayui/core:** add hook to handle tree navigation ([1331f57](https://github.com/liferay/clay/commit/1331f578f438a565c2d762d71f342b0f8753d289))
+-   **@clayui/core:** adds base implementation for rendering a table tree into an accessible list ([1fb9d6e](https://github.com/liferay/clay/commit/1fb9d6ecd8887b105f272bdaa972bd7e47cd420c))
+-   **@clayui/core:** adds controlled and uncontrolled expandable state ([56f3d8f](https://github.com/liferay/clay/commit/56f3d8f8c1afa43d8ca66973890948f9a78ab413))
+-   **@clayui/core:** adds keyboard interaction for the Home and End keys ([d2224ed](https://github.com/liferay/clay/commit/d2224ed9d70b1eed37cc4fa5870e8853f64ed211))
+-   **@clayui/core:** adds keyboard navigation interactions to row ([4a7f290](https://github.com/liferay/clay/commit/4a7f2909a95b674ae84f657c980a0295fb16e7b3))
+-   **@clayui/core:** adds new API to handle column sorting with accessibility support ([4a13361](https://github.com/liferay/clay/commit/4a13361065b710453c336bc10cc3c5c6b9858aac))
+-   **@clayui/core:** adds the implementation of the new data-oriented composition for Table ([d68bcaa](https://github.com/liferay/clay/commit/d68bcaa2efc725eac7e57d7fd1bf20f10e64aaa3))
+-   **@clayui/core:** makes the new table component public ([f2a686e](https://github.com/liferay/clay/commit/f2a686ed2a940e9d0378586671b4543be8c5773e))
+-   **@clayui/css:** Mixins `clay-sidebar-variant` adds more sub-components ([efe43c3](https://github.com/liferay/clay/commit/efe43c39b4a4574881d215998b4d81aed96d2ea9))
+-   **@clayui/css:** Sidebar adds sidebar-sm ([dbc35d3](https://github.com/liferay/clay/commit/dbc35d3878bd0af109b73d893bc3ee0809d08a09))
+-   **@clayui/css:** Tables adds table-nested-rows ([5bcc318](https://github.com/liferay/clay/commit/5bcc3189512e8dd8f231a17b8825945ef60060ac))
+-   **@clayui/data-provider:** adds sortable support ([a202306](https://github.com/liferay/clay/commit/a202306426b6bc5fa1d6b41bf3418d0a6f489b38))
+-   **@clayui/form:** Checkbox and Radio should use modifier class custom-control-outside if a label is present ([e2b6335](https://github.com/liferay/clay/commit/e2b633546c55ed1b266f92c277a14f278bf9c22e))
+
+### Reverts
+
+-   Revert "chore(@clayui/drop-down): Update storybook with examples of long text in checkbox and radio" ([432ec99](https://github.com/liferay/clay/commit/432ec99b8d6d35687747b71d22b7c766a83e36e2))
+-   Revert "docs(@clayui/drop-down): Add checkbox and radio examples with long text" ([0fa8402](https://github.com/liferay/clay/commit/0fa840252786d5487a6a01ca1be355e4cef883e0))
+-   Revert "fix(@clayui/drop-down): Radio buttons should be stacked in dropdown" ([7eac94d](https://github.com/liferay/clay/commit/7eac94d5921591647e06da3e41d767789248219d))
+-   Revert "fix(@clayui/css): Checkbox and Radio text should be vertically aligned at the start when breaking to new line" ([4d87dc3](https://github.com/liferay/clay/commit/4d87dc30d9fca63d8a0d4633cef9cd5c2ae5dac9))
+-   Revert "fix(@clayui/css): Checkbox and radio text should be vertically aligned when breaking to a new line" ([d73c22c](https://github.com/liferay/clay/commit/d73c22c888dbf09de21a8e478faf2c854d484412))
+-   Revert "fix(@clayui/css): Checkbox and Radio with badge breaks to new line" ([01a4411](https://github.com/liferay/clay/commit/01a44115d1cdf73353b98355bf959a452c57fdb7))
+
+# [3.105.0](https://github.com/liferay/clay/compare/v3.104.0...v3.105.0) (2023-09-15)
+
+### Bug Fixes
+
+-   **@clayui/autocomplete:** fix error when navigating via keyboard with the mouse over the item ([f13e062](https://github.com/liferay/clay/commit/f13e062033445f70df32bdf31d068646215c9a78))
+-   **@clayui/css:** Range show clay-range-thumb instead of input range thumb for range with progress ([b5ca9d5](https://github.com/liferay/clay/commit/b5ca9d5c7e8469a165241e64d19565869300066e))
+-   **@clayui/css:** Renames form-control-container to input-group-item-focusable ([54b0677](https://github.com/liferay/clay/commit/54b0677bf6eff26c2ab551120ed43a9b0a717100))
+-   **@clayui/css:** Use component-focus-box-shadow for anchor tags ([3aaa6a2](https://github.com/liferay/clay/commit/3aaa6a23f94cdf3531c8fc06b607a8c1b98b6427))
+-   **@clayui/time-picker:** Removes focus class, no longer needed with focus-within ([059eaf8](https://github.com/liferay/clay/commit/059eaf8d10904f5163e7406fabd2c480a718d0d3))
+
+### Features
+
+-   **@clayui/color-picker:** Add alpha transparency slider ([534ebde](https://github.com/liferay/clay/commit/534ebde9a5b1c3b4e901643682b46d362bb4dd97))
+-   **@clayui/color-picker:** Use form-control-container for focus-within ([53df194](https://github.com/liferay/clay/commit/53df1940e153bec42000de0c18ff033b4b6fb401))
+-   **@clayui/css:** add new `key` icon ([c2c6851](https://github.com/liferay/clay/commit/c2c68511d765556d6a40fd78889aeaa238c29eea))
+-   **@clayui/css:** Adds focus-within ([deeaa3e](https://github.com/liferay/clay/commit/deeaa3ecf863e1fee42c486c7617b2c2d7c4fd6c))
+-   **@clayui/css:** Cadmin Clay Color adds hue and alpha range inputs ([b9b9db9](https://github.com/liferay/clay/commit/b9b9db94284c3bd3b91948163eecdd32ae214a0d))
+-   **@clayui/css:** Clay Color adds hue and alpha range inputs ([31b74e0](https://github.com/liferay/clay/commit/31b74e01d9fa96cb64e9c67332356d2f741e0f56))
+-   **@clayui/css:** Mixins adds clay-range-variant ([350f154](https://github.com/liferay/clay/commit/350f1544a7ae0c7a08319ad3b37f4e01f169ab8b))
+-   **@clayui/css:** Mixins clay-form-control-variant adds focus-within ([f359e03](https://github.com/liferay/clay/commit/f359e03dcf72be8e9341662af898c1e5a9924c80))
+-   **@clayui/css:** Mixins clay-input-group-item-variant adds focus-within ([ccc74fe](https://github.com/liferay/clay/commit/ccc74fe5f23bab139a83ad42c135b917b472c00e))
+-   **@clayui/css:** update `bookmarks` icon and add `bookmarks-full` icon ([db3ff38](https://github.com/liferay/clay/commit/db3ff3899ea974d8b526d66423465542ec51d8f2))
+-   **@clayui/css:** update `download`, `import-list`, `import`, `upload-multiple` and `upload` icons ([c8640fd](https://github.com/liferay/clay/commit/c8640fd56d601ab455317bf42f3f8322df490808))
+-   **@clayui/date-picker:** Use form-control-container on date-picker input-groups ([32dad5e](https://github.com/liferay/clay/commit/32dad5e6f980d27cb35451a06d9fe47b027a809d))
+-   **@clayui/drop-down:** Use form-control-container on search ([5d4c242](https://github.com/liferay/clay/commit/5d4c242da7577800cc067f8d0b61415688ca4d8a))
+
+# [3.104.0](https://github.com/liferay/clay/compare/v3.103.1...v3.104.0) (2023-08-25)
+
+### Bug Fixes
+
+-   **@clayui/breadcrumb:** the active item must not have the href ([4482a15](https://github.com/liferay/clay/commit/4482a15494fa4aef807bb4b023f18281e8cf54ed))
+-   **@clayui/breadcrumb:** updates colors to active state with link and expand button ([0313029](https://github.com/liferay/clay/commit/0313029dfe39c7689315919d9c3f36fdea8b97f9))
+-   **@clayui/breadcrumb:** use `breadcrumb-toggle` instead of `breadcrumb-item-expand` ([a94ba61](https://github.com/liferay/clay/commit/a94ba614e9742ea83767d93573fc75608871c95f))
+-   **@clayui/core:** fix error when interacting with TreeView using SR JAWS ([7933620](https://github.com/liferay/clay/commit/7933620ae9dc9ff356ae1692054674978152d365))
+-   **@clayui/core:** improves navigation for navigating up and down when opening a Menu ([f52c93d](https://github.com/liferay/clay/commit/f52c93d121eff8c210c7bc8ffdec6a8d27ca82eb))
+-   **@clayui/drop-down:** fix ref error on collection ([1ab3b26](https://github.com/liferay/clay/commit/1ab3b26eeadcb2aa0d7f07551621d79e095160f0))
+-   **@clayui/pagination:** fix bug rendering large list of items with virtualization ([9c0578d](https://github.com/liferay/clay/commit/9c0578d9990d633119eeb03e297e06c98d6225bd))
+
+### Features
+
+-   **@clayui/core:** adds new experimental Menu component ([4560451](https://github.com/liferay/clay/commit/45604517f2e589af9a86d5a88660ebd13cf460ec))
+-   **@clayui/css:** add `clay-generate-media-breakpoints` mixin to `clay-select-variant` ([dbd5aac](https://github.com/liferay/clay/commit/dbd5aacaec56a45179bc4ad3422752bca9570c5d))
+-   **@clayui/css:** adds new size small to DatePicker ([bdbebeb](https://github.com/liferay/clay/commit/bdbebeba40bbd8c696881130a706f85212c99980))
+-   **@clayui/css:** Adds param where you can specify the mixin to use for clay-generate-media-breakpoints ([bc1e2d7](https://github.com/liferay/clay/commit/bc1e2d7756a315230777dc7d752e8aa1210a67d4))
+-   **@clayui/css:** Cadmin Date Picker update to use newer media query pattern in variables ([90d3d72](https://github.com/liferay/clay/commit/90d3d72a5f24d276db018aa3553d93ca00a20455))
+-   **@clayui/css:** Date Picker update to use newer media query pattern in variables ([25cc0c2](https://github.com/liferay/clay/commit/25cc0c239335cb21e102c7d1023f622b3f5a2e31))
+-   **@clayui/css:** modifies DatePicker size to new default of 352px ([6ace393](https://github.com/liferay/clay/commit/6ace393fd30661ff8c0632f9d9ea2c7926be3c06))
+
+## [3.103.1](https://github.com/liferay/clay/compare/v3.103.0...v3.103.1) (2023-08-15)
+
+### Bug Fixes
+
+-   **@clayui/core:** fix error not having forwardRef for list ([fc5aaca](https://github.com/liferay/clay/commit/fc5aaca12f249389b82cbf6d0f78f8336431a584))
+-   **@clayui/core:** Implements the use of cursor to reference unique items to move items in the tree ([51294c2](https://github.com/liferay/clay/commit/51294c2a7f122f51bcf50c542e451e131e00a1ed))
+-   **@clayui/css:** log() errors on dart-sass 1.65.1, use error instead ([eafa6f1](https://github.com/liferay/clay/commit/eafa6f109f235251f942d801cd6760c2a6eacef4))
+-   **@clayui/drop-down:** adds throttle to handle contextual menu visibility ([7d51b7a](https://github.com/liferay/clay/commit/7d51b7aa96dcd86c9e8c70cd97dec5c7c9279b73))
+-   **@clayui/drop-down:** update test threshold ([4ed8469](https://github.com/liferay/clay/commit/4ed8469873835ecd2f219df1df9e1bbbca2aaa3a))
+
+# [3.103.0](https://github.com/liferay/clay/compare/v3.102.0...v3.103.0) (2023-08-08)
+
+### Features
+
+-   **@clayui/navigation-bar:** Adds fluidSize prop to customize container-fluid width ([5787c1d](https://github.com/liferay/clay/commit/5787c1de07b7129bc9059832d7bde1b411835c7b))
+
+# [3.102.0](https://github.com/liferay/clay/compare/v3.101.1...v3.102.0) (2023-08-01)
+
+### Features
+
+-   **@clayui/css:** Modals should grow to fit content ([6df4597](https://github.com/liferay/clay/commit/6df459759639f8f68950a6227759f276d2752d4a))
+-   **@clayui/panel:** Allow passing classNames to collapse header ([a41cb1d](https://github.com/liferay/clay/commit/a41cb1d55dca735ce91e57860ad57dd33ff0e090))
+
+## [3.101.1](https://github.com/liferay/clay/compare/v3.101.0...v3.101.1) (2023-07-28)
+
+### Bug Fixes
+
+-   **@clayui/autocomplete:** does not revalidate the value if it is reset by the controlled state ([73ec258](https://github.com/liferay/clay/commit/73ec258196572004430780bc4330137437e36377))
+-   **@clayui/autocomplete:** improves value matching behavior with suggestion list when state is controlled ([5f33f5c](https://github.com/liferay/clay/commit/5f33f5c42a4dc2cef85de01743baebe2d6d1f829))
+
+# [3.101.0](https://github.com/liferay/clay/compare/v3.100.0...v3.101.0) (2023-07-28)
+
+### Bug Fixes
+
+-   **@clayui/autocomplete:** fix error when not validating value with items ([ab4421e](https://github.com/liferay/clay/commit/ab4421ede3b8b97084e694e3500b07f4ff1957f1))
+-   **@clayui/breadcrumb:** fix focus visible in breadcrumb ([62b1a24](https://github.com/liferay/clay/commit/62b1a241b390f0e4bcea9aa97322f14dacb539db))
+-   **@clayui/css:** Cadmin Modal is outputing wrong selector for .modal-open .modal ([a2f2787](https://github.com/liferay/clay/commit/a2f2787957506ed46068195f9a4bf25ed3d6b121))
+-   **@clayui/css:** Cadmin slideout should use overflow visible for resize bar to show ([48f2a14](https://github.com/liferay/clay/commit/48f2a14d161b130f8016d675a7127c9f8ba6371d))
+-   **@clayui/css:** Modal Height Full should overflow when content is too tall ([729c8e3](https://github.com/liferay/clay/commit/729c8e3dca922c6143fd8e11a5045d38e84fc1a1))
+-   **@clayui/empty-state:** Use url constructor instead ([cd4d275](https://github.com/liferay/clay/commit/cd4d27542721cad88378096e7a02927aee831ed3))
+
+### Features
+
+-   **@clayui/autocomplete:** adds new API to allow custom value ([516de02](https://github.com/liferay/clay/commit/516de02e9cd2d8dbbecc60d7fc79935e377decf1))
+-   **@clayui/css:** Adds :focus-visible support ([ba1f68b](https://github.com/liferay/clay/commit/ba1f68bacbab69a4796c9d19caead6c410503f66))
+-   **@clayui/css:** Form mixins use focus-visible ([1da9164](https://github.com/liferay/clay/commit/1da9164f34432dd5ba9e12191712300408a1516b))
+-   **@clayui/empty-state:** Output a reduced motion image by default ([0e26922](https://github.com/liferay/clay/commit/0e269227afb155328a7a6936ad4f1a0864f59844))
+
+# [3.100.0](https://github.com/liferay/clay/compare/v3.99.4...v3.100.0) (2023-07-13)
+
+### Bug Fixes
+
+-   **@clayui/core:** fix error when validating focus without any element ([b8196ac](https://github.com/liferay/clay/commit/b8196acc087dba8a28c65dabfbda2cdf8a8048b2))
+-   **@clayui/css:** Adds btn-beta-dark and badge-beta-dark and updates background colors ([13733df](https://github.com/liferay/clay/commit/13733dfe7a0a3306274aa1b99b14f6087345c249))
+-   **@clayui/css:** Remove fixed height and width to follow SVG guidelines ([893396b](https://github.com/liferay/clay/commit/893396bd7ad00b20946af0783e21139858d57894))
+
+### Features
+
+-   **@clayui/badge:** Adds display type beta-dark ([2f53849](https://github.com/liferay/clay/commit/2f5384940aff5909753adeecd8a2f9c12d3dab89))
+-   **@clayui/button:** Adds display type beta-dark ([cc6e973](https://github.com/liferay/clay/commit/cc6e97317b3e29fa91d3b3d4c53f53b67010ed95))
+
+## [3.99.4](https://github.com/liferay/clay/compare/v3.99.3...v3.99.4) (2023-07-10)
+
+### Bug Fixes
+
+-   **@clayui/core:** fix collection rendering performance bottleneck ([ecf3155](https://github.com/liferay/clay/commit/ecf315594c07a26bed72aba5f734806e76e56a92))
+-   **@clayui/multi-select:** fix loading indicator markup in MultiSelect ([b883824](https://github.com/liferay/clay/commit/b8838247d1638524691fda2a74934e0676e6597d))
+-   **@clayui/multi-select:** pass async properties to autocomplete ([0faaab8](https://github.com/liferay/clay/commit/0faaab89049dd9a808666c82b8b8cba455d461f6))
+-   **@clayui/multi-select:** stabilize the children reference to avoid unnecessary renderings ([7ff4af5](https://github.com/liferay/clay/commit/7ff4af5ffab85e64220623042e8085a2afd0d565))
+
+## [3.99.3](https://github.com/liferay/clay/compare/v3.99.2...v3.99.3) (2023-07-05)
+
+### Bug Fixes
+
+-   **@clayui/multi-select:** fix error when not getting list data when pressing enter or comma ([485e0e8](https://github.com/liferay/clay/commit/485e0e8f245c4a366037f3d88f23d48774b2e1dc))
+
+## [3.99.2](https://github.com/liferay/clay/compare/v3.99.1...v3.99.2) (2023-07-05)
+
+### Bug Fixes
+
+-   **@clayui/autocomplete:** makes new `messages` properties optional ([94eceb6](https://github.com/liferay/clay/commit/94eceb6261334272d0b3a000052a7a9592505284))
+
+## [3.99.1](https://github.com/liferay/clay/compare/v3.99.0...v3.99.1) (2023-07-04)
+
+### Bug Fixes
+
+-   **@clayui/autocomplete:** adds warning when `filterKey` is not defined and tries to filter an option that is object ([48dd887](https://github.com/liferay/clay/commit/48dd887b7fb6afbade67a98e6d325d1068ddc6b7))
+-   **@clayui/autocomplete:** fixes type inference for properties and generic type ([cfc4309](https://github.com/liferay/clay/commit/cfc4309313b46bea777ddae3f9d810ae032b2a3c))
+-   **@clayui/core:** fix bug losing component focus when item is removed from DOM ([080b315](https://github.com/liferay/clay/commit/080b31586a9c6fe2c3b3f07ab547be329daa9203))
+-   **@clayui/core:** fix error when updating state after component is unmounted ([8a43055](https://github.com/liferay/clay/commit/8a430550f6ff12f19475f4843c6c736a2a5240bb))
+-   **@clayui/core:** fix position of TreeView drag preview ([253b784](https://github.com/liferay/clay/commit/253b7846c42c8ebc525605922017ea1d52d8e1d2))
+-   **@clayui/core:** fix types for collection with support for string and number ([36cce77](https://github.com/liferay/clay/commit/36cce77a0e962de48148ed24f7c465b67c6cdd36))
+-   **@clayui/multi-select:** fixes type inference for properties and generic type ([ae7b2a3](https://github.com/liferay/clay/commit/ae7b2a383de1a710dcfe88e92335ad6afc6613a9))
+-   **@clayui/tooltip:** fix error not showing tooltip on nested elements ([cf31736](https://github.com/liferay/clay/commit/cf31736b5515af8c2e906443c86c6cdd4c11631d))
+
+# [3.99.0](https://github.com/liferay/clay/compare/v3.98.0...v3.99.0) (2023-06-28)
+
+### Bug Fixes
+
+-   **@clayui/autocomplete:** fix bug not announcing available options when autocomplete is open ([1dc9581](https://github.com/liferay/clay/commit/1dc9581bd2e96b7cdf250bf02c4858c5df4eb833))
+-   **@clayui/autocomplete:** fixes suppressing the `+` from the value when filtering the list ([1ba8356](https://github.com/liferay/clay/commit/1ba8356fce973dce24a63b5154e9ae9370c43562))
+-   **@clayui/css:** Utilities forgot to add !important to some bg utils ([c164484](https://github.com/liferay/clay/commit/c164484abc0aeb4928c9f7b057f1d46ed42d8f95))
+-   **@clayui/drop-down:** fixes error when restoring focus from DropDown ([5802f32](https://github.com/liferay/clay/commit/5802f32b885c0479e82c46ffcfdc99f0a5a0b461))
+-   **@clayui/form:** adds the proper `role` to the switch component ([c3530c3](https://github.com/liferay/clay/commit/c3530c38f08b8679a4681f04da631259baef2654))
+-   **@clayui/multi-select:** fixes error when not disabling the MultiSelect component ([51dafd3](https://github.com/liferay/clay/commit/51dafd3f729034f0cac40dce87315e8ad2ae413d))
+
+### Features
+
+-   **@clayui/core:** adds feature parity for `onItemMove` and `onItemHover` with drag and drop via keyboard ([dfa8e9e](https://github.com/liferay/clay/commit/dfa8e9ef86a43bb3f9a25aef7deb20abf215a783))
+-   **@clayui/core:** allow returning false to cancel hover ([764210d](https://github.com/liferay/clay/commit/764210d3373495f0c3c8481ee25490250630c6a0))
+-   **@clayui/core:** disable drop when not a valid target by `onItemHover` ([006eef6](https://github.com/liferay/clay/commit/006eef675d57ee8fb6daafb7321fb399872f8774))
+-   **@clayui/css:** Utilities adds more text and bg color utilities ([5230949](https://github.com/liferay/clay/commit/5230949577407b21c96011eda3acfea4c2c3f1e7))
+
+# [3.98.0](https://github.com/liferay/clay/compare/v3.97.2...v3.98.0) (2023-06-20)
+
+### Bug Fixes
+
+-   **@clayui/core:** fixes bug with not correctly handling visibility state of arrow buttons ([ff08e9f](https://github.com/liferay/clay/commit/ff08e9fd101c445ba96e39b3b838edf0fb9efbac))
+-   **@clayui/css:** Cadmin c-prefers-\* should qualify the cadmin class ([a8b1d7b](https://github.com/liferay/clay/commit/a8b1d7be2f7055bea5430c0783b573f281c7a0b9))
+-   **@clayui/css:** Mixins clay-css and transition should output the correct c-prefers-\* selector for cadmin ([b81e2a3](https://github.com/liferay/clay/commit/b81e2a3ab1d029ec7a7dbe8fd6fa1b084281bb52))
+-   **@clayui/date-picker:** fixes error when not selecting the year ([747f09e](https://github.com/liferay/clay/commit/747f09e8d3d716eda68d3e080b3efd9592ecf26c))
+-   **@clayui/multi-select:** fix error of not showing menu if it has suggestions when menuRenderer is used ([ebc719f](https://github.com/liferay/clay/commit/ebc719ff77ba88dc407d648936cd1edf0e3372e5))
+
+### Features
+
+-   **@clayui/core:** Picker add dropdown-menu-height-lg class to year picker ([c092968](https://github.com/liferay/clay/commit/c09296806d4505cabb47d92ecd5896db795caf41))
+-   **@clayui/core:** Picker use dropdown-item-scroll classes ([ec90630](https://github.com/liferay/clay/commit/ec90630785725d043ca6fcca887ad970331859ff))
+-   **@clayui/css:** customize Picker style in DatePicker ([26064de](https://github.com/liferay/clay/commit/26064debdd3b6cde034130f7cbf6ee360ce67c5e))
+-   **@clayui/css:** Dropdown Menu adds dropdown-item-scroll styles ([08e3ab9](https://github.com/liferay/clay/commit/08e3ab9d276739a83d450a0cf0e04b86f32e3579))
+-   **@clayui/css:** dropdown-menu-select inline-scroller should be taller ([320c166](https://github.com/liferay/clay/commit/320c166ff26de63b45f6dba09874a0b545d482ea))
+-   **@clayui/css:** Mixins clay-dropdown-menu-variant adds dropdown-item-scroll ([f4ae8f1](https://github.com/liferay/clay/commit/f4ae8f12b13470d3d026a97de7467b705add2da4))
+-   **@clayui/date-picker:** add Picker component to select year ([6c84e4a](https://github.com/liferay/clay/commit/6c84e4a16e1a3eab84ee54d0332606d571987678))
+
+## [3.97.2](https://github.com/liferay/clay/compare/v3.97.1...v3.97.2) (2023-06-16)
+
+### Bug Fixes
+
+-   **@clayui/autocomplete:** fix error keeping menu open after selecting option with `menuTrigger="focus"` ([5f305f7](https://github.com/liferay/clay/commit/5f305f7962677c5e0c2b1b7a366f507755fc9947))
+-   **@clayui/autocomplete:** fixes error when losing reference to nodes at each rerender ([a28aa05](https://github.com/liferay/clay/commit/a28aa050ab3dbe8d337518361289f4a4fbc87cac))
+-   **@clayui/autocomplete:** fixes error when not resetting visual focus when menu is closed by custom logic ([b45c87e](https://github.com/liferay/clay/commit/b45c87e15456639def329731a0fc0a038df87906))
+-   **@clayui/multi-select:** fix error when changing active state from uncontrolled to controlled ([f6ef5be](https://github.com/liferay/clay/commit/f6ef5beff49f6e703c31694bca542f160be417af))
+-   **@clayui/multi-select:** fix error when not invoking method of `onFocus` when defined ([934878a](https://github.com/liferay/clay/commit/934878ab4a1ee74735a4b06369e2581826acf9b2))
+
+## [3.97.1](https://github.com/liferay/clay/compare/v3.97.0...v3.97.1) (2023-06-14)
+
+### Bug Fixes
+
+-   **@clayui/core:** fix the order of importance for using the item id of a collection ([b40958e](https://github.com/liferay/clay/commit/b40958e87f2b9442c7caae87209837a3a0398592))
+
+# [3.97.0](https://github.com/liferay/clay/compare/v3.96.1...v3.97.0) (2023-06-13)
+
+### Bug Fixes
+
+-   **@clayui/autocomplete:** removes unnecessary use of the `dropdown-menu-indicator-start` CSS class ([ce09cd8](https://github.com/liferay/clay/commit/ce09cd814bf547e3437a45956f315a0588c52114))
+-   **@clayui/core:** Add the missing id so that the screen reader makes a correct reading ([ff5df5c](https://github.com/liferay/clay/commit/ff5df5c29b6a37a19c1c6cb7537b6e9c81f28603))
+-   **@clayui/core:** fix error when submitting the form ([75e07fe](https://github.com/liferay/clay/commit/75e07fef03a3695d14bef73cba84ff585193883e))
+-   **@clayui/core:** fix typo ([665a5e3](https://github.com/liferay/clay/commit/665a5e3c6c6e7199fea8dcfaf7c3cdc5441bb915))
+-   **@clayui/css:** Cadmin btn-sm icons should be 16px x 16px ([ca05132](https://github.com/liferay/clay/commit/ca05132d1b37e451c212906eee7a22428e6cfebd))
+-   **@clayui/css:** Menubar removes negative margins in mobile and sync up Cadmin styles with Atlas ([a490fe6](https://github.com/liferay/clay/commit/a490fe661f572b4049273dd4251f98bb9fbf2904))
+-   **@clayui/css:** Menubar update hover and active borders ([297a214](https://github.com/liferay/clay/commit/297a214a34f57ff558fea7c69b0b89ee058e8916))
+-   **@clayui/css:** Mixins clay-css output truncated text override .c-prefers-expanded-text selectors ([8dfeafd](https://github.com/liferay/clay/commit/8dfeafddb3d726ee7cee722fa2893c844667d645))
+-   **@clayui/css:** Mixins clay-link add more options to customize in show state ([2c83bfd](https://github.com/liferay/clay/commit/2c83bfd06d0e6af36ea518580fad099c1e8ee21e))
+-   **@clayui/css:** Mixins text-truncate should use clay-css mixin to output .c-prefers-expanded-text selectors ([d0d7fdd](https://github.com/liferay/clay/commit/d0d7fdd5f01edd6f3740aad8ffc39e9280ddf811))
+-   **@clayui/css:** More complex input-groups should accommodate inset focus styles ([3061ded](https://github.com/liferay/clay/commit/3061ded11e39ac15b8c75b7f514eb0c91f253b63))
+-   **@clayui/css:** Pagination update hover and active borders ([abdce0e](https://github.com/liferay/clay/commit/abdce0e2fa2258d51327c0781c43ebbbd16eb9bc))
+-   **@clayui/css:** Remove dependence on \_nav variables in \_icons.scss ([bf8cb83](https://github.com/liferay/clay/commit/bf8cb83ef81309478cc1776736bf8cd0cc6e8aa1))
+-   **@clayui/css:** Transitions should work for .input-group-item.focus ([d3acc25](https://github.com/liferay/clay/commit/d3acc259c71b02b50a93a3d527ed3be4afb3902e))
+-   **@clayui/multi-select:** explicitly add the `active` API in the component's typing ([e956828](https://github.com/liferay/clay/commit/e95682814d3ec7ab45e65e41bba291a2da023e74))
+-   **@clayui/multi-select:** maintains backwards compatibility with the `menuRenderer` API but without the new features ([63ffb84](https://github.com/liferay/clay/commit/63ffb8449ec2c8e14d433be360bae8b29a6962e3))
+
+### Features
+
+-   **@clayui/css:** Adds global classes to configure accessibility ([232e15a](https://github.com/liferay/clay/commit/232e15ad8700d89ec9c004653a5a188bcbe25fa9))
+-   **@clayui/css:** SVG Icon adds accessibility.svg ([f2e5ff5](https://github.com/liferay/clay/commit/f2e5ff506288f86e236274fb46dd6f65fb4a33da))
+-   **@clayui/css:** SVG Icons adds stars.svg ([dafbfbd](https://github.com/liferay/clay/commit/dafbfbd0d8c5244cbcc7f6a844504128304c2db1))
+-   **@clayui/multi-select:** adds the possibility to ignore the item's default behavior ([5412700](https://github.com/liferay/clay/commit/5412700e3118575588907ff551a27c594d9fe4d8))
+-   **@clayui/multi-select:** deprecated the `liveRegion` and `hotkeysDescription` APIs to use the `messages` API ([2cf0766](https://github.com/liferay/clay/commit/2cf07669bc295918e4bacbbaaffc1c4996b67a65))
+
+## [3.96.1](https://github.com/liferay/clay/compare/v3.96.0...v3.96.1) (2023-05-31)
+
+### Bug Fixes
+
+-   **@clayui/autocomplete:** fix error when rendering two collections ([03473be](https://github.com/liferay/clay/commit/03473be98f22d52613b741528cbebec64073b771))
+-   **@clayui/multi-select:** fix error when not doing OOTB filter ([0da49e2](https://github.com/liferay/clay/commit/0da49e22a0483350af87ba417a6c9d1826add723))
+
+# [3.96.0](https://github.com/liferay/clay/compare/v3.95.2...v3.96.0) (2023-05-29)
+
+### Bug Fixes
+
+-   **@clayui/autocomplete:** don't open menu if items is null ([300fb73](https://github.com/liferay/clay/commit/300fb73452613c588d613e8d9cc687faaab99b68))
+-   **@clayui/core:** fixes bug with not having a focusable item when there is no active item ([f852f26](https://github.com/liferay/clay/commit/f852f26244eabf7464a285b2aa2d72bba14f4853))
+-   **@clayui/drop-down:** fix error when breaking component when group has no items ([b13f32c](https://github.com/liferay/clay/commit/b13f32c72fce7b88abefca02d5ab9ca7efc7fa81))
+
+### Features
+
+-   **@clayui/autocomplete:** adds new API to customize input ([b6a213b](https://github.com/liferay/clay/commit/b6a213b325e82d2472977463e76762252a519fe6))
+-   **@clayui/card:** moves root `aria-label` to card titles ([6dc08c2](https://github.com/liferay/clay/commit/6dc08c219c2df8a37ce0bf414724348e2fe0003d))
+-   **@clayui/core:** add backward compatibility for VerticalNav ([bc1c59c](https://github.com/liferay/clay/commit/bc1c59ceadda34d9519806a5840c02b56ea58297))
+-   **@clayui/core:** adds new `active` API to VerticalNav ([ebec342](https://github.com/liferay/clay/commit/ebec342f3f9b79abf86f25ab12f00754ee3952fa))
+-   **@clayui/multi-select:** adds implementation of new autocomplete ([506c72f](https://github.com/liferay/clay/commit/506c72f4bcfa4beaec74d09bbf2fc0d58577cd35))
+
+## [3.95.2](https://github.com/liferay/clay/compare/v3.95.0...v3.95.2) (2023-05-17)
+
+### Bug Fixes
+
+-   **@clayui/css:** fix syntax error ([04b90d9](https://github.com/liferay/clay/commit/04b90d936ccad90778031dee2d74df5b0ab38bbb))
+-   **@clayui/shared:** fix Picker menu positioning error ([54e6d49](https://github.com/liferay/clay/commit/54e6d49dc4ae6dc69111922c16c1a6f119bb7b5a))
+
+# [3.95.0](https://github.com/liferay/clay/compare/v3.94.0...v3.95.0) (2023-05-15)
+
+### Bug Fixes
+
+-   **@clayui/core:** fix error when not disabling item drag and drop via keyboard ([5646c63](https://github.com/liferay/clay/commit/5646c632d123af43523a6fd7c81359a570e0de94))
+-   **@clayui/css:** Atlas Buttons undo `.btn:active:focus` box-shadow from base theme ([258c60f](https://github.com/liferay/clay/commit/258c60f53629c2e08451cef0f81ecfa08e0451f7))
+-   **@clayui/css:** Cadmin Buttons undo `.btn:active:focus` box-shadow ([4cc6c3e](https://github.com/liferay/clay/commit/4cc6c3ee65eab05d545b758b7a10e49e9256b236))
+-   **@clayui/css:** Cadmin Menubar update to new hover, focus, active styles ([f4e5d9e](https://github.com/liferay/clay/commit/f4e5d9ef0decb95e4cecdcd6197da2900c9dad21))
+-   **@clayui/css:** Cadmin Modals converts some components to clay Sass map pattern ([3053c19](https://github.com/liferay/clay/commit/3053c19d0a3ae3c41b87275e63866426a8709887))
+-   **@clayui/css:** Cadmin only generate Sass placeholders for specific key names ([f8f5fff](https://github.com/liferay/clay/commit/f8f5fff03948c1d04156630b767179ec0091a299))
+-   **@clayui/css:** Cadmin update Pagination to new hover active styles ([be8e82c](https://github.com/liferay/clay/commit/be8e82cbceb7ff41d23f1b1136d1614ab423cf1b))
+-   **@clayui/css:** Forms c-unset/clay-unset shouldn't output anything for $form-control-select-palette ([dc601b0](https://github.com/liferay/clay/commit/dc601b0b1423cbd20a1a15de9c136786bec679f4))
+-   **@clayui/css:** Mixins clay-link adds customization for active and disabled focus states ([8d4e1ba](https://github.com/liferay/clay/commit/8d4e1ba9d13d24cec3cdd14d8f40fb62c9885767))
+-   **@clayui/css:** Mixins clay-map-to-css should accept child combinator (>) ([12e938f](https://github.com/liferay/clay/commit/12e938fd785621b27c4ffb132fb61a625dfc0452))
+-   **@clayui/css:** Mixins clay-map-to-css should accept parent selector & ([d1462d7](https://github.com/liferay/clay/commit/d1462d7a62c6d009ad3597bd4233b1e196806774))
+-   **@clayui/css:** Mixins clay-modal-variant should use clay-map-to-css where applicable ([4cab2ab](https://github.com/liferay/clay/commit/4cab2ab1b235454e684f079a68b08f7766ce3b90))
+-   **@clayui/css:** Mixins clay-nav-nested should apply to .btn as well ([a541843](https://github.com/liferay/clay/commit/a5418430bc18fb779e756eb94e2f1df5c1a0b305))
+-   **@clayui/css:** Modals .modal-body should use the value from $modal ([18d922a](https://github.com/liferay/clay/commit/18d922a0a73435546a04877bba73f9c07a335655))
+-   **@clayui/css:** Modals converts some components to clay Sass map pattern ([d2ee903](https://github.com/liferay/clay/commit/d2ee903c4678214abf5bbc80d1b35893fb331bce))
+-   **@clayui/css:** Modals update modal-palette loop to prepend `.modal-` only to specific keys ([a796dc4](https://github.com/liferay/clay/commit/a796dc47576febfa76e864a91a3e71c5835fd6df))
+-   **@clayui/css:** Navs nav-nested reduce the number of nested navs to 7 by default ([429876a](https://github.com/liferay/clay/commit/429876a833a6d3ad546311019030a61cd40431f6))
+-   **@clayui/css:** Only generate Sass placeholders for specific key names ([25bd58c](https://github.com/liferay/clay/commit/25bd58cdab4f1a73697ebc8d662046446adc4015))
+-   **@clayui/css:** Pagination maps `.page-item.active .page-link` to `active-class` instead of `active` ([5e77a99](https://github.com/liferay/clay/commit/5e77a999828eb4fe5a271e4fe620d2473eb4f675))
+-   **@clayui/nav:** fix overlapping items in VerticalNav ([53352e9](https://github.com/liferay/clay/commit/53352e97fb6830977c6f076f4195e6f6f271667a))
+-   **@clayui/shared:** fix error when not recalculating positioning for elements with parent with scroll ([16a4c77](https://github.com/liferay/clay/commit/16a4c77ea3be35cbf52c96449f237373fe163f36))
+
+### Features
+
+-   **@clayui/core:** add basic snapshot tests for Vertical Nav ([52a4a91](https://github.com/liferay/clay/commit/52a4a91dbad8570efbb70c3b7bf2abeffa229bbe))
+-   **@clayui/nav:** add new composition to Vertical Nav with collection API ([80d1a6e](https://github.com/liferay/clay/commit/80d1a6ec88de531af6595d7bdec61f0d8af8fe6e))
+
+# [3.94.0](https://github.com/liferay/clay/compare/v3.93.0...v3.94.0) (2023-05-03)
+
+### Bug Fixes
+
+-   **@clayui/core:** fix collection wrapper error ([7ad663a](https://github.com/liferay/clay/commit/7ad663a3263d97d7689a5f754e5681333f97a929))
+-   **@clayui/core:** fix obsolete state of collection item and render not found component when state is controlled ([a0c7323](https://github.com/liferay/clay/commit/a0c732376328d09e35e972dcb7d9b25f789bd4ad))
+-   **@clayui/core:** register the items in the collection after filtering with static content ([bed4573](https://github.com/liferay/clay/commit/bed4573ff572d2bba39be784b4323e7ffad52c6d))
+-   **@clayui/css:** Atlas Custom Forms `$custom-control-indicator-checked-*` variables should be grouped ([8854b6c](https://github.com/liferay/clay/commit/8854b6c384ed09fea3bbd598a91e04b5b3ffaf0a))
+-   **@clayui/css:** Atlas Menubar update active and hover state to improve contrast ([9886c7a](https://github.com/liferay/clay/commit/9886c7a799f68b2d9a20346a6bd567ddf27079b6))
+-   **@clayui/css:** Atlas Pagination active state should be semi bold and hover shouldn't shift content ([667ea8e](https://github.com/liferay/clay/commit/667ea8e2e4b6ff4e0dfbdcd25babe95717e58350))
+-   **@clayui/css:** Atlas Pagination and Menubar hover state should have semi bold font ([9bbab24](https://github.com/liferay/clay/commit/9bbab24abd3e68bf4856c98ef9217c293dfb2d8d))
+-   **@clayui/css:** c-prefers-reduced-motion utilities should work with prefers-reduce-motion media query ([7191e1b](https://github.com/liferay/clay/commit/7191e1b18947da553567d8ef5782c55850f96feb))
+-   **@clayui/css:** Cadmin output the correct selector for c-prefers-reduced-motion ([9ff6965](https://github.com/liferay/clay/commit/9ff69654c07f71fd9ed1fe500369aa549244f408))
+-   **@clayui/css:** Pagination update active and hover state to improve contrast ([283d30b](https://github.com/liferay/clay/commit/283d30b89b955aafac76ff46758472bb34a0d500))
+-   **@clayui/empty-state:** Adds props imgSrcReducedMotion and imgPropsReducedMotion ([aa39994](https://github.com/liferay/clay/commit/aa399947943ab836f7311b5369df2fbb83cc946c))
+-   **@clayui/empty-state:** Should only output d-none-c-prefers-reduced-motion if there is a value for imgSrcReducedMotion ([d428502](https://github.com/liferay/clay/commit/d4285023e89107d7c17487c4f50e56e2d630a883))
+-   **@clayui/modal:** fix focus visual error in Modal ([13418c3](https://github.com/liferay/clay/commit/13418c3c917ec49f3ffe537010ebbb857f63565e))
+-   **@clayui/shared:** fix error when not moving initial scroll to virtualized list ([4b5051e](https://github.com/liferay/clay/commit/4b5051efc5e3a216740d124afee0c4dac06588e8))
+
+### Features
+
+-   **@clayui/autocomplete:** add list virtualization for dynamic content ([9710fd7](https://github.com/liferay/clay/commit/9710fd7693f9ba14d1b2b617fc12e15f71a311e3))
+-   **@clayui/autocomplete:** refactors autocomplete implementation with accessibility improvements ([1dc82e6](https://github.com/liferay/clay/commit/1dc82e63b0d51e6cc3bf2cb1c7d08f4e698e6ba1))
+-   **@clayui/core:** Add API to collection to return list with ids ([10cc1bb](https://github.com/liferay/clay/commit/10cc1bbcfaaa903f03ac804cb01000d99de99226))
+-   **@clayui/core:** add API to get the last item of the collection ([54149c0](https://github.com/liferay/clay/commit/54149c015f90bd7c9ca77e05d15e16e08f042775))
+-   **@clayui/core:** add infinite scroll to autocomplete ([d3358b4](https://github.com/liferay/clay/commit/d3358b47f8ff872f941e4eba64abd219189110c9))
+-   **@clayui/core:** adds infinite scroll feature to collection ([0248e36](https://github.com/liferay/clay/commit/0248e365f2384fddc4c2c5f60ea20afad22e8941))
+-   **@clayui/core:** adds new API to render a not found element in the collection ([8f15cab](https://github.com/liferay/clay/commit/8f15cab011b4acf6b45334689a247646dbede360))
+-   **@clayui/core:** adds the step of extracting data from the collection separate from the rendering ([87ca0a4](https://github.com/liferay/clay/commit/87ca0a4b9f1317d4dbc3aa60c0abb12401255579))
+-   **@clayui/core:** update the react-virtual package and refactor the infinite scroll implementation ([88b8334](https://github.com/liferay/clay/commit/88b8334f9cc5c8353df7e3f03f650525cfe93507))
+-   **@clayui/css:** Utilities adds display classes based on c-prefers-reduced-motion ([817987e](https://github.com/liferay/clay/commit/817987e9d0b6a48166ccb22511f69e7d9e40bfe0))
+-   **@clayui/drop-down:** add active state to item for cascading menu ([e9a1471](https://github.com/liferay/clay/commit/e9a1471d7d84acabddf8ffbfdd22432da027ac37))
+-   **@clayui/shared:** add implementation of moving scroll with virtualization in `useNavigation` hook ([fd50e8c](https://github.com/liferay/clay/commit/fd50e8cf9bee61e8295e77956c1f12188e4ce3c5))
+-   **@clayui/shared:** implements navigation integration with the collection API ([7291d6b](https://github.com/liferay/clay/commit/7291d6bc0f13ec079f1097b90584380d27d74f36))
+-   **clay-card:** Added card-title aria labels and sticker titles. ([0f3038e](https://github.com/liferay/clay/commit/0f3038e2f1d0f0d0a656c98def63bab86d1c5f13))
+
+# [3.93.0](https://github.com/liferay/clay/compare/v3.92.0...v3.93.0) (2023-04-19)
+
+### Bug Fixes
+
+-   **@clayui/css:** c-prefers-reduced-motion should completely remove transitions and animations ([ad58f8e](https://github.com/liferay/clay/commit/ad58f8e5b8fd976644ccf892641b2c6a5c0855c2))
+-   **@clayui/css:** Exclude variant styles from being output when using c-unset ([59f5716](https://github.com/liferay/clay/commit/59f571657a73edd54141004e402cdf803079c891))
+-   **@clayui/css:** Global Functions adds clay-is-map-unset ([5c6d168](https://github.com/liferay/clay/commit/5c6d1682ed5c03d4bf10fb0a77dc0bdbee5790c4))
+-   **@clayui/css:** Mixins clay-button-variant adds ability to style :link and :visited pseudo classes ([639ef02](https://github.com/liferay/clay/commit/639ef026db59a678748450aed768ca62be0a625f))
+-   **@clayui/css:** Mixins clay-css should remove animations with c-prefers-reduced-motion ([e042a3c](https://github.com/liferay/clay/commit/e042a3cded1bd9832adb998fe76618d65e73ee05))
+-   **@clayui/focus-trap:** Add display contents to ignore the element itself ([6e772ff](https://github.com/liferay/clay/commit/6e772ffbf4cdbdac1e0ab2aad57bb5427ca44cce))
+-   **@clayui/focus-trap:** Improve the description of the component ([d5d2786](https://github.com/liferay/clay/commit/d5d27865ec6d86e44a481964c7bcd0d077980de8))
+-   **@clayui/focus-trap:** Prevent focus if focusableElements is empty ([6b61c4c](https://github.com/liferay/clay/commit/6b61c4c9312aaf9440fd0423bfa76effea8a3354))
+-   **@clayui/focus-trap:** Update snapshot ([014170f](https://github.com/liferay/clay/commit/014170f5f051730efbe673ff994e3b6344fb58c8))
+-   **@clayui/tabs:** displayType should output nav-tabs variants ([ff15ca2](https://github.com/liferay/clay/commit/ff15ca25d9d39e9479bacf9a78d5a2af9645ec79))
+-   **@clayui/tabs:** Output nav-tabs-light only if displayType equals light ([b599225](https://github.com/liferay/clay/commit/b59922542b7edd52750661139422b1df7d2fc1b5)), closes [/github.com/liferay/clay/pull/5463#discussion_r1161986963](https://github.com//github.com/liferay/clay/pull/5463/issues/discussion_r1161986963)
+-   **clayui.com:** Change tab navigation to navigation bar ([0a4f9a6](https://github.com/liferay/clay/commit/0a4f9a6f4f33591dfb865ad72f87ea9640723bd7))
+
+### Features
+
+-   **@clayui/core:** add motion reduction ([509e6dc](https://github.com/liferay/clay/commit/509e6dcac80d0f86a3d581da1e2b47f014dff605))
+-   **@clayui/css:** Global Functions adds clay-insert-after ([e462c59](https://github.com/liferay/clay/commit/e462c5984cf1e0625b326011e9a12aa52f33d8fa))
+-   **@clayui/css:** Sheets adds sheet-row for aligning content flush ([9897c65](https://github.com/liferay/clay/commit/9897c650de5baa5dca448c61e570927ff778cc8d))
+-   **@clayui/layout:** Adds the Sheet Row component ([1271df1](https://github.com/liferay/clay/commit/1271df1d57a169eb7e930428f17f87ac7dee030e))
+-   **@clayui/navigation-bar:** add motion reduction ([a49132d](https://github.com/liferay/clay/commit/a49132d883d65ce7bc3a2f3db1cfc1e2ffbe7df5))
+-   **@clayui/panel:** add motion reduction ([cb5c69a](https://github.com/liferay/clay/commit/cb5c69a63e2fd73763b21a708a84aa548bf88d69))
+-   **@clayui/provider:** add motion reduction config ([fcd2849](https://github.com/liferay/clay/commit/fcd2849a17106ef6f037c5fb5e56d4d0a52e13a5))
+-   **clayui.com:** updates the look of the page docs header ([c3ef028](https://github.com/liferay/clay/commit/c3ef02880d52192e3643c26fdfef15bb853c71f7))
+
+# [3.92.0](https://github.com/liferay/clay/compare/v3.91.0...v3.92.0) (2023-04-06)
+
+### Bug Fixes
+
+-   **@clayui/alert:** move close button outside of ARIA ([04306bb](https://github.com/liferay/clay/commit/04306bb3fa21adb1c6f457b30ff45ef3777b139c))
+-   **@clayui/core:** always shows the drag and drop icon ([9395174](https://github.com/liferay/clay/commit/9395174bbe099a6b4af8fddeabe79e8a7f90a332))
+-   **@clayui/core:** prevents JS from breaking component implementation ([3796b55](https://github.com/liferay/clay/commit/3796b5513a5886b5d23e20a32e6a9e12497f89b4))
+-   **@clayui/core:** Vertical Bar open panel shouldn't disappear on resize ([127b1c4](https://github.com/liferay/clay/commit/127b1c46121af093314b0371343b7dc996a5330d))
+-   **@clayui/css:** Buttons btn-xs adjust inline-item position ([cd78784](https://github.com/liferay/clay/commit/cd78784384fa7dd4021e4af7d8119088130beb08))
+-   **@clayui/css:** Cadmin and Clay update focus outline colors for accessibility ([372af84](https://github.com/liferay/clay/commit/372af84932f277d1a8ee0a0f0cdf3a99c9e7279c))
+-   **@clayui/css:** Nav Tabs adds nav-tabs-light and adjust borders ([68f8bec](https://github.com/liferay/clay/commit/68f8bec3a596d0818933772fed8db86b4160a667))
+-   **@clayui/css:** Popover arrow has 1px gap in Safari ([caaf7f7](https://github.com/liferay/clay/commit/caaf7f7439ae39f093545deda61de24c9c7a1c8e))
+-   **@clayui/empty-state:** Empty alt attribute ([8871eb9](https://github.com/liferay/clay/commit/8871eb98833a40fd7feafda8a0426bbc4faca9ab))
+-   **@clayui/empty-state:** Update snapshot ([dac2adb](https://github.com/liferay/clay/commit/dac2adbc0de7a94634efc9a9dc13d33407723c0f))
+
+### Features
+
+-   **@clayui/breadcrumb:** changes the ellipse implementation to collapse ([5bbc5fc](https://github.com/liferay/clay/commit/5bbc5fc20572dce091e5dfb64836b83041014ab4))
+-   **@clayui/breadcrumb:** improve breadcrumb accessibility ([f3c6131](https://github.com/liferay/clay/commit/f3c61311dd55c68e3aeb772d8dff0c77a1287362))
+-   **@clayui/core:** adds suppression of elements outside the scope of focus ([f96fc60](https://github.com/liferay/clay/commit/f96fc603022c6ffab1bc86011137acd7910a6cd3))
+-   **@clayui/css:** Cadmin and Clay adds btn-beta and badge-beta variants ([e09566a](https://github.com/liferay/clay/commit/e09566a14d3374440ba41ced1b17139a12fbfd17))
+-   **@clayui/css:** Multi Step Nav adds error state ([9d5846e](https://github.com/liferay/clay/commit/9d5846e6af4133e6815e3dbf66483fcc93111814))
+-   **@clayui/css:** Utilities adds c-prefers-reduced-motion ([89deb26](https://github.com/liferay/clay/commit/89deb2689c10556a4bbe8bb3297a6fb819176b47))
+-   **@clayui/focus-trap:** Add documentation for FocusTrap ([3c8a1df](https://github.com/liferay/clay/commit/3c8a1df89c8ac41cfdd461b9e7f0395440138980))
+-   **@clayui/focus-trap:** Add FocusTrap component ([8ecba27](https://github.com/liferay/clay/commit/8ecba2772cdbc99e3ee057f7b6ac7435b1b20e74))
+-   **@clayui/focus-trap:** Add new props to focus on another element than the first ([72093cd](https://github.com/liferay/clay/commit/72093cd6dfa915de52f39e4a099a031e0976d858))
+-   **@clayui/focus-trap:** Add stories for FocusTrap component ([99ab581](https://github.com/liferay/clay/commit/99ab5811ead8419576f73c052d65c5463ab3acaf))
+-   **@clayui/focus-trap:** Add tests for FocusTrap ([af2e8f6](https://github.com/liferay/clay/commit/af2e8f6bf1fc44df02fe3d995a2e37840567e318))
+-   **@clayui/multi-step-nav:** adds new API for error indicator ([6187657](https://github.com/liferay/clay/commit/6187657d8172f5812c83d3a794bb49cf31c7cff5))
+
+# [3.91.0](https://github.com/liferay/clay/compare/v3.90.0...v3.91.0) (2023-03-24)
+
+### Bug Fixes
+
+-   **@clayui/core:** Vertical Bar declare main mouse button as constant ([ccb1068](https://github.com/liferay/clay/commit/ccb1068c593032353754850a33b39734fb37b08b))
+-   **@clayui/core:** Vertical Bar don't update panel if cursor is less or more than panel width ([781ffcc](https://github.com/liferay/clay/commit/781ffcc9d56c9bd223ca2050996f527179e71365))
+-   **@clayui/core:** Vertical Bar stop updating panel after min/max width reached ([7541959](https://github.com/liferay/clay/commit/754195962f6ab24dda4e5f3f0f1da93bdcee48af))
+-   **@clayui/css:** Navigation Bar focus outline should be rounded ([a9dfdc0](https://github.com/liferay/clay/commit/a9dfdc037fa832ffd84839bdb4dd4d7f4c640282))
+-   **@clayui/css:** Removes nav-underline from Clay and Cadmin ([642c479](https://github.com/liferay/clay/commit/642c47964a48a1337220fd011ebcf4c5246455e0))
+-   **@clayui/css:** Resizer shouldn't select text when dragging ([e2842c0](https://github.com/liferay/clay/commit/e2842c0cb455804de3a97d093c5a90df72f2c49f))
+-   **@clayui/css:** Treeview btn should inherit component's color ([4e733f9](https://github.com/liferay/clay/commit/4e733f9fcb6b8f853f2150ba2bb2cce10f6e5c42))
+-   **@clayui/pagination-bar:** fix bug in documentation example ([8924412](https://github.com/liferay/clay/commit/8924412729baa8a35f4e3729a632d5399fcab93f))
+-   **@clayui/tabs:** Tabs deprecate `displayType` and `modern` attributes ([196abec](https://github.com/liferay/clay/commit/196abec5383d05f9af15af6893e9062fc32ba1c9))
+
+### Features
+
+-   **@clayui/core:** adds `panelWidth` controlled implementation ([96b6373](https://github.com/liferay/clay/commit/96b63738e4f32138c4222e4941cd98298179b5b8))
+-   **@clayui/core:** Vertical Bar adds resizing to VerticalBar.Panel ([82fe064](https://github.com/liferay/clay/commit/82fe064122c9cd7caae8efa21bf700e874fe64a8))
+-   **@clayui/css:** Atlas and Cadmin update nav-tabs styles ([2e7aae2](https://github.com/liferay/clay/commit/2e7aae2665b467d28f79c79a01060c0aca4edb00))
+-   **@clayui/css:** Cadmin and Clay adds c-horizontal-resizer component ([9dec76c](https://github.com/liferay/clay/commit/9dec76c72f3e0e71ddc0ae59f310ab404bee697b))
+-   **@clayui/tabs:** force style for tabs ([859ef65](https://github.com/liferay/clay/commit/859ef65a552c2b8ad04c04fec1ad505c53c6dd40))
+
+### BREAKING CHANGES
+
+-   **@clayui/tabs:** The default value for the `modern` attribute is now `false`. You will need to set the `modern` attribute on `ClayTabs` to get the `nav-underline` class.
+-   **@clayui/css:** The class `.nav-underline` was removed
+
+# [3.90.0](https://github.com/liferay/clay/compare/v3.89.0...v3.90.0) (2023-03-15)
+
+### Bug Fixes
+
+-   **@clayui/css:** Cadmin Pagination active state should have more contrast ([a09539a](https://github.com/liferay/clay/commit/a09539ad61c408fd9abd63790fc0c1308f232537))
+-   **@clayui/css:** Clay and Cadmin Menubar make collapsed nav 100% wide ([ef3d431](https://github.com/liferay/clay/commit/ef3d431c223f4bfef1daf9539369bbb43176b646))
+-   **@clayui/css:** Mixins Breakpoints don't output any styles if the breakpoint is `c-unset` ([a8a02e2](https://github.com/liferay/clay/commit/a8a02e226a19b65fc4750e929fcca7364e8eeaa3))
+-   **@clayui/css:** Mixins Menubar update to use media query pattern ([c6d9c16](https://github.com/liferay/clay/commit/c6d9c168742cf2b4411f919ba4376fbd6a75ffdf))
+-   **@clayui/date-picker:** Dependency array of UseCallback should include every dependencies of the memoized function ([38f859e](https://github.com/liferay/clay/commit/38f859ed8d65b44c78f7e6208311d5a66fc5810c))
+-   **@clayui/date-picker:** fix focus bug in date picker ([613d041](https://github.com/liferay/clay/commit/613d0412961aa3073b9de4736561efec0435bb84))
+-   **@clayui/date-picker:** updateDate is memoized without dateFormat dependency ([827acff](https://github.com/liferay/clay/commit/827acff5a5c26fe54f8c77be488b2f94162ac83f))
+-   **@clayui/navigation-bar:** Mobile nav should push content down instead of overlaying ([0176e40](https://github.com/liferay/clay/commit/0176e40536a6c07eca67ef88651f8e9abcf44677))
+
+### Features
+
+-   **@clayui/css:** add new `angle-double` icons ([04e8bb0](https://github.com/liferay/clay/commit/04e8bb08b7b733cac9e280b240f4109da8163df9))
+-   **@clayui/css:** add new `field-area` icon ([a0382b2](https://github.com/liferay/clay/commit/a0382b2a6984c8bad3347cfad57480c9323bc2b1))
+-   **@clayui/css:** add new `km-KH` icon ([9b2c70e](https://github.com/liferay/clay/commit/9b2c70ed7bb1222e9ed18a0f0bd376f8e5511946))
+-   **@clayui/empty-state:** always render the title ([aa887e8](https://github.com/liferay/clay/commit/aa887e89d060665deb037e21ce8ce4b16d18ac69))
+
+# [3.89.0](https://github.com/liferay/clay/compare/v3.88.0...v3.89.0) (2023-03-01)
+
+### Bug Fixes
+
+-   **@clayui/core:** fix error when not rendering drag button when Item is just string ([96c5646](https://github.com/liferay/clay/commit/96c5646c646e5a65fe29489e02296b6ece65d110))
+-   **@clayui/core:** fixes bug when not focus on actions ([78dd821](https://github.com/liferay/clay/commit/78dd8214a4914e5293040456649176ca55099e8d))
+-   **@clayui/css:** Buttons increase font-weight of text in btn-monospaced ([0e92f96](https://github.com/liferay/clay/commit/0e92f96cdb5732cc0008e75d107f96d73d416cda))
+-   **@clayui/css:** Links change spacing between text and icon back to 8px ([3309eb9](https://github.com/liferay/clay/commit/3309eb95bff3b31964cdfbd303460b77419b586a))
+-   **@clayui/css:** nav-underline and navigation-bar-light should use primary-l0 for active highlight ([fdeb072](https://github.com/liferay/clay/commit/fdeb07208a7f4cf21ac2916587cb91d5c7d1be2c))
+
+### Features
+
+-   **@clayui/core:** adds implementation to track most recent focus on component ([efa266e](https://github.com/liferay/clay/commit/efa266e612440921782bdd27415de050cb19df58))
+-   **@clayui/css:** Global Functions adds clay-map-merge ([901f288](https://github.com/liferay/clay/commit/901f28895166e201b1d322729630328a4173a879))
+-   **@clayui/css:** Globals adds `$c-root` map for outputting custom properties ([8afe1b6](https://github.com/liferay/clay/commit/8afe1b6dfdec119d258e0721cbae3cf3766e3751))
+-   **@clayui/css:** Globals adds `$clay-root` map for outputting custom properties ([49f05c7](https://github.com/liferay/clay/commit/49f05c725ad24f5fc6470083a1d66dd8e3a23827))
+-   **@clayui/css:** Globals adds $primary-l0 ([d76fb5c](https://github.com/liferay/clay/commit/d76fb5cc6f866056bab9229e2bace3aaee0ee8d1))
+-   **@clayui/css:** Moves c-root to the end of variables file ([ea82657](https://github.com/liferay/clay/commit/ea8265774603ebfd7852c78c92652ac46208d8fe))
+-   **@clayui/drop-down:** add new prop to pass props to DropDown.Search button ([47604f3](https://github.com/liferay/clay/commit/47604f38c99fe294d3e96a420aab0e4699548293))
+
+# [3.88.0](https://github.com/liferay/clay/compare/v3.87.2...v3.88.0) (2023-02-14)
+
+### Bug Fixes
+
+-   **@clayui/core:** fix bug that does not expand an asynchronous node with cursor ([67e4f13](https://github.com/liferay/clay/commit/67e4f13b592c819a0cd85cf739aa43a702df1cc0))
+-   **@clayui/css:** Adjust list-group-text and subtext to match Lexicon specs ([193d92a](https://github.com/liferay/clay/commit/193d92af01be86e4995813106f560d4fe317e6e7))
+
+### Features
+
+-   **@clayui/core:** add TextHighlight component ([9c65e16](https://github.com/liferay/clay/commit/9c65e16e03d2403adb0f052b54f1f9994d0a1625))
+-   **@clayui/core:** adds API for internationalization of announcer messages ([ace6890](https://github.com/liferay/clay/commit/ace689050816548ea00c08e6b6d4c356bb5f3c74))
+-   **@clayui/core:** adds drag and drop accessibility when use keyboard ([ab87a57](https://github.com/liferay/clay/commit/ab87a574ddbd7cc7cd7334a50aeeaf0a6652a31a))
+-   **@clayui/core:** adds initial implementation of drag and drop via keyboard in treeview ([c96552b](https://github.com/liferay/clay/commit/c96552b3bbc5ab9633189b999125d097daa08de4))
+-   **@clayui/core:** improves the accessibility of item binding with groups and fixes the bug with not announcing correctly when starting the drag ([3dd93d1](https://github.com/liferay/clay/commit/3dd93d1e5a8beb7ed13b2febee655ed9bd0fe928))
+-   **@clayui/link:** add extra aria-label when target is `_blank` ([6268a88](https://github.com/liferay/clay/commit/6268a8853bab3ea411773238c16a3f6750e70f6c))
+-   **@clayui/tabs:** adds `forwardRef` to Tabs components ([a1792ce](https://github.com/liferay/clay/commit/a1792cea9a05d41ef177993a7c724fe673c9673f))
+
+## [3.87.2](https://github.com/liferay/clay/compare/v3.87.1...v3.87.2) (2023-02-08)
+
+### Bug Fixes
+
+-   **@clayui/css:** use `clay-saturate` instead of `saturate` ([c3cc7ba](https://github.com/liferay/clay/commit/c3cc7ba5cca479250adc15c114e87670a45b5654))
+
+## [3.87.1](https://github.com/liferay/clay/compare/v3.87.0...v3.87.1) (2023-02-08)
+
+### Bug Fixes
+
+-   **@clayui/css:** fix build error when `$secondary` variable is a CSS variable ([10da9f2](https://github.com/liferay/clay/commit/10da9f27846284f18be9cbd919498efb09762d07))
+
+# [3.87.0](https://github.com/liferay/clay/compare/v3.86.1...v3.87.0) (2023-02-08)
+
+### Bug Fixes
+
+-   **@clayui/autocomplete:** fix error when filtering autocomplete with regex special character ([079e4f7](https://github.com/liferay/clay/commit/079e4f7985a50a54dfbda36e1460204a0562a922))
+-   **@clayui/css:** Atlas Dropdown items should be 32px tall ([237f8fd](https://github.com/liferay/clay/commit/237f8fd744d4f8c5fa259c20e2837500301e6f31))
+-   **@clayui/css:** Buttons btn-secondary should have darker border for better contrast ([336bdc3](https://github.com/liferay/clay/commit/336bdc3c290e1ec2c2994618ddbca93669a0eab9))
+-   **@clayui/css:** Cadmin declare font size for btn-monospaced size variants ([2e85acd](https://github.com/liferay/clay/commit/2e85acde4b9a8521c77d94054994a53dc3c457a2))
+-   **@clayui/css:** Cadmin text-# utilities should use px values ([a47aa7e](https://github.com/liferay/clay/commit/a47aa7e506c460db81727dca5e3b4ae03a50f850))
+-   **@clayui/modal:** fixes error when closing the modal and not removing elements with inert ([1e99716](https://github.com/liferay/clay/commit/1e997160e7edada2fbc1ee4b928cbfe9ac54a40d))
+-   **@clayui/shared:** prevent closing the modal when clicking outside an Overlay rendered in the modal ([d363535](https://github.com/liferay/clay/commit/d36353591e43dfe46841c48006298e8a3853fb21))
+
+### Features
+
+-   **@clayui/core:** adds new selection API to configure more options ([7839fa2](https://github.com/liferay/clay/commit/7839fa2c801ba2d4736fffd85c7b141551b69a70))
+-   **@clayui/shared:** adds the possibility to have overlay stacked ([1a4d281](https://github.com/liferay/clay/commit/1a4d281ab9e0aed7275c9f9a27a9d2e014ed8ab6))
+-   **@clayui/tabs:** adds the pattern of uncontrolled to the `active` property of Tabs.Item in the new composition ([fd5299a](https://github.com/liferay/clay/commit/fd5299a6148f67de85b4d8f565ce2331f137472e))
+
+## [3.86.1](https://github.com/liferay/clay/compare/v3.86.0...v3.86.1) (2023-02-02)
+
+### Bug Fixes
+
+-   **@clayui/css:** Cadmin Alert update alert-secondary to match new Lexicon colors ([8eab38d](https://github.com/liferay/clay/commit/8eab38d8728b1c70dbd9f25f8ca4305a712c2723))
+-   **@clayui/css:** List Group removes default color on `.list-group` ([f314a43](https://github.com/liferay/clay/commit/f314a43f36ed8e42a515a530973004979c149b59))
+
+# [3.86.0](https://github.com/liferay/clay/compare/v3.85.0...v3.86.0) (2023-01-31)
+
+### Bug Fixes
+
+-   **@clayui/core:** announce item description when opening menu in Picker component ([7509ef7](https://github.com/liferay/clay/commit/7509ef7de1a7f07fc94e79446d9a3321f5fa9a06))
+-   **@clayui/core:** fix `selection.toggle` typing error ([a61329f](https://github.com/liferay/clay/commit/a61329fb0e31f3b731fcb9e3cca52512c9010a86))
+-   **@clayui/core:** fix Picker accessibility error on Apple devices with VoiceOver ([b3f56b2](https://github.com/liferay/clay/commit/b3f56b20e1c96f5547eda645b86fa95576168289))
+-   **@clayui/css:** Empty State add bigger margin-bottom on image ([e19f587](https://github.com/liferay/clay/commit/e19f587da161c40a376228706f81c11086057f0c))
+-   **@clayui/css:** Readd text-underline and add text-none ([5f7f691](https://github.com/liferay/clay/commit/5f7f691ff69b93ead8204eed674fbd43664cc105))
+-   **@clayui/css:** Text decoration utility selector typo ([8970d78](https://github.com/liferay/clay/commit/8970d78574ac9a75897646b93603e768049eca0d))
+-   **@clayui/date-picker:** Date Range should be selectable with a single click ([ecd4c94](https://github.com/liferay/clay/commit/ecd4c942617244df6797bc69d5659957f7590540))
+
+### Features
+
+-   **@clayui/core:** adds simple implementation for LiveAnnouncer ([cd0fd12](https://github.com/liferay/clay/commit/cd0fd12f92d6d4d8ebcf506b92360acbcb0522f2))
+
+# [3.85.0](https://github.com/liferay/clay/compare/v3.84.0...v3.85.0) (2023-01-23)
+
+### Bug Fixes
+
+-   **@clayui/core:** fix Vertical Bar component error change behavior from controlled to uncontrolled ([54b329f](https://github.com/liferay/clay/commit/54b329f0a13be5b6d59ff91d3bca1a067497e071))
+-   **@clayui/css:** Atlas Alert update secondary colors ([9d85766](https://github.com/liferay/clay/commit/9d857661ba8e554be63eb8b071b91dd2800f66d3))
+-   **@clayui/css:** Atlas Pagination active state should have more contrast ([7e26618](https://github.com/liferay/clay/commit/7e266186b762aa2bf7f89bccca32f33ae9c84125))
+-   **@clayui/css:** Cadmin Navigation Bar nav-link should inherit font size ([b30e861](https://github.com/liferay/clay/commit/b30e8616970d741d60b669191db3e9a02953c675))
+-   **@clayui/css:** Custom Checkbox and Radio border-color should have better contrast ([77bdad4](https://github.com/liferay/clay/commit/77bdad4e4852a8ded6d1ce3346af9dd7d9aaf037))
+-   **@clayui/css:** Mixins clay-select-variant adds hover states ([f6bb985](https://github.com/liferay/clay/commit/f6bb985e21db606f10586e734bdda2cb8240c3cf))
+-   **@clayui/css:** Navigation Bar nav-link should inherit font size from parent ([a359c32](https://github.com/liferay/clay/commit/a359c3235a275ee001e1b9e9ff0eb9114095c12d))
+-   **@clayui/css:** Navigation Bar remove default btn border from .btn.nav-link ([6468728](https://github.com/liferay/clay/commit/64687286c5b7caf138c2a011790698b248c56c71))
+-   **@clayui/css:** Pagination adds cursor pointer to link for tags without href ([c988ce7](https://github.com/liferay/clay/commit/c988ce7ea16e39b78cb8038981b08995b45a3b6e))
+-   **@clayui/css:** Select box selected state should have darker background-color ([1890825](https://github.com/liferay/clay/commit/1890825e1385c0083c76a163d50e77d9949b3b78))
+-   **@clayui/link:** Source Format ([ebc9464](https://github.com/liferay/clay/commit/ebc9464650f9810ac5a8b67a31453ea8d9adf09a))
+-   **@clayui/modal:** only moves focus to dialog when content has rendered ([421e4fd](https://github.com/liferay/clay/commit/421e4fd2659141502cd683b0d9c9ae7475f05e5b))
+-   **@clayui/modal:** restore trigger focus when closing modal ([146c939](https://github.com/liferay/clay/commit/146c939a4d95a2fb654b868637b172cdfeab09dc))
+-   **@clayui/multi-select:** prevents items from having the same key ([ea62915](https://github.com/liferay/clay/commit/ea62915c1fc664fb3a68164051f596870d134983))
+-   **@clayui/navigation-bar:** Removes classes btn-unstyled and link-unstyled from nav-link ([10419a7](https://github.com/liferay/clay/commit/10419a73920cf9c6138c8198007b45e1fa39546f))
+-   **@clayui/pagination-bar:** PaginationBarWithBasicItems shouldn't render if totalItems is 0 ([13519e8](https://github.com/liferay/clay/commit/13519e89e5c381627574e06b9bdf0277737e91ee))
+-   **@clayui/pagination:** Adds tabindex to links with no href ([566ae6b](https://github.com/liferay/clay/commit/566ae6b56f7bf10bbbbaa8140ab626f2666ab077))
+-   **@clayui/pagination:** fix error when `totalPages` is 0 ([16d6094](https://github.com/liferay/clay/commit/16d60941ecd7d5f50c0cd5d51ff6bb925cc26707))
+-   **@clayui/pagination:** remove link from Prev and Next when disabled ([6552d93](https://github.com/liferay/clay/commit/6552d93a6c103c9c8e9bfc1fbcc654821afeaea0))
+
+### Features
+
+-   **@clayui/alert:** Adds a secondary variant and symbol attribute ([b3ebd3e](https://github.com/liferay/clay/commit/b3ebd3ef25a50058a92cd823ab3d467535dcc146))
+-   **@clayui/core:** add API to disable visual state of indeterminate and change selectionMode on manual selection ([02aa88b](https://github.com/liferay/clay/commit/02aa88bb10df3a26348942309bc326859c155aa9))
+-   **@clayui/core:** add new property to add className to Picker menu ([2b6fafb](https://github.com/liferay/clay/commit/2b6fafbca6b96972c1d677490f871fefa36511ac))
+-   **@clayui/css:** Cadmin adds c-link ([f0b4d3a](https://github.com/liferay/clay/commit/f0b4d3ace756c9a362e8f0af91493232740dbc1f))
+-   **@clayui/css:** Links adds c-link to be used with utility classes ([156446b](https://github.com/liferay/clay/commit/156446b998d669345502b2fe49157f6a4906d6bd))
+-   **@clayui/css:** Mixins clay-link adds ability to create variants ([60e9662](https://github.com/liferay/clay/commit/60e966265304dc12b39b5748ceb50ea477f2b91b))
+-   **@clayui/css:** Utilities adds text-decoration-underline ([9b4873d](https://github.com/liferay/clay/commit/9b4873dd287fc1c2bf7dba693b7402f9fff5d62c))
+-   **@clayui/link:** Adds new displayTypes, decoration, fontSize, and weight properties ([43bd938](https://github.com/liferay/clay/commit/43bd9383726136f56bb8fd0e897f1ea0bd78fe39))
+-   **@clayui/modal:** allows modifying the `role` of the modal ([6ec5de2](https://github.com/liferay/clay/commit/6ec5de20b02d6a2c7f112a83ed9a751c2bad597d))
+-   **@clayui/multi-select:** Adds new API to disallow adding custom values as label ([b858246](https://github.com/liferay/clay/commit/b85824693bcab80f2494137e06dfb96fd49a28df))
+-   **@clayui/multi-select:** allows to prevent default behavior of `onPaste` and `onKeyDown` ([57e62a4](https://github.com/liferay/clay/commit/57e62a49fb26ebe344fbee140541a2dbc7e5c2e0))
+-   **@clayui/nav:** add prop to remove `aria-current` from `VerticalNav` component ([5502734](https://github.com/liferay/clay/commit/5502734d034e8584307b1c30692e84cae7e2886a))
+-   **@clayui/navigation-bar:** add prop to remove `aria-current` from `NavigationBar` component ([a872c2c](https://github.com/liferay/clay/commit/a872c2c65c90def154b3b60343603875663b05de))
+-   **@clayui/pagination-bar:** change the DropDown component to the Picker in the high-level component ([6a641d4](https://github.com/liferay/clay/commit/6a641d48cfa14630d68c146527b7afbfff836d21))
+
 # [3.84.0](https://github.com/liferay/clay/compare/v3.83.1...v3.84.0) (2022-12-23)
 
 ### Bug Fixes

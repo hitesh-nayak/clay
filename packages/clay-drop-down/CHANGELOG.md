@@ -3,6 +3,242 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.127.0](https://github.com/liferay/clay/compare/v3.126.0...v3.127.0) (2025-01-23)
+
+**Note:** Version bump only for package @clayui/drop-down
+
+# [3.125.0](https://github.com/liferay/clay/compare/v3.124.0...v3.125.0) (2025-01-13)
+
+**Note:** Version bump only for package @clayui/drop-down
+
+# [3.124.0](https://github.com/liferay/clay/compare/v3.123.1...v3.124.0) (2024-12-18)
+
+**Note:** Version bump only for package @clayui/drop-down
+
+## [3.123.1](https://github.com/liferay/clay/compare/v3.123.0...v3.123.1) (2024-11-27)
+
+**Note:** Version bump only for package @clayui/drop-down
+
+# [3.123.0](https://github.com/liferay/clay/compare/v3.122.0...v3.123.0) (2024-11-21)
+
+**Note:** Version bump only for package @clayui/drop-down
+
+# [3.122.0](https://github.com/liferay/clay/compare/v3.121.0...v3.122.0) (2024-11-13)
+
+### Features
+
+-   **@clayui/dropdown:** LPD-41310 Adds caret icon only for trigger that is button ([aebf2f3](https://github.com/liferay/clay/commit/aebf2f3658851cdbb417da69d4376289b4702dd7))
+-   **@clayui/dropdown:** LPD-41310 Update Clay Dropdown Component to Include Caret Icon ([5a5ed73](https://github.com/liferay/clay/commit/5a5ed73880743362a0be7569df4e5ce484b776a5))
+-   **@clayui/dropdown:** LPD-41310 Update spanshots ([56dfcd7](https://github.com/liferay/clay/commit/56dfcd72015021861504e632294441a51c3b9d0b))
+
+# [3.121.0](https://github.com/liferay/clay/compare/v3.120.0...v3.121.0) (2024-10-17)
+
+**Note:** Version bump only for package @clayui/drop-down
+
+# [3.120.0](https://github.com/liferay/clay/compare/v3.119.1...v3.120.0) (2024-09-13)
+
+**Note:** Version bump only for package @clayui/drop-down
+
+# [3.119.0](https://github.com/liferay/clay/compare/v3.118.0...v3.119.0) (2024-08-30)
+
+### Bug Fixes
+
+-   **@clayui/drop-down:** fixes bug with chrome blocking element focus when clicking outside the menu ([9a99238](https://github.com/liferay/clay/commit/9a99238852f27fc50e3b75ca95a2db72dd79d3ed))
+-   **@clayui/shared:** remove suppression from elements before focus ([c9a9e83](https://github.com/liferay/clay/commit/c9a9e83de3fc017569d7d2e6dfb0393c5f878351))
+
+# [3.118.0](https://github.com/liferay/clay/compare/v3.117.0...v3.118.0) (2024-08-13)
+
+**Note:** Version bump only for package @clayui/drop-down
+
+# [3.117.0](https://github.com/liferay/clay/compare/v3.116.1...v3.117.0) (2024-07-30)
+
+**Note:** Version bump only for package @clayui/drop-down
+
+## [3.116.1](https://github.com/liferay/clay/compare/v3.116.0...v3.116.1) (2024-06-27)
+
+**Note:** Version bump only for package @clayui/drop-down
+
+# [3.116.0](https://github.com/liferay/clay/compare/v3.115.2...v3.116.0) (2024-06-10)
+
+**Note:** Version bump only for package @clayui/drop-down
+
+## [3.115.1](https://github.com/liferay/clay/compare/v3.115.0...v3.115.1) (2024-05-21)
+
+**Note:** Version bump only for package @clayui/drop-down
+
+# [3.115.0](https://github.com/liferay/clay/compare/v3.114.0...v3.115.0) (2024-05-16)
+
+**Note:** Version bump only for package @clayui/drop-down
+
+# [3.114.0](https://github.com/liferay/clay/compare/v3.113.0...v3.114.0) (2024-04-22)
+
+### Bug Fixes
+
+-   **@clayui/pagination-bar:** LPD-17368 Follow up - Add aria-label ([ba21e0e](https://github.com/liferay/clay/commit/ba21e0e1408bfe3a267c504edb21527f95cbafdb))
+
+# [3.113.0](https://github.com/liferay/clay/compare/v3.112.0...v3.113.0) (2024-03-28)
+
+**Note:** Version bump only for package @clayui/drop-down
+
+# [3.112.0](https://github.com/liferay/clay/compare/v3.111.1...v3.112.0) (2024-03-11)
+
+**Note:** Version bump only for package @clayui/drop-down
+
+# [3.111.0](https://github.com/liferay/clay/compare/v3.110.0...v3.111.0) (2024-02-15)
+
+**Note:** Version bump only for package @clayui/drop-down
+
+# [3.109.0](https://github.com/liferay/clay/compare/v3.108.0...v3.109.0) (2024-01-22)
+
+**Note:** Version bump only for package @clayui/drop-down
+
+# [3.108.0](https://github.com/liferay/clay/compare/v3.107.1...v3.108.0) (2023-12-12)
+
+**Note:** Version bump only for package @clayui/drop-down
+
+## [3.107.1](https://github.com/liferay/clay/compare/v3.107.0...v3.107.1) (2023-11-27)
+
+**Note:** Version bump only for package @clayui/drop-down
+
+# [3.107.0](https://github.com/liferay/clay/compare/v3.106.1...v3.107.0) (2023-11-27)
+
+**Note:** Version bump only for package @clayui/drop-down
+
+## [3.106.1](https://github.com/liferay/clay/compare/v3.106.0...v3.106.1) (2023-10-26)
+
+**Note:** Version bump only for package @clayui/drop-down
+
+# [3.106.0](https://github.com/liferay/clay/compare/v3.105.0...v3.106.0) (2023-10-25)
+
+### Bug Fixes
+
+-   remove 'src' dir from being packaged with npm ([9383e8d](https://github.com/liferay/clay/commit/9383e8d8abb25ca3396e7c6e4dfa53bbc72691c5))
+-   use package's directory for baseDir when generating type ([0a5c710](https://github.com/liferay/clay/commit/0a5c710092f36243bc8d5487f70e831295715072))
+
+### Reverts
+
+-   Revert "chore(@clayui/drop-down): Update storybook with examples of long text in checkbox and radio" ([432ec99](https://github.com/liferay/clay/commit/432ec99b8d6d35687747b71d22b7c766a83e36e2))
+-   Revert "docs(@clayui/drop-down): Add checkbox and radio examples with long text" ([0fa8402](https://github.com/liferay/clay/commit/0fa840252786d5487a6a01ca1be355e4cef883e0))
+
+# [3.105.0](https://github.com/liferay/clay/compare/v3.104.0...v3.105.0) (2023-09-15)
+
+### Bug Fixes
+
+-   **@clayui/css:** Renames form-control-container to input-group-item-focusable ([54b0677](https://github.com/liferay/clay/commit/54b0677bf6eff26c2ab551120ed43a9b0a717100))
+
+### Features
+
+-   **@clayui/drop-down:** Use form-control-container on search ([5d4c242](https://github.com/liferay/clay/commit/5d4c242da7577800cc067f8d0b61415688ca4d8a))
+
+# [3.104.0](https://github.com/liferay/clay/compare/v3.103.1...v3.104.0) (2023-08-25)
+
+### Bug Fixes
+
+-   **@clayui/drop-down:** fix ref error on collection ([1ab3b26](https://github.com/liferay/clay/commit/1ab3b26eeadcb2aa0d7f07551621d79e095160f0))
+
+## [3.103.1](https://github.com/liferay/clay/compare/v3.103.0...v3.103.1) (2023-08-15)
+
+### Bug Fixes
+
+-   **@clayui/drop-down:** adds throttle to handle contextual menu visibility ([7d51b7a](https://github.com/liferay/clay/commit/7d51b7aa96dcd86c9e8c70cd97dec5c7c9279b73))
+
+# [3.101.0](https://github.com/liferay/clay/compare/v3.100.0...v3.101.0) (2023-07-28)
+
+**Note:** Version bump only for package @clayui/drop-down
+
+# [3.100.0](https://github.com/liferay/clay/compare/v3.99.4...v3.100.0) (2023-07-13)
+
+**Note:** Version bump only for package @clayui/drop-down
+
+## [3.99.4](https://github.com/liferay/clay/compare/v3.99.3...v3.99.4) (2023-07-10)
+
+**Note:** Version bump only for package @clayui/drop-down
+
+## [3.99.1](https://github.com/liferay/clay/compare/v3.99.0...v3.99.1) (2023-07-04)
+
+**Note:** Version bump only for package @clayui/drop-down
+
+# [3.99.0](https://github.com/liferay/clay/compare/v3.98.0...v3.99.0) (2023-06-28)
+
+### Bug Fixes
+
+-   **@clayui/drop-down:** fixes error when restoring focus from DropDown ([5802f32](https://github.com/liferay/clay/commit/5802f32b885c0479e82c46ffcfdc99f0a5a0b461))
+
+# [3.98.0](https://github.com/liferay/clay/compare/v3.97.2...v3.98.0) (2023-06-20)
+
+**Note:** Version bump only for package @clayui/drop-down
+
+## [3.97.1](https://github.com/liferay/clay/compare/v3.97.0...v3.97.1) (2023-06-14)
+
+**Note:** Version bump only for package @clayui/drop-down
+
+# [3.97.0](https://github.com/liferay/clay/compare/v3.96.1...v3.97.0) (2023-06-13)
+
+**Note:** Version bump only for package @clayui/drop-down
+
+# [3.96.0](https://github.com/liferay/clay/compare/v3.95.2...v3.96.0) (2023-05-29)
+
+### Bug Fixes
+
+-   **@clayui/drop-down:** fix error when breaking component when group has no items ([b13f32c](https://github.com/liferay/clay/commit/b13f32c72fce7b88abefca02d5ab9ca7efc7fa81))
+
+## [3.95.2](https://github.com/liferay/clay/compare/v3.95.0...v3.95.2) (2023-05-17)
+
+**Note:** Version bump only for package @clayui/drop-down
+
+# [3.95.0](https://github.com/liferay/clay/compare/v3.94.0...v3.95.0) (2023-05-15)
+
+**Note:** Version bump only for package @clayui/drop-down
+
+# [3.94.0](https://github.com/liferay/clay/compare/v3.93.0...v3.94.0) (2023-05-03)
+
+### Features
+
+-   **@clayui/core:** update the react-virtual package and refactor the infinite scroll implementation ([88b8334](https://github.com/liferay/clay/commit/88b8334f9cc5c8353df7e3f03f650525cfe93507))
+-   **@clayui/drop-down:** add active state to item for cascading menu ([e9a1471](https://github.com/liferay/clay/commit/e9a1471d7d84acabddf8ffbfdd22432da027ac37))
+
+# [3.93.0](https://github.com/liferay/clay/compare/v3.92.0...v3.93.0) (2023-04-19)
+
+**Note:** Version bump only for package @clayui/drop-down
+
+# [3.92.0](https://github.com/liferay/clay/compare/v3.91.0...v3.92.0) (2023-04-06)
+
+**Note:** Version bump only for package @clayui/drop-down
+
+# [3.91.0](https://github.com/liferay/clay/compare/v3.90.0...v3.91.0) (2023-03-24)
+
+**Note:** Version bump only for package @clayui/drop-down
+
+# [3.90.0](https://github.com/liferay/clay/compare/v3.89.0...v3.90.0) (2023-03-15)
+
+**Note:** Version bump only for package @clayui/drop-down
+
+# [3.89.0](https://github.com/liferay/clay/compare/v3.88.0...v3.89.0) (2023-03-01)
+
+### Features
+
+-   **@clayui/drop-down:** add new prop to pass props to DropDown.Search button ([47604f3](https://github.com/liferay/clay/commit/47604f38c99fe294d3e96a420aab0e4699548293))
+
+# [3.88.0](https://github.com/liferay/clay/compare/v3.87.2...v3.88.0) (2023-02-14)
+
+**Note:** Version bump only for package @clayui/drop-down
+
+# [3.87.0](https://github.com/liferay/clay/compare/v3.86.1...v3.87.0) (2023-02-08)
+
+**Note:** Version bump only for package @clayui/drop-down
+
+## [3.86.1](https://github.com/liferay/clay/compare/v3.86.0...v3.86.1) (2023-02-02)
+
+**Note:** Version bump only for package @clayui/drop-down
+
+# [3.86.0](https://github.com/liferay/clay/compare/v3.85.0...v3.86.0) (2023-01-31)
+
+**Note:** Version bump only for package @clayui/drop-down
+
+# [3.85.0](https://github.com/liferay/clay/compare/v3.84.0...v3.85.0) (2023-01-23)
+
+**Note:** Version bump only for package @clayui/drop-down
+
 # [3.84.0](https://github.com/liferay/clay/compare/v3.83.1...v3.84.0) (2022-12-23)
 
 **Note:** Version bump only for package @clayui/drop-down

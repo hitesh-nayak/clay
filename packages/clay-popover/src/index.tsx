@@ -9,7 +9,8 @@ import {
 	InternalDispatch,
 	doAlign,
 	observeRect,
-	useInternalState,
+	stack,
+	useControlledState,
 } from '@clayui/shared';
 import classNames from 'classnames';
 import React, {useCallback, useEffect, useRef} from 'react';
@@ -155,7 +156,7 @@ const ClayPopover = React.forwardRef<HTMLDivElement, IProps>(
 		}: IProps,
 		ref
 	) => {
-		const [internalShow, setShow] = useInternalState({
+		const [internalShow, setShow] = useControlledState({
 			defaultName: 'defaultShow',
 			defaultValue: defaultShow,
 			handleName: 'onShowChange',
@@ -205,7 +206,11 @@ const ClayPopover = React.forwardRef<HTMLDivElement, IProps>(
 			if (!disableScroll && popoverScrollerRef.current && internalShow) {
 				popoverScrollerRef.current.focus();
 			}
-		}, [disableScroll, popoverScrollerRef, internalShow]);
+
+			if (disableScroll && popoverRef.current && internalShow) {
+				popoverRef.current.focus();
+			}
+		}, [disableScroll, popoverRef, popoverScrollerRef, internalShow]);
 
 		useEffect(() => {
 			if (closeOnClickOutside && trigger) {
@@ -241,18 +246,49 @@ const ClayPopover = React.forwardRef<HTMLDivElement, IProps>(
 		}, [closeOnClickOutside, trigger]);
 
 		useEffect(() => {
+			if (internalShow) {
+				stack.push(popoverRef);
+			}
+
+			return () => {
+				const index = stack.indexOf(popoverRef);
+
+				if (index >= 0) {
+					stack.splice(index, 1);
+				}
+			};
+		}, [internalShow, popoverRef]);
+
+		useEffect(() => {
 			const handleKeyDown = (event: KeyboardEvent) => {
-				if (event.key === 'Escape') {
+				if (
+					event.key === 'Escape' &&
+					stack[stack.length - 1] === popoverRef
+				) {
+					setShow(false);
+					triggerRef.current?.focus();
+				}
+			};
+
+			const onBlur = (event: any) => {
+				if (
+					popoverRef.current &&
+					!popoverRef.current.contains(event.relatedTarget)
+				) {
 					setShow(false);
 				}
 			};
 
-			window.addEventListener('keydown', handleKeyDown);
+			if (internalShow) {
+				document.addEventListener('keydown', handleKeyDown);
+				window.addEventListener('blur', onBlur);
 
-			return () => {
-				window.removeEventListener('keydown', handleKeyDown);
-			};
-		}, []);
+				return () => {
+					document.removeEventListener('keydown', handleKeyDown);
+					window.removeEventListener('blur', onBlur);
+				};
+			}
+		}, [internalShow]);
 
 		let content = (
 			<div
@@ -268,6 +304,7 @@ const ClayPopover = React.forwardRef<HTMLDivElement, IProps>(
 				)}
 				ref={ref as React.RefObject<HTMLDivElement>}
 				{...otherProps}
+				tabIndex={disableScroll ? -1 : undefined}
 			>
 				<div className="arrow" />
 

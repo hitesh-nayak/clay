@@ -5,6 +5,25 @@
 $custom-forms-transition: background-color 0.15s ease-in-out,
 	border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out !default;
 
+// Form File
+
+$form-file: () !default;
+$form-file: map-deep-merge(
+	(
+		border-radius: clay-enable-rounded($input-border-radius),
+		display: flex,
+		position: relative,
+		transition: clay-enable-transitions($input-transition),
+		focus-within: (
+			background-color: $input-focus-bg,
+			box-shadow: $input-focus-box-shadow,
+			outline: 0,
+			z-index: 1,
+		),
+	),
+	$form-file
+);
+
 // Custom Control Indicator
 
 $custom-control-indicator-size: 1rem !default;
@@ -122,7 +141,7 @@ $custom-control-description-line-height: $custom-control-min-height !default;
 
 /// @deprecated as of v2.19.0 use the Sass map `$custom-control-label-text` instead
 
-$custom-control-description-padding-left: 0.5rem !default; // 8px
+$custom-control-description-padding-left: 0.5rem !default;
 
 /// @deprecated as of v2.19.0 use the Sass map `$custom-control-label-disabled` instead
 
@@ -511,6 +530,30 @@ $custom-radio: map-deep-merge(
 		),
 	),
 	$custom-radio
+);
+
+$custom-control-outside: () !default;
+$custom-control-outside: map-deep-merge(
+	(
+		label: (
+			display: block,
+			padding-left:
+				calc(
+					#{$custom-control-indicator-size} + #{$custom-control-description-padding-left}
+				),
+		),
+		custom-control-input: (
+			custom-control-label: (
+				before: (
+					position: absolute,
+				),
+			),
+		),
+		custom-control-label-text: (
+			padding-left: 0,
+		),
+	),
+	$custom-control-outside
 );
 
 // Custom Switch

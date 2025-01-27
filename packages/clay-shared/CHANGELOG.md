@@ -3,6 +3,156 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.119.0](https://github.com/liferay/clay/compare/v3.118.0...v3.119.0) (2024-08-30)
+
+### Bug Fixes
+
+-   **@clayui/drop-down:** fixes bug with chrome blocking element focus when clicking outside the menu ([9a99238](https://github.com/liferay/clay/commit/9a99238852f27fc50e3b75ca95a2db72dd79d3ed))
+-   **@clayui/shared:** remove suppression from elements before focus ([c9a9e83](https://github.com/liferay/clay/commit/c9a9e83de3fc017569d7d2e6dfb0393c5f878351))
+-   **@clayui/shared:** Removes suppression of focusable elements from focus trap ([2728431](https://github.com/liferay/clay/commit/27284318283fc4c720dbd8fb86365b731a5d79fd))
+
+# [3.116.0](https://github.com/liferay/clay/compare/v3.115.2...v3.116.0) (2024-06-10)
+
+**Note:** Version bump only for package @clayui/shared
+
+# [3.115.0](https://github.com/liferay/clay/compare/v3.114.0...v3.115.0) (2024-05-16)
+
+**Note:** Version bump only for package @clayui/shared
+
+# [3.113.0](https://github.com/liferay/clay/compare/v3.112.0...v3.113.0) (2024-03-28)
+
+**Note:** Version bump only for package @clayui/shared
+
+# [3.111.0](https://github.com/liferay/clay/compare/v3.110.0...v3.111.0) (2024-02-15)
+
+**Note:** Version bump only for package @clayui/shared
+
+# [3.109.0](https://github.com/liferay/clay/compare/v3.108.0...v3.109.0) (2024-01-22)
+
+### Bug Fixes
+
+-   **@clayui/drop-down:** Fix Dropdown doesnt close when click outside ([f5beaf9](https://github.com/liferay/clay/commit/f5beaf9cf012a0a81c7a2bcc1a440c6143ba37bc))
+
+### Features
+
+-   **@clayui/shared:** adds support for closing the overlay when clicking outside the body ([0a720b1](https://github.com/liferay/clay/commit/0a720b11ffe1e4d3a5fa02762c5be780093b87e2))
+
+# [3.107.0](https://github.com/liferay/clay/compare/v3.106.1...v3.107.0) (2023-11-27)
+
+**Note:** Version bump only for package @clayui/shared
+
+## [3.106.1](https://github.com/liferay/clay/compare/v3.106.0...v3.106.1) (2023-10-26)
+
+**Note:** Version bump only for package @clayui/shared
+
+# [3.106.0](https://github.com/liferay/clay/compare/v3.105.0...v3.106.0) (2023-10-25)
+
+### Bug Fixes
+
+-   remove 'src' dir from being packaged with npm ([9383e8d](https://github.com/liferay/clay/commit/9383e8d8abb25ca3396e7c6e4dfa53bbc72691c5))
+-   use package's directory for baseDir when generating type ([0a5c710](https://github.com/liferay/clay/commit/0a5c710092f36243bc8d5487f70e831295715072))
+
+### Features
+
+-   **@clayui/core:** add hook to handle tree navigation ([1331f57](https://github.com/liferay/clay/commit/1331f578f438a565c2d762d71f342b0f8753d289))
+
+# [3.104.0](https://github.com/liferay/clay/compare/v3.103.1...v3.104.0) (2023-08-25)
+
+### Bug Fixes
+
+-   **@clayui/core:** improves navigation for navigating up and down when opening a Menu ([f52c93d](https://github.com/liferay/clay/commit/f52c93d121eff8c210c7bc8ffdec6a8d27ca82eb))
+
+### Features
+
+-   **@clayui/core:** adds new experimental Menu component ([4560451](https://github.com/liferay/clay/commit/45604517f2e589af9a86d5a88660ebd13cf460ec))
+
+## [3.103.1](https://github.com/liferay/clay/compare/v3.103.0...v3.103.1) (2023-08-15)
+
+### Bug Fixes
+
+-   **@clayui/drop-down:** adds throttle to handle contextual menu visibility ([7d51b7a](https://github.com/liferay/clay/commit/7d51b7aa96dcd86c9e8c70cd97dec5c7c9279b73))
+
+# [3.101.0](https://github.com/liferay/clay/compare/v3.100.0...v3.101.0) (2023-07-28)
+
+### Bug Fixes
+
+-   **@clayui/autocomplete:** fix error when not validating value with items ([ab4421e](https://github.com/liferay/clay/commit/ab4421ede3b8b97084e694e3500b07f4ff1957f1))
+
+# [3.100.0](https://github.com/liferay/clay/compare/v3.99.4...v3.100.0) (2023-07-13)
+
+**Note:** Version bump only for package @clayui/shared
+
+# [3.96.0](https://github.com/liferay/clay/compare/v3.95.2...v3.96.0) (2023-05-29)
+
+**Note:** Version bump only for package @clayui/shared
+
+## [3.95.2](https://github.com/liferay/clay/compare/v3.95.0...v3.95.2) (2023-05-17)
+
+### Bug Fixes
+
+-   **@clayui/shared:** fix Picker menu positioning error ([54e6d49](https://github.com/liferay/clay/commit/54e6d49dc4ae6dc69111922c16c1a6f119bb7b5a))
+
+# [3.95.0](https://github.com/liferay/clay/compare/v3.94.0...v3.95.0) (2023-05-15)
+
+### Bug Fixes
+
+-   **@clayui/shared:** fix error when not recalculating positioning for elements with parent with scroll ([16a4c77](https://github.com/liferay/clay/commit/16a4c77ea3be35cbf52c96449f237373fe163f36))
+
+# [3.94.0](https://github.com/liferay/clay/compare/v3.93.0...v3.94.0) (2023-05-03)
+
+### Bug Fixes
+
+-   **@clayui/shared:** fix error when not moving initial scroll to virtualized list ([4b5051e](https://github.com/liferay/clay/commit/4b5051efc5e3a216740d124afee0c4dac06588e8))
+
+### Features
+
+-   **@clayui/shared:** add implementation of moving scroll with virtualization in `useNavigation` hook ([fd50e8c](https://github.com/liferay/clay/commit/fd50e8cf9bee61e8295e77956c1f12188e4ce3c5))
+-   **@clayui/shared:** implements navigation integration with the collection API ([7291d6b](https://github.com/liferay/clay/commit/7291d6bc0f13ec079f1097b90584380d27d74f36))
+
+# [3.93.0](https://github.com/liferay/clay/compare/v3.92.0...v3.93.0) (2023-04-19)
+
+**Note:** Version bump only for package @clayui/shared
+
+# [3.92.0](https://github.com/liferay/clay/compare/v3.91.0...v3.92.0) (2023-04-06)
+
+**Note:** Version bump only for package @clayui/shared
+
+# [3.89.0](https://github.com/liferay/clay/compare/v3.88.0...v3.89.0) (2023-03-01)
+
+**Note:** Version bump only for package @clayui/shared
+
+# [3.88.0](https://github.com/liferay/clay/compare/v3.87.2...v3.88.0) (2023-02-14)
+
+**Note:** Version bump only for package @clayui/shared
+
+# [3.87.0](https://github.com/liferay/clay/compare/v3.86.1...v3.87.0) (2023-02-08)
+
+### Bug Fixes
+
+-   **@clayui/shared:** prevent closing the modal when clicking outside an Overlay rendered in the modal ([d363535](https://github.com/liferay/clay/commit/d36353591e43dfe46841c48006298e8a3853fb21))
+
+### Features
+
+-   **@clayui/shared:** adds the possibility to have overlay stacked ([1a4d281](https://github.com/liferay/clay/commit/1a4d281ab9e0aed7275c9f9a27a9d2e014ed8ab6))
+
+## [3.86.1](https://github.com/liferay/clay/compare/v3.86.0...v3.86.1) (2023-02-02)
+
+**Note:** Version bump only for package @clayui/shared
+
+# [3.86.0](https://github.com/liferay/clay/compare/v3.85.0...v3.86.0) (2023-01-31)
+
+**Note:** Version bump only for package @clayui/shared
+
+# [3.85.0](https://github.com/liferay/clay/compare/v3.84.0...v3.85.0) (2023-01-23)
+
+### Bug Fixes
+
+-   **@clayui/core:** fix Vertical Bar component error change behavior from controlled to uncontrolled ([54b329f](https://github.com/liferay/clay/commit/54b329f0a13be5b6d59ff91d3bca1a067497e071))
+
+### Features
+
+-   **@clayui/core:** add new property to add className to Picker menu ([2b6fafb](https://github.com/liferay/clay/commit/2b6fafbca6b96972c1d677490f871fefa36511ac))
+
 ## [3.83.1](https://github.com/liferay/clay/compare/v3.83.0...v3.83.1) (2022-12-20)
 
 ### Bug Fixes

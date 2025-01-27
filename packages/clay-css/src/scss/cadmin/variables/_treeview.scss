@@ -8,6 +8,7 @@ $cadmin-treeview: map-merge(
 		margin-bottom: 0,
 		padding: 2px 0,
 		btn: (
+			color: inherit,
 			font-size: 12px,
 			line-height: 1,
 			padding: 6px 8px,
@@ -31,7 +32,7 @@ $cadmin-treeview: map-merge(
 		),
 		treeview-dragging: (
 			background-color: $cadmin-white,
-			border-color: $cadmin-primary-l1,
+			border-color: $cadmin-primary-l0,
 			border-radius: $cadmin-border-radius-sm,
 			border-style: solid,
 			border-width: 1px,
@@ -60,6 +61,25 @@ $cadmin-treeview: map-merge(
 				box-shadow: none,
 			),
 		),
+		treeview-dropping-indicator-top: (
+			background-color: transparent,
+			display: block,
+			height: 2px,
+			margin-top: -2px,
+			outline: none,
+			width: 100%,
+		),
+		treeview-dropping-indicator-bottom: (
+			background-color: transparent,
+			display: block,
+			height: 2px,
+			margin-bottom: -2px,
+			outline: none,
+			width: 100%,
+		),
+		treeview-dropping-indicator-over: (
+			background-color: $cadmin-primary-l0,
+		),
 		treeview-link: (
 			background-color: transparent,
 			cursor: pointer,
@@ -74,15 +94,9 @@ $cadmin-treeview: map-merge(
 			position: relative,
 			text-align: left,
 			user-select: none,
-			treeview-dropping-bottom: (
-				box-shadow: 0 2px 0 0 $cadmin-primary-l1,
-			),
 			treeview-dropping-middle: (
 				background-color: $cadmin-primary-l3,
-				border-color: $cadmin-primary-l1,
-			),
-			treeview-dropping-top: (
-				box-shadow: 0 -2px 0 0 $cadmin-primary-l1,
+				border-color: $cadmin-primary-l0,
 			),
 			hover: (
 				text-decoration: none,
@@ -114,6 +128,7 @@ $cadmin-treeview: map-merge(
 			),
 		),
 		component-icon: (
+			color: $cadmin-secondary,
 			display: inline-block,
 			font-size: 16px,
 			height: auto,
@@ -184,9 +199,6 @@ $cadmin-treeview-light: map-deep-merge(
 	(
 		component-expander: (
 			color: $cadmin-secondary,
-			hover: (
-				color: $cadmin-primary,
-			),
 			disabled: (
 				color: $cadmin-secondary,
 				opacity: 0.5,
@@ -204,24 +216,35 @@ $cadmin-treeview-light: map-deep-merge(
 				),
 			),
 			hover: (
-				background-color: $cadmin-gray-100,
-				color: $cadmin-gray-900,
+				box-shadow: inset 0 0 0 1px $cadmin-secondary-l0,
+			),
+			focus: (
+				box-shadow: $cadmin-component-focus-inset-box-shadow,
 			),
 			active: (
-				background-color: $cadmin-gray-200,
-				color: $cadmin-gray-900,
+				background-color: $cadmin-primary-l3,
+				box-shadow: inset 0 0 0 1px $cadmin-primary,
+				color: $cadmin-dark-l2,
+				focus: (
+					box-shadow: $cadmin-component-focus-inset-box-shadow,
+				),
 			),
 			active-class: (
-				background-color: $cadmin-gray-200,
-				color: $cadmin-gray-900,
+				background-color: $cadmin-primary-l3,
+				box-shadow: inset 0 0 0 1px $cadmin-primary,
+				color: $cadmin-dark-l2,
+				focus: (
+					box-shadow: $cadmin-component-focus-inset-box-shadow,
+				),
 			),
 			disabled: (
 				background-color: transparent,
 				color: rgba($cadmin-gray-600, 0.5),
 			),
 			show: (
-				background-color: null,
-				color: null,
+				background-color: c-unset,
+				box-shadow: c-unset,
+				color: c-unset,
 			),
 		),
 	),
@@ -233,9 +256,6 @@ $cadmin-treeview-dark: map-deep-merge(
 	(
 		component-expander: (
 			color: $cadmin-secondary-l1,
-			hover: (
-				color: $cadmin-primary-l1,
-			),
 		),
 		treeview-link: (
 			color: $cadmin-secondary-l1,
@@ -246,19 +266,35 @@ $cadmin-treeview-dark: map-deep-merge(
 				),
 			),
 			hover: (
-				background-color: rgba($cadmin-white, 0.04),
+				box-shadow: inset 0 0 0 1px $cadmin-secondary-l0,
+			),
+			focus: (
+				box-shadow: $cadmin-component-focus-inset-box-shadow,
+			),
+			active: (
+				background-color: $cadmin-dark-l2,
+				box-shadow: inset 0 0 0 1px $cadmin-primary,
+				color: $cadmin-primary-l3,
+				focus: (
+					box-shadow: $cadmin-component-focus-inset-box-shadow,
+				),
 			),
 			active-class: (
-				background-color: rgba($cadmin-white, 0.06),
-				color: $cadmin-white,
+				background-color: $cadmin-dark-l2,
+				box-shadow: inset 0 0 0 1px $cadmin-primary,
+				color: $cadmin-primary-l3,
+				focus: (
+					box-shadow: $cadmin-component-focus-inset-box-shadow,
+				),
 			),
 			disabled: (
 				background-color: transparent,
 				color: rgba($cadmin-secondary-l1, 0.5),
 			),
 			show: (
-				background-color: null,
-				color: null,
+				background-color: c-unset,
+				box-shadow: c-unset,
+				color: c-unset,
 			),
 		),
 		component-action: (

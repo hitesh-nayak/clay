@@ -14,7 +14,7 @@ exports[`IncrementalInteractions clicking a month on the selector should change 
         style=""
       >
         <div
-          class="input-group-item"
+          class="input-group-item input-group-item-focusable"
         >
           <input
             name="datePicker"
@@ -32,7 +32,7 @@ exports[`IncrementalInteractions clicking a month on the selector should change 
             class="input-group-inset-item input-group-inset-item-after"
           >
             <button
-              aria-controls="clay-id-5"
+              aria-controls="clay-id-13"
               aria-expanded="true"
               aria-haspopup="dialog"
               aria-label="Choose your desired date"
@@ -45,7 +45,7 @@ exports[`IncrementalInteractions clicking a month on the selector should change 
                 role="presentation"
               >
                 <use
-                  xlink:href="icons.svg#calendar"
+                  href="icons.svg#calendar"
                 />
               </svg>
             </button>
@@ -64,9 +64,9 @@ exports[`IncrementalInteractions clicking a month on the selector should change 
     <div>
       <div
         aria-modal="true"
-        class="dropdown-menu date-picker-dropdown-menu show"
+        class="dropdown-menu date-picker date-picker-dropdown-menu show"
         data-testid="dropdown"
-        id="clay-id-5"
+        id="clay-id-13"
         role="dialog"
         style="left: -999px; top: -995px;"
       >
@@ -155,9 +155,8 @@ exports[`IncrementalInteractions clicking a month on the selector should change 
                 class="date-picker-nav-item input-date-picker-year"
               >
                 <select
-                  class="form-control form-control-sm"
+                  class="form-control form-control-select form-control-select-secondary form-control-sm"
                   data-testid="year-select"
-                  name="year"
                 >
                   <option
                     value="2019"
@@ -180,7 +179,7 @@ exports[`IncrementalInteractions clicking a month on the selector should change 
                     role="presentation"
                   >
                     <use
-                      xlink:href="icons.svg#angle-left"
+                      href="icons.svg#angle-left"
                     />
                   </svg>
                 </button>
@@ -195,7 +194,7 @@ exports[`IncrementalInteractions clicking a month on the selector should change 
                     role="presentation"
                   >
                     <use
-                      xlink:href="icons.svg#simple-circle"
+                      href="icons.svg#simple-circle"
                     />
                   </svg>
                 </button>
@@ -210,7 +209,7 @@ exports[`IncrementalInteractions clicking a month on the selector should change 
                     role="presentation"
                   >
                     <use
-                      xlink:href="icons.svg#angle-right"
+                      href="icons.svg#angle-right"
                     />
                   </svg>
                 </button>
@@ -848,7 +847,7 @@ exports[`IncrementalInteractions clicking on the date icon should close the drop
         style=""
       >
         <div
-          class="input-group-item"
+          class="input-group-item input-group-item-focusable"
         >
           <input
             name="datePicker"
@@ -866,7 +865,7 @@ exports[`IncrementalInteractions clicking on the date icon should close the drop
             class="input-group-inset-item input-group-inset-item-after"
           >
             <button
-              aria-controls="clay-id-3"
+              aria-controls="clay-id-7"
               aria-expanded="false"
               aria-haspopup="dialog"
               aria-label="Choose your desired date"
@@ -879,7 +878,7 @@ exports[`IncrementalInteractions clicking on the date icon should close the drop
                 role="presentation"
               >
                 <use
-                  xlink:href="icons.svg#calendar"
+                  href="icons.svg#calendar"
                 />
               </svg>
             </button>
@@ -890,7 +889,6 @@ exports[`IncrementalInteractions clicking on the date icon should close the drop
   </div>
   <div>
     <span
-      aria-hidden="true"
       data-focus-scope-start="true"
       tabindex="0"
     />
@@ -898,9 +896,9 @@ exports[`IncrementalInteractions clicking on the date icon should close the drop
       <div
         aria-hidden="true"
         aria-modal="true"
-        class="dropdown-menu date-picker-dropdown-menu"
+        class="dropdown-menu date-picker date-picker-dropdown-menu"
         data-testid="dropdown"
-        id="clay-id-3"
+        id="clay-id-7"
         role="dialog"
         style="left: -999px; top: -995px;"
       >
@@ -989,9 +987,8 @@ exports[`IncrementalInteractions clicking on the date icon should close the drop
                 class="date-picker-nav-item input-date-picker-year"
               >
                 <select
-                  class="form-control form-control-sm"
+                  class="form-control form-control-select form-control-select-secondary form-control-sm"
                   data-testid="year-select"
-                  name="year"
                 >
                   <option
                     value="2019"
@@ -1014,7 +1011,7 @@ exports[`IncrementalInteractions clicking on the date icon should close the drop
                     role="presentation"
                   >
                     <use
-                      xlink:href="icons.svg#angle-left"
+                      href="icons.svg#angle-left"
                     />
                   </svg>
                 </button>
@@ -1029,7 +1026,7 @@ exports[`IncrementalInteractions clicking on the date icon should close the drop
                     role="presentation"
                   >
                     <use
-                      xlink:href="icons.svg#simple-circle"
+                      href="icons.svg#simple-circle"
                     />
                   </svg>
                 </button>
@@ -1044,7 +1041,7 @@ exports[`IncrementalInteractions clicking on the date icon should close the drop
                     role="presentation"
                   >
                     <use
-                      xlink:href="icons.svg#angle-right"
+                      href="icons.svg#angle-right"
                     />
                   </svg>
                 </button>
@@ -1663,7 +1660,6 @@ exports[`IncrementalInteractions clicking on the date icon should close the drop
       </div>
     </div>
     <span
-      aria-hidden="true"
       data-focus-scope-end="true"
       tabindex="0"
     />
@@ -1685,7 +1681,7 @@ exports[`IncrementalInteractions clicking on the date icon should open the dropd
         style=""
       >
         <div
-          class="input-group-item"
+          class="input-group-item input-group-item-focusable"
         >
           <input
             name="datePicker"
@@ -1703,7 +1699,7 @@ exports[`IncrementalInteractions clicking on the date icon should open the dropd
             class="input-group-inset-item input-group-inset-item-after"
           >
             <button
-              aria-controls="clay-id-2"
+              aria-controls="clay-id-4"
               aria-expanded="true"
               aria-haspopup="dialog"
               aria-label="Choose your desired date"
@@ -1716,7 +1712,7 @@ exports[`IncrementalInteractions clicking on the date icon should open the dropd
                 role="presentation"
               >
                 <use
-                  xlink:href="icons.svg#calendar"
+                  href="icons.svg#calendar"
                 />
               </svg>
             </button>
@@ -1735,9 +1731,9 @@ exports[`IncrementalInteractions clicking on the date icon should open the dropd
     <div>
       <div
         aria-modal="true"
-        class="dropdown-menu date-picker-dropdown-menu show"
+        class="dropdown-menu date-picker date-picker-dropdown-menu show"
         data-testid="dropdown"
-        id="clay-id-2"
+        id="clay-id-4"
         role="dialog"
         style="left: -999px; top: -995px;"
       >
@@ -1826,9 +1822,8 @@ exports[`IncrementalInteractions clicking on the date icon should open the dropd
                 class="date-picker-nav-item input-date-picker-year"
               >
                 <select
-                  class="form-control form-control-sm"
+                  class="form-control form-control-select form-control-select-secondary form-control-sm"
                   data-testid="year-select"
-                  name="year"
                 >
                   <option
                     value="2019"
@@ -1851,7 +1846,7 @@ exports[`IncrementalInteractions clicking on the date icon should open the dropd
                     role="presentation"
                   >
                     <use
-                      xlink:href="icons.svg#angle-left"
+                      href="icons.svg#angle-left"
                     />
                   </svg>
                 </button>
@@ -1866,7 +1861,7 @@ exports[`IncrementalInteractions clicking on the date icon should open the dropd
                     role="presentation"
                   >
                     <use
-                      xlink:href="icons.svg#simple-circle"
+                      href="icons.svg#simple-circle"
                     />
                   </svg>
                 </button>
@@ -1881,7 +1876,7 @@ exports[`IncrementalInteractions clicking on the date icon should open the dropd
                     role="presentation"
                   >
                     <use
-                      xlink:href="icons.svg#angle-right"
+                      href="icons.svg#angle-right"
                     />
                   </svg>
                 </button>
@@ -2524,7 +2519,7 @@ exports[`IncrementalInteractions clicking on the year selector should switch to 
         style=""
       >
         <div
-          class="input-group-item"
+          class="input-group-item input-group-item-focusable"
         >
           <input
             name="datePicker"
@@ -2542,7 +2537,7 @@ exports[`IncrementalInteractions clicking on the year selector should switch to 
             class="input-group-inset-item input-group-inset-item-after"
           >
             <button
-              aria-controls="clay-id-6"
+              aria-controls="clay-id-16"
               aria-expanded="true"
               aria-haspopup="dialog"
               aria-label="Choose your desired date"
@@ -2555,7 +2550,7 @@ exports[`IncrementalInteractions clicking on the year selector should switch to 
                 role="presentation"
               >
                 <use
-                  xlink:href="icons.svg#calendar"
+                  href="icons.svg#calendar"
                 />
               </svg>
             </button>
@@ -2574,9 +2569,9 @@ exports[`IncrementalInteractions clicking on the year selector should switch to 
     <div>
       <div
         aria-modal="true"
-        class="dropdown-menu date-picker-dropdown-menu show"
+        class="dropdown-menu date-picker date-picker-dropdown-menu show"
         data-testid="dropdown"
-        id="clay-id-6"
+        id="clay-id-16"
         role="dialog"
         style="left: -999px; top: -995px;"
       >
@@ -2665,9 +2660,8 @@ exports[`IncrementalInteractions clicking on the year selector should switch to 
                 class="date-picker-nav-item input-date-picker-year"
               >
                 <select
-                  class="form-control form-control-sm"
+                  class="form-control form-control-select form-control-select-secondary form-control-sm"
                   data-testid="year-select"
-                  name="year"
                 >
                   <option
                     value="2017"
@@ -2705,7 +2699,7 @@ exports[`IncrementalInteractions clicking on the year selector should switch to 
                     role="presentation"
                   >
                     <use
-                      xlink:href="icons.svg#angle-left"
+                      href="icons.svg#angle-left"
                     />
                   </svg>
                 </button>
@@ -2720,7 +2714,7 @@ exports[`IncrementalInteractions clicking on the year selector should switch to 
                     role="presentation"
                   >
                     <use
-                      xlink:href="icons.svg#simple-circle"
+                      href="icons.svg#simple-circle"
                     />
                   </svg>
                 </button>
@@ -2735,7 +2729,7 @@ exports[`IncrementalInteractions clicking on the year selector should switch to 
                     role="presentation"
                   >
                     <use
-                      xlink:href="icons.svg#angle-right"
+                      href="icons.svg#angle-right"
                     />
                   </svg>
                 </button>
@@ -3373,7 +3367,7 @@ exports[`IncrementalInteractions clicking outside the dropdown should close the 
         style=""
       >
         <div
-          class="input-group-item"
+          class="input-group-item input-group-item-focusable"
         >
           <input
             name="datePicker"
@@ -3391,7 +3385,7 @@ exports[`IncrementalInteractions clicking outside the dropdown should close the 
             class="input-group-inset-item input-group-inset-item-after"
           >
             <button
-              aria-controls="clay-id-4"
+              aria-controls="clay-id-10"
               aria-expanded="false"
               aria-haspopup="dialog"
               aria-label="Choose your desired date"
@@ -3404,7 +3398,7 @@ exports[`IncrementalInteractions clicking outside the dropdown should close the 
                 role="presentation"
               >
                 <use
-                  xlink:href="icons.svg#calendar"
+                  href="icons.svg#calendar"
                 />
               </svg>
             </button>
@@ -3420,7 +3414,6 @@ exports[`IncrementalInteractions clicking outside the dropdown should close the 
   </div>
   <div>
     <span
-      aria-hidden="true"
       data-focus-scope-start="true"
       tabindex="0"
     />
@@ -3428,9 +3421,9 @@ exports[`IncrementalInteractions clicking outside the dropdown should close the 
       <div
         aria-hidden="true"
         aria-modal="true"
-        class="dropdown-menu date-picker-dropdown-menu"
+        class="dropdown-menu date-picker date-picker-dropdown-menu"
         data-testid="dropdown"
-        id="clay-id-4"
+        id="clay-id-10"
         role="dialog"
         style="left: -999px; top: -995px;"
       >
@@ -3519,9 +3512,8 @@ exports[`IncrementalInteractions clicking outside the dropdown should close the 
                 class="date-picker-nav-item input-date-picker-year"
               >
                 <select
-                  class="form-control form-control-sm"
+                  class="form-control form-control-select form-control-select-secondary form-control-sm"
                   data-testid="year-select"
-                  name="year"
                 >
                   <option
                     value="2019"
@@ -3544,7 +3536,7 @@ exports[`IncrementalInteractions clicking outside the dropdown should close the 
                     role="presentation"
                   >
                     <use
-                      xlink:href="icons.svg#angle-left"
+                      href="icons.svg#angle-left"
                     />
                   </svg>
                 </button>
@@ -3559,7 +3551,7 @@ exports[`IncrementalInteractions clicking outside the dropdown should close the 
                     role="presentation"
                   >
                     <use
-                      xlink:href="icons.svg#simple-circle"
+                      href="icons.svg#simple-circle"
                     />
                   </svg>
                 </button>
@@ -3574,7 +3566,7 @@ exports[`IncrementalInteractions clicking outside the dropdown should close the 
                     role="presentation"
                   >
                     <use
-                      xlink:href="icons.svg#angle-right"
+                      href="icons.svg#angle-right"
                     />
                   </svg>
                 </button>
@@ -4193,7 +4185,6 @@ exports[`IncrementalInteractions clicking outside the dropdown should close the 
       </div>
     </div>
     <span
-      aria-hidden="true"
       data-focus-scope-end="true"
       tabindex="0"
     />
@@ -4215,7 +4206,7 @@ exports[`IncrementalInteractions date entered in the input element should reflec
         style=""
       >
         <div
-          class="input-group-item"
+          class="input-group-item input-group-item-focusable"
         >
           <input
             name="datePicker"
@@ -4246,7 +4237,7 @@ exports[`IncrementalInteractions date entered in the input element should reflec
                 role="presentation"
               >
                 <use
-                  xlink:href="icons.svg#calendar"
+                  href="icons.svg#calendar"
                 />
               </svg>
             </button>
@@ -4265,7 +4256,7 @@ exports[`IncrementalInteractions date entered in the input element should reflec
     <div>
       <div
         aria-modal="true"
-        class="dropdown-menu date-picker-dropdown-menu show"
+        class="dropdown-menu date-picker date-picker-dropdown-menu show"
         data-testid="dropdown"
         id="clay-id-1"
         role="dialog"
@@ -4356,9 +4347,8 @@ exports[`IncrementalInteractions date entered in the input element should reflec
                 class="date-picker-nav-item input-date-picker-year"
               >
                 <select
-                  class="form-control form-control-sm"
+                  class="form-control form-control-select form-control-select-secondary form-control-sm"
                   data-testid="year-select"
-                  name="year"
                 >
                   <option
                     value="2019"
@@ -4381,7 +4371,7 @@ exports[`IncrementalInteractions date entered in the input element should reflec
                     role="presentation"
                   >
                     <use
-                      xlink:href="icons.svg#angle-left"
+                      href="icons.svg#angle-left"
                     />
                   </svg>
                 </button>
@@ -4396,7 +4386,7 @@ exports[`IncrementalInteractions date entered in the input element should reflec
                     role="presentation"
                   >
                     <use
-                      xlink:href="icons.svg#simple-circle"
+                      href="icons.svg#simple-circle"
                     />
                   </svg>
                 </button>
@@ -4411,7 +4401,7 @@ exports[`IncrementalInteractions date entered in the input element should reflec
                     role="presentation"
                   >
                     <use
-                      xlink:href="icons.svg#angle-right"
+                      href="icons.svg#angle-right"
                     />
                   </svg>
                 </button>

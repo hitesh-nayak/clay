@@ -58,18 +58,71 @@
 			@include clay-css($map);
 
 			thead {
-				@include clay-css(map-get($map, thead));
+				$_thead: setter(map-get($map, thead), ());
+
+				@include clay-css($_thead);
 
 				th,
 				td {
-					@include clay-css(map-deep-get($map, thead, table-cell));
+					$_thead-table-cell: setter(
+						map-get($_thead, table-cell),
+						()
+					);
+
+					@include clay-css($_thead-table-cell);
+
+					&:hover {
+						@include clay-css(map-get($_thead-table-cell, hover));
+					}
+
+					&:first-child {
+						@include clay-css(
+							map-get($_thead-table-cell, table-column-start)
+						);
+					}
+
+					&:last-child {
+						@include clay-css(
+							map-get($_thead-table-cell, table-column-end)
+						);
+					}
+
+					.component-action {
+						@include clay-css(
+							map-get($_thead-table-cell, component-action)
+						);
+					}
 				}
 
 				th {
 					@include clay-css(map-deep-get($map, thead, th));
 
-					[href] {
+					a[href] {
 						@include clay-link(map-deep-get($map, thead, th, href));
+					}
+				}
+
+				.autofit-col {
+					$_autofit-col: setter(map-get($_thead, autofit-col), ());
+
+					@include clay-css($_autofit-col);
+
+					&:first-child {
+						$_first-child: setter(
+							map-get($_autofit-col, first-child),
+							()
+						);
+
+						@include clay-css($_first-child);
+					}
+
+					&:last-child {
+						$_last-child: setter(
+							map-get($_autofit-col, last-child),
+							()
+						);
+
+						@include clay-css($_last-child);
 					}
 				}
 			}
@@ -78,7 +131,7 @@
 			td {
 				@include clay-css(map-get($map, table-cell));
 
-				[href] {
+				a[href] {
 					@include clay-link(map-deep-get($map, table-cell, href));
 				}
 			}
@@ -330,7 +383,7 @@
 						map-deep-get($map, table-disabled, table-cell)
 					);
 
-					[href] {
+					a[href] {
 						@include clay-link(
 							map-deep-get($map, table-disabled, table-cell, href)
 						);
@@ -364,6 +417,30 @@
 						map-deep-get($map, autofit-col, last-child)
 					);
 				}
+			}
+
+			.autofit-col-checkbox {
+				@include clay-css(map-get($map, autofit-col-checkbox));
+			}
+
+			.autofit-col-icon {
+				@include clay-css(map-get($map, autofit-col-icon));
+			}
+
+			.autofit-col-toggle {
+				@include clay-css(map-get($map, autofit-col-toggle));
+			}
+
+			.component-action {
+				@include clay-link(map-get($map, component-action));
+			}
+
+			.component-drag {
+				@include clay-link(map-get($map, component-drag));
+			}
+
+			.component-toggle {
+				@include clay-link(map-get($map, component-toggle));
 			}
 
 			.custom-control,

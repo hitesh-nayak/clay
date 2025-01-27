@@ -8,14 +8,8 @@ exports[`ClayEmptyState renders with a children content 1`] = `
     <div
       class="c-empty-state-title"
     >
-      <span
-        class="text-truncate-inline"
-      >
-        <span
-          class="text-truncate"
-        >
-          No results found
-        </span>
+      <span>
+        No results found
       </span>
     </div>
     <div
@@ -27,6 +21,45 @@ exports[`ClayEmptyState renders with a children content 1`] = `
       class="c-empty-state-footer"
     >
       My Empty State
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ClayEmptyState renders with a reduced motion image provided 1`] = `
+<div>
+  <div
+    class="c-empty-state c-empty-state-animation"
+  >
+    <div
+      class="c-empty-state-image"
+    >
+      <div
+        class="c-empty-state-aspect-ratio"
+      >
+        <img
+          alt=""
+          class="aspect-ratio-item aspect-ratio-item-fluid d-none-c-prefers-reduced-motion"
+          src="https://via.placeholder.com/256"
+        />
+        <img
+          alt=""
+          class="aspect-ratio-item aspect-ratio-item-fluid d-block-c-prefers-reduced-motion"
+          src="https://via.placeholder.com/256"
+        />
+      </div>
+    </div>
+    <div
+      class="c-empty-state-title"
+    >
+      <span>
+        No results found
+      </span>
+    </div>
+    <div
+      class="c-empty-state-text"
+    >
+      Sorry, there are no results found
     </div>
   </div>
 </div>
@@ -44,7 +77,7 @@ exports[`ClayEmptyState renders with an image provided 1`] = `
         class="c-empty-state-aspect-ratio"
       >
         <img
-          alt="c-empty-state-image"
+          alt=""
           class="aspect-ratio-item aspect-ratio-item-fluid"
           src="https://via.placeholder.com/256"
         />
@@ -53,14 +86,8 @@ exports[`ClayEmptyState renders with an image provided 1`] = `
     <div
       class="c-empty-state-title"
     >
-      <span
-        class="text-truncate-inline"
-      >
-        <span
-          class="text-truncate"
-        >
-          No results found
-        </span>
+      <span>
+        No results found
       </span>
     </div>
     <div
@@ -80,14 +107,8 @@ exports[`ClayEmptyState renders with default values 1`] = `
     <div
       class="c-empty-state-title"
     >
-      <span
-        class="text-truncate-inline"
-      >
-        <span
-          class="text-truncate"
-        >
-          No results found
-        </span>
+      <span>
+        No results found
       </span>
     </div>
     <div
@@ -120,14 +141,52 @@ exports[`ClayEmptyState renders with different image props 1`] = `
     <div
       class="c-empty-state-title"
     >
-      <span
-        class="text-truncate-inline"
+      <span>
+        No results found
+      </span>
+    </div>
+    <div
+      class="c-empty-state-text"
+    >
+      Sorry, there are no results found
+    </div>
+    <div
+      class="c-empty-state-footer"
+    >
+      My Empty State
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ClayEmptyState renders with different reduced motion image props 1`] = `
+<div>
+  <div
+    class="c-empty-state c-empty-state-animation"
+  >
+    <div
+      class="c-empty-state-image"
+    >
+      <div
+        class="c-empty-state-aspect-ratio"
       >
-        <span
-          class="text-truncate"
-        >
-          No results found
-        </span>
+        <img
+          alt="hello world"
+          class="aspect-ratio-item aspect-ratio-item-fluid d-none-c-prefers-reduced-motion"
+          src="https://via.placeholder.com/256"
+        />
+        <img
+          alt="hello world?"
+          class="aspect-ratio-item aspect-ratio-item-fluid d-block-c-prefers-reduced-motion"
+          src="https://via.placeholder.com/256"
+        />
+      </div>
+    </div>
+    <div
+      class="c-empty-state-title"
+    >
+      <span>
+        No results found
       </span>
     </div>
     <div

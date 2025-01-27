@@ -3,12 +3,14 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
+import {Text, TextHighlight} from '@clayui/core';
 import {useResource} from '@clayui/data-provider';
 import {
 	FetchPolicy,
 	NetworkStatus,
 } from '@clayui/data-provider/src/useResource';
-import ClayDropDown from '@clayui/drop-down';
+import DropDown from '@clayui/drop-down';
+import Layout from '@clayui/layout';
 import {FocusScope, useDebounce} from '@clayui/shared';
 import React, {useEffect, useRef, useState} from 'react';
 
@@ -26,11 +28,7 @@ const LoadingWithDebounce = ({
 	const debouncedLoadingChange = useDebounce(loading, 500);
 
 	if (networkStatus === 1 || debouncedLoadingChange) {
-		return (
-			<ClayDropDown.Item className="disabled">
-				Loading...
-			</ClayDropDown.Item>
-		);
+		return <DropDown.Item className="disabled">Loading...</DropDown.Item>;
 	}
 
 	return render;
@@ -56,6 +54,8 @@ export const Default = (args: any) => (
 						id="clay-autocomplete-1"
 						menuTrigger={args.menuTrigger}
 						messages={{
+							listCount: '{0} option available.',
+							listCountPlural: '{0} options available.',
 							loading: 'Loading...',
 							notFound: 'No results found',
 						}}
@@ -89,17 +89,70 @@ export const Dynamic = () => (
 						htmlFor="clay-autocomplete-1"
 						id="clay-autocomplete-label-1"
 					>
-						Numbers (one-five)
+						States
 					</label>
 					<ClayAutocomplete
 						aria-labelledby="clay-autocomplete-label-1"
-						defaultItems={['one', 'two', 'three', 'four', 'five']}
+						defaultItems={[
+							'Alabama',
+							'Alaska',
+							'Arizona',
+							'Arkansas',
+							'California',
+							'Colorado',
+							'Connecticut',
+							'Delaware',
+							'Florida',
+							'Georgia',
+							'Hawaii',
+							'Idaho',
+							'Illinois',
+							'Indiana',
+							'Iowa',
+							'Kansas',
+							'Kentucky',
+							'Louisiana',
+							'Maine',
+							'Maryland',
+							'Massachusetts',
+							'Michigan',
+							'Minnesota',
+							'Mississippi',
+							'Missouri',
+							'Montana',
+							'Nebraska',
+							'Nevada',
+							'New Hampshire',
+							'New Jersey',
+							'New Mexico',
+							'New York',
+							'North Carolina',
+							'North Dakota',
+							'Ohio',
+							'Oklahoma',
+							'Oregon',
+							'Pennsylvania',
+							'Rhode Island',
+							'South Carolina',
+							'South Dakota',
+							'Tennessee',
+							'Texas',
+							'Utah',
+							'Vermont',
+							'Virginia',
+							'Washington',
+							'West Virginia',
+							'Wisconsin',
+							'Wyoming',
+						]}
 						id="clay-autocomplete-1"
 						messages={{
+							listCount: '{0} option available.',
+							listCountPlural: '{0} options available.',
 							loading: 'Loading...',
 							notFound: 'No results found',
 						}}
-						placeholder="Enter a number from One to Five"
+						placeholder="Enter a US state name"
 					>
 						{(item) => (
 							<ClayAutocomplete.Item key={item}>
@@ -112,6 +165,73 @@ export const Dynamic = () => (
 		</div>
 	</div>
 );
+
+export const CustomItem = () => {
+	const [value, setValue] = useState('');
+
+	return (
+		<div className="row">
+			<div className="col-md-5">
+				<div className="sheet">
+					<div className="form-group">
+						<label
+							htmlFor="clay-autocomplete-2"
+							id="clay-autocomplete-label-2"
+						>
+							Numbers (one-five)
+						</label>
+						<ClayAutocomplete
+							aria-labelledby="clay-autocomplete-label-2"
+							defaultItems={[
+								'one',
+								'two',
+								'three',
+								'four',
+								'five',
+							]}
+							id="clay-autocomplete-2"
+							messages={{
+								listCount: '{0} option available.',
+								listCountPlural: '{0} options available.',
+								loading: 'Loading...',
+								notFound: 'No results found',
+							}}
+							onChange={setValue}
+							placeholder="Enter a number from One to Five"
+							value={value}
+						>
+							{(item) => (
+								<ClayAutocomplete.Item
+									key={item}
+									textValue={item}
+								>
+									<Layout.ContentRow>
+										<Layout.ContentCol expand>
+											<Text size={3}>
+												<TextHighlight match={value}>
+													{item}
+												</TextHighlight>
+											</Text>
+										</Layout.ContentCol>
+										<Layout.ContentCol>
+											<Text size={2}>Description</Text>
+										</Layout.ContentCol>
+									</Layout.ContentRow>
+								</ClayAutocomplete.Item>
+							)}
+						</ClayAutocomplete>
+					</div>
+				</div>
+			</div>
+		</div>
+	);
+};
+
+type RickandMorty = {
+	id: number;
+	name: string;
+	[key: string]: any;
+};
 
 export const AsyncFilter = () => {
 	const [value, setValue] = useState('');
@@ -140,75 +260,18 @@ export const AsyncFilter = () => {
 						<ClayAutocomplete
 							aria-labelledby="clay-autocomplete-label-1"
 							id="clay-autocomplete-1"
-							items={resource?.results ?? []}
+							items={
+								(resource?.results as Array<RickandMorty>) ?? []
+							}
 							loadingState={networkStatus}
 							messages={{
+								listCount: '{0} option available.',
+								listCountPlural: '{0} options available.',
 								loading: 'Loading...',
 								notFound: 'No results found',
 							}}
 							onChange={setValue}
 							onItemsChange={() => {}}
-							placeholder="Enter a name"
-							value={value}
-						>
-							{(item) => (
-								<ClayAutocomplete.Item key={item.id}>
-									{item.name}
-								</ClayAutocomplete.Item>
-							)}
-						</ClayAutocomplete>
-					</div>
-				</div>
-			</div>
-		</div>
-	);
-};
-
-export const AsyncFilterPaginated = () => {
-	const [value, setValue] = useState('');
-
-	const [networkStatus, setNetworkStatus] = useState<NetworkStatus>(
-		NetworkStatus.Unused
-	);
-	const {loadMore, resource} = useResource({
-		fetch: async (link: string, options) => {
-			const result = await fetch(link, options);
-			const json = await result.json();
-
-			return {
-				cursor: json.info.next,
-				items: json.results,
-			};
-		},
-		fetchPolicy: FetchPolicy.CacheFirst,
-		link: 'https://rickandmortyapi.com/api/character/',
-		onNetworkStatusChange: setNetworkStatus,
-		variables: {name: value},
-	});
-
-	return (
-		<div className="row">
-			<div className="col-md-5">
-				<div className="sheet">
-					<div className="form-group">
-						<label
-							htmlFor="clay-autocomplete-1"
-							id="clay-autocomplete-label-1"
-						>
-							Name
-						</label>
-						<ClayAutocomplete
-							aria-labelledby="clay-autocomplete-label-1"
-							id="clay-autocomplete-1"
-							items={resource ?? []}
-							loadingState={networkStatus}
-							messages={{
-								loading: 'Loading...',
-								notFound: 'No results found',
-							}}
-							onChange={setValue}
-							onItemsChange={() => {}}
-							onLoadMore={loadMore}
 							placeholder="Enter a name"
 							value={value}
 						>
@@ -259,7 +322,7 @@ export const Keyboard = () => {
 									active={active}
 									onActiveChange={setActive}
 								>
-									<ClayDropDown.ItemList>
+									<DropDown.ItemList>
 										{filteredItems.map((item) => (
 											<ClayAutocomplete.Item
 												key={item}
@@ -268,7 +331,7 @@ export const Keyboard = () => {
 												value={item}
 											/>
 										))}
-									</ClayDropDown.ItemList>
+									</DropDown.ItemList>
 								</ClayAutocomplete.DropDown>
 							</ClayAutocomplete>
 						</FocusScope>
@@ -315,7 +378,7 @@ export const AsyncData = () => {
 									(!!resource && !!value) || initialLoading
 								}
 							>
-								<ClayDropDown.ItemList>
+								<DropDown.ItemList>
 									<LoadingWithDebounce
 										loading={loading}
 										networkStatus={networkStatus}
@@ -324,9 +387,9 @@ export const AsyncData = () => {
 												{(error ||
 													(resource &&
 														resource.error)) && (
-													<ClayDropDown.Item className="disabled">
+													<DropDown.Item className="disabled">
 														No Results Found
-													</ClayDropDown.Item>
+													</DropDown.Item>
 												)}
 												{!error &&
 													resource &&
@@ -350,7 +413,7 @@ export const AsyncData = () => {
 											</>
 										}
 									/>
-								</ClayDropDown.ItemList>
+								</DropDown.ItemList>
 							</ClayAutocomplete.DropDown>
 							{loading && <ClayAutocomplete.LoadingIndicator />}
 						</ClayAutocomplete>

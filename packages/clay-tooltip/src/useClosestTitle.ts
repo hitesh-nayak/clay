@@ -42,6 +42,7 @@ function closestAncestor(node: HTMLElement, s: string) {
 }
 
 type Props = {
+	forceHide: () => void;
 	onHide: () => void;
 	onClick: () => void;
 	tooltipRef: React.MutableRefObject<HTMLElement | null>;
@@ -66,29 +67,37 @@ export function useClosestTitle(props: Props) {
 				titleTag.remove();
 			}
 		}
+
+		const hasParentTitle = element.closest<HTMLElement>('[title]');
+
+		if (hasParentTitle) {
+			saveTitle(hasParentTitle);
+		}
 	}, []);
 
-	const restoreTitle = useCallback(() => {
-		const element = titleNodeRef.current;
+	const restoreTitle = useCallback((element: HTMLElement) => {
+		const title = element.getAttribute('data-restore-title');
 
-		if (element) {
-			const title = element.getAttribute('data-restore-title');
+		if (title) {
+			if (element.tagName === 'svg') {
+				const titleTag = document.createElement('title');
 
-			if (title) {
-				if (element.tagName === 'svg') {
-					const titleTag = document.createElement('title');
+				titleTag.innerHTML = title;
 
-					titleTag.innerHTML = title;
-
-					element.appendChild(titleTag);
-				} else {
-					element.setAttribute('title', title);
-				}
-
-				element.removeAttribute('data-restore-title');
+				element.appendChild(titleTag);
+			} else {
+				element.setAttribute('title', title);
 			}
 
-			titleNodeRef.current = null;
+			element.removeAttribute('data-restore-title');
+		}
+
+		const hasParentTitle = element.closest<HTMLElement>(
+			'[data-restore-title]'
+		);
+
+		if (hasParentTitle) {
+			restoreTitle(hasParentTitle);
 		}
 	}, []);
 
@@ -101,6 +110,7 @@ export function useClosestTitle(props: Props) {
 	const onHide = useCallback((event?: any) => {
 		if (
 			event &&
+			!event.relatedTarget?.getAttribute('title') &&
 			(props.tooltipRef.current?.contains(event.relatedTarget) ||
 				targetRef.current?.contains(event.relatedTarget))
 		) {
@@ -109,7 +119,24 @@ export function useClosestTitle(props: Props) {
 
 		props.onHide();
 
-		restoreTitle();
+		if (titleNodeRef.current) {
+			restoreTitle(titleNodeRef.current);
+			titleNodeRef.current = null;
+		}
+
+		if (targetRef.current) {
+			targetRef.current.removeEventListener('click', onClick);
+			targetRef.current = null;
+		}
+	}, []);
+
+	const forceHide = useCallback(() => {
+		props.forceHide();
+
+		if (titleNodeRef.current) {
+			restoreTitle(titleNodeRef.current);
+			titleNodeRef.current = null;
+		}
 
 		if (targetRef.current) {
 			targetRef.current.removeEventListener('click', onClick);
@@ -141,7 +168,9 @@ export function useClosestTitle(props: Props) {
 				? target
 				: closestAncestor(target, '[title], [data-title]');
 
-			if (node) {
+			const hasNonEmptyTitle = node?.getAttribute('title') !== '';
+
+			if (node && hasNonEmptyTitle) {
 				targetRef.current = target;
 
 				target.addEventListener('click', onClick);
@@ -171,5 +200,11 @@ export function useClosestTitle(props: Props) {
 		[]
 	);
 
-	return {getProps, onHide, target: targetRef, titleNode: titleNodeRef};
+	return {
+		forceHide,
+		getProps,
+		onHide,
+		target: targetRef,
+		titleNode: titleNodeRef,
+	};
 }

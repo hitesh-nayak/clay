@@ -24,12 +24,27 @@ if (!Element.prototype.closest) {
 	document.addEventListener('click', function(event) {
 		var t = event.target;
 
-		var a = t.tagName === 'a' ? t : t.closest('a');
+		var a = t.tagName === 'a' || t.tagName === 'button' ? t : t.closest('a') || t.closest('button');
+		var column = t.closest('.autofit-col-toggle') || false;
 
 		if (a) {
 			if (a.getAttribute('href') === '#1') {
 				event.preventDefault();
 			}
+
+			var dataToggle = a.getAttribute('data-toggle');
+
+			if (dataToggle && dataToggle.startsWith('c-prefers')) {
+				document.querySelector('body').classList.toggle(a.getAttribute('data-toggle'));
+			}
+		}
+
+		if (column && button) {
+			var button = column.querySelector('.component-action');
+
+			button.classList.toggle('show');
+
+			document.querySelector(button.dataset.target).classList.toggle('show');
 		}
 	});
 })();

@@ -10,7 +10,7 @@ exports[`BasicRendering renders by default 1`] = `
         class="input-group"
       >
         <div
-          class="input-group-item"
+          class="input-group-item input-group-item-focusable"
         >
           <input
             name="datePicker"
@@ -40,7 +40,7 @@ exports[`BasicRendering renders by default 1`] = `
                 role="presentation"
               >
                 <use
-                  xlink:href="icons.svg#calendar"
+                  href="icons.svg#calendar"
                 />
               </svg>
             </button>
@@ -51,7 +51,6 @@ exports[`BasicRendering renders by default 1`] = `
   </div>
   <div>
     <span
-      aria-hidden="true"
       data-focus-scope-start="true"
       tabindex="0"
     />
@@ -60,7 +59,7 @@ exports[`BasicRendering renders by default 1`] = `
         aria-hidden="true"
         aria-label="Choose date"
         aria-modal="true"
-        class="dropdown-menu date-picker-dropdown-menu"
+        class="dropdown-menu date-picker date-picker-dropdown-menu"
         data-testid="dropdown"
         id="clay-id-1"
         role="dialog"
@@ -150,9 +149,8 @@ exports[`BasicRendering renders by default 1`] = `
                 class="date-picker-nav-item input-date-picker-year"
               >
                 <select
-                  class="form-control form-control-sm"
+                  class="form-control form-control-select form-control-select-secondary form-control-sm"
                   data-testid="year-select"
-                  name="year"
                 >
                   <option
                     value="2019"
@@ -175,7 +173,7 @@ exports[`BasicRendering renders by default 1`] = `
                     role="presentation"
                   >
                     <use
-                      xlink:href="icons.svg#angle-left"
+                      href="icons.svg#angle-left"
                     />
                   </svg>
                 </button>
@@ -190,7 +188,7 @@ exports[`BasicRendering renders by default 1`] = `
                     role="presentation"
                   >
                     <use
-                      xlink:href="icons.svg#simple-circle"
+                      href="icons.svg#simple-circle"
                     />
                   </svg>
                 </button>
@@ -205,7 +203,7 @@ exports[`BasicRendering renders by default 1`] = `
                     role="presentation"
                   >
                     <use
-                      xlink:href="icons.svg#angle-right"
+                      href="icons.svg#angle-right"
                     />
                   </svg>
                 </button>
@@ -824,7 +822,6 @@ exports[`BasicRendering renders by default 1`] = `
       </div>
     </div>
     <span
-      aria-hidden="true"
       data-focus-scope-end="true"
       tabindex="0"
     />
@@ -846,7 +843,7 @@ exports[`BasicRendering renders date picker with dropdown open 1`] = `
         style=""
       >
         <div
-          class="input-group-item"
+          class="input-group-item input-group-item-focusable"
         >
           <input
             name="datePicker"
@@ -863,7 +860,7 @@ exports[`BasicRendering renders date picker with dropdown open 1`] = `
             class="input-group-inset-item input-group-inset-item-after"
           >
             <button
-              aria-controls="clay-id-3"
+              aria-controls="clay-id-7"
               aria-expanded="true"
               aria-haspopup="dialog"
               aria-label="Choose date"
@@ -876,7 +873,7 @@ exports[`BasicRendering renders date picker with dropdown open 1`] = `
                 role="presentation"
               >
                 <use
-                  xlink:href="icons.svg#calendar"
+                  href="icons.svg#calendar"
                 />
               </svg>
             </button>
@@ -896,9 +893,9 @@ exports[`BasicRendering renders date picker with dropdown open 1`] = `
       <div
         aria-label="Choose date"
         aria-modal="true"
-        class="dropdown-menu date-picker-dropdown-menu show"
+        class="dropdown-menu date-picker date-picker-dropdown-menu show"
         data-testid="dropdown"
-        id="clay-id-3"
+        id="clay-id-7"
         role="dialog"
         style="left: -999px; top: -995px;"
       >
@@ -987,9 +984,8 @@ exports[`BasicRendering renders date picker with dropdown open 1`] = `
                 class="date-picker-nav-item input-date-picker-year"
               >
                 <select
-                  class="form-control form-control-sm"
+                  class="form-control form-control-select form-control-select-secondary form-control-sm"
                   data-testid="year-select"
-                  name="year"
                 >
                   <option
                     value="2019"
@@ -1012,7 +1008,7 @@ exports[`BasicRendering renders date picker with dropdown open 1`] = `
                     role="presentation"
                   >
                     <use
-                      xlink:href="icons.svg#angle-left"
+                      href="icons.svg#angle-left"
                     />
                   </svg>
                 </button>
@@ -1027,7 +1023,7 @@ exports[`BasicRendering renders date picker with dropdown open 1`] = `
                     role="presentation"
                   >
                     <use
-                      xlink:href="icons.svg#simple-circle"
+                      href="icons.svg#simple-circle"
                     />
                   </svg>
                 </button>
@@ -1042,7 +1038,7 @@ exports[`BasicRendering renders date picker with dropdown open 1`] = `
                     role="presentation"
                   >
                     <use
-                      xlink:href="icons.svg#angle-right"
+                      href="icons.svg#angle-right"
                     />
                   </svg>
                 </button>
@@ -1680,7 +1676,7 @@ exports[`BasicRendering renders date picker with native picker 1`] = `
         class="input-group"
       >
         <div
-          class="input-group-item"
+          class="input-group-item input-group-item-focusable"
         >
           <input
             name="datePicker"
@@ -1714,7 +1710,7 @@ exports[`BasicRendering renders date picker with time 1`] = `
         style=""
       >
         <div
-          class="input-group-item"
+          class="input-group-item input-group-item-focusable"
         >
           <input
             name="datePicker"
@@ -1731,7 +1727,7 @@ exports[`BasicRendering renders date picker with time 1`] = `
             class="input-group-inset-item input-group-inset-item-after"
           >
             <button
-              aria-controls="clay-id-4"
+              aria-controls="clay-id-10"
               aria-expanded="true"
               aria-haspopup="dialog"
               aria-label="Choose date"
@@ -1744,7 +1740,7 @@ exports[`BasicRendering renders date picker with time 1`] = `
                 role="presentation"
               >
                 <use
-                  xlink:href="icons.svg#calendar"
+                  href="icons.svg#calendar"
                 />
               </svg>
             </button>
@@ -1764,9 +1760,9 @@ exports[`BasicRendering renders date picker with time 1`] = `
       <div
         aria-label="Choose date"
         aria-modal="true"
-        class="dropdown-menu date-picker-dropdown-menu show"
+        class="dropdown-menu date-picker date-picker-dropdown-menu show"
         data-testid="dropdown"
-        id="clay-id-4"
+        id="clay-id-10"
         role="dialog"
         style="left: -999px; top: -995px;"
       >
@@ -1855,9 +1851,8 @@ exports[`BasicRendering renders date picker with time 1`] = `
                 class="date-picker-nav-item input-date-picker-year"
               >
                 <select
-                  class="form-control form-control-sm"
+                  class="form-control form-control-select form-control-select-secondary form-control-sm"
                   data-testid="year-select"
-                  name="year"
                 >
                   <option
                     value="2019"
@@ -1880,7 +1875,7 @@ exports[`BasicRendering renders date picker with time 1`] = `
                     role="presentation"
                   >
                     <use
-                      xlink:href="icons.svg#angle-left"
+                      href="icons.svg#angle-left"
                     />
                   </svg>
                 </button>
@@ -1895,7 +1890,7 @@ exports[`BasicRendering renders date picker with time 1`] = `
                     role="presentation"
                   >
                     <use
-                      xlink:href="icons.svg#simple-circle"
+                      href="icons.svg#simple-circle"
                     />
                   </svg>
                 </button>
@@ -1910,7 +1905,7 @@ exports[`BasicRendering renders date picker with time 1`] = `
                     role="presentation"
                   >
                     <use
-                      xlink:href="icons.svg#angle-right"
+                      href="icons.svg#angle-right"
                     />
                   </svg>
                 </button>
@@ -2548,13 +2543,13 @@ exports[`BasicRendering renders date picker with time 1`] = `
                         role="presentation"
                       >
                         <use
-                          xlink:href="icons.svg#time"
+                          href="icons.svg#time"
                         />
                       </svg>
                     </div>
                   </div>
                   <div
-                    class="input-group-item input-group-item-shrink"
+                    class="input-group-item"
                   >
                     <div
                       class="form-control"
@@ -2605,7 +2600,7 @@ exports[`BasicRendering renders date picker with time 1`] = `
                               role="presentation"
                             >
                               <use
-                                xlink:href="icons.svg#times-circle"
+                                href="icons.svg#times-circle"
                               />
                             </svg>
                           </button>
@@ -2630,7 +2625,7 @@ exports[`BasicRendering renders date picker with time 1`] = `
                                 role="presentation"
                               >
                                 <use
-                                  xlink:href="icons.svg#angle-up"
+                                  href="icons.svg#angle-up"
                                 />
                               </svg>
                             </button>
@@ -2645,7 +2640,7 @@ exports[`BasicRendering renders date picker with time 1`] = `
                                 role="presentation"
                               >
                                 <use
-                                  xlink:href="icons.svg#angle-down"
+                                  href="icons.svg#angle-down"
                                 />
                               </svg>
                             </button>
@@ -2694,7 +2689,7 @@ exports[`BasicRendering renders the date picker with years range 1`] = `
         style=""
       >
         <div
-          class="input-group-item"
+          class="input-group-item input-group-item-focusable"
         >
           <input
             name="datePicker"
@@ -2711,7 +2706,7 @@ exports[`BasicRendering renders the date picker with years range 1`] = `
             class="input-group-inset-item input-group-inset-item-after"
           >
             <button
-              aria-controls="clay-id-6"
+              aria-controls="clay-id-14"
               aria-expanded="true"
               aria-haspopup="dialog"
               aria-label="Choose date"
@@ -2724,7 +2719,7 @@ exports[`BasicRendering renders the date picker with years range 1`] = `
                 role="presentation"
               >
                 <use
-                  xlink:href="icons.svg#calendar"
+                  href="icons.svg#calendar"
                 />
               </svg>
             </button>
@@ -2744,9 +2739,9 @@ exports[`BasicRendering renders the date picker with years range 1`] = `
       <div
         aria-label="Choose date"
         aria-modal="true"
-        class="dropdown-menu date-picker-dropdown-menu show"
+        class="dropdown-menu date-picker date-picker-dropdown-menu show"
         data-testid="dropdown"
-        id="clay-id-6"
+        id="clay-id-14"
         role="dialog"
         style="left: -999px; top: -995px;"
       >
@@ -2835,9 +2830,8 @@ exports[`BasicRendering renders the date picker with years range 1`] = `
                 class="date-picker-nav-item input-date-picker-year"
               >
                 <select
-                  class="form-control form-control-sm"
+                  class="form-control form-control-select form-control-select-secondary form-control-sm"
                   data-testid="year-select"
-                  name="year"
                 >
                   <option
                     value="1997"
@@ -2995,7 +2989,7 @@ exports[`BasicRendering renders the date picker with years range 1`] = `
                     role="presentation"
                   >
                     <use
-                      xlink:href="icons.svg#angle-left"
+                      href="icons.svg#angle-left"
                     />
                   </svg>
                 </button>
@@ -3010,7 +3004,7 @@ exports[`BasicRendering renders the date picker with years range 1`] = `
                     role="presentation"
                   >
                     <use
-                      xlink:href="icons.svg#simple-circle"
+                      href="icons.svg#simple-circle"
                     />
                   </svg>
                 </button>
@@ -3025,7 +3019,7 @@ exports[`BasicRendering renders the date picker with years range 1`] = `
                     role="presentation"
                   >
                     <use
-                      xlink:href="icons.svg#angle-right"
+                      href="icons.svg#angle-right"
                     />
                   </svg>
                 </button>

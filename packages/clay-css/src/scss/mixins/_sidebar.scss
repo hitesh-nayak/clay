@@ -239,8 +239,9 @@
 
 					@include clay-css($sidenav-start);
 
-					&:focus,
-					&.focus {
+					&.focus,
+					#{$focus-visible-selector},
+					#{if($c-prefers-focus-selector,$c-prefers-focus-selector,clay-insert-before('.cadmin', '.c-prefers-focus ', '&:focus'))} {
 						@include clay-css(map-get($sidenav-start, focus));
 					}
 				}
@@ -251,16 +252,20 @@
 
 					@include clay-css($sidenav-end);
 
-					&:focus,
-					&.focus {
+					&.focus,
+					#{$focus-visible-selector},
+					#{if($c-prefers-focus-selector,$c-prefers-focus-selector,clay-insert-before('.cadmin', '.c-prefers-focus ', '&:focus'))} {
 						@include clay-css(map-get($sidenav-end, focus));
 					}
 				}
 			}
 
-			&:focus,
-			&.focus {
-				@include clay-css(map-get($map, focus));
+			@at-root {
+				&.focus,
+				#{$focus-visible-selector},
+				#{if($c-prefers-focus-selector,$c-prefers-focus-selector,clay-insert-before('.cadmin', '.c-prefers-focus ', '&:focus'))} {
+					@include clay-css(map-get($map, focus));
+				}
 			}
 
 			.component-link {
@@ -353,6 +358,31 @@
 				@include clay-navbar-variant(
 					map-get($map, component-navigation-bar)
 				);
+			}
+
+			.panel-group {
+				@include clay-map-to-css(map-get($map, panel-group));
+			}
+
+			.btn {
+				@include clay-map-to-css(map-get($map, btn));
+			}
+
+			.form-control {
+				@include clay-map-to-css(map-get($map, form-control));
+			}
+
+			select.form-control,
+			.form-control-select {
+				@include clay-map-to-css(map-get($map, form-control-select));
+			}
+
+			.form-control-tag-group {
+				@include clay-map-to-css(map-get($map, form-control-tag-group));
+			}
+
+			.input-group {
+				@include clay-map-to-css(map-get($map, input-group));
 			}
 		}
 	}

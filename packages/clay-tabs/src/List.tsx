@@ -5,7 +5,7 @@
 
 import {InternalDispatch, useNavigation} from '@clayui/shared';
 import classNames from 'classnames';
-import React, {useRef} from 'react';
+import React, {useEffect, useImperativeHandle, useRef} from 'react';
 
 export interface IProps extends React.HTMLAttributes<HTMLUListElement> {
 	/**
@@ -31,7 +31,7 @@ export interface IProps extends React.HTMLAttributes<HTMLUListElement> {
 	/**
 	 * @ignore
 	 */
-	displayType?: null | 'basic' | 'underline';
+	displayType?: null | 'basic' | 'light' | 'underline';
 
 	/**
 	 * @ignore
@@ -51,21 +51,30 @@ export interface IProps extends React.HTMLAttributes<HTMLUListElement> {
 	/**
 	 * @ignore
 	 */
+	shouldUseActive?: boolean;
+
+	/**
+	 * @ignore
+	 */
 	tabsId?: string;
 }
 
-export function List({
-	activation,
-	active,
-	children,
-	className,
-	displayType,
-	justified,
-	modern,
-	onActiveChange,
-	tabsId,
-	...otherProps
-}: IProps) {
+export const List = React.forwardRef<HTMLUListElement, IProps>(function List(
+	{
+		activation,
+		active,
+		children,
+		className,
+		displayType = null,
+		justified,
+		modern: __,
+		onActiveChange,
+		shouldUseActive = false,
+		tabsId,
+		...otherProps
+	},
+	ref
+) {
 	const tabsRef = useRef<HTMLUListElement>(null);
 
 	const {navigationProps} = useNavigation({
@@ -74,23 +83,38 @@ export function List({
 		orientation: 'horizontal',
 	});
 
+	useImperativeHandle(ref, () => tabsRef.current!, [tabsRef]);
+
+	useEffect(() => {
+		// Internal API to maintain compatibility with the old Tabs pattern and to
+		// only update the initial state when the component is in
+		// uncontrolled mode.
+		if (!shouldUseActive) {
+			return;
+		}
+
+		const childrenArray = React.Children.toArray(children);
+
+		// The `active` API in the new pattern has uncontrolled behavior, working
+		// just like defaultActive as in the prop declared in the root component.
+		for (let index = 0; index < childrenArray.length; index++) {
+			const child = childrenArray[index];
+
+			if (React.isValidElement(child) && child.props.active) {
+				onActiveChange!(index);
+				break;
+			}
+		}
+	}, []);
+
 	return (
 		<ul
 			{...otherProps}
 			{...navigationProps}
 			className={classNames(
-				'nav',
+				'nav nav-tabs',
 				{'nav-justified': justified},
-				!displayType
-					? {
-							'nav-tabs': !modern,
-							'nav-underline': modern,
-					  }
-					: {
-							'nav-tabs': displayType === 'basic',
-							'nav-underline': displayType === 'underline',
-					  },
-
+				{[`nav-tabs-${displayType}`]: displayType === 'light'},
 				className
 			)}
 			ref={tabsRef}
@@ -103,6 +127,7 @@ export function List({
 
 				return React.cloneElement(child as React.ReactElement, {
 					active:
+						!shouldUseActive &&
 						(child as React.ReactElement).props.active !== undefined
 							? (child as React.ReactElement).props.active
 							: active === index,
@@ -127,6 +152,6 @@ export function List({
 			})}
 		</ul>
 	);
-}
+});
 
 List.displayName = 'ClayTabsList';

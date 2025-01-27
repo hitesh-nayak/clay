@@ -118,7 +118,11 @@
 	flex-direction: column;
 	flex-wrap: nowrap;
 
-	@include clay-nav-nested($nav-nested-spacer-x);
+	@include clay-nav-nested(
+		$nav-nested-spacer-x,
+		$nav-nested-nest-level,
+		$nav-nested-nav-class
+	);
 }
 
 .nav-nested-margins {
@@ -135,20 +139,8 @@
 .nav-tabs {
 	@include clay-nav-variant($nav-tabs);
 
-	.dropdown-menu {
-		@include border-top-radius(0);
-
-		margin-top: math-sign($nav-tabs-border-width);
-	}
-
 	+ .tab-content {
 		.tab-pane {
-			background-color: $nav-tabs-tab-pane-bg;
-
-			@include border-radius($nav-tabs-tab-pane-border-radius);
-
-			padding: $nav-tabs-tab-pane-padding;
-
 			&.active:first-child {
 				border-top-left-radius: 0;
 			}
@@ -198,21 +190,18 @@
 	}
 }
 
-// Nav Underline
+// Nav Variants
 
-@each $value in $nav-underline-link-highlight-palette {
-	$index: index($nav-underline-link-highlight-palette, $value);
+@each $key, $value in $nav-palette {
+	@if not clay-is-map-unset($value) {
+		$selector: if(
+			starts-with($key, '.') or starts-with($key, '#'),
+			$key,
+			str-insert($key, '.', 1)
+		);
 
-	.nav-underline .nav-item:nth-of-type(#{$index}n + 0) {
-		.nav-link::after {
-			background-color: nth(
-				$nav-underline-link-highlight-palette,
-				$index
-			);
+		#{$selector} {
+			@include clay-nav-variant($value);
 		}
 	}
-}
-
-.nav-underline {
-	@include clay-nav-variant($nav-underline);
 }

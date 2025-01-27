@@ -5,6 +5,7 @@
 
 import Icon from '@clayui/icon';
 import {cleanup, render} from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import React from 'react';
 
 import {Option, Picker} from '../../';
@@ -114,8 +115,8 @@ describe('Picker basic rendering', () => {
 
 		const [apple] = getAllByRole('option');
 
-		expect(apple.getAttribute('aria-selected')).toBe('true');
-		expect(apple.textContent).toBe('Apple');
+		expect(apple!.getAttribute('aria-selected')).toBe('true');
+		expect(apple!.textContent).toBe('Apple');
 	});
 
 	it('renders the component as disabled', () => {
@@ -174,8 +175,8 @@ describe('Picker basic rendering', () => {
 		expect(selectedValue.getAttribute('aria-labelledby')).toBe(
 			'picker-label'
 		);
-		expect(label.getAttribute('id')).toBe('picker-label');
-		expect(label.getAttribute('for')).toBe('picker');
+		expect(label!.getAttribute('id')).toBe('picker-label');
+		expect(label!.getAttribute('for')).toBe('picker');
 	});
 
 	it('render component with custom trigger', () => {
@@ -207,5 +208,65 @@ describe('Picker basic rendering', () => {
 		expect(selectedValue.getAttribute('role')).toBe('combobox');
 		expect(selectedValue.getAttribute('aria-expanded')).toBe('false');
 		expect(selectedValue.getAttribute('tabindex')).toBe('0');
+	});
+
+	it('render option with a custom attribute prefixed by "data-"', () => {
+		const {getByRole} = render(
+			<Picker>
+				<Option data-attribute="data-attribute-value" />
+			</Picker>
+		);
+
+		const combobox = getByRole('combobox');
+
+		userEvent.click(combobox);
+
+		const option = getByRole('option');
+
+		expect(option.getAttribute('data-attribute')).toBe(
+			'data-attribute-value'
+		);
+	});
+
+	it('render option a link when item has href', () => {
+		const items = [
+			{
+				href: '#1',
+				label: 1,
+			},
+			{
+				label: 2,
+			},
+			{
+				href: '#3',
+				label: 3,
+			},
+			{
+				label: 4,
+			},
+		];
+
+		const {getByRole, getByText} = render(
+			<Picker items={items}>
+				{(item) => (
+					<Option href={item?.href} key={item.label}>
+						{item.label}
+					</Option>
+				)}
+			</Picker>
+		);
+
+		const combobox = getByRole('combobox');
+
+		userEvent.click(combobox);
+
+		const link1 = getByText('1').closest('a');
+		const link3 = getByText('3').closest('a');
+
+		expect(link1).toHaveAttribute('href', '#1');
+		expect(link3).toHaveAttribute('href', '#3');
+
+		expect(getByText('2').closest('a')).toBeNull();
+		expect(getByText('4').closest('a')).toBeNull();
 	});
 });

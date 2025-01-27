@@ -578,25 +578,11 @@ $cadmin-alert-indicator-start: map-deep-merge(
 			),
 		),
 		alert-feedback: (
-			padding-left:
-				calc(
-					#{$cadmin-alert-indicator-font-size} + #{map-deep-get(
-							$cadmin-alert-autofit-row,
-							autofit-col,
-							padding-left
-						)}
-				),
+			padding-left: calc(#{$cadmin-alert-indicator-font-size} + 8px),
 		),
 		alert-indicator: (
 			line-height: 1,
-			margin-left:
-				calc(
-					-1em - #{map-deep-get(
-							$cadmin-alert-autofit-row,
-							autofit-col,
-							padding-left
-						)}
-				),
+			margin-left: calc(-1em - 8px),
 			margin-top: 2px,
 			position: absolute,
 			lead: (
@@ -669,8 +655,8 @@ $cadmin-alert-primary: map-deep-merge(
 
 // .alert-secondary
 
-$cadmin-alert-secondary-bg: $cadmin-secondary-l3 !default;
-$cadmin-alert-secondary-border-color: $cadmin-secondary-l1 !default;
+$cadmin-alert-secondary-bg: $cadmin-light-l1 !default;
+$cadmin-alert-secondary-border-color: $cadmin-light-d2 !default;
 $cadmin-alert-secondary-color: $cadmin-secondary !default;
 $cadmin-alert-secondary-close-color: $cadmin-alert-secondary-color !default;
 $cadmin-alert-secondary-close-hover-color: $cadmin-alert-secondary-color !default;

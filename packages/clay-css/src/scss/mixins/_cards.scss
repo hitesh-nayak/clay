@@ -708,28 +708,31 @@
 				}
 			}
 
-			&:focus,
-			&.focus {
-				@include clay-css($focus);
+			@at-root {
+				&.focus,
+				#{$focus-visible-selector},
+				#{if($c-prefers-focus-selector,$c-prefers-focus-selector,clay-insert-before('.cadmin', '.c-prefers-focus ', '&:focus'))} {
+					@include clay-css($focus);
 
-				&::after {
-					@include clay-css(map-get($focus, after));
-				}
+					&::after {
+						@include clay-css(map-get($focus, after));
+					}
 
-				.card-title {
-					@include clay-link($focus-card-title);
-				}
+					.card-title {
+						@include clay-link($focus-card-title);
+					}
 
-				.card-subtitle {
-					@include clay-link($focus-card-subtitle);
-				}
+					.card-subtitle {
+						@include clay-link($focus-card-subtitle);
+					}
 
-				.card-text {
-					@include clay-link($focus-card-text);
-				}
+					.card-text {
+						@include clay-link($focus-card-text);
+					}
 
-				.card-link {
-					@include clay-link($focus-card-link);
+					.card-link {
+						@include clay-link($focus-card-link);
+					}
 				}
 			}
 

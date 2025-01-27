@@ -3,15 +3,19 @@ title: 'Vertical Navigation'
 description: 'An alternative patterns that displays navigation items in a vertical menu.'
 lexiconDefinition: 'https://liferay.design/lexicon/core-components/navigation/vertical-nav/'
 packageNpm: '@clayui/nav'
-storybookPath: 'design-system-components-nav--vertical-nav'
+storybookPath: 'design-system-components-verticalnav--default'
 ---
 
-import {VerticalNavigation} from '$packages/clay-nav/docs/index';
+import {
+	VerticalNavigation,
+	VerticalNavigationCustomItem,
+} from '$packages/clay-nav/docs/index';
 
 <div class="nav-toc-absolute">
 <div class="nav-toc">
 
 -   [Example](#example)
+-   [Custom Links](#custom-links)
 -   [Custom Trigger](#custom-trigger)
 
 </div>
@@ -21,12 +25,19 @@ import {VerticalNavigation} from '$packages/clay-nav/docs/index';
 
 <VerticalNavigation />
 
+## Custom Links
+
+The markup between the `<ClayVerticalNav.Item>` tag will render inside the `nav-link`. In the example below, we are outputting the lock icon next to the label only for non collapsible items.
+
+<VerticalNavigationCustomItem />
+
 ## Custom Trigger
 
 In its mobile version, Vertical Navigation adds a trigger that is responsible for opening the menu, in some cases you may want to customize this trigger, for this use the `<ClayVerticalNav.Trigger />` component.
 
 ```js
 <ClayVerticalNav
+	aria-label="vertical navbar"
 	trigger={(props) => (
 		<ClayVerticalNav.Trigger {...props}>
 			<ClayIcon
@@ -44,6 +55,7 @@ Your custom trigger receives the `children` property with the default content, f
 
 ```js
 <ClayVerticalNav
+	aria-label="vertical navbar"
 	trigger={({onClick}) => (
 		<button className="btn btn-secondary" onClick={onClick}>
 			<ClayIcon

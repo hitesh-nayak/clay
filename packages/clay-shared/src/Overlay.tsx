@@ -14,16 +14,20 @@ import type {Undo} from 'aria-hidden';
 
 type Props = {
 	children: React.ReactElement;
+	inert?: boolean;
 	isCloseOnInteractOutside?: boolean;
 	isKeyboardDismiss?: boolean;
 	isModal?: boolean;
 	isOpen: boolean;
+	menuClassName?: string;
 	menuRef: React.RefObject<HTMLElement>;
 	onClose: (action: 'escape' | 'blur') => void;
 	portalRef?: React.RefObject<HTMLElement>;
 	suppress?: Array<React.RefObject<HTMLElement>>;
 	triggerRef: React.RefObject<HTMLElement>;
 };
+
+const overlayStack: Array<React.RefObject<Element>> = [];
 
 /**
  * Overlay component is used for components like dialog and modal.
@@ -32,10 +36,12 @@ type Props = {
  */
 export function Overlay({
 	children,
+	inert,
 	isCloseOnInteractOutside = false,
 	isKeyboardDismiss = false,
 	isModal = false,
 	isOpen = false,
+	menuClassName,
 	menuRef,
 	onClose,
 	portalRef,
@@ -43,6 +49,15 @@ export function Overlay({
 	triggerRef,
 }: Props) {
 	const unsuppressCallbackRef = useRef<Undo | null>(null);
+
+	const onHide = useCallback(
+		(action: 'escape' | 'blur') => {
+			if (overlayStack[overlayStack.length - 1] === menuRef) {
+				onClose(action);
+			}
+		},
+		[onClose]
+	);
 
 	useEvent(
 		'focus',
@@ -54,21 +69,24 @@ export function Overlay({
 					triggerRef.current &&
 					!triggerRef.current.contains(event.target as Node)
 				) {
-					onClose('blur');
+					onHide('blur');
 				}
 			},
-			[onClose]
+			[onHide]
 		),
 		isOpen,
 		true,
-		[isOpen, onClose]
+		[isOpen, onHide]
 	);
 
 	useEvent(
 		'keydown',
 		useCallback(
 			(event: KeyboardEvent) => {
-				if (event.key === Keys.Esc) {
+				if (
+					event.key === Keys.Esc &&
+					overlayStack[overlayStack.length - 1] === menuRef
+				) {
 					event.stopImmediatePropagation();
 					event.preventDefault();
 
@@ -97,11 +115,36 @@ export function Overlay({
 	useInteractOutside({
 		isDisabled: isOpen ? !isCloseOnInteractOutside : true,
 		onInteract: () => {
-			onClose('blur');
+			onHide('blur');
+		},
+		onInteractStart: (event) => {
+			if (unsuppressCallbackRef.current) {
+				unsuppressCallbackRef.current();
+				unsuppressCallbackRef.current = null;
+			}
+
+			if (overlayStack[overlayStack.length - 1] === menuRef && isModal) {
+				event.stopPropagation();
+				event.preventDefault();
+			}
 		},
 		ref: portalRef ?? menuRef,
 		triggerRef,
 	});
+
+	useEffect(() => {
+		if (isOpen) {
+			overlayStack.push(menuRef);
+		}
+
+		return () => {
+			const index = overlayStack.indexOf(menuRef);
+
+			if (index >= 0) {
+				overlayStack.splice(index, 1);
+			}
+		};
+	}, [isOpen, menuRef]);
 
 	useEffect(() => {
 		if (menuRef.current && isOpen) {
@@ -112,38 +155,26 @@ export function Overlay({
 			// Inert is a new native feature to better handle DOM arias that are not
 			// assertive to a SR or that should ignore any user interaction.
 			// https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/inert
-			if (isModal && supportsInert()) {
+			if ((isModal || inert) && supportsInert()) {
 				unsuppressCallbackRef.current = suppressOthers(elements);
-
-				return () => {
-					if (unsuppressCallbackRef.current) {
-						unsuppressCallbackRef.current();
-					}
-					unsuppressCallbackRef.current = null;
-				};
 			} else {
-				return hideOthers(elements);
+				unsuppressCallbackRef.current = hideOthers(elements);
 			}
+
+			return () => {
+				if (unsuppressCallbackRef.current) {
+					unsuppressCallbackRef.current();
+				}
+				unsuppressCallbackRef.current = null;
+			};
 		}
-	}, [isModal, isOpen]);
+	}, [isModal, inert, isOpen]);
 
 	return (
-		<ClayPortal subPortalRef={portalRef}>
-			{isModal && (
-				<span
-					aria-hidden="true"
-					data-focus-scope-start="true"
-					tabIndex={0}
-				/>
-			)}
+		<ClayPortal className={menuClassName} subPortalRef={portalRef}>
+			{isModal && <span data-focus-scope-start="true" tabIndex={0} />}
 			{children}
-			{isModal && (
-				<span
-					aria-hidden="true"
-					data-focus-scope-end="true"
-					tabIndex={0}
-				/>
-			)}
+			{isModal && <span data-focus-scope-end="true" tabIndex={0} />}
 		</ClayPortal>
 	);
 }

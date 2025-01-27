@@ -122,6 +122,14 @@
 			.close {
 				@include clay-close(map-get($map, close));
 			}
+
+			@at-root {
+				&.focus,
+				#{$focus-visible-selector},
+				#{if($c-prefers-focus-selector,$c-prefers-focus-selector,clay-insert-before('.cadmin', '.c-prefers-focus ', '&:focus'))} {
+					@include clay-popover-variant(map-get($map, focus));
+				}
+			}
 		}
 	}
 }

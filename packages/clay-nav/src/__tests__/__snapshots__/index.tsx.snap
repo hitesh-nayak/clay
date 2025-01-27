@@ -1,18 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ClayNav renders 1`] = `
-<div>
-  <ul
-    class="nav"
-  >
-    <div />
-  </ul>
-</div>
-`;
-
 exports[`ClayVerticalNav renders 1`] = `
 <div>
   <nav
+    aria-label="vertical navbar"
     class="menubar menubar-transparent menubar-vertical-expand-md"
   >
     <button
@@ -30,7 +21,7 @@ exports[`ClayVerticalNav renders 1`] = `
         role="presentation"
       >
         <use
-          xlink:href="/path/to#caret-bottom"
+          href="/path/to#caret-bottom"
         />
       </svg>
     </button>
@@ -47,11 +38,10 @@ exports[`ClayVerticalNav renders 1`] = `
           role="none"
         >
           <button
+            aria-controls="clay-id-2"
             aria-expanded="true"
-            aria-haspopup="true"
             class="nav-link collapse-icon btn btn-unstyled"
-            role="button"
-            tabindex="-1"
+            role="menuitem"
             type="button"
           >
             Home
@@ -59,12 +49,12 @@ exports[`ClayVerticalNav renders 1`] = `
               class="collapse-icon-closed"
             >
               <svg
-                class="lexicon-icon lexicon-icon-caret-right"
+                class="lexicon-icon lexicon-icon-angle-right-small"
                 focusable="false"
                 role="presentation"
               >
                 <use
-                  xlink:href="/path/to#caret-right"
+                  href="/path/to#angle-right-small"
                 />
               </svg>
             </span>
@@ -72,36 +62,35 @@ exports[`ClayVerticalNav renders 1`] = `
               class="collapse-icon-open"
             >
               <svg
-                class="lexicon-icon lexicon-icon-caret-bottom"
+                class="lexicon-icon lexicon-icon-angle-down-small"
                 focusable="false"
                 role="presentation"
               >
                 <use
-                  xlink:href="/path/to#caret-bottom"
+                  href="/path/to#angle-down-small"
                 />
               </svg>
             </span>
           </button>
-          <div>
-            <ul
-              class="nav nav-stacked"
-              role="menu"
+          <ul
+            class="nav nav-stacked"
+            id="clay-id-2"
+            role="menu"
+          >
+            <li
+              class="nav-item"
+              role="none"
             >
-              <li
-                class="nav-item"
-                role="none"
+              <a
+                class="nav-link collapsed"
+                href="#nested1"
+                role="menuitem"
+                tabindex="-1"
               >
-                <a
-                  class="nav-link collapsed"
-                  href="#nested1"
-                  role="menuitem"
-                  tabindex="-1"
-                >
-                  Nested1
-                </a>
-              </li>
-            </ul>
-          </div>
+                Nested1
+              </a>
+            </li>
+          </ul>
         </li>
       </ul>
     </div>

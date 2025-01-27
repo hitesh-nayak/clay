@@ -3,6 +3,144 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.123.1](https://github.com/liferay/clay/compare/v3.123.0...v3.123.1) (2024-11-27)
+
+### Bug Fixes
+
+-   **@clayui/core:** Adapt snapshots ([c218410](https://github.com/liferay/clay/commit/c218410398160abb942b68c2a73d42fe058cfe74))
+-   **@clayui/core:** Remove navbar-text-truncate class ([3ca40d6](https://github.com/liferay/clay/commit/3ca40d6b7b26de39ed1c8089f21047c2f749d160))
+
+# [3.119.0](https://github.com/liferay/clay/compare/v3.118.0...v3.119.0) (2024-08-30)
+
+### Features
+
+-   **@clayui/navigation-bar:** Add sr-only description for mobile view ([fd7f4c7](https://github.com/liferay/clay/commit/fd7f4c7ed9f0279f680d2dfa19478fb9f4d66e36))
+
+# [3.116.0](https://github.com/liferay/clay/compare/v3.115.2...v3.116.0) (2024-06-10)
+
+**Note:** Version bump only for package @clayui/navigation-bar
+
+# [3.115.0](https://github.com/liferay/clay/compare/v3.114.0...v3.115.0) (2024-05-16)
+
+**Note:** Version bump only for package @clayui/navigation-bar
+
+# [3.114.0](https://github.com/liferay/clay/compare/v3.113.0...v3.114.0) (2024-04-22)
+
+### Bug Fixes
+
+-   **@clayui/navigation-bar:** fixes navbar size bug when resizing ([42bd090](https://github.com/liferay/clay/commit/42bd090b354173234b270ce49bfba7b58431f9c5))
+
+# [3.113.0](https://github.com/liferay/clay/compare/v3.112.0...v3.113.0) (2024-03-28)
+
+**Note:** Version bump only for package @clayui/navigation-bar
+
+# [3.111.0](https://github.com/liferay/clay/compare/v3.110.0...v3.111.0) (2024-02-15)
+
+**Note:** Version bump only for package @clayui/navigation-bar
+
+# [3.109.0](https://github.com/liferay/clay/compare/v3.108.0...v3.109.0) (2024-01-22)
+
+**Note:** Version bump only for package @clayui/navigation-bar
+
+# [3.107.0](https://github.com/liferay/clay/compare/v3.106.1...v3.107.0) (2023-11-27)
+
+**Note:** Version bump only for package @clayui/navigation-bar
+
+## [3.106.1](https://github.com/liferay/clay/compare/v3.106.0...v3.106.1) (2023-10-26)
+
+**Note:** Version bump only for package @clayui/navigation-bar
+
+# [3.106.0](https://github.com/liferay/clay/compare/v3.105.0...v3.106.0) (2023-10-25)
+
+### Bug Fixes
+
+-   remove 'src' dir from being packaged with npm ([9383e8d](https://github.com/liferay/clay/commit/9383e8d8abb25ca3396e7c6e4dfa53bbc72691c5))
+-   use package's directory for baseDir when generating type ([0a5c710](https://github.com/liferay/clay/commit/0a5c710092f36243bc8d5487f70e831295715072))
+
+# [3.104.0](https://github.com/liferay/clay/compare/v3.103.1...v3.104.0) (2023-08-25)
+
+**Note:** Version bump only for package @clayui/navigation-bar
+
+## [3.103.1](https://github.com/liferay/clay/compare/v3.103.0...v3.103.1) (2023-08-15)
+
+**Note:** Version bump only for package @clayui/navigation-bar
+
+# [3.103.0](https://github.com/liferay/clay/compare/v3.102.0...v3.103.0) (2023-08-08)
+
+### Features
+
+-   **@clayui/navigation-bar:** Adds fluidSize prop to customize container-fluid width ([5787c1d](https://github.com/liferay/clay/commit/5787c1de07b7129bc9059832d7bde1b411835c7b))
+
+# [3.101.0](https://github.com/liferay/clay/compare/v3.100.0...v3.101.0) (2023-07-28)
+
+**Note:** Version bump only for package @clayui/navigation-bar
+
+# [3.100.0](https://github.com/liferay/clay/compare/v3.99.4...v3.100.0) (2023-07-13)
+
+**Note:** Version bump only for package @clayui/navigation-bar
+
+# [3.96.0](https://github.com/liferay/clay/compare/v3.95.2...v3.96.0) (2023-05-29)
+
+**Note:** Version bump only for package @clayui/navigation-bar
+
+## [3.95.2](https://github.com/liferay/clay/compare/v3.95.0...v3.95.2) (2023-05-17)
+
+**Note:** Version bump only for package @clayui/navigation-bar
+
+# [3.95.0](https://github.com/liferay/clay/compare/v3.94.0...v3.95.0) (2023-05-15)
+
+**Note:** Version bump only for package @clayui/navigation-bar
+
+# [3.94.0](https://github.com/liferay/clay/compare/v3.93.0...v3.94.0) (2023-05-03)
+
+**Note:** Version bump only for package @clayui/navigation-bar
+
+# [3.93.0](https://github.com/liferay/clay/compare/v3.92.0...v3.93.0) (2023-04-19)
+
+### Features
+
+-   **@clayui/navigation-bar:** add motion reduction ([a49132d](https://github.com/liferay/clay/commit/a49132d883d65ce7bc3a2f3db1cfc1e2ffbe7df5))
+
+# [3.92.0](https://github.com/liferay/clay/compare/v3.91.0...v3.92.0) (2023-04-06)
+
+**Note:** Version bump only for package @clayui/navigation-bar
+
+# [3.90.0](https://github.com/liferay/clay/compare/v3.89.0...v3.90.0) (2023-03-15)
+
+### Bug Fixes
+
+-   **@clayui/navigation-bar:** Mobile nav should push content down instead of overlaying ([0176e40](https://github.com/liferay/clay/commit/0176e40536a6c07eca67ef88651f8e9abcf44677))
+
+# [3.89.0](https://github.com/liferay/clay/compare/v3.88.0...v3.89.0) (2023-03-01)
+
+**Note:** Version bump only for package @clayui/navigation-bar
+
+# [3.88.0](https://github.com/liferay/clay/compare/v3.87.2...v3.88.0) (2023-02-14)
+
+**Note:** Version bump only for package @clayui/navigation-bar
+
+# [3.87.0](https://github.com/liferay/clay/compare/v3.86.1...v3.87.0) (2023-02-08)
+
+**Note:** Version bump only for package @clayui/navigation-bar
+
+## [3.86.1](https://github.com/liferay/clay/compare/v3.86.0...v3.86.1) (2023-02-02)
+
+**Note:** Version bump only for package @clayui/navigation-bar
+
+# [3.86.0](https://github.com/liferay/clay/compare/v3.85.0...v3.86.0) (2023-01-31)
+
+**Note:** Version bump only for package @clayui/navigation-bar
+
+# [3.85.0](https://github.com/liferay/clay/compare/v3.84.0...v3.85.0) (2023-01-23)
+
+### Bug Fixes
+
+-   **@clayui/navigation-bar:** Removes classes btn-unstyled and link-unstyled from nav-link ([10419a7](https://github.com/liferay/clay/commit/10419a73920cf9c6138c8198007b45e1fa39546f))
+
+### Features
+
+-   **@clayui/navigation-bar:** add prop to remove `aria-current` from `NavigationBar` component ([a872c2c](https://github.com/liferay/clay/commit/a872c2c65c90def154b3b60343603875663b05de))
+
 ## [3.83.1](https://github.com/liferay/clay/compare/v3.83.0...v3.83.1) (2022-12-20)
 
 **Note:** Version bump only for package @clayui/navigation-bar

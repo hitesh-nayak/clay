@@ -3,21 +3,17 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-import React, {useContext, useEffect, useMemo, useRef, useState} from 'react';
+import React, {useContext, useEffect, useMemo, useRef} from 'react';
 import {useDrag, useDrop} from 'react-dnd';
 import {getEmptyImage} from 'react-dnd-html5-backend';
 
+import {useCollectionKeys} from '../collection';
 import {removeItemInternalProps} from './Collection';
+import {Position, TARGET_POSITION, getNewItemPath, useDnD} from './DragAndDrop';
 import {useTreeViewContext} from './context';
 import {createImmutableTree} from './useTree';
 
-type Value = {
-	[propName: string]: any;
-	indexes: Array<number>;
-	itemRef: React.RefObject<HTMLDivElement>;
-	key: React.Key;
-	parentItemRef: React.RefObject<HTMLDivElement>;
-};
+import type {Value} from './DragAndDrop';
 
 type Props = {
 	children: React.ReactNode;
@@ -25,16 +21,6 @@ type Props = {
 };
 
 const ItemContext = React.createContext<Value>({} as Value);
-
-const TARGET_POSITION = {
-	BOTTOM: 'bottom',
-	MIDDLE: 'middle',
-	TOP: 'top',
-} as const;
-
-type ValueOf<T> = T[keyof T];
-
-type Position = ValueOf<typeof TARGET_POSITION>;
 
 const DISTANCE = 0.2;
 
@@ -51,27 +37,10 @@ function isMovingIntoItself(from: Array<number>, path: Array<number>) {
 	);
 }
 
-function getNewItemPath(path: Array<number>, overPosition: Position) {
-	let indexes = [...path];
-
-	const lastPathIndex = indexes.pop() as number;
-
-	switch (overPosition) {
-		case TARGET_POSITION.BOTTOM:
-			indexes = [...indexes, lastPathIndex + 1];
-			break;
-		case TARGET_POSITION.MIDDLE:
-			indexes = [...indexes, lastPathIndex, 0];
-			break;
-		case TARGET_POSITION.TOP:
-			indexes = [...indexes, lastPathIndex];
-			break;
-		default:
-			break;
-	}
-
-	return indexes;
-}
+type DragItem = {
+	item: Value;
+	type: string;
+};
 
 export function ItemContextProvider({children, value}: Props) {
 	const {
@@ -86,16 +55,31 @@ export function ItemContextProvider({children, value}: Props) {
 		reorder,
 	} = useTreeViewContext();
 	const {
+		cursor: parentCursor,
 		indexes: parentIndexes,
 		itemRef: parentItemRef,
 		key: parentKey,
 	} = useItem();
 
-	const keyRef = useRef(getKey(value.key));
+	const keys = useCollectionKeys();
+
+	const {
+		currentDrag,
+		currentTarget,
+		mode,
+		onDragStart,
+		onEnd,
+		onPositionChange,
+		position,
+	} = useDnD();
+
+	const keyRef = useRef(getKey(value['key']));
 
 	const childRef = useRef<HTMLDivElement>(null);
 
 	const hoverTimeoutIdRef = useRef<number | null>();
+
+	const isValidDrop = useRef<boolean>(true);
 
 	// Holds a reference to the index value and only updates when its positions
 	// change. This causes a ripple effect that we only want to update
@@ -105,8 +89,15 @@ export function ItemContextProvider({children, value}: Props) {
 		[parentIndexes, value.index]
 	);
 
+	const cursor = useMemo(
+		() => [...(parentCursor ?? []), keyRef.current],
+		[parentCursor, keyRef.current]
+	);
+
 	const item: Value = {
 		...value,
+		...keys.current.get(keyRef.current),
+		cursor,
 		indexes,
 		itemRef: childRef,
 		key: keyRef.current,
@@ -121,30 +112,42 @@ export function ItemContextProvider({children, value}: Props) {
 				keyRef.current,
 				hasLazyChildren,
 				indexes,
+				cursor,
 				parentKey
 			),
 		[layout.createPartialLayoutItem, hasLazyChildren, keyRef, parentKey]
 	);
 
 	useEffect(
-		() => layout.patchItem(keyRef.current, indexes),
-		[layout.patchItem, indexes]
+		() => layout.patchItem(keyRef.current, cursor, indexes),
+		[layout.patchItem, indexes, cursor]
 	);
 
-	const [overPosition, setOverPosition] = useState<Position | null>(null);
-
 	const [{isDragging}, drag, preview] = useDrag({
+		begin() {
+			onDragStart('mouse', item.key);
+		},
 		canDrag() {
 			return dragAndDrop ?? false;
 		},
 		collect: (monitor) => ({
 			isDragging: monitor.isDragging(),
 		}),
+		end() {
+			onEnd();
+		},
 		item: {
 			item,
 			type: 'treeViewItem',
 		},
 	});
+
+	useEffect(() => {
+		// Resets the flag when the drag and drop is finished or cancelled.
+		if (mode === null) {
+			isValidDrop.current = true;
+		}
+	}, [mode]);
 
 	useEffect(() => {
 		preview(getEmptyImage(), {captureDraggingState: true});
@@ -154,7 +157,7 @@ export function ItemContextProvider({children, value}: Props) {
 		accept: 'treeViewItem',
 		canDrop(dragItem: unknown) {
 			return !isMovingIntoItself(
-				(dragItem as Value).item.indexes,
+				(dragItem as Value)['item'].indexes,
 				item.indexes
 			);
 		},
@@ -162,11 +165,12 @@ export function ItemContextProvider({children, value}: Props) {
 			canDrop: monitor.canDrop(),
 			overTarget: monitor.isOver({shallow: true}),
 		}),
-		drop(dragItem: unknown, monitor) {
+		drop(dragItem: any, monitor) {
 			if (
 				monitor.didDrop() ||
 				!monitor.canDrop() ||
-				(dragItem as Value).item.key === item.key
+				dragItem.item.key === item.key ||
+				!isValidDrop.current
 			) {
 				return;
 			}
@@ -175,17 +179,23 @@ export function ItemContextProvider({children, value}: Props) {
 				return;
 			}
 
-			const indexes = getNewItemPath(item.indexes, overPosition!);
+			let currentPosition = position;
+
+			if (item.key !== currentTarget) {
+				currentPosition = TARGET_POSITION.TOP;
+			}
+
+			const indexes = getNewItemPath(item.indexes, currentPosition!);
 
 			if (onItemMove) {
 				const tree = createImmutableTree(items as any, nestedKey!);
 
 				const isMoved = onItemMove(
-					removeItemInternalProps((dragItem as Value).item),
-					tree.nodeByPath(indexes).parent,
+					removeItemInternalProps(dragItem.item),
+					tree.nodeByPath(indexes).parent!,
 					{
-						next: indexes[indexes.length - 1],
-						previous: (dragItem as Value).item.index,
+						next: indexes[indexes.length - 1]!,
+						previous: dragItem.item['index'],
 					}
 				);
 
@@ -194,7 +204,7 @@ export function ItemContextProvider({children, value}: Props) {
 				}
 			}
 
-			reorder((dragItem as Value).item.indexes, indexes);
+			reorder(dragItem.item.cursor, item.cursor, currentPosition!);
 		},
 		hover(dragItem, monitor) {
 			if (!monitor.canDrop() || isDragging) {
@@ -227,6 +237,17 @@ export function ItemContextProvider({children, value}: Props) {
 				currentPosition = TARGET_POSITION.BOTTOM;
 			}
 
+			let currentKey = item.key;
+
+			if (
+				currentPosition === TARGET_POSITION.TOP &&
+				item.prevKey &&
+				!expandedKeys.has(item.prevKey)
+			) {
+				currentPosition = TARGET_POSITION.BOTTOM;
+				currentKey = item.prevKey;
+			}
+
 			if (
 				currentPosition === TARGET_POSITION.MIDDLE &&
 				typeof hoverTimeoutIdRef.current !== 'number' &&
@@ -248,19 +269,28 @@ export function ItemContextProvider({children, value}: Props) {
 				const tree = createImmutableTree(items as any, nestedKey!);
 				const indexes = getNewItemPath(item.indexes, currentPosition);
 
-				onItemHover(
+				const isHovered = onItemHover(
 					removeItemInternalProps(
-						(dragItem as unknown as Value).item
+						(dragItem as unknown as Value)['item']
 					),
-					tree.nodeByPath(indexes).parent,
+					tree.nodeByPath(indexes).parent!,
 					{
-						next: indexes[indexes.length - 1],
-						previous: (dragItem as unknown as Value).item.index,
+						next: indexes[indexes.length - 1]!,
+						previous: (dragItem as unknown as Value)['item'].index,
 					}
 				);
+
+				if (!isHovered) {
+					isValidDrop.current = false;
+
+					return;
+				}
 			}
 
-			setOverPosition(currentPosition);
+			isValidDrop.current = true;
+			if (currentPosition !== position) {
+				onPositionChange(currentKey, currentPosition);
+			}
 		},
 	});
 
@@ -271,9 +301,11 @@ export function ItemContextProvider({children, value}: Props) {
 	return (
 		<ItemContext.Provider value={item}>
 			{React.cloneElement(children as JSX.Element, {
-				isDragging,
-				overPosition,
-				overTarget,
+				isDragging:
+					(mode === 'keyboard' && currentDrag === item.key) ||
+					isDragging,
+				overPosition: position,
+				overTarget: currentTarget === item.key || overTarget,
 				ref: childRef,
 			})}
 		</ItemContext.Provider>
